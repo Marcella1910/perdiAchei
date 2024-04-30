@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Achados e Perdidos - IFES Serra</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>acheiPerdi</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <header>
-        <div class = "main_navigation-container">
-            <a class = "main_navigation_logo" href = "index.html" aria_label = "Voltar a pagina inicial">
-                <img src = "img/lop.webp" alt = "logotipo foda">
-            </a>
-            <ul class = "main-navigation_list">
-                <li class = "main_navigation_login">
-                    <a href = "login.html" aria_label = "Fazer login/cadastro">Ainda nao fez o seu login? ^^</a>
-                </li>
-            </ul>
-        </div>
+        <nav>
+            <div class="topnav">
+                <img class="logo" src = "img/logo.png" alt = "logotipo foda">
+                <ul id="nav-mobile" class="left">
+                    <li><a href="sobre.html">Sobre</a></li>
+                <button class="btnLogin" onclick="window.location.href='login.html'">
+                    <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
+                    Entrar
+                </button> 
+              </ul>
+            </div>
+          </nav>
     </header>
 
-    <h1>Achados E Perdidos FODA</h1>
-
-    <h2>Ajudando voce pois o IFES nao vai ^^</h2>
-
-    <h3>Quem nos somos?</h3>
-    <p>somos pessoas que estao apenas querendo fazeer um trabalho que essa escola de merda nao consegue fazer nem o minimo, entao nos ajude a te ajudar :3</p>
-
-    <h3>Como posso fazer parte?</h3>
-    <p>Faz login ou se cadastre porra ^^</p>
-
-    <h3>Tartaglia melhor personagem?</h3>
-    <p>Obvio</p>
+    <div class="banner">
+        <div class="colunaEsq">
+            <h1 class="tituloPagina">Perdeu algo? Encontre <span>Aqui.</span></h1>
+                <h3 class="subtitulo">Bem-vindo(a) ao perdiAchei! O Achados e Perdidos Online do IFES Campus Serra. Iremos te ajudar a encontrar o que você perdeu nos arredores do IFES!</h3>
+                <button class="btnCad" onclick="window.location.href='cadastro.html'"> CADASTRO </button>
+        </div>
+        <div class="colunaDir">
+            <img src="img/caixinha.png">    
+        </div>
+    </div>
+    
 
     <script src ="js/script.js"></script>
 </body>
