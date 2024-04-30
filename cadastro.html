@@ -4,40 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login ^^</title>
-    <link rel="stylesheet" type="text/css" href="css/cad.css"/>
+    <link rel="stylesheet" type="text/css" href="css/cadastro.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="bdlogin">
-    <header> 
-         <nav class="topnav">
-            <li><a href="index.html">Home</a> </li>
-            <li><a href="login.html">Login</a> </li>
-         </nav> 
-    </header>
-    <section>
-        <div id = "imgCad">
-            <figure>
-                <img src = "img/Jing_Yuan.webp">
-            </figure>
-        </div>
-        <div class = "cadastro" id = "cadastro">
-            <h1 class="lgtitulo">Cadastro</h1>
-
-            <input type="text" id="text" name="text" placeholder="Matricula"><br></br>
-
-            <input type="text" id="text" name="text" placeholder="Nome de Usuário"><br></br>
+<body>
+    <div class="bdlogin">
+        
             
-            <input type="email" id="email" name="email" placeholder="Email"><br></br>
+            <div class = "cadastro" id = "cadastro">
+                <h1 class="lgtitulo">
+                    Seja bem-vindo(a) ao perdiAchei!
+                </h1>
+                
+                <br>
 
-            <input type="email" id="email" name="email" placeholder="Confirme o email"><br></br>
+                <div class="inputs">
+                    <input type="text" id="mat" class="mat" placeholder="Matrícula">
+                
+                    <input type="text" id="text" class="user" placeholder="Nome de Usuário">
+                
+                    <input type="email" id="email" class="email" placeholder="Email">
 
-            <input type="password" id="senha" name="senha" placeholder="Senha"><br></br>
+                    <input type="password" id="senha" class="senha" placeholder="Criar senha">
 
-            <input type="password" id="senha" name="senha" placeholder="Confirme a senha"><br></br>
+                    <input type="password" id="cnfsenha" class="cnfsenha" placeholder="Confirmar senha">
 
-            <a href = "itemPerdido.html"><button>Cadastrado ^^</button></a><br></br>
- 
-        </div>
-    </section>
+                    <button class="btnCad" onclick="window.location.href='feed.html'"> Entrar > </button>
+
+                    
+                </div>
+
+                <p class="fazerLogin"> Já possui uma conta? <a href="login.html">Fazer login.</a></p>
+
+                
+     
+            </div>
+            <div class = "imgCad">
+                <figure>
+                    <img src = "img/cadastroicon.png">
+                </figure>
+            </div>
+        
+    </div>
     <script src ="js/cadastro.js"></script>
 </body>
 </html>
