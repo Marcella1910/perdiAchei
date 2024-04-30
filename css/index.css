@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+header {
+    background-color: #FFF7AD;
+}
+
+.topnav li {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.topnav img {
+    width: 220px;
+    height: 55px;
+}
+
+.topnav img:hover {
+    cursor: pointer;
+}
+
+.topnav {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 34px;
+    border-bottom: solid 2.5px black;
+}
+
+
+.btnLogin {
+    background-color: #FFF7AD;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 10px;
+    border: 2.5px solid black;
+    border-radius: 20px;
+    transition: 0.2s ease;
+    box-shadow: 1px 1.5px 0.5px 1px;
+
+
+}
+
+.btnLogin:hover {
+    background-color: black;
+    color:rgb(212, 98, 205);
+    cursor: pointer;
+}
+
+.btnCad {
+    margin-top: 40px;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    background-color: #FFF7AD;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 40px;
+    transition: 0.2s ease;
+    width: 500px;
+    box-shadow: 2px 3px 1px 1px;
+
+}
+
+.btnCad:hover {
+    background-color: black;
+    color:rgb(212, 98, 205);
+    cursor: pointer;
+}
+
+i {
+    margin-right: 5px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-right: 40px;
+
+}
+
+.subtitulo {
+    padding-top: 40px;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    text-align: justify;
+    width: 500px;
+}
+
+.left a {
+    transition: 0.5s ease;
+}
+
+.left a:hover {
+    color: rgb(212, 98, 205);
+}
+
+
+.textoConteudo {
+    display:block;
+    padding-left: 50px;
+}
+
+.banner {
+    display: flex;
+    height: 100vh;
+    background-image: url("bg1.jpg");
+    background-size:auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+.colunaEsq, .colunaDir {
+    flex-basis: 50%;
+}
+
+.colunaDir img {
+    width: auto;
+}
+
+.colunaEsq {
+    display: inline-block;
+    align-items: center;
+    margin-top: 120px;
+    margin-left: 120px;
+    width: 700px;
+}
+
+.colunaDir, .colunaEsq {
+    display: inline-block;
+}
+
+.colunaDir {
+    margin: 90px;
+    float: right;
+    width: 600px;
+    height: 300px;
+}
+
+.tituloPagina {
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-size: 4.5rem;
+    width: 500px;
+    
+}
+
+span {
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-size: 4.5rem;   
+    color: rgb(179, 25, 168);
+    
+}
+
+span:hover {
+    cursor: pointer;
+}
+
+.rodape {
+    left: 0;
+    bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: solid 2.5px black;;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    text-align: center;
+    
+}
+
+.rodape h1 {
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+
+/**.topnav {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #dc8fd6;
+    overflow: hidden;
+    margin-top: 0%;
+}
+
+#logo-nav {
+    font-size: 2rem;
+    margin-top: 32px;
+    margin-left: 50px;
+    margin-bottom: 32px;
+}
+.topnav a {
+    text-decoration: none;
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.topnav ul {
+    display: flex;
+    justify-content: flex-end; 
+
+}
+.topnav li {
+    float: right;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 17px;
+    list-style: none;
+}
+
+.topnav li:hover {
+    background-color: #ddd;
+    color: black;
+    border-radius: 5px;
+}
+  
+.topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+}**/
