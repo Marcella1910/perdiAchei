@@ -1,0 +1,157 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+body {
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.bdlogin {
+    background-color: antiquewhite;
+    border: 2px solid black;
+    box-shadow: 2px 3px 0.5px 1px;
+    border-radius: 20px;
+    width: 1300px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.lgtitulo {
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-size: 2rem;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.imgCad {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-color: yellow;
+}
+
+
+.cadastro {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-right: 2px solid black;
+}
+
+
+
+.inputs {
+    display: inline-block;
+    
+    width: 450px;
+    
+}
+
+.mat {
+    width: 200px;
+    margin: 10px;
+    
+    
+}
+
+.user {
+    margin: 10px;
+    width: 200px;
+   
+
+}
+
+.email {
+    margin: 10px;
+    width: 425px;
+
+}
+
+.senha {
+    margin: 10px;
+    width: 425px;
+
+}
+
+.cnfsenha {
+    margin: 10px;
+    width: 425px;
+}
+
+.fazerLogin {
+    margin-top: 60px;
+}
+
+input {
+    margin-top: 0px;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    background-color: #e2bbda;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 10px;
+    border: 2px solid black;
+    transition: 0.2s ease;
+    box-shadow: 2px 3px 1px 1px;
+    color:black;
+}
+
+
+.btnCad {
+    float:inline-end;
+    margin-inline-end:  10px;
+    margin-top: 10px;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    color: black;
+    background-color: #ffcf40;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 6px;
+    border: 2px solid black;
+    transition: 0.2s ease;
+    width: 150px;
+    box-shadow: 2px 3px 1px 1px black;
+}
+
+.btnCad:hover {
+    background-color:#ff9f21;
+    box-shadow: 2px 3px 1px 1px black;
+    color:rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.fontuser { 
+    position: relative; 
+} 
+  
+.fontuser i{ 
+    position: absolute; 
+    left: 15px; 
+    top: 40px; 
+    color: gray; 
+} 
