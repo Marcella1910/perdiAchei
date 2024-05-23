@@ -1,68 +1,68 @@
+function validarForm() {
+  var mat = document.getElementById("mat").value.trim();
+  var user = document.getElementById("user").value.trim();
+  var email = document.getElementById("email").value.trim();
+  var senha = document.getElementById("senha").value.trim();
+  var cnfsenha = document.getElementById("cnfsenha").value.trim();
 
-let form = document.querySelector("inputs");
-let txtmatricula = document.getElementById("mat");
-let txtusuario = document.getElementById("user");
-let txtemail = document.getElementById("email");
-let txtsenha = document.getElementById("senha");
-let txtcnfsenha = document.getElementById("cnfsenha");
-
-
-// Aplica evento na submissão do formulário
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  validaEntrada();
-});
-
-
-function validaEntrada() {
-  // Valores dos elementos
-  let matriculaValor = txtmatricula.trim();
-  let usuarioValor = txtusuario.value.trim();
-  let emailValor = txtemail.trim();
-  let senhaValor = txtsenha.value.trim();
-  let cnfsenhaValor = txtcnfsenha.value.trim();
-  
-  //Verificando campos
-  if (matriculaValor === "") {
-    MostraErro(txtmatricula, "Matrícula deve ser preenchida!");
+  if (mat === "") {
+      mostraErro("mat", "Matrícula deve ser preenchida.");
+      return false;
   } else {
-    MostraSucesso(txtmatricula);
-  }
-  if (usuarioValor === "") {
-    MostraErro(txtusuario, "Usuário deve ser preenchido!");
-  } else {
-    MostraSucesso(txtusuario);
-  }
-  if (emailValor === "") {
-    MostraErro(txtemail, "E-mail deve ser preenchido!");
-  } else {
-    MostraSucesso(txtemail);
+      removeErro("mat");
   }
 
-
-  //Verificando senha
-  if (senhaValor === "") {
-    MostraErro(txtsenha, "Senha deve ser preenchida");
-  } else if (senhaValor.length < 6 || senhaValor.length > 30) {
-    MostraErro(txtsenha, "Senha deve ter entre  6 a 30 caracteres");
+  if (user === "") {
+      mostraErro("user", "Nome de usuário deve ser preenchido.");
+      return false;
   } else {
-    MostraSucesso(txtsenha);
+      removeErro("user");
   }
-  
 
+  if (email === "") {
+      mostraErro("email", "Email deve ser preenchido.");
+      return false;
+  } else {
+      removeErro("email");
+  }
+
+  if (senha === "") {
+      mostraErro("senha", "Senha deve ser preenchida.");
+      return false;
+  } else if (senha.length < 6 || senha.length > 30) {
+      mostraErro("senha", "Senha deve ter entre 6 e 30 caracteres.");
+      return false;
+  } else {
+      removeErro("senha");
+  }
+
+  if (cnfsenha === "") {
+      mostraErro("cnfsenha", "Confirme sua senha.");
+      return false;
+  } else if (senha !== cnfsenha) {
+      mostraErro("cnfsenha", "As senhas não coincidem.");
+      return false;
+  } else {
+      removeErro("cnfsenha");
+  }
+
+  // Se todas as validações passarem, redireciona para "feed.html"
+  window.location.href = "feed.html";
+  return false; // Para evitar que o formulário seja enviado antes do redirecionamento
 }
 
-// Se existe algum erro, então apresenta na tela.
-function MostraErro(input, message) {
-  let formControl = input.parentElement;
-  formControl.className = "form-control error";
-  let small = formControl.querySelector("small");
-  small.innerText = message;
-
+function mostraErro(id, mensagem) {
+  var small = document.getElementById(id + "-error");
+  small.innerText = mensagem;
+  small.style.visibility = "visible";
+  var input = document.getElementById(id);
+  input.classList.add("error");
 }
 
-// Se NÃO existe erro, então apresenta na tela.
-function MostraSucesso(input) {
-  let formControl = input.parentElement;
-  formControl.className = "form-control success";
+function removeErro(id) {
+  var small = document.getElementById(id + "-error");
+  small.innerText = "";
+  small.style.visibility = "hidden";
+  var input = document.getElementById(id);
+  input.classList.remove("error");
 }
