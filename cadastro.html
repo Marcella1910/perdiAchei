@@ -12,41 +12,51 @@
     <div class="bdcad">
         
             
-            <div class = "cadastro" id = "cadastro">
+            <div class="cadastro" id="cadastro">
                 <h1 class="lgtitulo">
                     Seja bem-vindo(a) ao perdiAchei!
                 </h1>
                 
                 <br>
 
-                <div class="inputs">
-                    <input type="text" id="mat" class="mat" placeholder="Matrícula">
-                
-                    <input type="text" id="user" class="user" placeholder="Nome de Usuário">
-                
-                    <input type="email" id="email" class="email" placeholder="Email">
-
-                    <input type="password" id="senha" class="senha" placeholder="Criar senha">
-
-                    <input type="password" id="cnfsenha" class="cnfsenha" placeholder="Confirmar senha">
-
-                    <button class="btnCad" onclick="window.location.href='feed.html'"> Entrar > </button>
-
-                    
-                </div>
+                <form class="inputs" onsubmit="return validarForm()">
+                    <div class="form-control">
+                        <input type="text" id="mat" class="mat" placeholder="Matrícula" required>
+                        <small id="mat-error" class="error-message"></small>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" id="user" class="user" placeholder="Nome de Usuário" required>
+                        <small id="user-error" class="error-message"></small>
+                    </div>
+                    <div class="form-control">
+                        <input type="email" id="email" class="email" placeholder="Email" required>
+                        <small id="email-error" class="error-message"></small>
+                    </div>
+                    <div class="form-control">
+                        <input type="password" id="senha" class="senha" placeholder="Criar senha">
+                        <small id="senha-error" class="error-message"></small>
+                    </div>
+                    <div class="form-control">
+                        <input type="password" id="cnfsenha" class="cnfsenha" placeholder="Confirmar senha">
+                        <small id="cnfsenha-error" class="error-message"></small>
+                    </div>
+            
+                    <button type="submit" class="btnCad"> Entrar > </button>
+    
+                </form>
 
                 <p class="fazerLogin"> Já possui uma conta? <a href="login.html">Fazer login.</a></p>
 
                 
      
             </div>
-            <div class = "imgCad">
+            <div class="imgCad">
                 <figure>
-                    <img src = "img/cadastroicon.png">
+                    <img src="img/cadastroicon.png">
                 </figure>
             </div>
         
     </div>
-    <script src ="js/cadastro.js"></script>
+    <script src="js/cadastro.js"></script>
 </body>
 </html>
