@@ -130,7 +130,6 @@ main {
     gap: 1rem;
     display: flex;
     margin-top: 2rem;
-    border: 2px solid black;
     
     
     
@@ -786,10 +785,12 @@ aside .menu-item-selected i {
 .subtitulopagina-myposts h1 {
     font-family: "Varela Round", sans-serif;
     font-weight: 600;
-    font-size: 40px;
-    margin-top: 6rem;
+    font-size: 30px;
+    margin-top: 3rem;
     margin-left: 2rem;
-    color:gray;
+    
+    
+    color:#e73c7e;
 }
 
 .listPostsRecentes {
@@ -797,9 +798,9 @@ aside .menu-item-selected i {
     grid-template-columns: auto auto auto;
     position: relative;
     column-gap: 1rem;
-    row-gap: 1rem;
+    
     margin-left: 2rem;
-    margin-bottom: 2rem;
+
 }
 
 .listPostsTodos {
@@ -807,31 +808,21 @@ aside .menu-item-selected i {
     grid-template-columns: auto auto auto;
     position: relative;
     column-gap: 1rem;
-    row-gap: 1rem;
+    
     margin-left: 2rem;
-    margin-bottom: 2rem;
 } 
 
 .publicacao-myposts {
     display: block;
     background-color: white;
-    position: relative;
-    overflow: hidden;
-    margin-top: 1rem;
-    background-color: rgb(255, 255, 255);
-    min-width: 100%;
+    width: 100%;
     border: 2px solid black;
     border-radius: 20px;
     box-shadow: 2px 2px 1px 1px;
     position: relative;
-    min-height: 100%;
-    margin-bottom: 1rem;
-    
-}
-
-.publicacao-myposts:hover {
-    
-    box-shadow: 2px 2px 1px 1px #e2bbda;
+    height: 200px;
+    overflow: hidden;
+    margin-top: 1rem;
 }
 
 .publicacao-myposts .conteudo {
@@ -875,9 +866,26 @@ aside .menu-item-selected i {
 .publicacao-myposts .profile-post span {
     color: grey;
     margin-right: 1rem;
-    
 
 }
+
+.publicacao-myposts .botao-expandir {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: .2rem 3rem;
+    font-weight: 500;
+    background-color: #e2bbda;
+    position: relative;
+    float:inline-end;
+    right: 7px;
+    top: 4px;
+    cursor: pointer;
+}
+
 
 .publicacao-myposts .profile-post {
     display: flex;
@@ -905,256 +913,12 @@ aside .menu-item-selected i {
     border: 2px solid black;
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
-    width: 80px;
+    width: 5rem;
     border-radius: 20px;
     font-size: 15px;
     background-color: #e2bbda;
-    box-shadow: 2px 2px 1px 1px;
 }
 
-.publicacao .profile-post i:hover {
-    color: red;
-    transition: all 0.5s;
-}
-
-.main-container-chats {
-    display: grid;
-    grid-template-columns: 19vw auto 60vh;
-    position: relative;
-    column-gap: 2rem;
-    height: 100%;
-}
-
-.main-right-chats {
-    
-    display: block;
-    border-left: 2px solid rgb(133, 132, 132);
-    padding: 20px;
-    position: fixed;
-    
-    height: 100%;
-    width: 60vh;
-    justify-self: right;
-    
-}
-
-.barPesquisaPessoas {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding: .6rem 1rem;
-    background-color: white;
-    border-radius: 30px;
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
-    display: flex;
-}
-
-
-.barPesquisaPessoas input[type="search"] {
-    font-family: "Poppins", sans-serif;
-    background: transparent;
-    width: 100%;
-    margin-left: 1rem;
-    font-size: .9rem;
-    color:black;
-}
-
-
-.titulopagina-chats {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    margin-bottom: 2rem;
-}
-
-.listaCtts {
-    border: 2px solid black;
-    border-radius: 20px;
-    background-color: #e9dfe7;
-    padding: 10px;
-}
-
-.ctt {
-    display:grid;
-    background-color: white;
-    border: 2px solid black;
-    justify-content: space-between;
-    grid-template-columns: auto 65vh auto;
-    border-radius: 20px;
-    margin-bottom: 1rem;
-    
-}
-
-.ctt-selected {
-    display:grid;
-    background-color: white;
-    border: 2px solid black;
-    justify-content: space-between;
-    grid-template-columns: auto 65vh auto;
-    border-radius: 20px;
-    margin-bottom: 1rem;
-    box-shadow: 1px 2px 2px 1px;
-}
-
-.ctt-selected .pfp {
-    margin: 0.5rem;
-}
-
-.ctt-selected span {
-    margin-top: 0.8rem;
-    margin-right: 0.8rem;
-    
-    color: gray;
-}
-
-
-.ctt .pfp {
-    margin: 0.5rem;
-}
-
-.ctt span {
-    margin-top: 0.8rem;
-    margin-right: 0.8rem;
-    
-    color: gray;
-}
-
-.conteudo-ctt {
-    
-    margin-top: 1.5rem;
-    margin-left: 0.5rem;
-    
-    
-}
-
-.conteudo-ctt h4 {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-}
-
-.ctt-conversa {
-    display:grid;
-    background-color: white;
-    border: 2px solid black;
-    justify-content: space-between;
-    grid-template-columns: 10vh 30vh auto;
-    gap: 1rem;
-    border-radius: 20px;
-    margin-bottom: 1rem;
-}
-
-.ctt-conversa .pfp {
-    margin: 0.5rem;
-}
-
-.ctt-conversa span {
-    margin-top: 0.8rem;
-    margin-right: 0.8rem;
-    
-    color: gray;
-}
-
-
-.caixa-msg {
-    background-color:#e9dfe7;
-    border-radius: 20px;
-    border: 2px solid black;
-    padding: 10px;
-    width: 100%;
-    
-   
-    margin-bottom: 1rem;
-    
-}
-
-.msg-enviei {
-    display: flex;
-    justify-content: space-between;
-    background-color:#fffce0;
-    padding: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border: 2px solid black;
-    margin-bottom: 1rem;
-    width: 100%;
-}
-
-.msg-enviei span {
-    color: gray;
-}
-
-.msg-enviada span {
-    color: gray;
-}
-
-.msg-enviada {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(255, 255, 255);
-    padding: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border: 2px solid black;
-    width: 100%;
-    margin-bottom: 1rem;
-}
-
-.barEnviar {
-    display: flex;
-    margin-bottom: 1rem;
-    padding: .6rem 1rem;
-    background-color: white;
-    border-radius: 30px;
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
-    width: 90%;
-    
-
-}
-
-.barEnviar input[type="search"] {
-    font-family: "Poppins", sans-serif;
-    background: transparent;
-    width: 90%;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    font-size: .9rem;
-    color:black;
-}
-
-.acoes-btn {
-    padding: 10px;
-    border-radius: 50%;
-    border: 2px solid black;
-    background-color:orange;
-}
-
-.fim-conversa {
-    
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-   
-    
-    
-}
-
-.enviar-msg {
-    background-color: #e68888;
-    border-radius: 50%;
-    padding: 10px;
-    border: 2px solid black;
-    
-}
-
-
-.actions .menu{
-    margin-top: 1.2rem;
-    margin-right: 1rem;
-    border: 2px solid black;
-    width:40px;
-    height:40px;
-    border-radius: 50%;
+.editarpub:hover {
+    box-shadow: 1px 1px 1px 1px;
 }
