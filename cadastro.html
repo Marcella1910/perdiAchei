@@ -12,51 +12,44 @@
     <div class="bdcad">
         
             
-            <div class="cadastro" id="cadastro">
+            <div class = "cadastro" id = "cadastro">
                 <h1 class="lgtitulo">
                     Seja bem-vindo(a) ao perdiAchei!
                 </h1>
                 
                 <br>
 
-                <form class="inputs" onsubmit="return validarForm()">
-                    <div class="form-control">
-                        <input type="text" id="mat" class="mat" placeholder="Matrícula">
-                        <small id="mat-error" class="error-message"></small>
-                    </div>
-                    <div class="form-control">
-                        <input type="text" id="user" class="user" placeholder="Nome de Usuário">
-                        <small id="user-error" class="error-message"></small>
-                    </div>
-                    <div class="form-control">
-                        <input type="email" id="email" class="email" placeholder="Email">
-                        <small id="email-error" class="error-message"></small>
-                    </div>
-                    <div class="form-control">
-                        <input type="password" id="senha" class="senha" placeholder="Criar senha">
-                        <small id="senha-error" class="error-message"></small>
-                    </div>
-                    <div class="form-control">
-                        <input type="password" id="cnfsenha" class="cnfsenha" placeholder="Confirmar senha">
-                        <small id="cnfsenha-error" class="error-message"></small>
-                    </div>
-            
-                    <button type="submit" class="btnCad"> Entrar > </button>
-    
-                </form>
+                <div class="inputs">
+                    <h4>Como devemos te chamar?</h4>
+                    <input type="text" id="mat" class="mat" placeholder="Nome">
+
+                    <h4>Crie um nome de usuário</h4>
+                    <input type="text" id="text" class="user" placeholder="Nome de Usuário">
+                    <h4>Email</h4>
+                    <input type="email" id="email" class="email" placeholder="Email">
+
+                    <h4>Crie uma senha</h4>
+                    <input type="password" id="senha" class="senha" placeholder="Criar senha">
+
+                    <input type="password" id="cnfsenha" class="cnfsenha" placeholder="Confirmar senha">
+
+                    <button class="btnCad" onclick="window.location.href='feed.html'"> Entrar > </button>
+
+                    
+                </div>
 
                 <p class="fazerLogin"> Já possui uma conta? <a href="login.html">Fazer login.</a></p>
 
                 
      
             </div>
-            <div class="imgCad">
+            <div class = "imgCad">
                 <figure>
-                    <img src="img/cadastroicon.png">
+                    <img src = "img/cadastroicon.png">
                 </figure>
             </div>
         
     </div>
-    <script src="js/cadastro.js"></script>
+    <script src ="js/cadastro.js"></script>
 </body>
 </html>
