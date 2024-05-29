@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastre-se</title>
     <link rel="stylesheet" type="text/css" href="css/cadastro.css"/>
+    <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -14,26 +15,41 @@
             
             <div class = "cadastro" id = "cadastro">
                 <h1 class="lgtitulo">
-                    Seja bem-vindo(a) ao perdiAchei!
+                    Cadastre-se
                 </h1>
                 
                 <br>
 
                 <div class="inputs">
                     <h4>Como devemos te chamar?</h4>
-                    <input type="text" id="mat" class="mat" placeholder="Nome">
+                    <div class="inputarea">
+                        <input type="text" id="nome" class="nome" placeholder="Nome">
+                        
+                    </div>
+                    
 
                     <h4>Crie um nome de usuário</h4>
-                    <input type="text" id="text" class="user" placeholder="Nome de Usuário">
-                    <h4>Email</h4>
-                    <input type="email" id="email" class="email" placeholder="Email">
+                    <div class="inputarea">
+                        <input type="text" id="text" class="user" placeholder="Nome de Usuário">
+                    </div>
+                    
+                    <h4>Insira seu email</h4>
+                    <div class="inputarea">
+                        <input type="email" id="email" class="email" placeholder="Email">
+                    </div>
+                    
 
                     <h4>Crie uma senha</h4>
-                    <input type="password" id="senha" class="senha" placeholder="Criar senha">
+                    <div class="inputarea">
+                        <input type="password" id="senha" class="senha" placeholder="Criar senha">
+                    </div>
+                    
+                    <div class="inputarea">
+                        <input type="password" id="cnfsenha" class="cnfsenha" placeholder="Confirmar senha">
+                    </div>
+                    
 
-                    <input type="password" id="cnfsenha" class="cnfsenha" placeholder="Confirmar senha">
-
-                    <button class="btnCad" onclick="window.location.href='feed.html'"> Entrar > </button>
+                    <button class="btnCad" onclick="window.location.href='feed.html'"> Entrar </button>
 
                     
                 </div>
@@ -44,9 +60,9 @@
      
             </div>
             <div class = "imgCad">
-                <figure>
-                    <img src = "img/cadastroicon.png">
-                </figure>
+                <h1 class="lgtitulo">Bem-vindo(a) ao <span>perdiAchei!</span></h1>
+                <h4>Perdeu ou achou alguma coisa nos arredores do IFES Campus Serra? <span>Conecte-se!</span></h4>
+                <button class="btnLog" onclick="window.location.href='login.html'"> Fazer Login </button>
             </div>
         
     </div>
