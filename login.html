@@ -3,38 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Fazer login</title>
     <link rel="stylesheet" type="text/css" href="css/login.css"/>
+    <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="bdlogin">
-        <div class = "imgLog">
-            <figure>
-                <img src = "img/cadastroicon.png">
-            </figure>
-        </div>
 
-        <div class = "login" id = "login">
-            <h1 class="lgtitulo">
-                Seja bem-vindo(a) de volta!
-            </h1>
+    <div class="bdlog">
+        
+            
+            <div class = "login" id = "login">
+                <h1 class="lgtitulo">
+                    Fazer login
+                </h1>
                 
-            <br>
+                <br>
 
-            <div class="inputs">
-                <input type="text" id="mat" class="mat" placeholder="Matrícula">
-                
-                <input type="text" id="text" class="user" placeholder="Nome de Usuário">
-                
-                <input type="password" id="senha" class="senha" placeholder="Senha">
+                <div class="inputs">
+                    
+                    
 
-                <button class="btnCad" onclick="window.location.href='feed.html'"> Entrar > </button>
-    
-            </div>     
-            <p class="fazerCad"> Não possui uma conta? <a href="cadastro.html">Cadastre-se.</a></p>
-        </div>
+                    <h4>Insira seu nome de usuário</h4>
+                    <div class="inputarea">
+                        <input type="text" id="text" class="user" placeholder="Nome de Usuário">
+                    </div>
+                    
+                    <h4>Insira seu email</h4>
+                    <div class="inputarea">
+                        <input type="email" id="email" class="email" placeholder="Email">
+                    </div>
+                    
+
+                    <h4>Insira sua senha</h4>
+                    <div class="inputarea">
+                        <input type="password" id="senha" class="senha" placeholder="Senha">
+                    </div>
+                    
+                    
+                    
+                    
+
+                    <button class="btnCad" onclick="window.location.href='feed.html'"> Entrar </button>
+
+                    
+                </div>
+
+                <p class="esqueciSenha"> Esqueceu a senha? <a href="esqueceSenha.html">Clique aqui.</a></p>
+
+                
+     
+            </div>
+            <div class = "imgLog">
+                <h1 class="lgtitulo">Bem-vindo(a) de volta!</h1>
+                <h4>Ainda não possui uma conta? <span>Conecte-se!</span></h4>
+                <button class="btnLog" onclick="window.location.href='cadastro.html'"> Cadastre-se </button>
+            </div>
+        
     </div>
-    <script src ="js/cadastro.js"></script>
+    <script src ="js/login.js"></script>
 </body>
 </html>
