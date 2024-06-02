@@ -1136,3 +1136,161 @@ aside .menu-item-selected i {
     justify-self: right;
     
 }
+
+/* tela de configuraçoes */
+.main-container-config {
+    display: grid;
+    grid-template-columns: 19vw auto;
+    position: relative;
+    
+    height: 100%;
+}
+
+.headerPagConfig {
+    display: flex;
+    justify-content: space-between;
+    
+    padding: 1rem;
+    padding-left: 2rem;
+}
+
+.tituloPagina .titulopagina-config {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+
+.tituloPagina p {
+    margin-top: 0.5rem;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    color:#e73c7e;
+} 
+
+.salvarCancelar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    
+    padding: 10px;
+}
+
+.cancelAlter {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    height: 3rem;
+    width: 6rem;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 30px;
+    
+}
+
+.cancelAlter:hover {
+    box-shadow: 2px 2px 1px 1px;
+}
+
+.salvarAlter{
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    height: 3rem;
+    width: 6rem;
+    background-color: orange;
+    border: 2px solid black;
+    border-radius: 30px;
+    
+}
+
+.salvarAlter:hover {
+    box-shadow: 2px 2px 1px 1px;
+}
+
+.conteudo-config {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    
+}
+
+.tag-configuracao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    border: 2px solid black;
+    font-size: 15px;
+    padding: .3rem 1rem;
+    position: relative;
+    width: 100%;
+}
+
+.tag-configuracao-selected {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #cfcbce;
+    border-radius: 20px;
+    border: 2px solid black;
+    font-size: 15px;
+    padding: .3rem 1rem;
+    position: relative;
+    width: 100%;
+}
+
+.tag-configuracao:hover {
+    background-color: #f3eded;
+    cursor: pointer;
+    transition: 300ms ease all;
+}
+
+.tag-configuracao i {
+    margin-right: 10px;
+}
+
+.tag-configuracao-selected i {
+    margin-right: 10px;
+}
+
+.config-selected {
+    margin: 2rem;
+}
+
+.titulo-config {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+}
+
+.tema h1 {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    font-size: larger;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.tema label {
+    font-size: large;
+    margin-left: 0.5rem;
+   
+}
+
+.tamFonte h1 {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    font-size: larger;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
