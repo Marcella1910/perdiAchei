@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +8,13 @@
     <link rel="stylesheet" href="css/feed.css">
     <script src="js/feed.js"></script>
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
-    <title>Feed</title>
+    <title>Configurações</title>
 </head>
 <body>
     <header>
     </header>
     <main>
-        <div class="main-container">
+        <div class="main-container-config">
             <div class="main-left">
                 <!--logo-->
                 <h3 class="logo">perdi?Achei!</h3>
@@ -55,9 +56,59 @@
                 </aside>
             </div>
 
-            <div class="main-middle">
-                
-
+            <div class="main-middle-config">
+                <div class="headerPagConfig">
+                    <div class="tituloPagina">
+                        <h1 class="titulopagina-config">Configurações</h1>
+                        <p>Modifique seus dados e as configurações gerais do site</p>
+                    </div>
+                    <div class="salvarCancelar">
+                        <button class="cancelAlter">Cancelar</button>
+                        <button class="salvarAlter">Salvar</button>
+                    </div>
+                </div>
+                <div class="conteudo-config">
+                    <button class="tag-configuracao-selected">
+                        <i class="fa-solid fa-palette"></i>
+                        Temas e acessibilidade
+                    </button>
+                    <button class="tag-configuracao">
+                        <i class="fa-solid fa-user"></i>
+                        Conta
+                    </button>
+                    <button class="tag-configuracao">
+                        <i class="fa-solid fa-bell"></i>
+                        Configurar notificações
+                    </button>
+                    <button class="tag-configuracao">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Ajuda
+                    </button>
+                    <button class="tag-configuracao">
+                        <i class="fa-solid fa-star"></i>
+                        Avalie-nos
+                    </button>
+                </div>
+                <div class="config-selected">
+                    <h1 class="titulo-config">Temas e acessibilidade</h1>
+                    <div class="tema">
+                        <h1>Alterar Tema</h1>
+                        <form>
+                            <input type="radio" id="claro" name="tema" value="tema1">
+                            <label for="claro">Claro</label><br>
+                            <input type="radio" id="escuro" name="tema" value="tema2">
+                            <label for="escuro">Escuro</label><br>
+                          </form>
+                          
+                    </div>
+                    <div class="tamFonte">
+                        <h1>Alterar tamanho da fonte</h1>
+                        <form>
+                            <label for="vol">Tamanho da fonte(Entre 12 e 26):</label>
+                            <input type="range" id="vol" name="vol" min="10" max="26">
+                        </form>
+                    </div>
+                </div>
 
                
                             
@@ -67,64 +118,14 @@
                 
                 
 
-                <!--fim dos postos recem publicados-->
+                
                 
             
             </div>
 
-            <div class="main-right">
-                <button class="voltar" onclick="abrirNavDir()"><i class="fa-solid fa-arrow-left"></i></button>
-                <!--inicio da area do perfil-->
-                <a href="perfil.html" class="profile">
-                    <div class="pfp"  id="my-pfp">
-                        <img src="img/chuu.jpg">
-                    </div>
-                    <div class="profile-handle">
-                        <h4>Chuu</h4>
-                        <p class="username">
-                            @chuudoloona
-                        </p>
-                    </div>
-                </a>
-
-                <h2 class="h2-3">Minhas publicações</h2>
-                <h3 class="h3-1">Mais recentes</h3>
-                <div class="main-right-meusposts">
-                    <div class="minha-publicacao">
-                        <figure>
-                            
-                            <img src="img/cellphone.webp">
-                            
-                        </figure>
-                        <footer class="conteudo">
-                            <h4>Título da publicação</h4>
-                            <div class="profile-post">
-                                <span>15 mai. 2024</span>
-                                <i class="fa-solid fa-trash"></i>
-                            </div>
-                        </footer>
-                    </div>
-                </div>
-
-                <h2 class="h2-4">Todas</h2>
-                <div class="main-right-meusposts">
-                    <div class="minha-publicacao">
-                        <figure>
-                            
-                            <img src="img/cellphone.webp">
-                            
-                        </figure>
-                        <footer class="conteudo">
-                            <h4>Título da publicação</h4>
-                            <div class="profile-post">
-                                <span>15 mai. 2024</span>
-                                <i class="fa-solid fa-trash"></i>
-                            </div>
-                            
-                        </footer>
-                    </div>
-                </div>
-            </div>
+            
+                
+            
         </div>
     </main>
 
