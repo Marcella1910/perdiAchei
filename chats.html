@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
     <header>
     </header>
     <main>
-        <div class="main-container">
+        <div class="main-container-chats">
             <div class="main-left">
                 <!--logo-->
                 <h3 class="logo">perdi?Achei!</h3>
@@ -56,13 +57,14 @@
             </div>
 
             <div class="main-middle-chats">
-                <div class="barPesquisaPessoas">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="search" placeholder="Pesquisar...">
+                <div class="tituloListaCtts">
+                    <h1 class="titulopagina-chats">
+                        Contatos
+                    </h1>
+                    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
                 </div>
-                <h1 class="titulopagina-chats">
-                    Contatos
-                </h1>
+                
+                
                 <div class="listaCtts">
                     <div class="ctt-selected">
                         <div class="pfp"  id="my-pfp">
@@ -136,8 +138,11 @@
 
             <div class="main-right-chats">
                 <div class="conversa">
-
+                    
                     <div class="ctt-conversa">
+                        <button class="voltarCnv">
+                            <i class="fa-solid fa-arrow-left fa-lg"></i>
+                        </button>
                         <div class="pfp"  id="my-pfp">
                             <img src="img/chuu.jpg">
                         </div>
@@ -147,7 +152,7 @@
                         </div>
                         <div class="actions">
                             <button class="menu">
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                <i class="fa-solid fa-ellipsis-vertical fa-lg"></i>
                             </button>
                         </div>
                     </div>
@@ -158,8 +163,9 @@
                             <span>Hoje, 00:00</span>
                         </div>
                         <div class="msg-enviada">
-                            <p>oii</p>
                             <span>Hoje, 00:00</span>
+                            <p>oii</p>
+                            
 
                         </div>
                         <div class="msg-enviei">
@@ -171,7 +177,7 @@
                     <div class="fim-conversa">
                         <div class="barEnviar">
                             <button class="acoes-btn">
-                                <i class="fa-solid fa-paperclip"></i>
+                                <i class="fa-solid fa-paperclip fa-lg"></i>
                             </button>
                             <input type="search" placeholder="Digite algo...">
                             <button class="enviar-msg">
