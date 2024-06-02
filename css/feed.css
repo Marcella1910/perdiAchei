@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -177,7 +178,7 @@ aside .menu-item {
     border: 2px solid black;
     border-radius: 40px;
     font-size: large;
-    background-color: orange;
+    background-color: #ffa500;
     box-shadow: 2px 2px 1px 1px;
 }
 
@@ -921,4 +922,217 @@ aside .menu-item-selected i {
 
 .editarpub:hover {
     box-shadow: 1px 1px 1px 1px;
+}
+
+
+
+/* pagina de chats */
+
+.main-container-chats {
+    display: grid;
+    grid-template-columns: 19vw auto 105vh;
+    position: relative;
+    height: 100%;
+   
+}
+
+.main-right-chats {
+    border-left: 2px solid #dddcd2;
+    position: fixed;
+    width: 105vh;
+    height: 100%;
+    
+    justify-self: right;
+}
+
+.tituloListaCtts {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
+    border-bottom: 2px solid #dddcd2;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titulopagina-chats {
+    margin-left: 1rem;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+}
+
+.tituloListaCtts i {
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.ctt {
+    padding: 1rem;
+    
+    display: grid;
+    grid-template-columns: 10vh auto 8vh;
+    column-gap: 1rem;
+    border-bottom: 2px solid #dddcd2;
+}
+
+.ctt-selected {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 10vh auto 8vh;
+    column-gap: 1rem;
+    border-bottom: 2px solid #dddcd2;
+    background-color: #f5eaf3;
+}
+
+.conteudo-ctt {
+    margin: 1rem;
+}
+
+.nomectt {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    font-size: large;
+}
+
+.conteudo-ctt p, .ctt span, .ctt-selected span{
+    color: gray;
+}
+
+.ctt span, .ctt-selected span {
+    margin-top: 1rem;
+}
+
+.ctt-conversa {
+    display: grid;
+    grid-template-columns: 5vh 10vh auto auto;
+    column-gap: 1rem;
+    padding: 1rem;
+    border-bottom: 2px solid #dddcd2;
+}
+
+.voltarCnv {
+    margin: 1rem;
+    background-color: transparent;
+}
+.ctt-conversa .pfp {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.conversa .actions {
+    justify-self: right;
+}
+
+.conversa .conteudo-ctt {
+    margin-left: 1rem;
+    
+}
+
+.actions .menu{
+    margin-top: 1rem;
+    padding: 10px;
+    background-color: transparent;
+    
+}
+
+
+.caixa-msg {
+    padding: 1rem;
+    height: 100%;
+    width: 100;
+    
+}
+
+.msg-enviei {
+    display: flex;
+    margin-top: 2rem;
+    
+}
+
+.msg-enviei span {
+    color: gray;
+    padding: 1rem;
+}
+
+.msg-enviei p {
+    padding: 1rem;
+    background-color: #e2bbda;
+    width: 50%;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 2px 2px 1px 1px;
+    border: 2px solid black;
+    
+}
+
+.msg-enviada {
+    display: flex;
+    justify-content: right;
+    
+    margin-top: 2rem;
+}
+
+.msg-enviada span {
+    color: gray;
+    padding: 1rem;
+}
+
+.msg-enviada p {
+    
+    padding: 1rem;
+    background-color: #dddcd2;
+    width: 50%;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 2px 2px 1px 1px;
+    border: 2px solid black;
+}
+
+.fim-conversa {
+    
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    box-shadow: rgba(102, 102, 102, 0.35) 0px -50px 36px -28px inset;
+    bottom: 0;
+    
+}
+
+.barEnviar {
+    display: grid;
+    grid-template-columns: 10vh 80vh 10vh;
+   
+}
+
+.barEnviar input {
+    padding: 1rem;
+    font-size: large;
+    background-color: #fffce0;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border: 2px solid black;
+    border-left: none;
+    margin-right: 1rem;
+    width: 100%;
+    
+}
+
+.acoes-btn {
+    padding: 10px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border: 2px solid black;
+    background-color: orange;
+}
+
+.enviar-msg {
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: orange;
+    border: 2px solid black;
+    justify-self: right;
+    
 }
