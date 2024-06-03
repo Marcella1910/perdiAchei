@@ -129,7 +129,7 @@ i {
 
 .banner {
     display: flex;
-    height: 100vh;
+    height: 100%;
     background-color: #f76282;
     background-image: linear-gradient(43deg, #f76282 0%, #f3b020 46%, #c886e7 100%);
 }
@@ -214,9 +214,60 @@ span:hover {
     color: rgb(192, 38, 182);
     transition: 300ms all ease;
 }
-.rodape .data {
+.rodape .mais {
     margin-top: 1rem;
     margin-right: 5rem;
+}
+
+.explicacao, .pesquisa, .nos {
+    display: flex;
+    padding: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+   
+}
+
+.titulosobre {
+    font-family: "Raleway", serif;
+    font-weight: 800;
+    font-size: 3rem;
+    width: 100%;
+}
+
+.conteudo {
+    padding: 3rem;
+}
+
+.txtmissao, .imgMissao {
+    width: 100%;
+}
+
+.imgMissao img {
+    height: 100%;
+} 
+
+.txtnos, .imgNos {
+    width: 100%;
+}
+
+.txtpesquisa, .imgPesquisa{
+    width: 100%;
+}
+
+.txtmissao h2, .txtnos h2, .txtpesquisa h2{
+    font-family: "Raleway", serif;
+    font-weight: 800;
+    font-size: 2rem;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+.txtmissao p, .txtnos p, .txtpesquisa p {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
 }
 
 
