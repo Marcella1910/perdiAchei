@@ -14,7 +14,8 @@
 }
 
 body {
-    height: 100vh;
+    height: 100%;
+    background-attachment: fixed;
     background-color: #f76282;
     background-image: linear-gradient(43deg, #f76282 0%, #f3b020 46%, #c886e7 100%);
 }
