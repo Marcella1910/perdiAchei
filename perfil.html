@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/feed.css">
+    <script src="js/feed.js"></script>
+    <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
+    <title>Meu perfil</title>
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+        <div class="main-container-meuperil">
+            <div class="main-left">
+                <!--logo-->
+                <h3 class="logo">perdi?Achei!</h3>
+                
+
+                <aside>
+                    <a href="feed.html" class="menu-item">
+                        <span><i class="fa fa-solid fa-house fa-lg"></i></span><h3>Home</h3>
+                    </a>
+                    <a href="notificacoes.html" class="menu-item">
+                        <span><i class="fa-solid fa-bell fa-lg"></i></span><h3>Notificações</h3>
+                    </a>
+                    <a href="my-posts.html" class="menu-item">
+                        <span><i class="fa-solid fa-list fa-lg"></i></span><h3>Minhas postagens</h3>
+                    </a>
+                    <a href="chats.html" class="menu-item">
+                        <span><i class="fa-solid fa-comments fa-lg"></i></span> <h3>Mensagens</h3>
+                    </a>
+                    <a href="configuracoes.html" class="menu-item">
+                        <span><i class="fa-solid fa-gear fa-lg"></i></span> <h3>Configurações</h3>
+                    </a>
+                    <button class="btnPostar" id="btnPostar" onclick="criarPost()">Criar post</button>
+                    <a href="index.html" class="menu-item" id="log-out">
+                        <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span> <h3>Sair</h3>
+                    </a>
+                    <div class="avalie-nos">
+                        <figure>
+                            <img src="">
+                        </figure>
+                        <div class="conteudo-avalie-nos">
+                            <h2>Ajude nos a melhorar nosso trabalho!</h2>
+                            <h1>Avalie-nos</h1>
+                            <button class="botao-avalie-nos" onclick="irAvaliar()">
+                                Avalie-nos
+                            </button>
+                        </div>
+                    </div>
+                    
+                </aside>
+            </div>
+
+            <div class="main-middle-meuperfil">
+                <h1 class="titulo">Editar perfil</h1>
+                <div class="editarperfil">
+                    <div class="meuperfil-area">
+                    
+                        <div class="pfp-edit"  id="my-pfp-edit">
+                            <img src="img/chuu.jpg">
+                           
+                        </div>
+                        <button class="mudarFoto"><i class="fa-solid fa-pencil fa-lg"></i></button>
+                        <div class="profile-handle-edit">
+                            <h1 class="nome">Chuu</h1>
+                            <h2 class="username">
+                                @chuudoloona
+                            </h2>
+                            <h4 class="curso">Informática para Internet</h4>
+                            
+                        </div>
+                    </div>
+
+                    <div class="dadosEditar">
+                        <form>
+                            <h4>Nome</h4>
+                        
+                            <textarea id="nome" class="nome" rows="1" cols="65" required spellcheck="false">Chuu</textarea>
+                        
+                        
+    
+                            <h4>Username</h4>
+                        
+                            <textarea id="username" class="username" rows="1" cols="65" required spellcheck="false">chuudoloona</textarea>
+                        
+    
+                        
+                            <h4>Email</h4>
+                        
+                            <textarea id="email" class="email" rows="1" cols="65" required spellcheck="false">chuudoloona@gmail.com</textarea>
+                        
+                            <h4>Descrição sobre você</h4>
+                        
+                            <textarea id="desc" class="desc" rows="5" cols="65" spellcheck="false">sou a chuu do loona</textarea>
+    
+                            <h4>Curso</h4>
+    
+                            <select class="cursos" id="cursos">
+                                <option value="curso1">Informática</option>
+                                <option value="curso2">Mecatrônica</option>
+                                <option value="curso3">IOT</option>
+        
+                            </select>
+    
+                            <input type="submit" class="salvar" value="Salvar">
+                            <input type="submit" class="cancelar" value="Cancelar">
+    
+                        </form>
+                    </div>
+                </div>
+                
+                
+                
+                    
+
+            </div>
+            
+        </div>    
+    </main>
+</body>
+</html>
 
