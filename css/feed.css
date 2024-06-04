@@ -1294,3 +1294,172 @@ aside .menu-item-selected i {
     margin-bottom: 0.5rem;
 }
 
+/* inicio da pegina de perfil */
+
+.main-container-meuperil {
+    display: grid;
+    grid-template-columns: 19vw auto;
+    position: relative;
+    column-gap: 2rem;
+    height: 100%;
+
+}
+
+.meuperfil-area {
+    display: flex;
+    width: 100%;
+    padding-left: 2rem;
+    padding-top: 2rem;
+}
+
+
+.profile-handle-edit {
+    
+    
+    padding-top: 2rem;
+    padding-left: 2rem;
+}
+
+.profile-handle-edit .nome {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.profile-handle-edit .curso {
+    font-family: "Poppins", sans-serif;
+    color:#e73c7e;
+}
+
+.main-middle-meuperfil .titulo {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+
+
+.dadosEditar {
+    padding: 2rem;
+    
+    
+}
+
+.dadosEditar h4 {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.dadosEditar textarea {
+    resize: none;
+    border: 2px solid black;
+    box-shadow: 2px 2px 1px 1px;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    padding: 12px;
+    background-color: #ffffff;
+    width: 100%;
+    font-size: medium;
+    
+}
+
+.dadosEditar textarea:focus {
+    background-color: #fae0f5;
+
+}
+
+.dadosEditar textarea:invalid {
+    border: 2px solid rgb(218, 77, 77);
+  }
+
+.dadosEditar textarea:valid {
+    border: 2px solid black;
+}
+  
+.dadosEditar .cursos {
+    padding: 10px;
+    background-color:#ffffff;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 2px 2px 1px 1px;
+    font-size: medium;
+}
+
+.pfp-edit img {
+    display: block;
+    width: 100%;
+    
+}
+
+.pfp-edit {
+    width: 10rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid black;
+
+}
+
+.pfp-edit:hover {
+    opacity: 0.75;
+}
+
+.mudarFoto {
+    padding: 0.5rem;
+    background-color: #e2bbda;
+    height: fit-content;
+    width: fit-content;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 1px 1px 0.5px 0.5px;
+    align-self: end;
+}
+
+.dadosEditar .salvar {
+    border: 2px solid black;
+    padding: .6rem 3rem;
+    margin-top: 1rem;
+    width: 100%;
+    border-radius: 30px;
+    font-size: large;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    background-color: orange;
+    
+} 
+
+.dadosEditar .salvar:hover {
+    box-shadow: 2px 2px 1px 1px;
+}
+
+.dadosEditar .cancelar {
+    background-color: transparent;
+    border: 2px solid black;
+    padding: .6rem 3rem;
+    margin-top: 1rem;
+    width: 100%;
+    border-radius: 30px;
+    font-size: large;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    
+} 
+
+.dadosEditar .cancelar:hover {
+    box-shadow: 2px 2px 1px 1px;
+}
+
+.editarperfil{
+    background-color:#FFF7AD;
+    width: 50%;
+    margin-bottom: 2rem;
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 1px 1px;
+}
