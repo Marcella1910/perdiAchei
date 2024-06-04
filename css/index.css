@@ -1,5 +1,3 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
@@ -15,14 +13,15 @@
     font-style: normal;
 }
 
-
-.body {
-    background: rgb(241,114,114);
-    background: linear-gradient(45deg, rgba(241,114,114,1) 10%, rgba(255,165,0,1) 40%, rgba(172,104,158,1) 100%);
-
+body {
+    height: 100vh;
+    background-color: #f76282;
+    background-image: linear-gradient(43deg, #f76282 0%, #f3b020 46%, #c886e7 100%);
 }
+
 header {
     background-color: white;
+    
 }
 
 .topnav li {
@@ -129,9 +128,6 @@ i {
 
 .banner {
     display: flex;
-    height: 100%;
-    background-color: #f76282;
-    background-image: linear-gradient(43deg, #f76282 0%, #f3b020 46%, #c886e7 100%);
 }
 
 .colunaEsq, .colunaDir {
@@ -143,21 +139,24 @@ i {
 }
 
 .colunaEsq {
-    
+    align-self: center;
     align-items: center;
     margin-top: 6rem;
     margin-left: 7rem;
     width: 100%;
     height: 100%;
+    
 }
 
 .colunaDir {
     display: inline-block;
     padding: 3rem;
     width: 100%;
-    height: 100%;
     
-
+   
+    align-self: center;
+    align-items: center;
+    height: 100%;
 }
 
 
@@ -191,6 +190,7 @@ span:hover {
     background-color: white;
     display: flex;
     justify-content: space-between;
+    position: fixed;
     
 }
 
@@ -199,13 +199,16 @@ span:hover {
     font-weight: 800;
     font-size: 1.5rem;
     margin-left: 2rem;
-    margin-top: 0.5rem;
+    
+}
+
+.rodape .data {
+    margin-right: 2rem;
 }
 
 .rodape .logo a {
     margin-left: 2rem;
     text-decoration: none;
-    margin-top: 1rem;
     color: rgb(75, 75, 75);
 }
 
