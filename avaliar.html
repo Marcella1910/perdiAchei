@@ -3,9 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/feed.css">
+    <script src="js/feed.js"></script>
+    <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
     <title>Avalie-nos</title>
 </head>
 <body>
-    
+    <header>
+    </header>
+    <main>
+        <div class="main-container-feedback">
+            <div class="main-left">
+                <!--logo-->
+                <h3 class="logo">perdi?Achei!</h3>
+                
+
+                <aside>
+                    <a href="feed.html" class="menu-item">
+                        <span><i class="fa fa-solid fa-house fa-lg"></i></span><h3>Home</h3>
+                    </a>
+                    <a href="notificacoes.html" class="menu-item">
+                        <span><i class="fa-solid fa-bell fa-lg"></i></span><h3>Notificações</h3>
+                    </a>
+                    <a href="my-posts.html" class="menu-item">
+                        <span><i class="fa-solid fa-list fa-lg"></i></span><h3>Minhas postagens</h3>
+                    </a>
+                    <a href="chats.html" class="menu-item">
+                        <span><i class="fa-solid fa-comments fa-lg"></i></span> <h3>Mensagens</h3>
+                    </a>
+                    <a href="configuracoes.html" class="menu-item">
+                        <span><i class="fa-solid fa-gear fa-lg"></i></span> <h3>Configurações</h3>
+                    </a>
+                    <button class="btnPostar" id="btnPostar" onclick="criarPost()">Criar post</button>
+                    <a href="index.html" class="menu-item" id="log-out">
+                        <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span> <h3>Sair</h3>
+                    </a>
+                    <div class="avalie-nos">
+                        <figure>
+                            <img src="">
+                        </figure>
+                        <div class="conteudo-avalie-nos">
+                            <h2>Ajude nos a melhorar nosso trabalho!</h2>
+                            <h1>Avalie-nos</h1>
+                            <button class="botao-avalie-nos" onclick="irAvaliar()">
+                                Avalie-nos
+                            </button>
+                        </div>
+                    </div>
+                    
+                </aside>
+            </div>
+
+            <div class="main-middle-feedback">
+                <h1 class="titulo">Feedback</h1>
+                <h4 class="subtitulo">Avalie o nosso trabalho e sua experiência com o site!</h4>
+                <div class="avaliacao">
+                    <form class="feedback-form">
+                        <h2>Como você avaliaria sua experiência com o perdiAchei?</h2>
+                        <div class="form-grupo">
+                            <div class="ratings">
+                                <label class="rating">
+                                    <input type="radio" name="rating">
+                                    <img src="img/mood-cry.png" alt="terrivel"/>
+                                    <span>Terrível</span>
+                                </label>
+                                <label class="rating">
+                                    <input type="radio" name="rating">
+                                    <img src="img/mood-sad.png" alt="ruim"/>
+                                    <span>Ruim</span>
+                                </label>
+                                <label class="rating">
+                                    <input type="radio" name="rating">
+                                    <img src="img/mood-empty.png" alt="neutro"/>
+                                    <span>Neutro</span>
+                                </label>
+                                <label class="rating">
+                                    <input type="radio" name="rating">
+                                    <img src="img/mood-smile.png" alt="bom"/>
+                                    <span>Bom</span>
+                                </label>
+                                <label class="rating">
+                                    <input type="radio" name="rating">
+                                    <img src="img/mood-happy.png" alt="muitobom"/>
+                                    <span>Amei!</span>
+                                </label>
+
+                            </div>
+                        </div>
+                        <h2>
+                            Quais são os motivos para sua avaliação? Descreva sua experiência:
+                        </h2>
+                        <textarea class="motivos"
+                        id="motivos"
+                        cols="30"
+                        rows="10"
+                        spellcheck="false">
+                            
+                        </textarea>
+
+                        <input type="submit" value="Enviar" class="enviar">
+                        <button type="reset" class="cancelar">Cancelar</button>
+
+                    </form>
+
+                    
+                </div>
+                
+                
+                
+                    
+
+            </div>
+            
+            
+        </div>    
+    </main>
 </body>
 </html>
