@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redefinição da senha</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+    <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="bdlog">
+        
+            
+            <div class = "login" id = "login">
+                <h1 class="lgtitulo">
+                    Redefinição da senha
+                </h1>
+                
+                <br>
+
+                <div class="inputs">
+                    <h4 class="explicacao">Por favor, insira no campo abaixo o código de ativação que você recebeu por email e redefina uma nova senha.</h4>
+                    
+
+                    <h4>Insira o código recebido</h4>
+                    <div class="inputarea">
+                        <input type="text" id="text" class="user" placeholder="Código">
+                    </div>
+                    
+                    <h4>Insira uma nova senha</h4>
+                    <div class="inputarea">
+                        <input type="password" id="senha" class="senha" placeholder="Nova senha">
+                    </div>
+                    
+
+                    <h4>Repita a nova senha</h4>
+                    <div class="inputarea">
+                        <input type="password" id="senha" class="senha" placeholder="Nova senha">
+                    </div>
+                    
+                    
+                    
+                    
+
+                    <button class="btnCad" onclick="window.location.href='login.html'"> Redefinir </button>
+
+                    
+                </div>
+
+                <p class="reenviarLink"> Caso não tenha recebido a mensagem, verifique se digitou o endereço de email corretamente ou se caiu na caixa de spam. <a href="esqueceSenha.html">Reenviar email</a></p>
+
+                
+     
+            </div>
+            <div class = "imgLog">
+                <h1 class="lgtitulo">Email enviado!</h1>
+                <h4>Enviamos um email para <span>email_do_usuario@gmail.com</span> para finalizar o cadastro.</h4>
+                
+            </div>
+        
+    </div>
+    <script src ="js/login.js"></script>
+</body>
+</html>
