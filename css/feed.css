@@ -1298,10 +1298,11 @@ aside .menu-item-selected i {
 
 .main-container-meuperil {
     display: grid;
-    grid-template-columns: 19vw auto;
+    grid-template-columns: 19vw auto 80vh;
     position: relative;
     column-gap: 2rem;
     height: 100%;
+    
 
 }
 
@@ -1310,6 +1311,7 @@ aside .menu-item-selected i {
     width: 100%;
     padding-left: 2rem;
     padding-top: 2rem;
+    
 }
 
 
@@ -1457,9 +1459,66 @@ aside .menu-item-selected i {
 
 .editarperfil{
     background-color:#FFF7AD;
-    width: 50%;
+    width: 100%;
     margin-bottom: 2rem;
     border: 2px solid black;
     border-radius: 20px;
     box-shadow: 2px 2px 1px 1px;
+}
+
+.main-middle-meuperfil {
+    
+    
+}
+
+.main-right-meuperfil {
+   
+    border-left: 2px solid rgb(133, 132, 132);
+    padding: 20px;
+}
+
+.ir_configuracoes {
+    margin-top: 2rem;
+    margin-left: 1rem;
+    background-color: #cfe2eb;
+    border: 2px solid black;
+    box-shadow: 2px 2px 1px 1px;
+    border-radius: 30px;
+    padding: 1.5rem;
+}
+
+.ir_meusposts{
+    margin-top: 2rem;
+    margin-left: 1rem;
+    background-color: #ebcfcf;
+    border: 2px solid black;
+    box-shadow: 2px 2px 1px 1px;
+    border-radius: 30px;
+    padding: 1.5rem;
+}
+
+.main-right-meuperfil .vermeusposts {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+
+}
+.main-right-meuperfil .alterarconta {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+
+
+.main-right-meuperfil h4, .main-right-meuperfil a {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+}
+
+.main-right-meuperfil a {
+    color:#e73c7e;
+    text-decoration: underline;
 }
