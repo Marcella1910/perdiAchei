@@ -3,35 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esqueceu sua senha seu imbecil?</title>
-    <link rel="stylesheet" type="text/css" href="css/EsqSen.css"/>
+    <title>Recuperar senha</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+    <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header> 
-        <nav class="senhanav">
-           <li><a href="index.html">Home</a> </li>
-           <li><a href="login.html">Login</a> </li>
-        </nav> 
-   </header>
 
-   <div class="login" id = "login">
-        <h1 class="esquecesenha">Login</h1>
-
-        <input type="email" id="email" name="email" placeholder="Email"><br></br>
-
-        <input type="password" id="senha" name="senha" placeholder="Informe nova senha"><br></br>
+    <div class="bdlog">
         
-        <input type="password" id="senha" name="senha" placeholder="Confirme nova senha"><br></br>
+            
+            <div class = "login" id = "login">
+                <h1 class="lgtitulo">
+                    Recuperar senha
+                </h1>
+                
+                <br>
 
-        <a href = "login.html"><button>Confirma nova senha?</button></a>
+                <div class="inputs">
+                    
+                    
+                    
+                    <h4>Insira seu email</h4>
+                    <div class="inputarea">
+                        <input type="email" id="email" class="email" placeholder="Email">
+                    </div>
+                    
 
-   </div>
-   
-   <div id = "esqueSen">
-        <figure>
-            <img src = "img/aven.png">
-        </figure>
-   </div>
-   <script src ="js/esqSen.js"></script>
+                   
+                    
+                    
+                    
+
+                    <button class="btnCad" onclick="window.location.href='redefinirsenha.html'"> Redefinir senha </button>
+
+                    
+                </div>
+
+                <p class="esqueciSenha"> Já possui cadastro? <a href="login.html">Faça seu login!</a></p>
+
+                
+     
+            </div>
+            <div class = "imgLog">
+                <h1 class="lgtitulo">Esqueceu sua senha?</h1>
+                <h4>Sem problemas, enviaremos um email com as instruções para mudar sua senha.</h4>
+            </div>
+        
+    </div>
+    <script src ="js/login.js"></script>
 </body>
 </html>
