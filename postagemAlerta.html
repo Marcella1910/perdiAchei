@@ -4,9 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=
     , initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Postagem Alerta</title>
+    <link rel="stylesheet" href="css/feed.css">
+    <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+    <header>
+    </header>
+    <main>
+        <div class="main-container">
+            <div class="main-left">
+                <!--logo-->
+                <h3 class="logo">perdi?Achei!</h3>
+                
+
+                <aside>
+                    <a href="feed.html" class="menu-item-selected">
+                        <span><i class="fa fa-solid fa-house fa-lg"></i></span><h3>Home</h3>
+                    </a>
+                    <a href="notificacoes.html" class="menu-item">
+                        <span><i class="fa-solid fa-bell fa-lg"></i></span><h3>Notificações</h3>
+                    </a>
+                    <a href="my-posts.html" class="menu-item">
+                        <span><i class="fa-solid fa-list fa-lg"></i></span><h3>Minhas postagens</h3>
+                    </a>
+                    <a href="chats.html" class="menu-item">
+                        <span><i class="fa-solid fa-comments fa-lg"></i></span> <h3>Mensagens</h3>
+                    </a>
+                    <a href="configuracoes.html" class="menu-item">
+                        <span><i class="fa-solid fa-gear fa-lg"></i></span> <h3>Configurações</h3>
+                    </a>
+                    <button class="btnPostar" id="btnPostar" onclick = criarPost()>Criar post</button>
+                    <a href="index.html" class="menu-item" id="log-out">
+                        <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span> <h3>Sair</h3>
+                    </a>
+                    <div class="avalie-nos">
+                        <figure>
+                            <img src="">
+                        </figure>
+                        <div class="conteudo-avalie-nos">
+                            <h2>Ajude nos a melhorar nosso trabalho!</h2>
+                            <h1>Avalie-nos</h1>
+                            <button class="botao-avalie-nos" onclick="irAvaliar()">
+                                Avalie-nos
+                            </button>
+                        </div>
+                    </div>
+                    
+                </aside>
+            </div>
+
+    <div class = "post">
+        <h4>Status do Objeto</h4>
+        <label class="rating">
+            <input type="radio" name="rating">
+            <span>Objeto Perdido</span>
+        </label>
+        <label class="rating">
+            <input type="radio" name="rating">
+            <span>Objeto Encontrado</span>
+        </label>
+        <h4>Título:</h4>
+        <div class="inputarea">
+            <input type="text" id="text" class="title" placeholder="Dê um título">
+        </div>
+        <h4>Categoria:</h4>
+        <label class = "cat">
+            <select name = "cat" id = "cat">
+                <option value = "roAg">Roupas e Agasalhos</option>
+                <option value = "itEl">Itens Eletrônicos</option>
+                <option value = "gaLa">Garrafas e Lancheiras</option>
+                <option value = "utCo">Utensílios de Cozinha</option>
+                <option value = "maEs">Materiais Escolares</option>
+                <option value = "doc">Documentos</option>
+                <option value = "hiCo">Produtos de Higiene/Cosméticos</option>
+                <option value = "outros">Outros</option>
+            </select>
+        </label>
+        <h4>Descrição</h4>
+        <div class = "desc">
+            <input type="text" id="text" class="title" placeholder="Descreva-o melhor">
+        </div>
+        <div class = "foto">
+            <label for = "file">
+                <input type="file" id="myfile" name="myfile">
+            </label>
+            <h5>Foto do item (obrigatorio)</h5>
+            <br>
+        </div>
+        <button class="botao-publicar" id = "botao-publicar" onclick="postarFeed()"> Publicar </button>
+    </div>
+
+    <div class="main-right">
+        <button class="voltar" onclick="abrirNavDir()"><i class="fa-solid fa-arrow-left"></i></button>
+        <!--inicio da area do perfil-->
+        <a href="perfil.html" class="profile">
+            <div class="pfp"  id="my-pfp">
+                <img src="img/chuu.jpg">
+            </div>
+            <div class="profile-handle">
+                <h4>Chuu</h4>
+                <p class="username">
+                    @chuudoloona
+                </p>
+            </div>
+        </a>
+
+        <h2 class="h2-3">Minhas publicações</h2>
+        <h3 class="h3-1">Mais recentes</h3>
+        <div class="main-right-meusposts">
+            <div class="minha-publicacao">
+                <figure>
+                    
+                    <img src="img/cellphone.webp">
+                    
+                </figure>
+                <footer class="conteudo">
+                    <h4>Título da publicação</h4>
+                    <div class="profile-post">
+                        <span>15 mai. 2024</span>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <h2 class="h2-4">Todas</h2>
+        <div class="main-right-meusposts">
+            <div class="minha-publicacao">
+                <figure>
+                    
+                    <img src="img/cellphone.webp">
+                    
+                </figure>
+                <footer class="conteudo">
+                    <h4>Título da publicação</h4>
+                    <div class="profile-post">
+                        <span>15 mai. 2024</span>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                    
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src = "js/postagemAlerta.js"></script>
 </body>
 </html>
