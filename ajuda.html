@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/feed.css">
+    <script src="js/feed.js"></script>
+    <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
+    <title>Ajuda</title>
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+        <div class="main-container-config">
+            <div class="main-left">
+                <!--logo-->
+                <h3 class="logo">perdi?Achei!</h3>
+                
+
+                <aside>
+                    <a href="feed.html" class="menu-item">
+                        <span><i class="fa fa-solid fa-house fa-lg"></i></span><h3>Home</h3>
+                    </a>
+                    <a href="notificacoes.html" class="menu-item">
+                        <span><i class="fa-solid fa-bell fa-lg"></i></span><h3>Notificações</h3>
+                    </a>
+                    <a href="my-posts.html" class="menu-item">
+                        <span><i class="fa-solid fa-list fa-lg"></i></span><h3>Minhas postagens</h3>
+                    </a>
+                    <a href="chats.html" class="menu-item">
+                        <span><i class="fa-solid fa-comments fa-lg"></i></span> <h3>Mensagens</h3>
+                    </a>
+                    <a href="configuracoes.html" class="menu-item-selected">
+                        <span><i class="fa-solid fa-gear fa-lg"></i></span> <h3>Configurações</h3>
+                    </a>
+                    <button class="btnPostar" id="btnPostar" onclick="criarPost()">Criar post</button>
+                    <a href="index.html" class="menu-item" id="log-out">
+                        <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span> <h3>Sair</h3>
+                    </a>
+                    <div class="avalie-nos">
+                        <figure>
+                            <img src="">
+                        </figure>
+                        <div class="conteudo-avalie-nos">
+                            <h2>Ajude nos a melhorar nosso trabalho!</h2>
+                            <h1>Avalie-nos</h1>
+                            <button class="botao-avalie-nos" onclick="irAvaliar()">
+                                Avalie-nos
+                            </button>
+                        </div>
+                    </div>
+                    
+                </aside>
+            </div>
+
+            <div class="main-middle-config">
+                <div class="headerPagConfig">
+                    <div class="tituloPagina">
+                        <h1 class="titulopagina-config">Configurações</h1>
+                        <p>Modifique seus dados e as configurações gerais do site</p>
+                    </div>
+                    
+                </div>
+                <div class="conteudo-config">
+                    <button class="tag-configuracao" onclick="window.location.href='configuracoes.html'">
+                        <i class="fa-solid fa-palette"></i>
+                        Temas e acessibilidade
+                    </button>
+                    <button class="tag-configuracao" onclick="window.location.href='configConta.html'">
+                        <i class="fa-solid fa-user"></i>
+                        Configurações da conta
+                    </button>
+                    <button class="tag-configuracao" onclick="window.location.href='configNot.html'">
+                        <i class="fa-solid fa-bell"></i>
+                        Configurar notificações
+                    </button>
+                    <button class="tag-configuracao-selected">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Ajuda
+                    </button>
+                    <button class="tag-configuracao" onclick="window.location.href='avaliar.html'">
+                        <i class="fa-solid fa-star"></i>
+                        Avalie-nos
+                    </button>
+                </div>
+                <form class="config-selected">
+                    <h1 class="titulo-config">Ajuda</h1>
+                    
+                    <h1 class="subtitulo">Alterar Tema</h1>
+                    <div class="temas">
+                        <div class="tema">
+                            <input type="radio" id="claro" name="tema" value="tema1">
+                            <label for="claro">Claro</label>
+                        </div>
+                        <div class="tema">
+                            <input type="radio" id="escuro" name="tema" value="tema2">
+                            <label for="escuro">Escuro</label>
+                        </div>
+                    </div>
+                    
+                    
+                    <h1 class="subtitulo">Alterar tamanho da fonte</h1>
+                    
+                    <label for="vol">Tamanho da fonte(Entre 12 e 26):</label>
+                    <input type="range" id="vol" name="vol" min="10" max="26">
+                    
+                    <input type="submit" class="salvarAlter" value="Salvar">
+                    <button type="reset" class="cancelAlter">Cancelar</button>
+                    
+                </form>
+
+               
+                            
+                      
+                            
+                           
+                
+                
+
+                
+                
+            
+            </div>
+
+            
+                
+            
+        </div>
+    </main>
+
+</body>
+</html>
