@@ -75,10 +75,6 @@ body {
     
 }
 
-.imgCad h4 {
-    
-    
-}
 
 .imgCad span {
     color: orange;
@@ -212,9 +208,14 @@ input:focus {
 a:link {
     color:#ff9f21;
     text-decoration:none;
-  }
-  a:visited {
+}
+a:visited {
     color:#ac689e;
     text-decoration:none;
-  }
+}
+
+small{
+    color:#ff0000;
+    text-decoration:none;
+}
   
