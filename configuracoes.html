@@ -62,53 +62,55 @@
                         <h1 class="titulopagina-config">Configurações</h1>
                         <p>Modifique seus dados e as configurações gerais do site</p>
                     </div>
-                    <div class="salvarCancelar">
-                        <button class="cancelAlter">Cancelar</button>
-                        <button class="salvarAlter">Salvar</button>
-                    </div>
+                    
                 </div>
                 <div class="conteudo-config">
                     <button class="tag-configuracao-selected">
                         <i class="fa-solid fa-palette"></i>
                         Temas e acessibilidade
                     </button>
-                    <button class="tag-configuracao">
+                    <button class="tag-configuracao" onclick="window.location.href='configConta.html'">
                         <i class="fa-solid fa-user"></i>
-                        Conta
+                        Configurações da conta
                     </button>
-                    <button class="tag-configuracao">
+                    <button class="tag-configuracao" onclick="window.location.href='configNot.html'">
                         <i class="fa-solid fa-bell"></i>
                         Configurar notificações
                     </button>
-                    <button class="tag-configuracao">
+                    <button class="tag-configuracao" onclick="window.location.href='ajuda.html'">
                         <i class="fa-solid fa-circle-info"></i>
                         Ajuda
                     </button>
-                    <button class="tag-configuracao">
+                    <button class="tag-configuracao" onclick="window.location.href='avaliar.html'">
                         <i class="fa-solid fa-star"></i>
                         Avalie-nos
                     </button>
                 </div>
-                <div class="config-selected">
+                <form class="config-selected">
                     <h1 class="titulo-config">Temas e acessibilidade</h1>
-                    <div class="tema">
-                        <h1>Alterar Tema</h1>
-                        <form>
+                    
+                    <h1 class="subtitulo">Alterar Tema</h1>
+                    <div class="temas">
+                        <div class="tema">
                             <input type="radio" id="claro" name="tema" value="tema1">
-                            <label for="claro">Claro</label><br>
+                            <label for="claro">Claro</label>
+                        </div>
+                        <div class="tema">
                             <input type="radio" id="escuro" name="tema" value="tema2">
-                            <label for="escuro">Escuro</label><br>
-                          </form>
-                          
+                            <label for="escuro">Escuro</label>
+                        </div>
                     </div>
-                    <div class="tamFonte">
-                        <h1>Alterar tamanho da fonte</h1>
-                        <form>
-                            <label for="vol">Tamanho da fonte(Entre 12 e 26):</label>
-                            <input type="range" id="vol" name="vol" min="10" max="26">
-                        </form>
-                    </div>
-                </div>
+                    
+                    
+                    <h1 class="subtitulo">Alterar tamanho da fonte</h1>
+                    
+                    <label for="vol">Tamanho da fonte(Entre 12 e 26):</label>
+                    <input type="range" id="vol" name="vol" min="10" max="26">
+                    
+                    <input type="submit" class="salvarAlter" value="Salvar">
+                    <button type="reset" class="cancelAlter">Cancelar</button>
+                    
+                </form>
 
                
                             
