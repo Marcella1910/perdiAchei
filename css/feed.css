@@ -1168,26 +1168,18 @@ aside .menu-item-selected i {
     color:#e73c7e;
 } 
 
-.salvarCancelar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-    margin-right: 2rem;
-    margin-top: 2rem;
-    
-    padding: 10px;
-}
+
 
 .cancelAlter {
     font-family: "Varela Round", sans-serif;
     font-weight: 700;
     height: 3rem;
-    width: 6rem;
+    width: 100%;
     background-color: transparent;
     border: 2px solid black;
     border-radius: 30px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     
 }
 
@@ -1199,10 +1191,11 @@ aside .menu-item-selected i {
     font-family: "Varela Round", sans-serif;
     font-weight: 700;
     height: 3rem;
-    width: 6rem;
+    width: 100%;
     background-color: orange;
     border: 2px solid black;
     border-radius: 30px;
+    margin-top: 1rem;
     
 }
 
@@ -1265,24 +1258,33 @@ aside .menu-item-selected i {
 
 .config-selected {
     margin: 2rem;
+    background-color:#f0ffe8;
+    width: 50%;
+    border: 2px solid black;
+    box-shadow: 2px 2px 1px 1px;
+    padding: 2rem;
+    border-radius: 30px;
 }
+
 
 .titulo-config {
     font-family: "Varela Round", sans-serif;
     font-weight: 700;
+    font-size: 3rem;
 }
 
-.tema h1 {
+.config-selected .subtitulo {
     font-family: "Varela Round", sans-serif;
     font-weight: 700;
-    font-size: larger;
+    font-size: 2rem;
     margin-top: 2rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .tema label {
     font-size: large;
     margin-left: 0.5rem;
+    
    
 }
 
@@ -1292,6 +1294,182 @@ aside .menu-item-selected i {
     font-size: larger;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
+}
+
+.config-selected h4 {
+    margin-top: 1rem;
+    
+}
+
+.config-selected textarea {
+    resize: none;
+    border: 2px solid black;
+    box-shadow: 2px 2px 1px 1px;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    padding: 12px;
+    background-color: #ffffff;
+    width: 100%;
+    font-size: medium;
+    margin-top: 0.5rem;
+}
+
+.config-selected textarea:focus {
+    background-color: #fae0f5;
+
+}
+
+.config-selected input[type=password] {
+    resize: none;
+    border: 2px solid black;
+    box-shadow: 2px 2px 1px 1px;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    padding: 12px;
+    background-color: #ffffff;
+    width: 100%;
+    font-size: medium;
+    margin-top: 0.5rem;
+}
+
+.config-selected input[type=password]:focus {
+    background-color: #fae0f5;
+
+}
+
+.config-selected .salvarAlter{
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    height: 3rem;
+    width: 100%;
+    background-color: orange;
+    border: 2px solid black;
+    border-radius: 30px;
+    margin-top: 1rem;
+    box-shadow: none;
+    
+}
+
+.config-selected .salvarAlter:hover {
+    box-shadow: 2px 2px 1px 1px;
+}
+
+.excluirConta {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    height: 3rem;
+    width: 100%;
+    background-color:#e68888;
+    border: 2px solid black;
+    border-radius: 30px;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    box-shadow: none;
+    font-size: 1rem;
+}
+
+.excluirConta:hover {
+    background-color:transparent;
+    color:#e68888;
+    border: 2px solid #e68888;
+    box-shadow: 2px 2px 1px 1px #e68888;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 51px;
+    height: 25px;
+  }
+  
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 17px;
+    width: 17px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: #99b38c;
+  }
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px #99b38c;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+.config-selected h4{
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+}
+
+.configs {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+
+.config-notif {
+    display: flex;
+    margin-bottom: 1rem;
+    
+    height: 4rem;
+}
+
+.descConfig {
+    font-size: 10px;
+    margin-left: 1rem;
+   
+    width: 90%;
+}
+
+.descConfig h3{
+    font-size: 1.2rem;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    
+}
+
+.descConfig p{
+    font-size: 1rem;
+    
 }
 
 /* inicio da pegina de perfil */
