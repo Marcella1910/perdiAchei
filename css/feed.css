@@ -133,7 +133,6 @@ main {
     margin-top: 2rem;
     
     
-    
 }
 
 
@@ -528,6 +527,10 @@ aside .menu-item i {
     margin-top: 1rem;
 }
 
+.minha-publicacao:hover {
+    box-shadow: 2px 2px 1px 1px #e68888;
+}
+
 
 .minha-publicacao .conteudo {
     
@@ -774,6 +777,19 @@ aside .menu-item i {
 aside .menu-item-selected i {
     margin-left: 2rem;
     margin-right: 1rem;
+}
+
+.main-container-my-posts {
+    display: grid;
+    grid-template-columns: 19vw auto;
+    position: relative;
+    height: 100%;
+
+}
+
+.main-middle-my-posts {
+    width: 100%;
+    padding: 2rem;
 }
 
 .titulopagina-myposts h1 {
@@ -1281,6 +1297,15 @@ aside .menu-item-selected i {
     margin-bottom: 1rem;
 }
 
+.config-selected span {
+    font-size: 1rem;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 700;
+    color:#ee7752;
+
+
+}
+
 .tema label {
     font-size: large;
     margin-left: 0.5rem;
@@ -1749,7 +1774,7 @@ input:focus + .slider {
     justify-content: center;
     text-align: center;
     margin: 1rem;
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 
