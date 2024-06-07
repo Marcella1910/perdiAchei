@@ -206,6 +206,7 @@ span:hover {
 }
 
 .rodape .data {
+    margin-top: 1rem;
     margin-right: 2rem;
 }
 
@@ -222,7 +223,7 @@ span:hover {
 }
 .rodape .mais {
     margin-top: 1rem;
-    margin-right: 5rem;
+    margin-right: 2rem;
 }
 
 .explicacao, .pesquisa, .nos {
