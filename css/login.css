@@ -233,9 +233,7 @@ a:link {
   
 
 
-.bdrecsenha {
 
-}
 .recsenha {
     position: relative;
     display: flex;
@@ -294,4 +292,8 @@ a:link {
     text-align: center;
     border-right: 2px solid black;
     padding: 10px;
+}
+small{
+    color:#ff0000;
+    text-decoration:none;
 }
