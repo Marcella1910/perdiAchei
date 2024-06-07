@@ -1,3 +1,9 @@
+//recuperar dados do localStorage
+let users = JSON.parse(localStorage.getItem('users')) || [];
+let emails = JSON.parse(localStorage.getItem('emails')) || [];
+let senhas = JSON.parse(localStorage.getItem('senhas')) || [];
+
+
 const botao = document.getElementById("btnCad");
 botao.addEventListener("click", validarForm);
 
@@ -44,6 +50,17 @@ function validarForm() {
       mostraErro("As senhas não coincidem.");
       return false;
   } 
+
+  // armazenando as informações em listas
+  users.push(user);
+  emails.push(email);
+  senhas.push(senha);
+
+  // armazenando no localStorage
+  localStorage.setItem('users', JSON.stringify(users));
+  localStorage.setItem('emails', JSON.stringify(emails));
+  localStorage.setItem('senhas', JSON.stringify(senhas));
+
 
   // Se todas as validações passarem, redireciona para "feed.html"
   window.location.href = "feed.html";
