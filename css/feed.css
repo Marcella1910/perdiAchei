@@ -36,6 +36,32 @@ a {
     margin: 40px;
 }
 
+.botoes {
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    margin: 2rem;
+}
+
+.menuExpandir {
+    background-color: transparent;
+   
+    transition: .2s;
+    
+}
+
+.menuFechar {
+    background-color: transparent;
+    transition: .2s;
+    padding: .6rem .3rem;
+    display: none;
+
+}
+
+.menuFechar:hover {
+    color: red;
+} 
+
 .topnav img:hover {
     cursor: pointer;
 }
@@ -100,10 +126,11 @@ main {
 
 .main-container {
     display: grid;
-    grid-template-columns: 19vw auto 20vw;
+    grid-template-columns: 6vw auto 20vw;
     position: relative;
     column-gap: 2rem;
     height: 100%;
+    transition: .2s;
 }
 
 .main-left {
@@ -113,7 +140,12 @@ main {
     border-right: 2px solid black;
     height: 100%;
     background-color: white;
-    
+    overflow: hidden;
+    transition: .2s;
+}
+
+.effect {
+    transition: margin .4s;
 }
 
 .main-right {
@@ -145,12 +177,13 @@ aside {
    
     
     width: 100%;
-    
+    overflow: hidden;
    
 }
 
 aside .menu-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: 4rem 10rem;
     align-items: center;
     height: 4rem;
     position: relative;
@@ -158,9 +191,12 @@ aside .menu-item {
     transition: 300ms ease all;
     margin-left: 1rem;
     width: 100%;
-    background-color: transparent;
     
     
+}
+
+.menu-item .nome-menu-item {
+    transition: .2s;
 }
 
 .btnPostar {
@@ -172,10 +208,9 @@ aside .menu-item {
     cursor: pointer;
     height: 3rem;
     transition: 300ms ease all;
-    margin: 1rem;
-    width: 90%;
+    padding: .3rem 2rem;
     border: 2px solid black;
-    border-radius: 40px;
+    border-radius: 20px;
     font-size: large;
     background-color: #ffa500;
     box-shadow: 2px 2px 1px 1px;
@@ -189,7 +224,7 @@ aside .menu-item:hover {
 
 aside .menu-item i {
     margin-left: 1rem;
-    margin-right: 1rem;
+    margin-right: 2rem;
 }
 
 
@@ -204,7 +239,7 @@ aside .menu-item i {
 }
 
 .avalie-nos {
-    display: flex;
+    display: none;
     justify-content: center;
     text-align: center;
     align-items:flex-end;
@@ -216,11 +251,12 @@ aside .menu-item i {
     height: 200px;
     width: 90%;
     overflow: hidden;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     margin-left: 1rem;
     margin-bottom: 1rem;
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
+    transition: .2s;
 	animation: gradient 15s ease infinite;
     
 }
@@ -769,7 +805,7 @@ aside .menu-item-selected i {
 
 .main-container-my-posts {
     display: grid;
-    grid-template-columns: 19vw auto;
+    grid-template-columns: 6vw auto;
     position: relative;
     height: 100%;
 
@@ -934,7 +970,7 @@ aside .menu-item-selected i {
 
 .main-container-chats {
     display: grid;
-    grid-template-columns: 19vw auto 105vh;
+    grid-template-columns: 6vw auto 105vh;
     position: relative;
     height: 100%;
    
@@ -1144,7 +1180,7 @@ aside .menu-item-selected i {
 /* tela de configuraçoes */
 .main-container-config {
     display: grid;
-    grid-template-columns: 19vw auto;
+    grid-template-columns: 6vw auto;
     position: relative;
     
     height: 100%;
@@ -1268,6 +1304,7 @@ aside .menu-item-selected i {
     box-shadow: 2px 2px 1px 1px;
     padding: 2rem;
     border-radius: 30px;
+    
 }
 
 
@@ -1487,9 +1524,9 @@ input:focus + .slider {
 
 /* inicio da pegina de perfil */
 
-.main-container-meuperil {
+.main-container-meuperfil {
     display: grid;
-    grid-template-columns: 19vw auto 80vh;
+    grid-template-columns: 6vw auto 80vh;
     position: relative;
     column-gap: 2rem;
     height: 100%;
@@ -1714,7 +1751,7 @@ input:focus + .slider {
 
 .main-container-feedback {
     display: grid;
-    grid-template-columns: 19vw auto;
+    grid-template-columns: 6vw auto;
     position: relative;
     height: 100%;
 }
