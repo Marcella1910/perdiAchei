@@ -5,15 +5,90 @@
     <meta name="viewport" content="width=
     , initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Postagem Alerta</title>
+    <title>Criar postagem</title>
     <link rel="stylesheet" href="css/feed.css">
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-    </header>
     <main>
-        <div class="main-container">
+        <div class = "criarPostagem">
+
+            <div class="headerPost">
+                <h1 class="titulo">Criar postagem</h1>
+                <button class="cancelar" onclick="window.location.href='feed.html'">
+                    <i class="fa-solid fa-xmark fa-2xl"></i>
+                </button>
+            </div>
+            
+
+            <form class="formCriarPost">
+
+                <div class="ladoEsq">
+
+                    <h2>Primeiramente, você perdeu ou achou um objeto? Escolha o status do objeto:</h2>
+
+                    <div class="tipo-postagem">
+
+                        <label class="tipopost">
+                            <input type="radio" name="tipopost">
+                            <span>Objeto Perdido</span>
+                        </label>
+    
+                        <label class="tipopost">
+                            <input type="radio" name="tipopost">
+                            <span>Objeto Encontrado</span>
+                        </label>
+                    </div>
+
+
+                    <h4>Título:</h4>
+                    <input type="text" id="tituloPost" class="tituloPost" required spellcheck="false" placeholder="Dê um título a postagem...">
+                   
+
+                    <h4>Categoria:</h4>
+                    
+                    <select class="categorias" name = "categorias" id = "categorias" required>
+                        <option value = "roAg">Roupas e Agasalhos</option>
+                        <option value = "itEl">Itens Eletrônicos</option>
+                        <option value = "gaLa">Garrafas e Lancheiras</option>
+                        <option value = "utCo">Utensílios de Cozinha</option>
+                        <option value = "maEs">Materiais Escolares</option>
+                        <option value = "doc">Documentos</option>
+                        <option value = "hiCo">Produtos de Higiene/Cosméticos</option>
+                        <option value = "outros">Outros</option>
+                    </select>
+                    
+
+                    <h4>Descrição</h4>
+                    
+                    <textarea id="desc" class="desc" rows="5" cols="65" required spellcheck="false" placeholder="Descreva o item mais detalhadamente..."></textarea>
+                    
+
+                </div>
+
+                <div class="ladoDir">
+                    <div class="img-item"  id="img-item">
+                        <img src="img/chuu.jpg">
+                    </div>
+                    <span>Insira uma foto do item (obrigatório)</span>
+                    <div class = "foto">
+                        <button class="escolherFt">Escolher foto
+                            <input type="file" id="myfile" name="myfile" class="myfile">
+                        </button>
+                        
+                    </div>
+
+                </div>
+
+            </form>
+
+            <input type="submit" class="botao-publicar" id = "botao-publicar" onclick="postarFeed()" value="Publicar"> 
+
+           
+        </div>
+
+            
+        <div class="main-container-criarPostagem">
             <div class="main-left">
                 <!--logo-->
                 <h3 class="logo">perdi?Achei!</h3>
@@ -55,102 +130,238 @@
                 </aside>
             </div>
 
-    <div class = "post">
-        <h4>Status do Objeto</h4>
-        <label class="rating">
-            <input type="radio" name="rating">
-            <span>Objeto Perdido</span>
-        </label>
-        <label class="rating">
-            <input type="radio" name="rating">
-            <span>Objeto Encontrado</span>
-        </label>
-        <h4>Título:</h4>
-        <div class="inputarea">
-            <input type="text" id="text" class="title" placeholder="Dê um título">
-        </div>
-        <h4>Categoria:</h4>
-        <label class = "cat">
-            <select name = "cat" id = "cat">
-                <option value = "roAg">Roupas e Agasalhos</option>
-                <option value = "itEl">Itens Eletrônicos</option>
-                <option value = "gaLa">Garrafas e Lancheiras</option>
-                <option value = "utCo">Utensílios de Cozinha</option>
-                <option value = "maEs">Materiais Escolares</option>
-                <option value = "doc">Documentos</option>
-                <option value = "hiCo">Produtos de Higiene/Cosméticos</option>
-                <option value = "outros">Outros</option>
-            </select>
-        </label>
-        <h4>Descrição</h4>
-        <div class = "desc">
-            <input type="text" id="text" class="title" placeholder="Descreva-o melhor">
-        </div>
-        <div class = "foto">
-            <label for = "file">
-                <input type="file" id="myfile" name="myfile">
-            </label>
-            <h5>Foto do item (obrigatorio)</h5>
-            <br>
-        </div>
-        <button class="botao-publicar" id = "botao-publicar" onclick="postarFeed()"> Publicar </button>
-    </div>
+            <div class="main-middle-criarPostagem">
+                <div class="barPesquisa">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" placeholder="Pesquise um item....">
+                </div>
 
-    <div class="main-right">
-        <button class="voltar" onclick="abrirNavDir()"><i class="fa-solid fa-arrow-left"></i></button>
-        <!--inicio da area do perfil-->
-        <a href="perfil.html" class="profile">
-            <div class="pfp"  id="my-pfp">
-                <img src="img/chuu.jpg">
-            </div>
-            <div class="profile-handle">
-                <h4>Chuu</h4>
-                <p class="username">
-                    @chuudoloona
-                </p>
-            </div>
-        </a>
-
-        <h2 class="h2-3">Minhas publicações</h2>
-        <h3 class="h3-1">Mais recentes</h3>
-        <div class="main-right-meusposts">
-            <div class="minha-publicacao">
-                <figure>
-                    
-                    <img src="img/cellphone.webp">
-                    
-                </figure>
-                <footer class="conteudo">
-                    <h4>Título da publicação</h4>
-                    <div class="profile-post">
-                        <span>15 mai. 2024</span>
-                        <i class="fa-solid fa-trash"></i>
+                <div class="tags-pesquisa">
+                    <div class="tag">
+                        <div class="icon"><i class="fa-solid fa-shirt"></i></i></div><h3>Roupas e agasalhos</h3>
                     </div>
-                </footer>
-            </div>
-        </div>
-
-        <h2 class="h2-4">Todas</h2>
-        <div class="main-right-meusposts">
-            <div class="minha-publicacao">
-                <figure>
-                    
-                    <img src="img/cellphone.webp">
-                    
-                </figure>
-                <footer class="conteudo">
-                    <h4>Título da publicação</h4>
-                    <div class="profile-post">
-                        <span>15 mai. 2024</span>
-                        <i class="fa-solid fa-trash"></i>
+                    <div class="tag">
+                        <span><i class="fa-regular fa-id-card"></i></i></span><h3>Documentos</h3>
                     </div>
+                    <div class="tag">
+                        <span><i class="fa-solid fa-mobile-screen-button"></i></i></span><h3>Eletrônicos</h3>
+                    </div>
+                    <div class="tag">
+                        <span><i class="fa-solid fa-pen-ruler"></i></i></span><h3>Materiais escolares</h3>
+                    </div>
+                    <div class="tag">
+                        <span><i class="fa-solid fa-key"></i></span><h3>Chaves</h3>
+                    </div>
+                    <div class="tag">
+                        <span><i class="fa-solid fa-pump-soap"></i></span><h3>Produtos</h3>
+                    </div>
+                    <button class="vertodos">Ver todos</button>
                     
-                </footer>
+                </div>
+                
+                <!--posts recem visitados-->
+                <div class="titulo">
+                    <ul class="posts-visitados">
+                        <h2 class="titulo-posts-visitados">Visitados recentemente</h2>
+                        <li><button onclick="funciona()">Ver todos</button></li>
+                    </ul>
+                </div>
+                
+
+
+                <div class="recentes">
+
+
+                    <div class="publicacao">
+                        
+                        <figure>
+                            
+                            <img src="img/documento.jpg">
+                            
+                        </figure>
+                        <footer class="conteudo">
+                            
+                            <h4>Título da publicação</h4>
+                            <div class="profile-post">
+                                <div class="pfp-post"  id="post-pfp">
+                                    <img src="img/chuu.jpg">
+                                </div>
+                                <p class="user-post">Chuu</p>
+                                <span>15 mai. 2024</span>
+                            </div>
+                            
+                            
+                        </footer>
+                    </div>
+
+                    <div class="publicacao">
+                        <figure>
+                            <img src="img/fone.jpg">
+                        </figure>
+                        <footer class="conteudo">
+                            <h4>Título da publicação</h4>
+                            <div class="profile-post">
+                                <div class="pfp-post"  id="post-pfp">
+                                    <img src="img/chuu.jpg">
+                                </div>
+                                <p class="user-post">Chuu</p>
+                                <span>15 mai. 2024</span>
+                            </div>
+                        </footer>
+                    </div>
+
+                    <div class="publicacao">
+                        <figure>
+                            
+                            <img src="img/cellphone.webp">
+                            
+                        </figure>
+                        <footer class="conteudo">
+                            <h4>Título da publicação</h4>
+                            <div class="profile-post">
+                                <div class="pfp-post"  id="post-pfp">
+                                    <img src="img/chuu.jpg">
+                                </div>
+                                <p class="user-post">Chuu</p>
+                                <span>15 mai. 2024</span>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+                <!--fim dos posts recem visitados-->
+
+                <!--inicio dos posts publicados recentemente-->
+                <div class="titulo">
+                    <ul class="posts-recentes">
+                        <h2 class="titulo-posts-recentes">Publicados recentemente</h2>
+                        <li><button href="">Ver todos</button></li>
+                    </ul>
+                </div>
+
+
+                <div class="novos">
+                    <div class="post-novos">
+                        <div class="publicacao">
+                            <figure>
+                                
+                                <img src="img/documento.jpg">
+                                
+                            </figure>
+                            <footer class="conteudo">
+                                
+                                <h4>Título da publicação</h4>
+                                <div class="profile-post">
+                                    <div class="pfp-post"  id="post-pfp">
+                                        <img src="img/chuu.jpg">
+                                    </div>
+                                    <p class="user-post">Chuu</p>
+                                    <span>15 mai. 2024</span>
+                                </div>
+                                
+                                
+                            </footer>
+                        </div>
+    
+                        <div class="publicacao">
+                            <figure>
+                                
+                                <img src="img/fone.jpg">
+                            </figure>
+                            <footer class="conteudo">
+                                <h4>Título da publicação</h4>
+                                <div class="profile-post">
+                                    <div class="pfp-post"  id="post-pfp">
+                                        <img src="img/chuu.jpg">
+                                    </div>
+                                    <p class="user-post">Chuu</p>
+                                    <span>15 mai. 2024</span>
+                                </div>
+                            </footer>
+                        </div>
+    
+                        <div class="publicacao">
+                            <figure>
+                                
+                                <img src="img/cellphone.webp">
+                                
+                            </figure>
+                            <footer class="conteudo">
+                                <h4>Título da publicação</h4>
+                                <div class="profile-post">
+                                    <div class="pfp-post"  id="post-pfp">
+                                        <img src="img/chuu.jpg">
+                                    </div>
+                                    <p class="user-post">Chuu</p>
+                                    
+                                    <span>15 mai. 2024</span>
+                                </div>
+                            </footer>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                
+
+
+            </div>
+
+            <div class="main-right">
+                <button class="voltar" onclick="abrirNavDir()"><i class="fa-solid fa-arrow-left"></i></button>
+                <!--inicio da area do perfil-->
+                <a href="perfil.html" class="profile">
+                    <div class="pfp"  id="my-pfp">
+                        <img src="img/chuu.jpg">
+                    </div>
+                    <div class="profile-handle">
+                        <h4>Chuu</h4>
+                        <p class="username">
+                            @chuudoloona
+                        </p>
+                    </div>
+                </a>
+        
+                <h2 class="h2-3">Minhas publicações</h2>
+                <h3 class="h3-1">Mais recentes</h3>
+                <div class="main-right-meusposts">
+                    <div class="minha-publicacao">
+                        <figure>
+                            
+                            <img src="img/cellphone.webp">
+                            
+                        </figure>
+                        <footer class="conteudo">
+                            <h4>Título da publicação</h4>
+                            <div class="profile-post">
+                                <span>15 mai. 2024</span>
+                                <i class="fa-solid fa-trash"></i>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+        
+                <h2 class="h2-4">Todas</h2>
+                <div class="main-right-meusposts">
+                    <div class="minha-publicacao">
+                        <figure>
+                            
+                            <img src="img/cellphone.webp">
+                            
+                        </figure>
+                        <footer class="conteudo">
+                            <h4>Título da publicação</h4>
+                            <div class="profile-post">
+                                <span>15 mai. 2024</span>
+                                <i class="fa-solid fa-trash"></i>
+                            </div>
+                            
+                        </footer>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-    <script src = "js/postagemAlerta.js"></script>
-</body>
+        <script src = "js/postagemAlerta.js"></script>
+    </body>
 </html>
