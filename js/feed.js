@@ -19,7 +19,7 @@ function abrirMenu() {
 }
 
 function fecharMenu() {
-    document.querySelector(".main-container").style.gridTemplateColumns = "6vw auto 20vw";
+    document.querySelector(".main-container").style.gridTemplateColumns = "80px auto 20vw";
     document.querySelector(".menuFechar").style.display = "none";
     document.querySelector(".menuExpandir").style.opacity = 1;
     document.querySelector(".avalie-nos").style.display = "none";
@@ -39,7 +39,7 @@ function abrirMenuMeusPosts() {
 }
 
 function fecharMenuMeusPosts() {
-    document.querySelector(".main-container-my-posts").style.gridTemplateColumns = "6vw auto";
+    document.querySelector(".main-container-my-posts").style.gridTemplateColumns = "80px auto";
     document.querySelector(".menuFechar").style.display = "none";
     document.querySelector(".menuExpandir").style.opacity = 1;
     document.querySelector(".avalie-nos").style.display = "none";
@@ -59,7 +59,7 @@ function abrirMenuChats() {
 }
 
 function fecharMenuChats() {
-    document.querySelector(".main-container-chats").style.gridTemplateColumns = "6vw auto 105vh";
+    document.querySelector(".main-container-chats").style.gridTemplateColumns = "80px auto 105vh";
     document.querySelector(".menuFechar").style.display = "none";
     document.querySelector(".menuExpandir").style.opacity = 1;
     document.querySelector(".avalie-nos").style.display = "none";
@@ -79,7 +79,7 @@ function abrirMenuConfigs() {
 }
 
 function fecharMenuConfigs() {
-    document.querySelector(".main-container-config").style.gridTemplateColumns = "6vw auto";
+    document.querySelector(".main-container-config").style.gridTemplateColumns = "80px auto";
     document.querySelector(".menuFechar").style.display = "none";
     document.querySelector(".menuExpandir").style.opacity = 1;
     document.querySelector(".avalie-nos").style.display = "none";
@@ -99,7 +99,7 @@ function abrirMenuAvaliar() {
 }
 
 function fecharMenuAvaliar() {
-    document.querySelector(".main-container-feedback").style.gridTemplateColumns = "6vw auto";
+    document.querySelector(".main-container-feedback").style.gridTemplateColumns = "80px auto";
     document.querySelector(".menuFechar").style.display = "none";
     document.querySelector(".menuExpandir").style.opacity = 1;
     document.querySelector(".avalie-nos").style.display = "none";
@@ -120,7 +120,7 @@ function abrirMenuMeuPerfil() {
 }
 
 function fecharMenuMeuPerfil() {
-    document.querySelector(".main-container-meuperfil").style.gridTemplateColumns = "6vw auto 80vh";
+    document.querySelector(".main-container-meuperfil").style.gridTemplateColumns = "80px auto 80vh";
     document.querySelector(".menuFechar").style.display = "none";
     document.querySelector(".menuExpandir").style.opacity = 1;
     document.querySelector(".avalie-nos").style.display = "none";
