@@ -1,51 +1,86 @@
+<!-- Bem-vindo(a) ao perdiAchei! O achados e perdidos virtual do IFES Campus Serra. -->
+<!-- Feito por Gabriele Maria Modesto Luciano, Marcella Gaurink Oliveira Dias e Verônica Gonçalves de Souza -->
+<!-- INFO/5, 2024 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Importando o FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>perdi?Achei!</title>
+    <!-- Importando o CSS -->
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+
     <header>
+        <!-- Início da navbar contendo a logo do perdiAchei, botão para o usuário fazer login e link para a página de sobre -->
         <nav>
             <div class="topnav">
-                <img class="logo" src = "img/logo (2).png" alt = "logo">
+
+                <!-- Nossa logo -->
+                <img class="logo" src = "img/logo.png" alt = "logo">
+
+                <!-- Link para a página de sobre -->
                 <ul id="nav-mobile" class="left">
                     <li><a href="sobre.html">Sobre</a></li>
+
+                <!-- Botão para o usuário fazer login -->
                 <button class="btnLogin" onclick="window.location.href='login.html'">
                     <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
                     Entrar
-                </button> 
+                </button>
+
               </ul>
+
             </div>
           </nav>
+          <!-- Fim da navbar -->
     </header>
 
+    <!-- Início do meio e conteúdo principal da página -->
     <div class="banner">
+
+        <!-- A coluna esquerda guarda o conteúdo escrito da página -->
         <div class="colunaEsq">
-            
+
+            <!-- Título da página -->
             <h1 class="tituloPagina">Perdeu algo? Encontre <span>Aqui.</span></h1>
-                <h3 class="subtitulo">Bem-vindo(a) ao perdiAchei! O Achados e Perdidos Online do IFES Campus Serra. Iremos te ajudar a encontrar o que você perdeu nos arredores do IFES!</h3>
-                <button class="btnCad" onclick="window.location.href='cadastro.html'"> CADASTRE-SE </button>
-                
+
+            <!-- Subtítulo da página -->
+            <h3 class="subtitulo">Bem-vindo(a) ao perdiAchei! O Achados e Perdidos Online do IFES Campus Serra. Iremos te ajudar a encontrar o que você perdeu nos arredores do IFES!</h3>
+            
+            <!-- Botão para o usuário se cadastrar -->
+            <button class="btnCad" onclick="window.location.href='cadastro.html'"> CADASTRE-SE </button>
+
         </div>
+
+        <!-- A coluna direita guarda o símbolo do perdiAchei: a caixa do achados e perdidos -->
         <div class="colunaDir">
-            <img src="img/caixinha.png">    
+
+            <img src="img/caixinha.png">  
+
         </div>
+
     </div>
+    <!-- Fim do meio e conteúdo principal da página -->
 
     
-    
+    <!-- Início do rodapé da página -->
     <footer class="rodape">
+        <!-- Div contendo a logo do projeto -->
         <div class="logo">
             <img class="logo" src = "img/versao2logo.png" alt = "O achados e perdidos do IFES Serra">
         </div>
+        
+        <!-- Div contendo as integrantes do grupo, instituição e ano -->
         <div class="data">
             <h4>Feito por Gabriele, Marcella e Verônica, IFES Serra, 2024</h4>
         </div>
     </footer>
+    <!-- Fim do rodapé da página -->
     <script src ="js/script.js"></script>
 </body>
 </html>
