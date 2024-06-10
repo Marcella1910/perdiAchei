@@ -45,7 +45,7 @@ a {
 
 .menuExpandir {
     background-color: transparent;
-   
+    cursor: pointer;
     transition: .2s;
     
 }
@@ -55,6 +55,7 @@ a {
     transition: .2s;
     padding: .6rem .3rem;
     display: none;
+    cursor: pointer;
 
 }
 
@@ -127,7 +128,7 @@ main {
 
 .main-container {
     display: grid;
-    grid-template-columns: 6vw auto 20vw;
+    grid-template-columns: 80px auto 20vw;
     position: relative;
     column-gap: 2rem;
     height: 100%;
@@ -819,7 +820,7 @@ aside .menu-item-selected i {
 
 .main-container-my-posts {
     display: grid;
-    grid-template-columns: 6vw auto;
+    grid-template-columns: 80px auto;
     position: relative;
     height: 100%;
 
@@ -983,7 +984,7 @@ aside .menu-item-selected i {
 
 .main-container-chats {
     display: grid;
-    grid-template-columns: 6vw auto 105vh;
+    grid-template-columns: 80px auto 105vh;
     position: relative;
     height: 100%;
    
@@ -1193,7 +1194,7 @@ aside .menu-item-selected i {
 /* tela de configuraçoes */
 .main-container-config {
     display: grid;
-    grid-template-columns: 6vw auto;
+    grid-template-columns: 80px auto;
     position: relative;
     
     height: 100%;
@@ -1539,7 +1540,7 @@ input:focus + .slider {
 
 .main-container-meuperfil {
     display: grid;
-    grid-template-columns: 6vw auto 80vh;
+    grid-template-columns: 80px auto 80vh;
     position: relative;
     column-gap: 2rem;
     height: 100%;
@@ -1764,7 +1765,7 @@ input:focus + .slider {
 
 .main-container-feedback {
     display: grid;
-    grid-template-columns: 6vw auto;
+    grid-template-columns: 80px auto;
     position: relative;
     height: 100%;
 }
@@ -1882,7 +1883,7 @@ input:focus + .slider {
 
 .main-container-criarPostagem {
     display: grid;
-    grid-template-columns: 6vw auto 20vw;
+    grid-template-columns: 80px auto 20vw;
     position: relative;
     column-gap: 2rem;
     height: 100%;
