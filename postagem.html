@@ -1,47 +1,88 @@
+<!-- Bem-vindo(a) ao perdiAchei! O achados e perdidos virtual do IFES Campus Serra. -->
+<!-- Feito por Gabriele Maria Modesto Luciano, Marcella Gaurink Oliveira Dias e Verônica Gonçalves de Souza -->
+<!-- INFO/5, 2024 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <!-- Importando o FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Publicação</title>
+    <!-- Importando o CSS -->
     <link rel="stylesheet" href="css/feed.css">
+    <!-- Importando o FontAwesome -->
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <main>
+        <!-- Inicio do conteudo principal da tela de postagem (expandida)  -->
         <div class = "publicacaoexpandida">
+
+            <!-- Imagem do item  -->
             <figure>
+                <!-- Botao para fechar a postagem expandida  -->
                 <button class="cancelar" onclick="window.location.href='feed.html'">
                     <i class="fa-solid fa-xmark fa-2xl"></i>
                 </button>
+                <!--  -->
+
+                <!-- Foto  -->
                 <img src="img/documento.jpg">
-                    
+                <!--  -->
+
             </figure>
+            <!--  -->
+
+            <!-- Conteudo da postagem  -->
             <footer class="conteudo">
+
+                <!-- Header: titulo, botao de reivindicar -->
                 <div class="headerPublicacao">
                     <h1>Título da publicação</h1>
-                    <button class="reinvidicar" onclick="window.location.href='chats.html'">Reinvidicar</button>   
+
+                    <!-- Leva para conversa com o criador do post  -->
+                    <button class="reinvidicar" onclick="window.location.href='chats.html'">Reivindicar</button>   
+                    <!--  -->
+
+                    <!-- Menu  -->
                     <button class="menuPublicacao"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                    <!--  -->
                 </div>
+                <!--  -->
+
+                <!-- Categorias da postagem  -->
                 <div class="catPostagem">
                     <h3 class="categoriaItem">Eletrônicos</h3>
-                <h3 class="categoriaPublicacao">Item perdido</h3>
+                    <h3 class="categoriaPublicacao">Item perdido</h3>
                 </div>
+                <!--  -->
                 
+
+                <!-- Descrição do item  -->
                 <p>Lorem ipsum dolor sit amet. Qui dicta laudantium et beatae perferendis et eveniet excepturi. Et iure inventore aut reprehenderit voluptatibus ut eius accusamus qui omnis culpa et corporis harum hic modi eligendi. 33 aspernatur autem et velit voluptates non vitae minus eos voluptatem fugit ea labore beatae. Sit debitis pariatur eum quibusdam expedita ab dolorem beatae aut sequi voluptatum et doloribus velit est saepe harum qui sunt sint.</p>
+                <!--  -->
+                
+                <!-- Sobre o usuário  -->
                 <div class="profile-post">
+                    <!-- pfp  -->
                     <div class="pfp-post"  id="post-pfp">
                         <img src="img/chuu.jpg">
                     </div>
+                    <!-- user e data de postagem  -->
                     <h4 class="user-post">Chuu</h4>
                     <span>15 mai. 2024</span>
-                </div>   
-            </footer>
-        </div>
+                </div>  
+                <!--  -->
 
-            
+            </footer>
+            <!--  -->
+
+        </div>
+        <!-- Fim do conteudo principal da tela de postagem  -->
+
+        <!-- Mesmo da página de criarPostagem  -->
         <div class="main-container-criarPostagem">
             <div class="main-left">
                 <div class="botoes">
