@@ -1,82 +1,118 @@
+<!-- Bem-vindo(a) ao perdiAchei! O achados e perdidos virtual do IFES Campus Serra. -->
+<!-- Feito por Gabriele Maria Modesto Luciano, Marcella Gaurink Oliveira Dias e Verônica Gonçalves de Souza -->
+<!-- INFO/5, 2024 -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Importando o CSS -->
     <link rel="stylesheet" href="css/feed.css">
+    <!-- Importando o JS -->
     <script src="js/feed.js"></script>
+    <!-- Importando o FontAwesome -->
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
     <title>Chats</title>
 </head>
 <body>
-    <header>
-    </header>
     <main>
+        <!-- Conteúdo principal da página de Chats-->
         <div class="main-container-chats">
+
+             <!-- Início do menu lateral esquerdo da página -->
             <div class="main-left">
-                <!--logo-->
+
+                <!-- Div botoes é a que guarda os botoes para abrir e fechar o menu -->
                 <div class="botoes">
+
+                    <!-- Esse botao abre o menu -->
                     <button class="menuExpandir" id="menuExpandir" onclick="abrirMenuChats()">
                         <i class="fa-solid fa-bars fa-lg"></i>
                     </button>
+
+                    <!-- Esse botao fecha o menu -->
                     <button class="menuFechar" id="menuFechar" onclick="fecharMenuChats()">
                         <i class="fa-regular fa-circle-xmark fa-xl"></i>
                     </button>
                 </div>
                 
-                
-
+                <!-- O aside irá guardar os links para as principais páginas do site -->
                 <aside>
+
+                    <!-- Link para a página de feed(Home) -->
                     <a href="feed.html" class="menu-item">
                         <span><i class="fa fa-solid fa-house fa-lg"></i></span><h3 class="nome-menu-item">Home</h3>
                     </a>
+
+                    <!-- Link para a página de Notificações -->
                     <a href="notificacoes.html" class="menu-item">
                         <span><i class="fa-solid fa-bell fa-lg"></i></span><h3 class="nome-menu-item">Notificações</h3>
                     </a>
+
+                    <!-- Link para a página de Minhas publicações -->
                     <a href="my-posts.html" class="menu-item">
                         <span><i class="fa-solid fa-list fa-lg"></i></span><h3 class="nome-menu-item">Minhas publicações</h3>
                     </a>
+
+                    <!-- Link para a página de Chats(conversas) -->
                     <a href="chats.html" class="menu-item">
                         <span><i class="fa-solid fa-comments fa-lg"></i></span><h3 class="nome-menu-item">Mensagens</h3>
                     </a>
+
+                    <!-- Link para a página de Configurações -->
                     <a href="configuracoes.html" class="menu-item">
                         <span><i class="fa-solid fa-gear fa-lg"></i></span><h3 class="nome-menu-item">Configurações</h3>
                     </a>
+
+                    <!-- Botão de criar postagem -->
                     <div class="menu-item">
                         <i class="fa-solid fa-pen-to-square fa-lg"></i>
                         <button class="btnPostar" id="btnPostar" onclick="criarPost()">Criar post</button>
                     </div>
                     
+                    <!-- Link para fazer logout; -->
                     <a href="index.html" class="menu-item" id="log-out">
                         <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span> <h3>Sair</h3>
                     </a>
+
+                    <!-- Essa div leva para a página de avaliação -->
                     <div class="avalie-nos">
-                        <figure>
-                            <img src="">
-                        </figure>
+
                         <div class="conteudo-avalie-nos">
                             <h2>Ajude nos a melhorar nosso trabalho!</h2>
                             <h1>Avalie-nos</h1>
+                            <!-- Este botão leva para a página de avaliação -->
                             <button class="botao-avalie-nos" onclick="irAvaliar()">
                                 Avalie-nos
                             </button>
                         </div>
+                        
                     </div>
-                    
-                </aside>
-            </div>
+                    <!-- Fim da div de avaliação -->
 
+                </aside>
+                <!-- Fim do aside -->
+
+            </div>
+            <!-- Fim do menu lateral esquerdo da página -->
+
+            <!-- Início do meio da página de Chats-->
             <div class="main-middle-chats">
+
+                <!-- Título da página de Chats  -->
                 <div class="tituloListaCtts">
                     <h1 class="titulopagina-chats">
                         Contatos
                     </h1>
+                    <!-- Servirá para pesquisar contatos depois -->
                     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
                 </div>
                 
-                
+                <!-- Inicio da lista de contatos  -->
                 <div class="listaCtts">
+
+                    <!-- Contato selecionado -->
                     <div class="ctt-selected">
                         <div class="pfp"  id="my-pfp">
                             <img src="img/chuu.jpg">
@@ -88,6 +124,7 @@
                         <span>00:00</span>
                     </div>
 
+                    <!-- Contato  -->
                     <div class="ctt">
                         <div class="pfp"  id="my-pfp">
                             <img src="img/chuu.jpg">
@@ -99,6 +136,7 @@
                         <span>00:00</span>
                     </div>
 
+                    <!-- Contato  -->
                     <div class="ctt">
                         <div class="pfp"  id="my-pfp">
                             <img src="img/chuu.jpg">
@@ -110,6 +148,7 @@
                         <span>00:00</span>
                     </div>
 
+                    <!-- Contato  -->
                     <div class="ctt">
                         <div class="pfp"  id="my-pfp">
                             <img src="img/chuu.jpg">
@@ -121,6 +160,7 @@
                         <span>00:00</span>
                     </div>
 
+                    <!-- Contato  -->
                     <div class="ctt">
                         <div class="pfp"  id="my-pfp">
                             <img src="img/chuu.jpg">
@@ -132,6 +172,7 @@
                         <span>00:00</span>
                     </div>
 
+                    <!-- Contato  -->
                     <div class="ctt">
                         <div class="pfp"  id="my-pfp">
                             <img src="img/chuu.jpg">
@@ -142,67 +183,111 @@
                         </div>
                         <span>00:00</span>
                     </div>
+
                 </div>
-                
+                <!-- Fim da lista de contatos  -->
             
             </div>
+            <!-- Fim do meio da página  -->
 
+
+            <!-- Inicio da parte direita da página de chats  -->
             <div class="main-right-chats">
+
+                <!-- Area de Conversa  -->
                 <div class="conversa">
                     
+                    <!-- Sobre o contato aberto  -->
                     <div class="ctt-conversa">
+
+                        <!-- Voltar conversa (Fechar)-->
                         <button class="voltarCnv">
                             <i class="fa-solid fa-arrow-left fa-lg"></i>
                         </button>
+
+                        <!-- Pfp do contato  -->
                         <div class="pfp"  id="my-pfp">
                             <img src="img/chuu.jpg">
                         </div>
+
+                        <!-- Nome e @  do contato  -->
                         <div class="conteudo-ctt">
                             <h4 class="nomectt">Fulano de tal</h4>
                             <p>@chuudoloona</p>
                         </div>
+
+                        <!-- Ações sobre o contato  -->
                         <div class="actions">
                             <button class="menu">
                                 <i class="fa-solid fa-ellipsis-vertical fa-lg"></i>
                             </button>
                         </div>
-                    </div>
 
+                    </div>
+                    <!--  -->
+
+                    <!-- Caixa de mensagem  -->
                     <div class="caixa-msg">
+
+                        <!-- Mensagem  -->
                         <div class="msg-enviei">
                             <p>oiiii</p>
                             <span>Hoje, 00:00</span>
                         </div>
+                        <!--  -->
+
+                        <!-- Mensagem  -->
                         <div class="msg-enviada">
                             <span>Hoje, 00:00</span>
                             <p>oii</p>
-                            
-
                         </div>
+                        <!--  -->
+
+                        <!-- Mensagem  -->
                         <div class="msg-enviei">
                             <p>oiii</p>
                             <span>Hoje, 00:00</span>
                         </div>
+                        <!--  -->
+
                     </div>
+                    <!-- Fim da caixa de mensagem  -->
                     
+                    <!-- Inicio da parte de baixo da conversa  -->
                     <div class="fim-conversa">
+
+                        <!-- Barra de digitação  -->
                         <div class="barEnviar">
+
+                            <!-- Botão de ações (selecionar imgs, arquivos, etc)  -->
                             <button class="acoes-btn">
                                 <i class="fa-solid fa-paperclip fa-lg"></i>
                             </button>
+
+                            <!-- Digitar...  -->
                             <input type="search" placeholder="Digite algo...">
+
+                            <!-- Botão para enviar a mensagem  -->
+
                             <button class="enviar-msg">
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
+
                         </div>
-                        
+                        <!-- Fim da barra de digitar -->
 
                     </div>
+                    <!-- Fim da parte de baixo da conversa  -->
+
                 </div>
-                
-                
+                <!-- Fim da area de conversa  -->
+
             </div>
+            <!-- Fim da parte direita da parte de Chats  -->
+
         </div>
+        <!-- Fim do conteúdo principal da página de Chats -->
+
     </main>
 
 </body>
