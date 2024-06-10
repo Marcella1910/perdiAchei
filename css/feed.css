@@ -2196,6 +2196,7 @@ input:focus + .slider {
     background-color:#e2bbda;
     border-radius: 30px;
     border: 2px solid black;
+    cursor: pointer;
 }
 
 .headerPublicacao .reinvidicar:hover {
@@ -2285,3 +2286,30 @@ input:focus + .slider {
 .publicacaoexpandida .cancelar:hover {
     filter: brightness(90%);
 }
+
+
+/* inicio da pagina de publicacao(do usuario) */
+
+.editarPublicacao {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: .6rem 3rem;
+    background-color:#e2bbda;
+    border-radius: 30px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.main-container-minhaPublicacao {
+    display: grid;
+    grid-template-columns: 80px auto;
+    position: relative;
+    height: 100%;
+    filter: blur(5px);
+    opacity: 0.9;
+    
+}
+
+/* fim da pagina de publicacao (do usuario) */
+
