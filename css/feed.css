@@ -360,7 +360,8 @@ aside .menu-item i {
 
 .minha-publicacao .profile-post span {
     color: grey;
-    margin: 0;
+    margin-right: 5px;
+    margin-bottom: 5px;
 
 }
 
@@ -390,6 +391,7 @@ aside .menu-item i {
 }
 .minha-publicacao .profile-post i {
     margin-right: 1rem;
+    margin-bottom: 5px;
     color: gray;
     cursor: pointer;
 }
