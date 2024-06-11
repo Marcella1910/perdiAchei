@@ -2,7 +2,7 @@ function irAvaliar() {
     window.location.href = "avaliar.html";
 }
 function criarPost() {
-    window.location.href = "postagemAlerta.html";
+    window.location.href = "criarPublicacao.html";
 }
 
 // menu do feed
