@@ -1,11 +1,14 @@
-
+/* Importando as fontes utilizadas  */
 
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Início da página de cadastro  */
+
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,9 +16,11 @@
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
+
 }
 
 body {
+
     background: rgb(241,114,114);
     background: linear-gradient(45deg, rgba(241,114,114,1) 10%, rgba(255,165,0,1) 40%, rgba(172,104,158,1) 100%);
     background-attachment: fixed;
@@ -24,17 +29,16 @@ body {
     align-items: center;
     color:#0E1111;
     height: 100%;
-   
-     
+
 }
 
 
 .bdcad {
+
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center; 
     margin: 50px;
     background-color: #fffce0;
     border: 2px solid black;
@@ -45,49 +49,42 @@ body {
     
 }
 
- 
-    
-
-  
-
 .imgCad {
     
     width: 50%;
     height: 100%;
-    
     justify-content: center;
     text-align: center;
     padding: 1rem;
     
-    
-    
-    
 }
 
 .imgCad .lgtitulo {
-    
     
     font-family: "Raleway", sans-serif;
     font-weight: 800;
     font-size: 3rem;
     margin: 2rem;
     
-    
 }
 
 
 .imgCad span {
+
     color: orange;
     font-weight: bold;
+
 }
 
 .lgtitulo span {
+
     font-weight: 700;
     color: #ac689e;
     
 }
 
 .cadastro {
+
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     background-color: white;
@@ -99,9 +96,11 @@ body {
     text-align: center;
     border-right: 2px solid black;
     padding: 10px;
+
 }
 
 .cadastro .lgtitulo {
+
     text-align: left;
     font-family: "Raleway", sans-serif;
     font-weight: 800;
@@ -111,6 +110,7 @@ body {
 }
 
 .inputarea {
+
     display: flex;
     background-color: white;
     width: 100%;
@@ -118,7 +118,9 @@ body {
     margin: 0.5rem;
     
 }
+
 .inputs {
+
     padding: 15px;
     display: grid; 
     width: 100%;
@@ -127,19 +129,22 @@ body {
 }
 
 .inputs h4 {
+
     font-weight: 600;
     margin-left: 1rem;
     margin-top: 0.5rem;
+
 }
 
 
 .fazerLogin {
+
     margin-top: 60px;
     margin-bottom: 30px;
+
 }
 
 input {
-    
     
     font-family: "Poppins", sans-serif;
     font-style: normal;
@@ -156,15 +161,16 @@ input {
 }
 
 input:focus {
+
     background-color: #fae0f5;
     border: none;
     border: 0;
+
 }
 
 
 .btnCad {
    
-    
     margin: 0.5rem;
     font-family: "Poppins", sans-serif;
     font-style: normal;
@@ -176,11 +182,12 @@ input:focus {
     border:0;
     transition: 0.2s ease;
     width: 100%;
-    
     border-radius: 30px;
+
 }
 
 .btnLog {
+
     margin-top: 2rem;
     font-family: "Poppins", sans-serif;
     font-style: normal;
@@ -195,9 +202,11 @@ input:focus {
     border: 2px solid #0E1111;
     border-radius: 30px;
     box-shadow: 2px 2px 1px 1px;
+
 }
 
 .btnLog:hover {
+
     background-color: orange;
     color: #0E1111;
     border: 2px solid #0E1111;
@@ -206,16 +215,23 @@ input:focus {
 }
 
 a:link {
+
     color:#ff9f21;
     text-decoration:none;
 }
+
 a:visited {
+
     color:#ac689e;
     text-decoration:none;
+
 }
 
 small{
+
     color:#ff0000;
     text-decoration:none;
+
 }
   
+/* Fim da página de cadastro  */
