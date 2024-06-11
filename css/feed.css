@@ -2104,9 +2104,9 @@ input:checked + .slider:before {
     margin: 0;
     top: 0;
     position: relative;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     background-color: #5e7881;
     
 
@@ -2116,7 +2116,7 @@ input:checked + .slider:before {
     
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: none;
     transition: all 0.5s;
     
     
