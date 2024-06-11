@@ -1,9 +1,12 @@
-
+/* Importand todas as fontes  */
 
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* Toda as páginas   */
 
 * {
     margin: 0;
@@ -24,18 +27,16 @@ body {
     align-items: center;
     color:#0E1111;
     height: 100%;
-    background-attachment: fixed;
-   
-     
+    background-attachment: fixed;  
 }
 
+/* Início da tela de Login, EsqueciSenha e Redefinir senha  */
 
 .bdlog {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    
     margin: 50px;
     background-color: #fffce0;
     border: 2px solid black;
@@ -43,25 +44,14 @@ body {
     border-radius: 20px;
     width: fit-content;
     height: fit-content;
-    
 }
 
- 
-    
-
-  
-
 .imgLog {
-    
     width: 50%;
     height: 100%;
     justify-content: center;
     text-align: center;
-    padding: 1rem;
-    
-    
-    
-    
+    padding: 1rem;  
 }
 
 .imgLog .lgtitulo {
@@ -69,10 +59,7 @@ body {
     font-weight: 800;
     font-size: 3rem;
     margin: 2rem;
-    
-    
 }
-
 
 .imgLog span {
     color: orange;
@@ -121,7 +108,6 @@ body {
     display: grid; 
     width: 100%;
     text-align: left;
-   
 }
 
 .inputs h4 {
@@ -137,6 +123,8 @@ body {
     margin-bottom: 1.5rem;
 }
 
+
+/* Página de esqueci senha  */
 
 
 .esqueciSenha {
@@ -155,9 +143,9 @@ body {
     color:rgb(63, 63, 63);
 }
 
+/*  */
+
 input {
-    
-    
     font-family: "Poppins", sans-serif;
     font-style: normal;
     background: transparent;
@@ -169,7 +157,6 @@ input {
     transition: 100ms ease all;
     color:black;
     width: 100%;
-    
 }
 
 input:focus {
@@ -180,8 +167,6 @@ input:focus {
 
 
 .btnCad {
-   
-    
     margin: 0.5rem;
     font-family: "Poppins", sans-serif;
     font-style: normal;
@@ -226,13 +211,14 @@ a:link {
     color:#ff9f21;
     text-decoration:none;
   }
-  a:visited {
+
+
+a:visited {
     color:#ac689e;
     text-decoration:none;
-  }
-  
+}
 
-
+/* Recuperar senha  */
 
 .recsenha {
     position: relative;
@@ -293,6 +279,9 @@ a:link {
     border-right: 2px solid black;
     padding: 10px;
 }
+
+/*  */
+
 small{
     color:#ff0000;
     text-decoration:none;
