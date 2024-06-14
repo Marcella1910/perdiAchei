@@ -21,6 +21,8 @@ body {
     height: 100%;
     background-attachment: fixed;
     background-color: #fff9c8;
+    display: grid;
+    grid-template-rows: 20vh auto 20vh;
     
 }
 
@@ -29,7 +31,8 @@ body {
 /* Menu de cima (Navbar) */
 
 header {
-    background-color: #fff9c8; 
+    background-color: #fff9c8;
+    width: 100%; 
 }
 
 .topnav li {
@@ -152,7 +155,7 @@ i {
 }
 
 .colunaDir img {
-    width: 35%;
+    width: 370px;
 }
 
 .colunaEsq {
@@ -163,7 +166,6 @@ i {
     padding-left: 7rem;
     width: 100%;
     height: 100%;
-    
 }
 
 .colunaDir {
