@@ -10,5 +10,5 @@ Integrantes: Gabriele Luciano, Marcella Oliveira e Verônica Gonçalves.
 ![image](https://github.com/Marcella1910/perdiAchei/assets/101737211/f9b30dd2-9e73-49bf-9b11-0eb7b1cda055)
 
 
-![image](https://github.com/Marcella1910/perdiAchei/assets/101737211/ab3275ab-d2b8-4097-a48f-1657640fc07c)
+![1722380970689](https://github.com/user-attachments/assets/804d5214-0810-40bc-b19e-a11a8bb8cceb)
 
