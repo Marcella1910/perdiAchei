@@ -369,3 +369,67 @@ span:hover {
 
 /* Fim da página de sobre  */
 
+/* Trabalhando na responsividade da tela inicial */
+
+@media screen and (max-width: 1132px){
+    .topnav {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .topnav .left, .topnav .btnLogin {
+        display: none;
+    }
+
+    .colunaDir {
+        display: none;
+        background-color: rgb(121, 69, 0);
+    }
+
+    .colunaEsq {
+        width: 100%;
+        flex-basis: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .colunaEsq .tituloPagina {
+        font-family: "Varela Round", sans-serif;
+        font-weight: 900;
+        font-size: 3rem;
+        width: 100%;
+        text-align: left;
+        padding: 1rem;
+    }
+
+    .colunaEsq .tituloPagina span {
+        font-size: 3rem;
+    }
+
+    .colunaEsq .subtitulo {
+        font-weight: 600;
+        font-size: 20px;
+        font-family: "Poppins", sans-serif;
+        font-style: normal;
+        text-align: left;
+        padding: 1rem;
+    }
+
+    .colunaEsq .btnCad {
+        font-size: 20px;
+        width: fit-content;
+        align-self: center;
+    }
+
+    .banner {
+        margin: 0;
+        padding: 0;
+    }
+
+    .rodape {
+        display: none;
+    }
+
+}
