@@ -383,8 +383,17 @@ span:hover {
     }
 
     .colunaDir {
-        display: none;
-        background-color: rgb(121, 69, 0);
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .colunaDir img {
+        width: 10rem;
+        
+        margin: 2rem;
+
     }
 
     .colunaEsq {
@@ -426,6 +435,8 @@ span:hover {
     .banner {
         margin: 0;
         padding: 0;
+        flex-direction: column-reverse;
+        text-align: center;
     }
 
     .rodape {
