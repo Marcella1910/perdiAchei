@@ -21,9 +21,6 @@ body {
     height: 100%;
     background-attachment: fixed;
     background-color: #fff9c8;
-    display: grid;
-    grid-template-rows: 20vh auto 20vh;
-    
 }
 
 /*  */
@@ -148,6 +145,9 @@ i {
 
 .banner {
     display: flex;
+    height: 100%;
+    padding-top: 6rem;
+    padding-bottom: 10rem;
 }
 
 .colunaEsq, .colunaDir {
@@ -200,58 +200,67 @@ span:hover {
     cursor: pointer;
 }
 
+.flex {
+    display: flex;
+}
+
 /* Fim da página de index */
 
 /* Início do rodapé // Mesmo pra todas as páginas */
-
 .rodape {
-    position: fixed;
-    bottom: 0;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-top: solid 2.5px black;;
-    width: 100%;
-    background-color: #fff9c8;
-    display: flex;
+    padding: 40px 4%;
+    border-top: solid 2.5px black;
+}
+
+.logo-footer img {
+    width: 9rem;
+}
+
+.rodape .flex {
     justify-content: space-between;
 }
 
-.rodape .logo h4{
-    font-family: "Raleway", serif;
-    font-weight: 800;
-    font-size: 1.5rem;
-    margin-left: 2rem;
+.btn-social button {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: solid 2.5px black;
+    background-color: transparent;
+    font-size: 28px;
+    cursor: pointer;
+    margin: 5px 5px;
+    transition: .2s;
+}
+
+.btn-social button:hover {
+    border: solid 2.5px #c026b6;
+    color: #c026b6;
+}
+
+.borda {
+    border-top: 2.5px solid black;
+}
+
+.rodape .line-footer {
+    padding: 30px 12px;
+}
+
+.rodape .line-footer p i{
+    color: black;
+    font-size: 22px;
+    margin-right: 0.7rem;
     
 }
 
-.rodape .data {
-    margin-top: 1rem;
-    margin-right: 2rem;
+.rodape .line-footer p a{
+    color: black;
+    font-size: 18px;
 }
 
-.rodape .logo {
-    margin-left: 1rem;
-}
-
-.rodape img {
-    width: 14%;
-    
-}
-
-.rodape .logo a {
-    margin-left: 2rem;
-    text-decoration: none;
-    color: rgb(75, 75, 75);
-}
-
-.rodape .logo a:hover {
-    color: rgb(192, 38, 182);
-    transition: 300ms all ease;
-}
-
-.rodape .mais {
-    margin-top: 1rem;
-    margin-right: 2rem;
+.rodape .line-footer p a:hover {
+    color: #c026b6;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 /* Fim do rodapé  */
