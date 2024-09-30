@@ -377,14 +377,17 @@ span:hover {
 }
 
 .txtmissao {
+    text-align: left;
     box-shadow: 3px 3px 1px 1px #c026b6;
 }
 
 .txtpesquisa {
     box-shadow: 3px 3px 1px 1px #f17272;
+    text-align: left;
 }
 
 .txtnos {
+    text-align: left;
     box-shadow: 3px 3px 1px 1px #ffa500;
 }
 
