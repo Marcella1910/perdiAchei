@@ -156,6 +156,17 @@ i {
 
 .colunaDir img {
     width: 370px;
+    position:relative;
+    animation: flutuar 2s ease-in-out infinite alternate;
+}
+
+@keyframes flutuar {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 30px;
+    }
 }
 
 .colunaEsq {
@@ -203,6 +214,7 @@ span:hover {
 .flex {
     display: flex;
 }
+
 
 /* Fim da página de index */
 
@@ -380,27 +392,33 @@ span:hover {
 
 /* Trabalhando na responsividade da tela inicial */
 
-@media screen and (max-width: 1132px){
+@media screen and (max-width: 1085px){
     .topnav {
-        display: flex;
-        align-items: center;
-        width: 100%;
+        
+        justify-content:center;
     }
 
-    .topnav .left, .topnav .btnLogin {
-        display: none;
+    .topnav .btnLogin {
+        width: max-content;    
     }
+
+    .topnav img {
+        width: 210px;
+        height: 45px;
+    }
+    
+
 
     .colunaDir {
+        
         text-align: center;
         align-items: center;
-        justify-content: center;
-        
+        justify-content:left;
+       
     }
 
     .colunaDir img {
         width: 10rem;
-        
         margin: 2rem;
 
     }
@@ -448,8 +466,21 @@ span:hover {
         text-align: center;
     }
 
-    .rodape {
-        display: none;
+    .index {
+        padding-bottom: 3rem;
     }
 
-}
+    .rodape {
+        margin-top: 1rem;
+    }
+
+    .rodape .flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .rodape .line-footer {
+        text-align: center;
+    }
+
+} 
