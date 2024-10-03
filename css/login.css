@@ -286,3 +286,21 @@ small{
     color:#ff0000;
     text-decoration:none;
 }
+
+
+@media screen and (max-width: 1028px) {
+    .imgLog {
+        display: none;
+    }
+
+    .bdlog {
+        width: 30rem;
+        margin: 20px;
+    }
+    
+    .login {
+        width: 100%;
+        border-radius: 20px;
+        border-right: none;
+    }
+}
