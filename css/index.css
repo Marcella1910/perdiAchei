@@ -253,6 +253,10 @@ span:hover {
     border-top: 2.5px solid black;
 }
 
+.borda-bottom {
+    border-bottom: 2.5px solid black;
+}
+
 .rodape .line-footer {
     padding: 30px 12px;
 }
@@ -286,6 +290,7 @@ span:hover {
     padding: 2rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    text-align: left;
 }
 
 .nos {
@@ -298,11 +303,14 @@ span:hover {
     font-size: 3rem;
     width: 100%;
     padding-bottom: 2rem;
+    text-align: left;
 }
 
 .conteudo {
     padding: 3rem;
 }
+
+
 
 .txtmissao, .imgMissao {
     width: 100%;
@@ -484,6 +492,26 @@ span:hover {
 
     .rodape .line-footer {
         text-align: center;
+    }
+
+    .titulosobre {
+        padding: 3rem;
+    }
+
+    .explicacao, .pesquisa, .nos {
+        flex-direction: column;
+        gap: 40px;
+    
+    }
+
+    .imgMissao, .imgPesquisa, .imgNos {
+        width: 400px;
+        padding-bottom: 2rem;
+        padding-top: 3rem;
+    }
+
+    .conteudo  {
+        padding: 0;
     }
 
 } 
