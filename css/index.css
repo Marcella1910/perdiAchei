@@ -293,6 +293,10 @@ span:hover {
     text-align: left;
 }
 
+.pesquisa {
+    flex-direction: row-reverse;
+}
+
 .nos {
     margin-bottom: 5rem;
 }

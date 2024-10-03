@@ -235,3 +235,28 @@ small{
 }
   
 /* Fim da página de cadastro  */
+
+
+@media screen and (max-width: 1028px) {
+    .imgCad {
+        display: none
+    }
+
+    .bdcad {
+        width: 30rem;
+    }
+
+    .cadastro {
+        width: 100%;
+        border-radius: 20px;
+        border-right: none;
+    }
+
+    .cadastro .lgtitulo {
+        font-size: 2.5rem
+    }
+    
+    .bdcad {
+        margin: 20px;
+    }
+}
