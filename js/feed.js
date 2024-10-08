@@ -126,3 +126,4 @@ function fecharMenuMeuPerfil() {
     document.querySelector(".avalie-nos").style.display = "none";
     document.querySelector(".avalie-nos").style.transition = ".2s";
 }
+

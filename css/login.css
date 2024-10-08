@@ -110,6 +110,27 @@ body {
     text-align: left;
 }
 
+.password-container {
+    position: relative;
+    display: inline-block;
+}
+
+.senha {
+    padding-right: 30px; /* Espaço para o ícone */
+    padding: 10px;
+    font-size: 12px;
+}
+
+i.fa-eye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+}
+
 .inputs h4 {
     font-weight: 600;
     margin-left: 1rem;
