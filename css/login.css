@@ -115,7 +115,7 @@ body {
     display: inline-block;
 }
 
-.senha {
+.senha, .cnfsenha {
     padding-right: 30px; /* Espaço para o ícone */
     padding: 10px;
     font-size: 12px;

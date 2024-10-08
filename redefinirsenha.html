@@ -8,6 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redefinição da senha</title>
+    <!-- Importando o JS -->
+    <script src="js/login.js" defer></script>
     <!-- Importando o CSS  -->
     <link rel="stylesheet" type="text/css" href="css/login.css"/>
     <!-- Importando o FontAwesome -->
@@ -45,15 +47,17 @@
 
                     <!-- Nova senha  -->
                     <h4>Insira uma nova senha</h4>
-                    <div class="inputarea">
+                    <div class="inputarea password-container">
                         <input type="password" id="senha" class="senha" placeholder="Nova senha">
+                        <i id="togglePassword1" class="fa-regular fa-eye"></i>
                     </div>
                     <!--  -->
                     
                     <!-- Repetir a senha  -->
                     <h4>Repita a nova senha</h4>
-                    <div class="inputarea">
-                        <input type="password" id="senha" class="senha" placeholder="Nova senha">
+                    <div class="inputarea password-container">
+                        <input type="password" id="cnfsenha" class="cnfsenha" placeholder="Nova senha">
+                        <i id="togglePassword2" class="fa-regular fa-eye"></i>
                     </div>
                     <!--  -->
                     
