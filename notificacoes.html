@@ -1,296 +1,279 @@
-<!-- Bem-vindo(a) ao perdiAchei! O achados e perdidos virtual do IFES Campus Serra. -->
-<!-- Feito por Gabriele Maria Modesto Luciano, Marcella Gaurink Oliveira Dias e Verônica Gonçalves de Souza -->
-<!-- INFO/5, 2024 -->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Importando o CSS -->
+    <title>perdiAchei</title>
+    
     <link rel="stylesheet" href="css/feed.css">
-    <!-- Importando o JS -->
-    <script src="js/feed.js"></script>
-    <!-- Importando o FontAwesome -->
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
-    <title>Notificações</title>
 </head>
 <body>
-    <main>
-        <!-- Conteúdo principal da página de Minhas notificações -->
-        <div class="main-container">
-            <!-- Início do menu lateral esquerdo da página -->
-            <div class="main-left">
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo"><p>perdeu algo? ache aqui!</p></div>
+        <img src="img/logos/caixinha.png"></img>
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="pesquisar um item...">
+        </div>
+    </div>
 
-                <!-- Div botoes é a que guarda os botoes para abrir e fechar o menu -->
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Left Menu -->
+        <div class="left-menu">
+            <aside>
+
+                <!-- Link para a página de feed(Home) -->
+                <a href="feed.html" class="menu-item">
+                    <span><i class="fa fa-solid fa-house fa-lg"></i></span><h3 class="nome-menu-item">Home</h3>
+                </a>
+
+                <!-- Link para a página de Notificações -->
+                <a href="notificacoes.html" class="menu-item">
+                    <span><i class="fa-solid fa-bell fa-lg"></i></span><h3 class="nome-menu-item">Notificações</h3>
+                </a>
+
+                <!-- Link para a página de Chats(conversas) -->
+                <a href="chats.html" class="menu-item">
+                    <span><i class="fa-solid fa-comments fa-lg"></i></span><h3 class="nome-menu-item">Mensagens</h3>
+                </a>
+
+                <!-- Link para a página de Configurações -->
+                <a href="configuracoes.html" class="menu-item">
+                    <span><i class="fa-solid fa-gear fa-lg"></i></span><h3 class="nome-menu-item">Configurações</h3>
+                </a>
+
+                <!-- Botão de criar postagem -->
+                
+                
+                <!-- Link para fazer logout; -->
+                <a href="index.html" class="menu-item" id="log-out">
+                    <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span> <h3>Sair</h3>
+                </a>
+
+                <!-- Essa div leva para a página de avaliação -->
+                
+                <!-- Fim da div de avaliação -->
+
+            </aside>
+        </div>
+
+        <!-- Middle Content -->
+        <div class="main-content">
+
+            <!-- Create Post Section -->
+            <div class="create-post">
+                <textarea maxlength="80" rows="1" cols="30" class="titulopost" placeholder="dê um título a postagem..."></textarea>
+                <textarea class="descricaopost" maxlength="280" rows="5" cols="30" placeholder="perdeu ou achou algo?"></textarea>
+                <div id="preview-container" class="preview-container" style="display: none;">
+                    <button id="cancel-button" style="margin-top: 10px;"><i class="fa-solid fa-xmark"></i></button>
+                    <img id="preview-image" class="preview-image" alt="Pré-visualização da Imagem" style="display: none;">
+                    <video id="preview-video" class="preview-video" controls style="display: none;"></video>
+                </div>
                 <div class="botoes">
+                    <button>criar publicação</button>
+                    <div class="botoes-ladodir">
 
-                    <!-- Esse botao abre o menu -->
-                    <button class="menuExpandir" id="menuExpandir" onclick="abrirMenu()">
-                        <i class="fa-solid fa-bars fa-lg"></i>
-                    </button>
+                        <div class="toggle-buttons">
+                            <input type="radio" id="perdido" name="status" value="perdido">
+                            <label for="perdido" class="toggle-button">objeto perdido</label>
+                        
+                            <input type="radio" id="encontrado" name="status" value="encontrado">
+                            <label for="encontrado" class="toggle-button">objeto encontrado</label>
+                        </div>
 
-                    <!-- Esse botao fecha o menu -->
-                    <button class="menuFechar" id="menuFechar" onclick="fecharMenu()">
-                        <i class="fa-regular fa-circle-xmark fa-xl"></i>
-                    </button>
+                        <div class="upload-container">
+                            <label for="file-upload" class="upload-button">
+                                <i class="fa-solid fa-upload"></i>
+                            </label>
+                            <input id="file-upload" type="file" accept="image/*,video/*">
+                        </div>
+                    </div>
+                    
                 </div>
                 
-                <!-- O aside irá guardar os links para as principais páginas do site -->
-                <aside>
+            </div>
 
-                    <!-- Link para a página de feed(Home) -->
-                    <a href="feed.html" class="menu-item">
-                        <span><i class="fa fa-solid fa-house fa-lg"></i></span><h3 class="nome-menu-item">Home</h3>
-                    </a>
+            <!-- Posts -->
+            <div class="post">
 
-                    <!-- Link para a página de Notificações -->
-                    <a href="notificacoes.html" class="menu-item">
-                        <span><i class="fa-solid fa-bell fa-lg"></i></span><h3 class="nome-menu-item">Notificações</h3>
-                    </a>
-
-                    <!-- Link para a página de Minhas publicações -->
-                    <a href="my-posts.html" class="menu-item">
-                        <span><i class="fa-solid fa-list fa-lg"></i></span><h3 class="nome-menu-item">Minhas publicações</h3>
-                    </a>
-
-                    <!-- Link para a página de Chats(conversas) -->
-                    <a href="chats.html" class="menu-item">
-                        <span><i class="fa-solid fa-comments fa-lg"></i></span><h3 class="nome-menu-item">Mensagens</h3>
-                    </a>
-
-                    <!-- Link para a página de Configurações -->
-                    <a href="configuracoes.html" class="menu-item">
-                        <span><i class="fa-solid fa-gear fa-lg"></i></span><h3 class="nome-menu-item">Configurações</h3>
-                    </a>
-
-                    <!-- Botão de criar postagem -->
-                    <div class="menu-item">
-                        <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                        <button class="btnPostar" id="btnPostar" onclick="criarPost()">Criar post</button>
+                <div class="post-header">
+                    <div class="pfp-post">
+                        <img class="pfp" src="img/userspfp/kdbicon.jpg">
                     </div>
-                    
-                    <!-- Link para fazer logout; -->
-                    <a href="index.html" class="menu-item" id="log-out">
-                        <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span> <h3>Sair</h3>
-                    </a>
-
-                    <!-- Essa div leva para a página de avaliação -->
-                    <div class="avalie-nos">
-
-                        <div class="conteudo-avalie-nos">
-                            <h2>Ajude nos a melhorar nosso trabalho!</h2>
-                            <h1>Avalie-nos</h1>
-                            <!-- Este botão leva para a página de avaliação -->
-                            <button class="botao-avalie-nos" onclick="irAvaliar()">
-                                Avalie-nos
-                            </button>
+                    <div class="perfil-post">
+                        <p class="nome">kevin de bruyne</p>
+                        <p class="data-post">12/12/12</p>
+                    </div>
+                    <div class="menu-container">
+                        <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
+                        <div class="dropdown-menu" id="dropdown-menu">
+                            <ul>
+                                <li><a href="#">Editar</a></li>
+                                <li><a href="#">Excluir</a></li>
+                                <li><a href="#">Denunciar</a></li>
+                            </ul>
                         </div>
-                        
                     </div>
-                    <!-- Fim da div de avaliação -->
-
-                </aside>
-                <!-- Fim do aside -->
-
-            </div>
-            <!-- Fim do menu lateral esquerdo da página -->
-
-            <!-- Inicio do meio da página de Minhas notificacoes -->
-            <div class="main-middle">
-
-                <!-- Título  -->
-                <div class="titulopagina-notificacoes">
-                    <h1>Notificações</h1>
-                </div>
-                <!--  -->
-
-                <!-- Subtítulo  -->
-                <div class="subtitulopagina-notificacoes">
-                    <h1>Hoje</h1>
-                </div>
-                <!--  -->
-
-                <!-- Lista de notificações de hoje  -->
-                <div class="listNotif">
-
-                    <!-- Notificação  -->
-                    <div class="notificacao">
-                        <p class="title"><i class="fa-solid fa-circle-exclamation"></i>Texto notificação 1</p>
-                        <span>Hoje as 14:30</span>
-                        <button class="excluir"><i class="fa-solid fa-trash"></i>Excluir</button>
-                    </div>
-                    <!--  -->
-
-                    <!-- Notificação  -->
-                    <div class="notificacao">
-                        <p class="title"><i class="fa-solid fa-circle-exclamation"></i>Texto notificação 1</p>
-                        <span>Hoje as 14:30</span>
-                        <button class="excluir"><i class="fa-solid fa-trash"></i>Excluir</button>
-                    </div>
-                    <!--  -->
-
-                    <!-- Notificação  -->
-                    <div class="notificacao">
-                        <p class="title"><i class="fa-solid fa-circle-exclamation"></i>Texto notificação 1</p>
-                        <span>Hoje as 14:30</span>
-                        <button class="excluir"><i class="fa-solid fa-trash"></i>Excluir</button>
-                    </div>
-                    <!--  -->
-
-                    <!-- Notificação  -->
-                    <div class="notificacao">
-                        <p class="title"><i class="fa-solid fa-circle-exclamation"></i> Texto notificação 1</p>
-                        <span>Hoje as 14:30</span>
-                        <button class="excluir"><i class="fa-solid fa-trash"></i>Excluir</button>
-                    </div>
-                    <!--  -->
-
-                    <!-- Notificação -->
-                    <div class="notificacao">
-                        <p class="title"><i class="fa-solid fa-circle-exclamation"></i>Texto notificação 1</p>
-                        <span>Hoje as 14:30</span>
-                        <button class="excluir"><i class="fa-solid fa-trash"></i>Excluir</button>
-                    </div>
-                    <!--  -->
                     
                 </div>
-                <!-- Fim da lista de notificações de hoje  -->
 
-                <!-- Subtítulo  -->
-                <div class="subtitulopagina-notificacoes">
-                    <h1>Essa semana</h1>
+                <div class="conteudo-principal">
+                    <h2 class="titulo">
+                        perdi minha carteiraa
+                    </h2>
+                    <div class="midia">
+                        <img class="imagem-post" src="img/postagens/carteira.jpg">
+                    </div>
+                    <p class="texto-post">perdi minha carteira '-'</p>
                 </div>
-                <!--  -->
 
-                <!-- Lista de notificações dessa semana  -->
-                <div class="listNotif">
-
-                    <!-- Notificação  -->
-                    <div class="notificacao">
-                        <p class="title"><i class="fa-solid fa-circle-exclamation"></i>Texto notificação 1</p>
-                        <span>Hoje as 14:30</span>
-                        <button class="excluir"><i class="fa-solid fa-trash"></i>Excluir</button>
-                    </div>
-                    <!--  -->
-
-                    <!-- Notificação  -->
-                    <div class="notificacao">
-                        <p class="title"><i class="fa-solid fa-circle-exclamation"></i>Texto notificação 1</p>
-                        <span>Hoje as 14:30</span>
-                        <button class="excluir"><i class="fa-solid fa-trash"></i>Excluir</button>
-                    </div>
-                    <!--  -->
-
-                    <!-- Notificação  -->
-                    <div class="notificacao">
-                        <p class="title"><i class="fa-solid fa-circle-exclamation"></i>Texto notificação 1</p>
-                        <span>Hoje as 14:30</span>
-                        <button class="excluir"><i class="fa-solid fa-trash"></i>Excluir</button>
-                    </div>
-                    <!--  -->
-
-                    <!-- Notificação  -->
-                    <div class="notificacao">
-                        <p class="title"><i class="fa-solid fa-circle-exclamation"></i> Texto notificação 1</p>
-                        <span>Hoje as 14:30</span>
-                        <button class="excluir"><i class="fa-solid fa-trash"></i>Excluir</button>
-                    </div>
-                    <!--  -->  
-
-                    <!-- Notificação -->
-                    <div class="notificacao">
-                        <p class="title"><i class="fa-solid fa-circle-exclamation"></i>Texto notificação 1</p>
-                        <span>Hoje as 14:30</span>
-                        <button class="excluir"><i class="fa-solid fa-trash"></i>Excluir</button>
-                    </div>
-                    <!--  -->
             
+                <div class="post-footer">
+                    <div class="tags-post">
+                        <button class="tp_publicacao">
+                            objeto perdido
+                        </button>
+                        <button class="tag-item">
+                            <i class="fa-solid fa-id-card"></i>
+                            documentos
+                        </button>
+                    </div>
+
+                    <div class="acoes">
+                        <button class="encontrei">encontrei !</button>
+                    </div>
+
                 </div>
-                <!-- Fim da lista de notificações dessa semana  -->
+            </div>
+
+            <div class="post">
+
+                <div class="post-header">
+                    <div class="pfp-post">
+                        <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                    </div>
+                    <div class="perfil-post">
+                        <p class="nome">kevin de bruyne</p>
+                        <p class="data-post">12/12/12</p>
+                    </div>
+                    <div class="menu-container">
+                        <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
+                        <div class="dropdown-menu" id="dropdown-menu">
+                            <ul>
+                                <li><a href="#">Editar</a></li>
+                                <li><a href="#">Excluir</a></li>
+                                <li><a href="#">Denunciar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conteudo-principal">
+                    <h2 class="titulo">
+                        perdi minha carteiraa
+                    </h2>
+                    <div class="midia">
+                        <img class="imagem-post" src="img/postagens/carteira.jpg">
+                    </div>
+                    <p class="texto-post">perdi minha carteira '-'</p>
+                </div>
+
             
-            </div>
-            <!-- Fim do meio da página  -->
-
-            <!-- Início da parte direita da página  -->
-            <div class="main-right">
-                <!--Inicio da area do perfil-->
-                <a href="perfil.html" class="profile">
-                    <!-- pfp do usuário  -->
-                    <div class="pfp"  id="my-pfp">
-                        <img src="img/userspfp/chuu.jpg">
+                <div class="post-footer">
+                    <div class="tags-post">
+                        <button class="tp_publicacao">
+                            objeto perdido
+                        </button>
+                        <button class="tag-item">
+                            <i class="fa-solid fa-id-card"></i>
+                            documentos
+                        </button>
                     </div>
-                    <!-- nome e username  -->
-                    <div class="profile-handle">
-                        <h4>Chuu</h4>
-                        <p class="username">
-                            @chuudoloona
-                        </p>
+
+                    <div class="acoes">
+                        <button class="encontrei">encontrei !</button>
                     </div>
-                </a>
-                <!-- Fim da area de perfil  -->
-
-                <!-- Título  -->
-                <h2 class="h2-3">Minhas publicações</h2>
-
-                <!-- Subtítulo  -->
-                <h3 class="h3-1">Mais recentes</h3>
-
-                <!-- Posts recentemente feitos do usuário  -->
-                <div class="main-right-meusposts">
-                    
-                    <!-- Postagem mais nova  -->
-                    <div class="minha-publicacao">
-                        <!-- Imagem do item  -->
-                        <figure>
-                            <img src="img/postagens/cellphone.webp">
-                        </figure>
-                        <!-- Conteudo da postagem  -->
-                        <footer class="conteudo">
-                            <h4>Título da publicação</h4>
-                            <div class="profile-post">
-                                <span>15 mai. 2024</span>
-                                <i class="fa-solid fa-trash"></i>
-                            </div>
-                        </footer>
-                    </div>
-                    <!-- Fim da postagem mais nova  -->
 
                 </div>
-                <!-- Fim dos posts recentes do usuário  -->
+            </div>
 
-                <!-- Subtítulo  -->
-                <h2 class="h2-4">Todas</h2>
+            <div class="post">
 
-                <!-- Todos os posts do usuário  -->
-                <div class="main-right-meusposts">
-
-                    <!-- Publicação mais antiga  -->
-                    <div class="minha-publicacao">
-                        <!-- Imagem da postagem  -->
-                        <figure>
-                            <img src="img/postagens/cellphone.webp">
-                        </figure>
-                        <!-- Conteudo da postagem  -->
-                        <footer class="conteudo">
-                            <h4>Título da publicação</h4>
-                            <div class="profile-post">
-                                <span>15 mai. 2024</span>
-                                <i class="fa-solid fa-trash"></i>
-                            </div>
-                        </footer>
+                <div class="post-header">
+                    <div class="pfp-post">
+                        <img class="pfp" src="img/userspfp/kdbicon.jpg">
                     </div>
-                    <!--  -->
+                    <div class="perfil-post">
+                        <p class="nome">kevin de bruyne</p>
+                        <p class="data-post">12/12/12</p>
+                    </div>
+                    <div class="menu-container">
+                        <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
+                        <div class="dropdown-menu" id="dropdown-menu">
+                            <ul>
+                                <li><a href="#">Editar</a></li>
+                                <li><a href="#">Excluir</a></li>
+                                <li><a href="#">Denunciar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conteudo-principal">
+                    <div class="midia">
+                        <img class="imagem-post" src="img/postagens/carteira.jpg">
+                    </div>
+                    <p class="texto-post">perdi minha carteira '-'</p>
+                </div>
+
+            
+                <div class="post-footer">
+                    <div class="tags-post">
+                        <button class="tp_publicacao">
+                            objeto perdido
+                        </button>
+                        <button class="tag-item">
+                            <i class="fa-solid fa-id-card"></i>
+                            documentos
+                        </button>
+                    </div>
+
+                    <div class="acoes">
+                        <button class="encontrei">encontrei !</button>
+                    </div>
 
                 </div>
-                <!-- Fim dos posts do usuário  -->
-
             </div>
-            <!-- Fim da parte direita da página  -->
+
+            
+
         </div>
-        <!-- Fim do conteúdo principal da página de Minhas notificações -->
 
-    </main>
+        <!-- Right Menu -->
+        <div class="right-menu">
+            <div class="header-right-menu">
+                <p>Perfil</p>
+                <button class="editperfil">
+                    <i class="fa-solid fa-pen-to-square"></i>  
+                </button>
+            </div>
+            <div class="centro-menu-right">
+                <div class="ftperfil">
+                    <img src="img/userspfp/kdbicon.jpg"></img>
+                </div>
+                
+                <h2 class="nome">kevin de bruyne</h2>
+                <h3 class="username">@kdb</h3>
+            </div>
+        </div>
 
+    </div>
+    
+
+    <script src="js/feed.js"></script>
 </body>
 </html>

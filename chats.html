@@ -1,294 +1,315 @@
-<!-- Bem-vindo(a) ao perdiAchei! O achados e perdidos virtual do IFES Campus Serra. -->
-<!-- Feito por Gabriele Maria Modesto Luciano, Marcella Gaurink Oliveira Dias e Verônica Gonçalves de Souza -->
-<!-- INFO/5, 2024 -->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Importando o CSS -->
+    <title>perdiAchei</title>
+    
     <link rel="stylesheet" href="css/feed.css">
-    <!-- Importando o JS -->
-    <script src="js/feed.js"></script>
-    <!-- Importando o FontAwesome -->
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
-    <title>Chats</title>
 </head>
 <body>
-    <main>
-        <!-- Conteúdo principal da página de Chats-->
-        <div class="main-container-chats">
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo"><p>perdeu algo? ache aqui!</p></div>
+        <img src="img/logos/caixinha.png"></img>
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="pesquisar um item...">
+        </div>
+    </div>
 
-             <!-- Início do menu lateral esquerdo da página -->
-            <div class="main-left">
+    <!-- Main Container -->
+    <div class="container">
 
-                <!-- Div botoes é a que guarda os botoes para abrir e fechar o menu -->
+        <!-- Left Menu -->
+        <div class="left-menu">
+            <aside>
+
+                <!-- Link para a página de feed(Home) -->
+                <a href="feed.html" class="menu-item">
+                    <span><i class="fa fa-solid fa-house fa-lg"></i></span><h3 class="nome-menu-item">Home</h3>
+                </a>
+
+                <!-- Link para a página de Notificações -->
+                <button class="menu-item-notifications">
+                    <span><i class="fa-solid fa-bell fa-lg"></i></span><h3 class="nome-menu-item">Notificações</h3>
+                </button>
+
+                
+                <!-- Link para a página de Chats(conversas) -->
+                <a href="chats.html" class="menu-item">
+                    <span><i class="fa-solid fa-comments fa-lg"></i></span><h3 class="nome-menu-item">Mensagens</h3>
+                </a>
+
+                <!-- Link para a página de Configurações -->
+                <a href="configuracoes.html" class="menu-item">
+                    <span><i class="fa-solid fa-gear fa-lg"></i></span><h3 class="nome-menu-item">Configurações</h3>
+                </a>
+
+                <!-- Botão de criar postagem -->
+                
+                
+                <!-- Link para fazer logout; -->
+                <a href="index.html" class="menu-item" id="log-out">
+                    <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span> <h3>Sair</h3>
+                </a>
+
+                <!-- Essa div leva para a página de avaliação -->
+                
+                <!-- Fim da div de avaliação -->
+
+            </aside>
+        </div>
+
+        <!-- Middle Content -->
+        <div class="main-content">
+            <div class="notification-panel">
+                <div class="notification-header">
+                    <h2 class="username">@kdb</h2>
+                </div>
+                <ul class="notification-list">
+                    <li><div class="notif">
+                        <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
+                        <div class="dados-notif">
+                            <p>@jinsoul</p>
+                            <p>quer reivindicar um item postado!</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="notif">
+                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
+                            <div class="dados-notif">
+                                <p>@jinsoul</p>
+                                <p>quer reivindicar um item postado!</p>
+                            </div>
+                    </li>
+                    <li><div class="notif">
+                        <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
+                        <div class="dados-notif">
+                            <p>@jinsoul</p>
+                            <p>quer reivindicar um item postado!</p>
+                        </div></li>
+                    <li><div class="notif">
+                        <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
+                        <div class="dados-notif">
+                            <p>@jinsoul</p>
+                            <p>quer reivindicar um item postado!</p>
+                        </div></li>
+                    <!-- Adicione mais notificações aqui -->
+                </ul>
+            </div>
+
+            <!-- Create Post Section -->
+            <div class="create-post">
+                <textarea maxlength="80" rows="1" cols="30" class="titulopost" placeholder="dê um título a postagem..."></textarea>
+                <textarea class="descricaopost" maxlength="280" rows="5" cols="30" placeholder="perdeu ou achou algo?"></textarea>
+                <div id="preview-container" class="preview-container" style="display: none;">
+                    <button id="cancel-button" style="margin-top: 10px;"><i class="fa-solid fa-xmark"></i></button>
+                    <img id="preview-image" class="preview-image" alt="Pré-visualização da Imagem" style="display: none;">
+                    <video id="preview-video" class="preview-video" controls style="display: none;"></video>
+                </div>
                 <div class="botoes">
+                    <button>criar publicação</button>
+                    <div class="botoes-ladodir">
 
-                    <!-- Esse botao abre o menu -->
-                    <button class="menuExpandir" id="menuExpandir" onclick="abrirMenuChats()">
-                        <i class="fa-solid fa-bars fa-lg"></i>
-                    </button>
-
-                    <!-- Esse botao fecha o menu -->
-                    <button class="menuFechar" id="menuFechar" onclick="fecharMenuChats()">
-                        <i class="fa-regular fa-circle-xmark fa-xl"></i>
-                    </button>
-                </div>
-                
-                <!-- O aside irá guardar os links para as principais páginas do site -->
-                <aside>
-
-                    <!-- Link para a página de feed(Home) -->
-                    <a href="feed.html" class="menu-item">
-                        <span><i class="fa fa-solid fa-house fa-lg"></i></span><h3 class="nome-menu-item">Home</h3>
-                    </a>
-
-                    <!-- Link para a página de Notificações -->
-                    <a href="notificacoes.html" class="menu-item">
-                        <span><i class="fa-solid fa-bell fa-lg"></i></span><h3 class="nome-menu-item">Notificações</h3>
-                    </a>
-
-                    <!-- Link para a página de Minhas publicações -->
-                    <a href="my-posts.html" class="menu-item">
-                        <span><i class="fa-solid fa-list fa-lg"></i></span><h3 class="nome-menu-item">Minhas publicações</h3>
-                    </a>
-
-                    <!-- Link para a página de Chats(conversas) -->
-                    <a href="chats.html" class="menu-item">
-                        <span><i class="fa-solid fa-comments fa-lg"></i></span><h3 class="nome-menu-item">Mensagens</h3>
-                    </a>
-
-                    <!-- Link para a página de Configurações -->
-                    <a href="configuracoes.html" class="menu-item">
-                        <span><i class="fa-solid fa-gear fa-lg"></i></span><h3 class="nome-menu-item">Configurações</h3>
-                    </a>
-
-                    <!-- Botão de criar postagem -->
-                    <div class="menu-item">
-                        <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                        <button class="btnPostar" id="btnPostar" onclick="criarPost()">Criar post</button>
-                    </div>
-                    
-                    <!-- Link para fazer logout; -->
-                    <a href="index.html" class="menu-item" id="log-out">
-                        <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span> <h3>Sair</h3>
-                    </a>
-
-                    <!-- Essa div leva para a página de avaliação -->
-                    <div class="avalie-nos">
-
-                        <div class="conteudo-avalie-nos">
-                            <h2>Ajude nos a melhorar nosso trabalho!</h2>
-                            <h1>Avalie-nos</h1>
-                            <!-- Este botão leva para a página de avaliação -->
-                            <button class="botao-avalie-nos" onclick="irAvaliar()">
-                                Avalie-nos
-                            </button>
-                        </div>
+                        <div class="toggle-buttons">
+                            <input type="radio" id="perdido" name="status" value="perdido">
+                            <label for="perdido" class="toggle-button">objeto perdido</label>
                         
+                            <input type="radio" id="encontrado" name="status" value="encontrado">
+                            <label for="encontrado" class="toggle-button">objeto encontrado</label>
+                        </div>
+
+                        <div class="upload-container">
+                            <label for="file-upload" class="upload-button">
+                                <i class="fa-solid fa-upload"></i>
+                            </label>
+                            <input id="file-upload" type="file" accept="image/*,video/*">
+                        </div>
                     </div>
-                    <!-- Fim da div de avaliação -->
-
-                </aside>
-                <!-- Fim do aside -->
-
-            </div>
-            <!-- Fim do menu lateral esquerdo da página -->
-
-            <!-- Início do meio da página de Chats-->
-            <div class="main-middle-chats">
-
-                <!-- Título da página de Chats  -->
-                <div class="tituloListaCtts">
-                    <h1 class="titulopagina-chats">
-                        Contatos
-                    </h1>
-                    <!-- Servirá para pesquisar contatos depois -->
-                    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                    
                 </div>
                 
-                <!-- Inicio da lista de contatos  -->
-                <div class="listaCtts">
+            </div>
 
-                    <!-- Contato selecionado -->
-                    <div class="ctt-selected">
-                        <div class="pfp"  id="my-pfp">
-                            <img src="img/userspfp/haseul.jpg">
-                        </div>
-                        <div class="conteudo-ctt">
-                            <h4 class="nomectt">Haseul</h4>
-                            <p>Tudo bem!</p>
-                        </div>
-                        <span>16:34</span>
+            <!-- Posts -->
+            <div class="post">
+
+                <div class="post-header">
+                    <div class="pfp-post">
+                        <img class="pfp" src="img/userspfp/kdbicon.jpg">
                     </div>
-
-                    <!-- Contato  -->
-                    <div class="ctt">
-                        <div class="pfp"  id="my-pfp">
-                            <img src="img/userspfp/choerry.jpg">
-                        </div>
-                        <div class="conteudo-ctt">
-                            <h4 class="nomectt">Choerry</h4>
-                            <p>oiii</p>
-                        </div>
-                        <span>13:59</span>
+                    <div class="perfil-post">
+                        <p class="nome">kevin de bruyne</p>
+                        <p class="data-post">12/12/12</p>
                     </div>
-
-                    <!-- Contato  -->
-                    <div class="ctt">
-                        <div class="pfp"  id="my-pfp">
-                            <img src="img/userspfp/yves.jpg">
+                    <div class="menu-container">
+                        <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
+                        <div class="dropdown-menu" id="dropdown-menu">
+                            <ul>
+                                <li><a href="#">Editar</a></li>
+                                <li><a href="#">Excluir</a></li>
+                                <li><a href="#">Denunciar</a></li>
+                            </ul>
                         </div>
-                        <div class="conteudo-ctt">
-                            <h4 class="nomectt">Yves</h4>
-                            <p>Olá</p>
-                        </div>
-                        <span>10 jun. 2024</span>
                     </div>
-
-                    <!-- Contato  -->
-                    <div class="ctt">
-                        <div class="pfp"  id="my-pfp">
-                            <img src="img/userspfp/vivi.jpg">
-                        </div>
-                        <div class="conteudo-ctt">
-                            <h4 class="nomectt">Vivi</h4>
-                            <p>oiii vivi</p>
-                        </div>
-                        <span>10 jun. 2024</span>
-                    </div>
-
-                    <!-- Contato  -->
-                    <div class="ctt">
-                        <div class="pfp"  id="my-pfp">
-                            <img src="img/userspfp/yeojin.jpg">
-                        </div>
-                        <div class="conteudo-ctt">
-                            <h4 class="nomectt">Yeojin</h4>
-                            <p>Hi</p>
-                        </div>
-                        <span>09 jun. 2024</span>
-                    </div>
-
-                    <!-- Contato  -->
-                    <div class="ctt">
-                        <div class="pfp"  id="my-pfp">
-                            <img src="img/userspfp/jinsoul.jpg">
-                        </div>
-                        <div class="conteudo-ctt">
-                            <h4 class="nomectt">Jinsoul</h4>
-                            <p>여기요</p>
-                        </div>
-                        <span>08 jun. 2024</span>
-                    </div>
-
+                    
                 </div>
-                <!-- Fim da lista de contatos  -->
+
+                <div class="conteudo-principal">
+                    <h2 class="titulo">
+                        perdi minha carteiraa
+                    </h2>
+                    <div class="midia">
+                        <img class="imagem-post" src="img/postagens/carteira.jpg">
+                    </div>
+                    <p class="texto-post">perdi minha carteira '-'</p>
+                </div>
+
             
-            </div>
-            <!-- Fim do meio da página  -->
-
-
-            <!-- Inicio da parte direita da página de chats  -->
-            <div class="main-right-chats">
-
-                <!-- Area de Conversa  -->
-                <div class="conversa">
-                    
-                    <!-- Sobre o contato aberto  -->
-                    <div class="ctt-conversa">
-
-                        <!-- Voltar conversa (Fechar)-->
-                        <button class="voltarCnv">
-                            <i class="fa-solid fa-arrow-left fa-lg"></i>
+                <div class="post-footer">
+                    <div class="tags-post">
+                        <button class="tp_publicacao">
+                            objeto perdido
                         </button>
-
-                        <!-- Pfp do contato  -->
-                        <div class="pfp"  id="my-pfp">
-                            <img src="img/userspfp/haseul.jpg">
-                        </div>
-
-                        <!-- Nome e @  do contato  -->
-                        <div class="conteudo-ctt">
-                            <h4 class="nomectt">Haseul</h4>
-                            <p>@haseuldoloona</p>
-                        </div>
-
-                        <!-- Ações sobre o contato  -->
-                        <div class="actions">
-                            <button class="menu">
-                                <i class="fa-solid fa-ellipsis-vertical fa-lg"></i>
-                            </button>
-                        </div>
-
+                        <button class="tag-item">
+                            <i class="fa-solid fa-id-card"></i>
+                            documentos
+                        </button>
                     </div>
-                    <!--  -->
 
-                    <!-- Caixa de mensagem  -->
-                    <div class="caixa-msg">
-
-                        <!-- Mensagem  -->
-                        <div class="msg-enviei">
-                            <p>Oi tudo bem ?</p>
-                            <span>Hoje, 16:30</span>
-                        </div>
-                        <!--  -->
-
-                        <!-- Mensagem  -->
-                        <div class="msg-enviada">
-                            <span>Hoje, 16:32</span>
-                            <p>Oi tudo bem e vc ?</p>
-                        </div>
-                        <!--  -->
-
-                        <!-- Mensagem  -->
-                        <div class="msg-enviei">
-                            <p>Tudo bem!</p>
-                            <span>Hoje, 16:34</span>
-                        </div>
-                        <!--  -->
-
+                    <div class="acoes">
+                        <button class="encontrei">encontrei !</button>
                     </div>
-                    <!-- Fim da caixa de mensagem  -->
-                    
-                    <!-- Inicio da parte de baixo da conversa  -->
-                    <div class="fim-conversa">
-
-                        <!-- Barra de digitação  -->
-                        <div class="barEnviar">
-
-                            <!-- Botão de ações (selecionar imgs, arquivos, etc)  -->
-                            <button class="acoes-btn">
-                                <i class="fa-solid fa-paperclip fa-lg"></i>
-                            </button>
-
-                            <!-- Digitar...  -->
-                            <input type="search" placeholder="Digite algo...">
-
-                            <!-- Botão para enviar a mensagem  -->
-
-                            <button class="enviar-msg">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-
-                        </div>
-                        <!-- Fim da barra de digitar -->
-
-                    </div>
-                    <!-- Fim da parte de baixo da conversa  -->
 
                 </div>
-                <!-- Fim da area de conversa  -->
-
             </div>
-            <!-- Fim da parte direita da parte de Chats  -->
+
+            <div class="post">
+
+                <div class="post-header">
+                    <div class="pfp-post">
+                        <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                    </div>
+                    <div class="perfil-post">
+                        <p class="nome">kevin de bruyne</p>
+                        <p class="data-post">12/12/12</p>
+                    </div>
+                    <div class="menu-container">
+                        <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
+                        <div class="dropdown-menu" id="dropdown-menu">
+                            <ul>
+                                <li><a href="#">Editar</a></li>
+                                <li><a href="#">Excluir</a></li>
+                                <li><a href="#">Denunciar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conteudo-principal">
+                    <h2 class="titulo">
+                        perdi minha carteiraa
+                    </h2>
+                    <div class="midia">
+                        <img class="imagem-post" src="img/postagens/carteira.jpg">
+                    </div>
+                    <p class="texto-post">perdi minha carteira '-'</p>
+                </div>
+
+            
+                <div class="post-footer">
+                    <div class="tags-post">
+                        <button class="tp_publicacao">
+                            objeto perdido
+                        </button>
+                        <button class="tag-item">
+                            <i class="fa-solid fa-id-card"></i>
+                            documentos
+                        </button>
+                    </div>
+
+                    <div class="acoes">
+                        <button class="encontrei">encontrei !</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="post">
+
+                <div class="post-header">
+                    <div class="pfp-post">
+                        <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                    </div>
+                    <div class="perfil-post">
+                        <p class="nome">kevin de bruyne</p>
+                        <p class="data-post">12/12/12</p>
+                    </div>
+                    <div class="menu-container">
+                        <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
+                        <div class="dropdown-menu" id="dropdown-menu">
+                            <ul>
+                                <li><a href="#">Editar</a></li>
+                                <li><a href="#">Excluir</a></li>
+                                <li><a href="#">Denunciar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conteudo-principal">
+                    <div class="midia">
+                        <img class="imagem-post" src="img/postagens/carteira.jpg">
+                    </div>
+                    <p class="texto-post">perdi minha carteira '-'</p>
+                </div>
+
+            
+                <div class="post-footer">
+                    <div class="tags-post">
+                        <button class="tp_publicacao">
+                            objeto perdido
+                        </button>
+                        <button class="tag-item">
+                            <i class="fa-solid fa-id-card"></i>
+                            documentos
+                        </button>
+                    </div>
+
+                    <div class="acoes">
+                        <button class="encontrei">encontrei !</button>
+                    </div>
+
+                </div>
+            </div>
+
+            
 
         </div>
-        <!-- Fim do conteúdo principal da página de Chats -->
 
-    </main>
+        <!-- Right Menu -->
+        <div class="right-menu">
+            <div class="header-right-menu">
+                <p>Perfil</p>
+                <button class="editperfil">
+                    <i class="fa-solid fa-pen-to-square"></i>  
+                </button>
+            </div>
+            <div class="centro-menu-right">
+                <div class="ftperfil clickable-profile">
+                    <img src="img/userspfp/kdbicon.jpg"></img>
+                </div>
+                
+                <h2 class="nome clickable-profile">kevin de bruyne</h2>
+                <h3 class="username clickable-profile">@kdb</h3>
+            </div>
+        </div>
 
+    </div>
+    
+
+    <script src="js/feed.js"></script>
 </body>
 </html>

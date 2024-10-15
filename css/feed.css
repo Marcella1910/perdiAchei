@@ -104,6 +104,116 @@ body {
     border-bottom-right-radius: 20px;
 }
 
+.left-menu button {
+    border: 0;
+    background-color: white;
+}
+
+.left-menu button:hover {
+    background-color: #f3f3f3;
+}
+
+.menu-item-notifications {
+    color: #555;
+    font-size: 13px;
+    display: flex;
+    font-family: "Poppins";
+    align-items: center;
+    height: 4rem;
+    cursor: pointer;
+    transition: 300ms ease all;
+    width: 100%; 
+    padding-left: 20px;
+}
+
+.menu-item-notifications i {
+    margin-right: 1rem;
+}
+
+/* Caixa de Notificações */
+.notification-panel {
+    display: none;
+    border-radius: 20px;
+    margin-top: 5rem;
+    font-family: "Poppins";
+    font-size: 13px;
+    font-weight: 600;
+    color:#555;
+    position: fixed;
+    top: 0;
+    width: 300px;
+    background-color:white;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    
+}
+
+.notification-panel.active {
+    top: 5rem;
+    left: 18rem; /* Quando ativo, mova o painel para dentro da tela */
+}
+
+/* Inicialmente, o painel está escondido */
+.notification-panel {
+    opacity: 0;
+    display: none;
+    transition: opacity 0.1s ease; /* Animação suave de 0.3 segundos */
+}
+
+/* Quando o painel está visível */
+.notification-panel.show {
+    display: block; /* Mostra o painel */
+    opacity: 1;     /* Define a opacidade para 100% */
+}
+
+
+.notification-header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #dddbda;
+}
+
+.notification-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.notification-header .close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.notification-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notification-list li {
+    padding: 15px;
+}
+
+.notification-list li:hover {
+    background-color: #f9f9f9;
+}
+
+.notif {
+    display: flex;
+}
+
+.notif img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
 .right-menu {
     background-color: #fdf7c9;
     box-shadow: #fff9c8 0px 30px 60px -12px inset, #fdf7c9 0px 18px 36px -18px inset;
@@ -485,6 +595,7 @@ aside .menu-item:hover {
 .right-menu .nome {
     color: #555;
     margin-top: 1rem;
+    cursor: pointer;
 }
 
 .right-menu .username {
@@ -492,6 +603,7 @@ aside .menu-item:hover {
     font-size: 15px;
     color: #8f8f8f;
     font-weight: 200;
+    cursor: pointer;
 }
 
 .botoes {
@@ -605,3 +717,74 @@ input[type="file"] {
 #cancel-button:hover {
     background-color: #c62828; /* Muda a cor ao passar o mouse */
 }
+
+.visualiza-perfil {
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.header-perfil {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #ac689e;
+}
+
+.middle-perfil {
+    background-color: white;
+}
+.header-perfil .ftperfil {
+    
+} 
+
+.visualiza-perfil {
+    height: fit-content;
+    font-family: "Poppins";
+    color:#555;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinha tudo horizontalmente no centro */
+    text-align: center;
+    box-shadow: #e2da9e 0px 7px 29px 0px;
+}
+
+.header-perfil {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center; /* Alinha tudo horizontalmente no centro */
+    width: 100%;
+    margin-bottom: 10px; /* Espaço entre a foto e o nome */
+}
+
+.visualiza-perfil .ftperfil{
+    border-color:#fffce0;
+}
+
+.visualiza-perfil .ftperfil img {
+    width: 150px; /* Define um tamanho para a imagem */
+    height: 150px;
+    border-radius: 50%; /* Faz a imagem ficar circular */
+    object-fit: cover;
+}
+
+.middle-perfil h2 {
+    margin: 10px 0 5px 0; /* Espaçamento personalizado entre os textos */
+}
+
+.middle-perfil h3 {
+    font-size: 15px;
+    font-weight: 200;
+    font-family: "Varela Round";
+    color:#8f8f8f; /* Cor do username para contraste */
+    margin: 0;
+}
+
+.clickable-profile {
+    cursor: pointer; /* Adiciona o cursor pointer para elementos clicáveis */
+}
+
