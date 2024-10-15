@@ -1,2272 +1,607 @@
-
-/* Importando as fontes utilizadas  */
-
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Varela+Round&display=swap');
 
 
-/* Todas as páginas  */
-
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "League Spartan", sans-serif;
     outline: none;
     text-decoration: none;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-    border: none;
-    color: black;
 }
 
 body {
+    font-family: Arial, sans-serif;
     background-color: #fffce0;
-}
-
-a {
-    color: black;
-    text-decoration: none;
-}
-
-/*  */
-
-main {
-    position: relative;
-    height: 100vh;
     
 }
 
-/* Página de feed  */
-
-.main-container {
-
-    display: grid;
-    grid-template-columns: 80px auto 20vw;
-    position: relative;
-    column-gap: 2rem;
-    height: 100%;
-    transition: .2s;
-
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: transparent;
+    transition: transform 0.3s ease-in-out;
+    height: 60px;
 }
 
 
-/* Menu lateral esquerdo  */
+.navbar.hidden {
+    transform: translateY(-100%); /* Esconde a navbar movendo-a para cima */
+}
 
-.main-left {
+.navbar .logo {
+    font-family: "Varela Round";
+    color: #ac689e;
+    font-size: 15px;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
 
+
+
+.navbar img {
+    width: 2rem;
+    margin-left: 5rem;
+}
+
+.navbar .search-bar {
+    display: flex;
+    justify-content: space-between;
+    
+    color: #837373;
+    background-color: #efc5c5;
+    border-radius: 20px;
+    padding: 12px;
+    
+}
+
+.navbar input[type="text"] {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-left: 4px;
+    background-color: transparent;
+    margin-left: 5px;
+    border: none;
+    border-radius: 20px;
+    width: 270px;
+    outline: none;
+}
+
+.container {
+    display: flex;
+    margin-top: 60px; /* To adjust for the fixed navbar */
+    overflow: hidden;          /* Remove as barras de rolagem */
+
+    
+}
+
+.left-menu, .right-menu {
+    width: 20%;
+    margin-top: 1rem;
+    background-color: #fff;
     position: sticky;
-    height: max-content;
-    top: 5.4rem;
-    border-right: 2px solid black;
-    height: 100%;
-    background-color: white;
-    overflow: hidden;
-    transition: .2s;
+    top: 60px; /* Fixed positioning relative to navbar */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    
+    
+}
 
+.left-menu {
+    box-shadow: #e2da9e 0px 7px 29px 0px;
+    border-bottom-right-radius: 20px;
+}
+
+.right-menu {
+    background-color: #fdf7c9;
+    box-shadow: #fff9c8 0px 30px 60px -12px inset, #fdf7c9 0px 18px 36px -18px inset;
+    border-bottom-left-radius: 20px;
+}
+
+.main-content {
+    overflow: auto;   /* Garante que o conteúdo role corretamente */
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100vh - 60px);
+}
+
+.create-post {
+    
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: #e2da9e 0px 7px 29px 0px;
+    height: fit-content;
+}
+
+.create-post .descricaopost {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color:#555;
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    margin-bottom: 10px;
+    resize: none;       /* Remove a possibilidade de redimensionar */
+    border: none;       /* Remove a borda */
+    box-shadow: none;   /* Remove sombras ao focar (se houver) */
+    outline: none;    
+    border-radius: 10px; 
+}
+
+.create-post .descricaopost:focus {
+    background-color: #ffd8d84b;
+}
+
+.preview-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.preview-image, .preview-video {
+    width: 100%;
+    border-radius: 10px;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.titulopost {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    font-size: 15px;
+    background-color: #f3f3f38f;
+    resize: none;       /* Remove a possibilidade de redimensionar */
+    border: none;       /* Remove a borda */
+    box-shadow: none;   /* Remove sombras ao focar (se houver) */
+    outline: none;  
+    border-radius: 10px;
+}
+
+.create-post button {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px 15px;
+    background-color: #ffa500;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.post {
+    height: fit-content;
+    display: grid;
+    grid-template-rows: 10% auto 10%;
+    font-family: "Varela Round";
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: #e2da9e 0px 7px 29px 0px;
+    
+}
+
+
+
+.perfil-post {
+    font-family: "Poppins";
+}
+
+.post-header {
+    display: grid;
+    grid-template-columns: 60px auto 60px;
+}
+
+.conteudo-principal {
+    display: block;
+    margin-top: 1rem;
+    height: fit-content;
+    
+}
+
+.conteudo-principal .titulo {
+    margin-bottom: 1rem;
+}
+
+.data-post {
+    font-size: 13px;
+    color: #858585;
+}
+
+.midia {
+    margin-bottom: 1rem;
+    background-color: #555;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    height: 300px;            /* Certifique-se de que a altura da div esteja definida */
+}
+
+.imagem-post {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;       /* A imagem se ajusta à div sem cortar, mantendo a proporção */
+}
+
+
+.post h3 {
+    margin-bottom: 10px;
+}
+
+.conteudo-principal, .perfil-post {
+    color: #555;
+    font-family: "Poppins";
+    font-size: 14px;
+}
+
+.post-footer {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-container {
+    position: relative; /* Garante que o dropdown seja posicionado corretamente */
+}
+
+.menu-button {
+    position: relative;
+    margin-top: 5px;
+    width: 40px;                 /* Defina a largura do círculo */
+    height: 40px;                /* Defina a altura igual à largura para manter o formato circular */
+    border-radius: 50%;          /* Faz o botão ficar circular */
+    border: none;                /* Remove a borda padrão do botão */
+    background-color: white;   /* Cor de fundo */
+    color: #555;                /* Cor do ícone */
+    display: flex;               /* Usa flexbox para centralizar o ícone */
+    align-items: center;         /* Centraliza verticalmente */
+    justify-content: center;     /* Centraliza horizontalmente */
+    cursor: pointer;             /* Muda o cursor para indicar que é clicável */
+    transition: background-color 0.1s; /* Animação suave na mudança de cor */
+}
+
+.menu-button:hover {
+    background-color: rgb(241, 241, 241);   /* Cor de fundo ao passar o mouse */
+}
+
+.menu-button i {
+    font-size: 18px;             /* Tamanho do ícone */
+}
+
+.dropdown-menu {
+    display: none; /* Esconde o menu até que o botão seja clicado */
+    position: absolute; /* Para posicioná-lo em relação ao botão */
+     /* Faz o menu aparecer diretamente abaixo do botão */
+    right: 0; /* Alinha o menu à esquerda do botão */
+    background-color:#ececec;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 100; /* Garante que o menu esteja acima de outros elementos */
+    width: fit-content;
+    font-size: 13px;
+    font-family: "Poppins";
+    font-weight: 600;
+    color:#555;
+}
+
+/* Mostra o menu quando a classe "show" é adicionada */
+.dropdown-menu.show {
+    display: block;
+}
+
+/* Estilo das opções do menu */
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu ul li:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 16px;
+    display: block;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu ul li a:hover {
+    background-color: #e6e6e6;
+}
+
+.pfp-post {
+    width: 50px;                /* Tamanho do contêiner da PFP */
+    height: 50px;               /* Altura igual à largura para ser quadrado/circular */
+    border-radius: 50%;         /* Torna o contêiner circular */
+    overflow: hidden;           /* Garante que a imagem não ultrapasse os limites do círculo */
+    display: flex;              /* Flexbox para centralizar a imagem */
+    align-items: center;        /* Centraliza verticalmente */
+    justify-content: center;    /* Centraliza horizontalmente */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  /* Sombra leve */
+}
+
+.pfp {
+    width: 100%;                /* Faz a imagem ocupar 100% do contêiner */
+    height: 100%;               /* Mantém a proporção da imagem */
+}
+
+.encontrei {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px 15px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 2px solid #ff4081;
+}
+
+.encontrei:hover {
+    background-color: transparent;
+    border: 2px solid #ff4081;
+    transition: all ease 0.2s;
+    color: #ff4081;
+}
+
+.tp_publicacao, .tag-item {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    border: solid 2px;
+    color:#555;
+    width: fit-content;
+    font-size: 0.8rem;
+}
+
+.tag-item {
+    background-color: #c0f173;
+    border: solid 2px #c0f173;
+}
+
+.tag-item i {
+    margin-right: 5px;
+}
+
+aside {
+    overflow: hidden;
+    padding-top: 20px;
+}
+
+aside .menu-item {
+    color: #555;
+    font-size: 13px;
+    display: flex;
+    font-family: "Poppins";
+    align-items: center;
+    height: 4rem;
+    cursor: pointer;
+    transition: 300ms ease all;
+    width: 100%; 
+    padding-left: 20px;
+}
+
+aside .menu-item:hover {
+    background-color: #f3f3f3;
+}
+
+.menu-item i {
+    margin-right: 1rem;
+}
+
+.right-menu {
+    display: grid;
+    grid-template-rows: 1rem auto;
+    padding: 20px;
+}
+
+.header-right-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-right-menu p {
+    margin-top: 1rem;
+    color: #555;
+    font-family: "Poppins";
+    font-weight: 600;
+}
+
+.centro-menu-right {
+    display: flex;
+    flex-direction: column; /* Para que os elementos fiquem um embaixo do outro */
+    align-items: center;    /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    text-align: center; /* Para centralizar o texto */
+    font-family: "Poppins";
+}
+
+.ftperfil {
+    border: 2px solid #dfdfdf;
+    width: 150px;                /* Tamanho do contêiner da PFP */
+    height: 150px;               /* Altura igual à largura para ser quadrado/circular */
+    border-radius: 50%;         /* Torna o contêiner circular */
+    overflow: hidden;           /* Garante que a imagem não ultrapasse os limites do círculo */
+    display: flex;              /* Flexbox para centralizar a imagem */
+    align-items: center;        /* Centraliza verticalmente */
+    justify-content: center;    /* Centraliza horizontalmente */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  /* Sombra leve */
+}
+
+.ftperfil img {
+    width: 100%;                /* Faz a imagem ocupar 100% do contêiner */
+    height: 100%;               /* Mantém a proporção da imagem */
+}
+
+.editperfil {
+    margin-top: 5px;
+    width: 40px;                 /* Defina a largura do círculo */
+    height: 40px;                /* Defina a altura igual à largura para manter o formato circular */
+    border-radius: 50%;          /* Faz o botão ficar circular */
+    border: none;                /* Remove a borda padrão do botão */
+    background-color: #fffce0;   /* Cor de fundo */
+    color: #555;                /* Cor do ícone */
+    display: flex;               /* Usa flexbox para centralizar o ícone */
+    align-items: center;         /* Centraliza verticalmente */
+    justify-content: center;     /* Centraliza horizontalmente */
+    cursor: pointer;             /* Muda o cursor para indicar que é clicável */
+    transition: background-color 0.1s; /* Animação suave na mudança de cor */
+}
+
+.editperfil:hover {
+    background-color: #ffcaca;   /* Cor de fundo ao passar o mouse */
+}
+
+.right-menu .nome {
+    color: #555;
+    margin-top: 1rem;
+}
+
+.right-menu .username {
+    font-family: "Varela Round";
+    font-size: 15px;
+    color: #8f8f8f;
+    font-weight: 200;
 }
 
 .botoes {
     display: flex;
     justify-content: space-between;
-    background-color: transparent;
-    margin: 2rem;
 }
 
-.menuExpandir {
-    background-color: transparent;
-    cursor: pointer;
-    transition: .2s;
-    
-}
-
-.menuFechar {
-    background-color: transparent;
-    transition: .2s;
-    padding: .6rem .3rem;
-    display: none;
-    cursor: pointer;
-
-}
-
-.menuFechar:hover {
-    color: red;
-}
-
-aside {
-   
-    
-    width: 100%;
-    overflow: hidden;
-   
-}
-
-aside .menu-item {
-    display: grid;
-    grid-template-columns: 4rem 10rem;
-    align-items: center;
-    height: 4rem;
-    position: relative;
-    cursor: pointer;
-    transition: 300ms ease all;
-    margin-left: 1rem;
-    width: 100%;
-    
-    
-}
-
-.menu-item .nome-menu-item {
-    transition: .2s;
-}
-
-.btnPostar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    cursor: pointer;
-    height: 3rem;
-    transition: 300ms ease all;
-    padding: .3rem 2rem;
-    border: 2px solid black;
-    border-radius: 20px;
-    font-size: large;
-    background-color: #ffa500;
-    box-shadow: 2px 2px 1px 1px;
-}
-
-aside .menu-item:hover {
-    background-color: transparent;
-}
-
-
-
-aside .menu-item i {
-    margin-left: 1rem;
-    margin-right: 2rem;
-}
-
-#log-out {
-    
-    display: flex;
-    align-items: flex-end;
-    margin-top: 2rem;
-    
-}
-
-.avalie-nos {
-    display: none;
-    justify-content: center;
-    text-align: center;
-    align-items:flex-end;
-    background-color: white;
-    width: 350px;
-    border: 2px solid black;
-    border-radius: 20px;
-    box-shadow: 2px 2px 1px 1px;
-    height: 200px;
-    width: 90%;
-    overflow: hidden;
-    margin-top: 1.5rem;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-    transition: .2s;
-	animation: gradient 15s ease infinite;
-    
-}
-
-
-@keyframes gradient {
-    0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-.avalie-nos .botao-avalie-nos {
-    font-weight: 600;
-    font-size: large;
-    width: 90%;
-    border: 2px solid black;
-    border-radius: 20px;
-    background-color: #e9dfe7;
-    padding: .6rem 1rem;
-    margin-bottom: 1rem;
-    box-shadow: 2px 2px 1px 1px;
-   
-}
-
-.avalie-nos .botao-avalie-nos:hover {
-    background-color: orange;
-    transition: 300ms ease;
-}
-
-.conteudo-avalie-nos h2 {
-    font-size: 20px;
-    margin-left: 2rem;
-    margin-bottom: 1rem;
-    margin-right: 2rem;
-    text-align: left;
-}
-
-.conteudo-avalie-nos h1{
-    font-family: "Varela Round";
-    font-weight: 700;
-    margin-left: 2rem;
-    margin-bottom: 1rem;
-    text-align: left;
-}
-
-
-/* Fim do menu esquerdo */
-
-
-/* Menu lateral direito  */
-
-
-.main-right {
-
-    border-left: 2px solid rgb(133, 132, 132);
-    padding: 20px;
-    
-}
-
-.main-right .profile {
-    
-    padding: 20px;
-    border-radius: 20px;
-    width: 100%;
-    gap: 1rem;
-    display: flex;
-    background-color: white;
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
-    
-}
-
-.main-right .profile:hover {
-    box-shadow: 2px 2px 1px 1px #e73c7e;
-    transition: 200ms all ease;
-}
-
-
-.profile-handle h4 {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: large;
-}
-
-.pfp img {
-    display: block;
-    width: 100%;
-    
-}
-
-.pfp {
-    width: 4rem;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid black;
-
-}
-
-
-.pfp:hover {
-    opacity: 0.75;
-}
-
-.main-right h2 {
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-}
-
-.main-right h3 {
-    color: gray;
-    margin-bottom: 0.5rem;
-    font-family: "Varela Round", sans-serif;
-    font-weight: 600;
-}
-
-.minha-publicacao {
-    display: block;
-    background-color: white;
-    width: 100%;
-    border: 2px solid black;
-    border-radius: 20px;
-    box-shadow: 2px 2px 1px 1px;
-    position: relative;
-    min-height: 3rem;
-    overflow: hidden;
-    margin-top: 1rem;
-}
-
-.minha-publicacao:hover {
-    box-shadow: 2px 2px 1px 1px #e68888;
-    transition: 200ms all ease;
-}
-
-
-.minha-publicacao .conteudo {
-    
-    padding-top: 5px;
-    padding-left: 7px;
-    height: 100%;
-    font-size: 15px;
-    border-top: 2px solid black;
-    
-}
-
-.minha-publicacao .conteudo h4 {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    margin-bottom: 0.5rem;
-}
-
-.minha-publicacao figure {
-    margin: 0;
-    top: 0;
-    position: relative;
-    width: 100%;
-    height: 130px;
-    overflow: hidden;
-    background-color: #68ac95;
-
-}
-.minha-publicacao figure img {
-    
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.5s;
-    
-    
-}
-
-.minha-publicacao .profile-post span {
-    color: grey;
-    margin-right: 5px;
-    margin-bottom: 5px;
-
-}
-
-.minha-publicacao .botao-expandir {
+.upload-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    border-radius: 20px;
-    border: 2px solid black;
-    padding: .2rem 3rem;
+    flex-direction: column;
+}
+
+.upload-button {
+    font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    background-color: #e2bbda;
-    position: relative;
-    float:inline-end;
-    right: 7px;
-    top: 4px;
-    cursor: pointer;
-}
-
-
-.minha-publicacao .profile-post {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-}
-.minha-publicacao .profile-post i {
-    margin-right: 1rem;
-    margin-bottom: 5px;
-    color: gray;
-    cursor: pointer;
-}
-
-.minha-publicacao .profile-post i:hover {
-    color: red;
-    transition: all 0.5s;
-}
-
-/* Fim do menu direito  */
-
-/* Meio da página  */
-
-.barPesquisa {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding: .6rem 1rem;
+    padding: 10px 10px;
     background-color: white;
-    border-radius: 30px;
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
-
-}
-
-.barPesquisa input[type="search"] {
-    font-family: "Poppins", sans-serif;
-    background: transparent;
-    width: 100vh;
-    margin-left: 1rem;
-    font-size: .9rem;
-    color:black;
-}
-
-.tags-pesquisa {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
-    gap: 1rem;
-    width: 100%;
-}
-
-.tags-pesquisa .tag {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-    border: 2px solid black;
-    font-size: 15px;
-    padding: .3rem 1rem;
-    position: relative;
-    width: 100%;
-
-}
-
-.tags-pesquisa .tag:hover {
-    background-color: rgb(243, 237, 237);
+    color: #555;
+    border: none;
+    border-radius: 25px;
     cursor: pointer;
-    transition: 300ms ease all;
+    transition: background-color 0.1s;
+    display: flex;
+    align-items: center;
 }
 
-.vertodos {
-    text-decoration: underline;
-    background-color: transparent;
-    color:grey;
-    width: 100%;
+.upload-button i {
     font-size: 18px;
 }
 
-.tags-pesquisa .tag i {
-   margin-right: 10px;
-    
+.upload-button:hover {
+    background-color: rgb(241, 241, 241); ;
 }
 
-
-.main-middle h2 {
-    font-family: "Varela Round", sans-serif;
-    margin-top: 2rem;
-    font-size:2rem;
-    font-weight: 600;
-    color: #000000;
+input[type="file"] {
+    display: none; /* Esconde o input original */
 }
 
-.recentes {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    position: relative;
-    column-gap: 1rem;
-    margin-top: 2rem;
-    
-
-}
-
-.post-novos {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    position: relative;
-    column-gap: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-}
-
-.publicacao {
-    
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    border: 2px solid black;
-    border-radius: 20px;
-    box-shadow: 2px 2px 1px 1px;
-    position: relative;
-    height: 190px;
-    overflow: hidden;
-    
-}
-
-.publicacao:hover {
-    box-shadow: 2px 2px 1px 1px #e68888;
-    transition: 200ms all ease;
-}
-
-.conteudo {
-    
-    padding-top: 5px;
-    padding-left: 7px;
-    height: 100%;
-    font-size: 15px;
-    border-top: 2px solid black;
-    
-}
-
-.conteudo h4 {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-}
-
-.publicacao figure {
-
-    margin: 0;
-    top: 0;
-    position: relative;
-	width: 100%;
-	height: 130px;
-	overflow: hidden;
-    background-color: #23a6d5;
-    
-
-}
-
-.publicacao figure img {
-    
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.5s;
-    
-}
-
-.profile-post {
-    gap: 0.5rem;
+.botoes-ladodir {
     display: flex;
-
-}
-
-.profile-post span {
-    color: gray;
-    float: right;
-    text-align: right;
-    justify-content: right;
-    width: 100%;
-    margin-right: 1rem;
-}
-
-.profile-post p {
-    color:gray;
-    margin: 0;
-    margin-top: 5px;
-    font-family: "Varela Round";
-    font-weight: 600;
-
-}
-
-
-
-.pfp-post img {
-    margin-top: 1px;
-    display: block;
-    width: 100%;
-    
-    
-}
-
-
-.pfp-post {
-    width: 2rem;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-}
-
-.pfp-post:hover {
-    opacity: 0.75;
-    transition: all 0.5s;
-}
-
-.posts-recentes {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;  
-}
-
-.posts-visitados {
-    display: flex;
-    align-items: center;
-    text-align: center;
     justify-content: space-between;
-}
-
-.titulo li {
-    
-    list-style: none;
-    margin-top: 3rem;
-   
-}
-
-.titulo button {
-    text-decoration: underline;
-    color:grey;
-    background-color: transparent;
-    font-size: 18px;
-}
-
-.meuperfil {
-    border: 2px solid black;
-    padding: .2rem 1rem;
-    border-radius: 20px;
-    background-color: #e68888;
-}
-
-/* Fim do meio da página de feed  */
-
-
-
-.lgtitulo {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 50px;
-    margin-top: 2rem;
-}
-
-.inputs .titulo {
-    margin-top: 2rem;
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    background-color: #e2bbda;
-    font-size: 20px;
-    font-weight: 500;
-    padding: 20px;
-    width: 90%;
-    border: 2px solid black;
-    transition: 0.2s ease;
-    box-shadow: 2px 3px 1px 1px;
-    color:black;
-}
-
-.inputs .desc {
-    margin-top: 2rem;
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    background-color: #e2bbda;
-    font-size: 20px;
-    font-weight: 500;
-    padding: 20px;
-    width: 90%;
-    border: 2px solid black;
-    transition: 0.2s ease;
-    box-shadow: 2px 3px 1px 1px;
-    color:black;
-}
-
-.inputs .btnEnviar {
-    margin-top: 2rem;
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    background-color: orange;
-    font-size: 20px;
-    border-radius: 40px;
-    font-weight: 700;
-    padding: 20px;
-    width: 90%;
-    border: 2px solid black;
-    transition: 0.2s ease;
-    box-shadow: 2px 3px 1px 1px;
-    color:black;
+    gap: 5px;
 }
 
 
-
-/* Inicio da página de notificações  */
-
-.main-container-my-posts {
-    display: grid;
-    grid-template-columns: 80px auto;
-    position: relative;
-    height: 100%;
-
-}
-
-.main-middle-my-posts {
-    width: 100%;
-    padding: 2rem;
-}
-
-.titulopagina-myposts h1 {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 50px;
-    margin-top: 4rem;
-}
-
-.subtitulopagina-myposts h1 {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 600;
-    font-size: 30px;
-    margin-top: 3rem;
-    margin-left: 2rem;
-    
-    
-    color:#e73c7e;
-}
-
-.listPostsRecentes {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    position: relative;
-    column-gap: 1rem;
-    
-    margin-left: 2rem;
-
-}
-
-.listPostsTodos {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    position: relative;
-    column-gap: 1rem;
-    
-    margin-left: 2rem;
-} 
-
-.publicacao-myposts {
-    display: block;
-    background-color: white;
-    width: 100%;
-    border: 2px solid black;
-    border-radius: 20px;
-    box-shadow: 2px 2px 1px 1px;
-    position: relative;
-    height: 200px;
-    overflow: hidden;
-    margin-top: 1rem;
-}
-
-.publicacao-myposts .conteudo {
-    
-    padding-top: 5px;
-    padding-left: 7px;
-    height: 100%;
-    font-size: 15px;
-    border-top: 2px solid black;
-    
-}
-
-.publicacao-myposts .conteudo h4 {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-}
-
-.publicacao-myposts figure {
-    margin: 0;
-    top: 0;
-    position: relative;
-	width: 100%;
-	height: 130px;
-	overflow: hidden;
-    background-color: #68ac95;
-
-}
-.publicacao-myposts figure img {
-    
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.5s;
-    
-    
-}
-
-.publicacao-myposts .profile-post span {
-    color: grey;
-    margin-right: 1rem;
-
-}
-
-.publicacao-myposts .botao-expandir {
+.toggle-buttons {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    justify-content: space-around;
+    gap: 5px;
+}
+
+.toggle-buttons input[type="radio"] {
+    display: none; /* Esconde o input de radio */
+}
+
+.toggle-button {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px 15px;
+    border: 2px solid #ccc;
     border-radius: 20px;
-    border: 2px solid black;
-    padding: .2rem 3rem;
-    font-weight: 500;
-    background-color: #e2bbda;
-    position: relative;
-    float:inline-end;
-    right: 7px;
-    top: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #ccc;
+    font-size: 13px;
 }
 
-
-.publicacao-myposts .profile-post {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+.toggle-button:hover {
+    background-color: #f1f1f1;
 }
 
-.publicacao-myposts .profile-post i {
-    margin-right: 1rem;
-    color: grey;
-    cursor: pointer;
-}
-
-.publicacao-myposts .profile-post i:hover {
-    color: red;
-    transition: all 0.5s;
-}
-
-.headerpub {
-    display: flex;
-    justify-content: space-between;
-}
-
-.editarpub {
-    border: 2px solid black;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-    width: 5rem;
-    border-radius: 20px;
-    font-size: 15px;
-    background-color: #e2bbda;
-}
-
-.editarpub:hover {
-    box-shadow: 1px 1px 1px 1px;
-}
-
-.titulopagina-notificacoes h1 {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 50px;
-    margin-top: 4rem;
-}
-
-.subtitulopagina-notificacoes h1 {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 600;
-    font-size: 30px;
-    margin: 1rem;
-    color:#e73c7e;
-}
-
-.notificacao {
-
-    border: 2px solid black;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color:#ffffff;
-    height: 5rem;
-    padding: 1rem;
-    border-radius: 10px;
-    font-family: "Varela Round", sans-serif;
-    font-size: 20px;
-    
-}
-
-.notificacao:hover {
-    box-shadow: 2px 3px 1px 1px;
-}
-
-.notificacao span {
-    color: gray;
-}
-
-.notificacao button {
-
-    padding: .6rem 3rem;
-    font-size: 18px;
+.toggle-button.active {
+    background-color: #efc5c5;
     color: black;
-    background-color: #FF7F7F;
-    border-radius: 10px;
-    border: 2px solid black;
-
+    border: 2px solid #c7aaaa;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
-.excluir:hover {
-    border: 2px solid #FF7F7F;
-    background-color: #ffffff;
-    color:#FF7F7F;
-}
-.excluir i{
-    margin-right: 1rem;
-}
-
-.notificacao .title {
-    font-size: 20px;
-    margin-left: 1rem;
-}
-
-.title i {
-    margin-right: 1rem;
-} 
-
-/* Fim da página de notificações  */
-
-
-
-
-/* Início da página de Chats */
-
-.main-container-chats {
-    display: grid;
-    grid-template-columns: 80px auto 105vh;
-    position: relative;
-    height: 100%;
-   
-}
-
-.main-right-chats {
-    border-left: 2px solid #dddcd2;
-    position: fixed;
-    width: 105vh;
-    height: 100%;
-    
-    justify-self: right;
-}
-
-.tituloListaCtts {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    
-    border-bottom: 2px solid #dddcd2;
-    display: flex;
-    justify-content: space-between;
-}
-
-.titulopagina-chats {
-    margin-left: 1rem;
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-}
-
-.tituloListaCtts i {
-    margin-top: 1rem;
-    margin-right: 1rem;
-}
-
-.ctt {
-    padding: 1rem;
-    
-    display: grid;
-    grid-template-columns: 10vh auto 8vh;
-    column-gap: 1rem;
-    border-bottom: 2px solid #dddcd2;
-}
-
-.ctt-selected {
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: 10vh auto 8vh;
-    column-gap: 1rem;
-    border-bottom: 2px solid #dddcd2;
-    background-color: #f5eaf3;
-}
-
-.conteudo-ctt {
-    margin: 1rem;
-}
-
-.nomectt {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: large;
-}
-
-.conteudo-ctt p, .ctt span, .ctt-selected span{
-    color: gray;
-}
-
-.ctt span, .ctt-selected span {
-    margin-top: 1rem;
-}
-
-.ctt-conversa {
-    display: grid;
-    grid-template-columns: 5vh 10vh auto auto;
-    column-gap: 1rem;
-    padding: 1rem;
-    border-bottom: 2px solid #dddcd2;
-}
-
-.voltarCnv {
-    margin: 1rem;
-    background-color: transparent;
-}
-.ctt-conversa .pfp {
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-.conversa .actions {
-    justify-self: right;
-}
-
-.conversa .conteudo-ctt {
-    margin-left: 1rem;
-    
-}
-
-.actions .menu{
-    margin-top: 1rem;
-    padding: 10px;
-    background-color: transparent;
-    
-}
-
-
-.caixa-msg {
-    padding: 1rem;
-    height: 100%;
-    width: 100;
-    
-}
-
-.msg-enviei {
-    display: flex;
-    margin-top: 2rem;
-    
-}
-
-.msg-enviei span {
-    color: gray;
-    padding: 1rem;
-}
-
-.msg-enviei p {
-    padding: 1rem;
-    background-color: #e2bbda;
-    width: 50%;
-    border-bottom-left-radius: 30px;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-    box-shadow: 2px 2px 1px 1px;
-    border: 2px solid black;
-    
-}
-
-.msg-enviada {
-    display: flex;
-    justify-content: right;
-    
-    margin-top: 2rem;
-}
-
-.msg-enviada span {
-    color: gray;
-    padding: 1rem;
-}
-
-.msg-enviada p {
-    
-    padding: 1rem;
-    background-color: #dddcd2;
-    width: 50%;
-    border-bottom-left-radius: 30px;
-    border-top-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    box-shadow: 2px 2px 1px 1px;
-    border: 2px solid black;
-}
-
-.fim-conversa {
-    
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    box-shadow: rgba(102, 102, 102, 0.35) 0px -50px 36px -28px inset;
-    bottom: 0;
-    
-}
-
-.barEnviar {
-    display: grid;
-    grid-template-columns: 10vh 80vh 10vh;
-   
-}
-
-.barEnviar input {
-    padding: 1rem;
-    font-size: large;
-    background-color: #fffce0;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-    border: 2px solid black;
-    border-left: none;
-    margin-right: 1rem;
-    width: 100%;
-    
-}
-
-.acoes-btn {
-    padding: 10px;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border: 2px solid black;
-    background-color: orange;
-}
-
-.enviar-msg {
-    padding: 1rem;
-    border-radius: 50%;
-    background-color: orange;
-    border: 2px solid black;
-    justify-self: right;
-    
-}
-
-/* Fim da tela de Chats  */
-
-
-
-/* Inicio das telas de Configuraçoes */
-
-.main-container-config {
-    display: grid;
-    grid-template-columns: 80px auto;
-    position: relative;
-    
-    height: 100%;
-}
-
-.headerPagConfig {
-    display: flex;
-    justify-content: space-between;
-    
-    padding: 1rem;
-    padding-left: 2rem;
-}
-
-.tituloPagina .titulopagina-config {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 3rem;
-    margin-top: 2rem;
-}
-
-.tituloPagina p {
-
-    margin-top: 0.5rem;
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    color:#e73c7e;
-
-} 
-
-.cancelAlter {
-
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    height: 3rem;
-    width: 100%;
-    background-color: transparent;
-    border: 2px solid black;
-    border-radius: 30px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    
-}
-
-.cancelAlter:hover {
-    box-shadow: 2px 2px 1px 1px;
-}
-
-.salvarAlter{
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    height: 3rem;
-    width: 100%;
-    background-color: orange;
-    border: 2px solid black;
-    border-radius: 30px;
-    margin-top: 1rem;
-    
-}
-
-.salvarAlter:hover {
-    box-shadow: 2px 2px 1px 1px;
-}
-
-.conteudo-config {
-    display: flex;
-    justify-content: space-between;
-    margin: 2rem;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-    
-}
-
-.tag-configuracao {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-    border: 2px solid black;
-    font-size: 15px;
-    padding: .3rem 1rem;
-    position: relative;
-    width: 100%;
-}
-
-.tag-configuracao-selected {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: #cfcbce;
-    border-radius: 20px;
-    border: 2px solid black;
-    font-size: 15px;
-    padding: .3rem 1rem;
-    position: relative;
-    width: 100%;
-}
-
-.tag-configuracao:hover {
-    background-color: #f3eded;
+#upload-button {
+    padding: 10px 20px;
+    background-color: #ffa500;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: 300ms ease all;
+    transition: background-color 0.3s;
 }
 
-.tag-configuracao i {
-    margin-right: 10px;
+#upload-button:hover {
+    background-color: #e59400; /* Muda a cor ao passar o mouse */
 }
 
-.tag-configuracao-selected i {
-    margin-right: 10px;
-}
-
-.config-selected {
-    margin: 2rem;
-    background-color:#f0ffe8;
-    width: 50%;
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
-    padding: 2rem;
-    border-radius: 30px;
-}
-
-.titulo-config {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 3rem;
-}
-
-.config-selected .subtitulo {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-.config-selected span {
-    font-size: 1rem;
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    color:#ee7752;
-}
-
-.tema label {
-
-    font-size: large;
-    margin-left: 0.5rem;
-   
-}
-
-.tamFonte h1 {
-
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: larger;
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
-
-}
-
-.config-selected h4 {
-
-    margin-top: 1rem;
-    
-}
-
-.config-selected textarea {
-    resize: none;
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
+#cancel-button {
+    width: 30px;                 /* Defina a largura do círculo */
+    height: 30px;                /* Defina a altura igual à largura para manter o formato circular */
+    border-radius: 50%;          /* Faz o botão ficar circular */
+    border: none;                /* Remove a borda padrão do botão */
+    display: flex;               /* Usa flexbox para centralizar o ícone */
+    align-items: center;         /* Centraliza verticalmente */
+    justify-content: center;     /* Centraliza horizontalmente */
+    transition: background-color 0.1s; /* Animação suave na mudança de cor */
+    background-color: #f44336; /* Cor vermelha para o botão de cancelar */
+    color: white;
     border-radius: 5px;
-    margin-bottom: 0.5rem;
-    padding: 12px;
-    background-color: #ffffff;
-    width: 100%;
-    font-size: medium;
-    margin-top: 0.5rem;
-}
-
-.config-selected textarea:focus {
-    background-color: #fae0f5;
-
-}
-
-.config-selected input[type=password] {
-    resize: none;
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
-    padding: 12px;
-    background-color: #ffffff;
-    width: 100%;
-    font-size: medium;
-    margin-top: 0.5rem;
-}
-
-.config-selected input[type=password]:focus {
-    background-color: #fae0f5;
-
-}
-
-.config-selected .salvarAlter{
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    height: 3rem;
-    width: 100%;
-    background-color: orange;
-    border: 2px solid black;
-    border-radius: 30px;
-    margin-top: 1rem;
-    box-shadow: none;
-    
-}
-
-.config-selected .salvarAlter:hover {
-    box-shadow: 2px 2px 1px 1px;
-}
-
-.excluirConta {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    height: 3rem;
-    width: 100%;
-    background-color:#e68888;
-    border: 2px solid black;
-    border-radius: 30px;
-    margin-top: 1rem;
-    margin-bottom: 4rem;
-    box-shadow: none;
-    font-size: 1rem;
-}
-
-.excluirConta:hover {
-    background-color:transparent;
-    color:#e68888;
-    border: 2px solid #e68888;
-    box-shadow: 2px 2px 1px 1px #e68888;
-}
-
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 51px;
-    height: 25px;
-  }
-  
-.switch input { 
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-  
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-  
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 17px;
-    width: 17px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-  
-input:checked + .slider {
-    background-color: #99b38c;
-  }
-  
-input:focus + .slider {
-    box-shadow: 0 0 1px #99b38c;
-  }
-  
-input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-  
-.slider.round {
-    border-radius: 34px;
-  }
-  
-.slider.round:before {
-    border-radius: 50%;
-  }
-
-.config-selected h4{
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-}
-
-.configs {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-}
-
-
-.config-notif {
-    display: flex;
-    margin-bottom: 1rem;
-    
-    height: 4rem;
-}
-
-.descConfig {
-    font-size: 10px;
-    margin-left: 1rem;
-   
-    width: 90%;
-}
-
-.descConfig h3{
-    font-size: 1.2rem;
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    
-}
-
-.descConfig p{
-    font-size: 1rem;
-    
-}
-
-/* Fim das páginas de Configurações  */
-
-/* inicio da página de Meu perfil */
-
-.main-container-meuperfil {
-    display: grid;
-    grid-template-columns: 80px auto 80vh;
-    position: relative;
-    column-gap: 2rem;
-    height: 100%;
-}
-
-.meuperfil-area {
-    display: flex;
-    width: 100%;
-    padding-left: 2rem;
-    padding-top: 2rem;
-}
-
-
-.profile-handle-edit {
-    padding-top: 2rem;
-    padding-left: 2rem;
-}
-
-.profile-handle-edit .nome {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 2.5rem;
-    margin: 0;
-}
-
-.profile-handle-edit .curso {
-    font-family: "Poppins", sans-serif;
-    color:#e73c7e;
-}
-
-.main-middle-meuperfil .titulo {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 3rem;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-}
-
-
-
-.dadosEditar {
-    padding: 2rem;
-}
-
-.dadosEditar h4 {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.dadosEditar textarea {
-    resize: none;
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
-    padding: 12px;
-    background-color: #ffffff;
-    width: 100%;
-    font-size: medium;
-    
-}
-
-.dadosEditar textarea:focus {
-    background-color: #fae0f5;
-
-}
-
-.dadosEditar textarea:invalid {
-    border: 2px solid rgb(218, 77, 77);
-  }
-
-.dadosEditar textarea:valid {
-    border: 2px solid black;
-}
-  
-.dadosEditar .cursos {
-    padding: 10px;
-    background-color:#ffffff;
-    border: 2px solid black;
-    border-radius: 5px;
-    width: 100%;
-    box-shadow: 2px 2px 1px 1px;
-    font-size: medium;
-}
-
-.pfp-edit img {
-    display: block;
-    width: 100%;
-    
-}
-
-.pfp-edit {
-    width: 10rem;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid black;
-
-}
-
-.pfp-edit:hover {
-    opacity: 0.75;
-}
-
-.mudarFoto {
-    padding: 0.5rem;
-    background-color: #e2bbda;
-    height: fit-content;
-    width: fit-content;
-    border: 2px solid black;
-    border-radius: 10px;
-    box-shadow: 1px 1px 0.5px 0.5px;
-    align-self: end;
-}
-
-.dadosEditar .salvar {
-    border: 2px solid black;
-    padding: .6rem 3rem;
-    margin-top: 1rem;
-    width: 100%;
-    border-radius: 30px;
-    font-size: large;
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    background-color: orange;
-    
-} 
-
-.dadosEditar .salvar:hover {
-    box-shadow: 2px 2px 1px 1px;
-}
-
-.dadosEditar .cancelar {
-    background-color: transparent;
-    border: 2px solid black;
-    padding: .6rem 3rem;
-    margin-top: 1rem;
-    width: 100%;
-    border-radius: 30px;
-    font-size: large;
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    
-} 
-
-.dadosEditar .cancelar:hover {
-    box-shadow: 2px 2px 1px 1px;
-}
-
-.editarperfil{
-    background-color:#FFF7AD;
-    width: 100%;
-    margin-bottom: 2rem;
-    border: 2px solid black;
-    border-radius: 20px;
-    box-shadow: 2px 2px 1px 1px;
-}
-
-
-.main-right-meuperfil {
-    border-left: 2px solid rgb(133, 132, 132);
-    padding: 20px;
-}
-
-.ir_configuracoes {
-    margin-top: 2rem;
-    margin-left: 1rem;
-    background-color: #cfe2eb;
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
-    border-radius: 30px;
-    padding: 1.5rem;
-}
-
-.ir_meusposts{
-    margin-top: 2rem;
-    margin-left: 1rem;
-    background-color: #ebcfcf;
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
-    border-radius: 30px;
-    padding: 1.5rem;
-}
-
-.main-right-meuperfil .vermeusposts {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-
-}
-.main-right-meuperfil .alterarconta {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-
-
-.main-right-meuperfil h4, .main-right-meuperfil a {
-    font-family: "Poppins", sans-serif;
-    font-size: 1rem;
-}
-
-.main-right-meuperfil a {
-    color:#e73c7e;
-    text-decoration: underline;
-}
-
-/* Fim da tela de Meu perfil  */
-
-
-
-/* Inicio da tela de feedback(avaliar) */
-
-.main-container-feedback {
-    display: grid;
-    grid-template-columns: 80px auto;
-    position: relative;
-    height: 100%;
-}
-
-.main-middle-feedback .titulo {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 3rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.main-middle-feedback {
-    padding: 2rem;
-} 
-
-.main-middle-feedback .subtitulo {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #e73c7e;
-}
-
-.avaliacao {
-    background-color:#FFF7AD;
-    width: 100%;
-    border: 2px solid black;
-    border-radius: 20px;
-    box-shadow: 2px 2px 1px 1px;
-    padding: 2rem;
-}
-
-.ratings {
-    display: flex;
-    margin-bottom: 3rem;
-}
-
-.rating img {
-    width: 8rem;
-}
-
-.rating {
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 1rem;
-    padding: 1.5rem;
-}
-
-
-.rating span {
-    font-family: "Poppins", sans-serif;
-}
-
-.feedback-form h2 {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    font-size: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-} 
-
-.motivos {
-    resize: none;
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    padding: 5px;
-    background-color: #ffffff;
-    width: 100%;
-    font-size: medium;
-}
-
-.motivos:focus {
-    background-color: #fae0f5;
-}
-
-.feedback-form .enviar {
-    border: 2px solid black;
-    padding: .6rem 3rem;
-    margin-top: 1rem;
-    width: 100%;
-    border-radius: 30px;
-    font-size: large;
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    background-color: orange;
-}
-
-.feedback-form .enviar:hover {
-    box-shadow: 2px 2px 1px 1px;
-}
-
-
-.feedback-form .cancelar {
-    border: 2px solid black;
-    padding: .6rem 3rem;
-    margin-top: 1rem;
-    width: 100%;
-    border-radius: 30px;
-    font-size: large;
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    background-color: transparent;
-}
-
-.feedback-form .cancelar:hover {
-    box-shadow: 2px 2px 1px 1px;
-}
-
-/* Fim da tela de Feedback(avaliar) */
-
-
-
-/* Inicio da tela de criarPost */
-
-.main-container-criarPostagem {
-    display: grid;
-    grid-template-columns: 80px auto 20vw;
-    position: relative;
-    column-gap: 2rem;
-    height: 100%;
-    filter: blur(5px);
-    opacity: 0.9;
-    
-}
-
-.main-middle-criarPostagem {
-    z-index: 1;
-    
-}
-
-.main-middle-criarPostagem h2 {
-    font-family: "Varela Round", sans-serif;
-    margin-top: 2rem;
-    font-size:2rem;
-    font-weight: 600;
-    color: #000000;
-}
-
-.criarPostagem {
-    position: fixed;
-    margin-left: 8rem;
-    top: 2rem;
-    background-color:#f3eded;
-    width: 80vw;
-    height: 90%;
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
-    border-radius: 30px;
-    padding: 2rem;
-    z-index: 2;
-    filter: blur(none);
-    display: grid;
-    grid-template-rows: 5vw auto 4vw;
-}
-
-.headerPost {
-    display: flex;
-    justify-content: space-between;
-}
-
-.headerPost .cancelar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: transparent;
-    border: 0;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    border: 2px solid black;
-    background-color:#f3eded;
-}
-
-.headerPost .cancelar:hover {
-    filter:brightness(90%);
-    transition: 100ms all ease;
-}
-
-.headerPost .titulo {
-    font-family: "Varela Round", sans-serif;
-    font-size:3rem;
-    font-weight: 600;
-    color: #000000;
-    width: 100%;
-}
-
-.botao-publicar {
-    font-family: "Varela Round", sans-serif;
-    font-size:1rem;
-    font-weight: 600;
-    color: #000000;
-    padding: .6rem 3rem;
-    background-color:orange;
-    width: 100%;
-    border: 2px solid black;
-    border-radius: 30px;
-    transition: 100ms ease all;
-    margin-top: 0.5rem;
-}
-
-.botao-publicar:hover {
-    box-shadow: 2px 2px 1px 1px;
-}
-
-.formCriarPost {
-    background-color: transparent;
-    display: flex;
-}
-
-.formCriarPost .ladoEsq {
-    background-color: transparent;
-    width: 100%;
-}
-
-.formCriarPost .ladoDir {
-    background-color: transparent;
-    width: 100%;
-    padding: 1rem;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.ladoEsq h2 {
-    font-family: "Varela Round", sans-serif;
-    font-size:1rem;
-    font-weight: 600;
-}
-
-.ladoEsq .tipo-postagem {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 1rem;
-}
-
-.tipo-postagem .tipopost span {
-    font-family: "Varela Round", sans-serif;
-    font-size:1rem;
-    font-weight: 600;
-}
-
-.ladoEsq h4 {
-    font-family: "Varela Round", sans-serif;
-    font-size:1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.ladoEsq .tituloPost {
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
-    padding: 12px;
-    background-color: #ffffff;
-    width: 100%;
-    font-size: medium;
-}
-
-.ladoEsq textarea {
-    resize: none;
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
-    padding: 12px;
-    background-color: #ffffff;
-    width: 100%;
-    font-size: medium;
-    
-}
-
-.ladoEsq textarea:focus {
-    background-color: #fae0f5;
-
-}
-
-.ladoEsq input[type="text"]:focus {
-    background-color: #fae0f5;
-
-}
-
-.ladoEsq .categorias {
-    padding: 10px;
-    background-color:#ffffff;
-    border: 2px solid black;
-    border-radius: 5px;
-    width: 100%;
-    box-shadow: 2px 2px 1px 1px;
-    font-size: medium;
-    margin-bottom: 0.5rem;
-}
-
-.ladoDir input[type="file"] {
-    background-color: #e2bbda;
-}
-
-
-.escolherFt {
-    position: relative;
-    padding: .6rem 3rem;
-    background-color: #e2bbda;
-    border-radius: 30px;
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-    border-radius: 30px;
-    border: 2px solid black;
-    cursor: pointer;
-    overflow: hidden;
-    transition: 100ms ease all;
-}
-
-.escolherFt:hover {
-    box-shadow: 2px 2px 1px 1px;
-}
-
-.escolherFt input[type="file"] {
-    cursor: pointer;
-    position: absolute;
-    left:0;
-    top:0;
-    transform: scale(3);
-    opacity: 0;
-}
-
-.img-item {
-    width: 15rem;
-    aspect-ratio: 1/1;
-    border-radius: 10%;
-    overflow: hidden;
-    border: 2px solid black;
-}
-
-.img-item img {
-    display: block;
-    width: 100%;
-}
-
-
-/* Fim da tela de criar postagem */
-
-
-/* Inicio da tela de expandir postagem(de outro usuario) */
-
-.publicacaoexpandida {
-    position: fixed;
-    margin-left: 8rem;
-    top: 2rem;
-    background-color: white;
-    width: 80vw;
-    height: 90%;
-    border: 2px solid black;
-    box-shadow: 2px 2px 1px 1px;
-    border-radius: 30px;
-    z-index: 2;
-    filter: blur(none);
-    display: grid;
-    grid-template-rows: auto 15vw;
-    overflow: hidden;
-}
-
-
-.publicacaoexpandida .conteudo {
-    
-    padding-top: 5px;
-    height: 100%;
-    font-size: 15px;
-    border-top: 2px solid black;
-    
-}
-
-.publicacaoexpandida .conteudo h4 {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 700;
-}
-
-.publicacaoexpandida figure {
-    margin: 0;
-    top: 0;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: #5e7881;
-    
-
-}
-.publicacaoexpandida figure img {
-    
-    
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: all 0.5s;
-    
-    
-}
-
-.headerPublicacao {
-    display: grid;
-    grid-template-columns: auto 15vw 3vw;
-    column-gap: 1rem;
-    padding-right: 1rem;
-    margin: 0;
-}
-
-.headerPublicacao .menuPublicacao {
-    width: 2.5rem;
-    height: 2.5rem;
-    background-color: orange;
-    border-radius: 50%;
-    border: 2px solid black;
-}
-
-.headerPublicacao .menuPublicacao:hover {
-    transition: 200ms all ease;
-    filter: brightness(90%);
-}
-
-.headerPublicacao .reinvidicar {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 800;
-    font-size: 1rem;
-    padding: .6rem 3rem;
-    background-color:#e2bbda;
-    border-radius: 30px;
-    border: 2px solid black;
     cursor: pointer;
 }
 
-.headerPublicacao .reinvidicar:hover {
-    transition: 200ms all ease;
-    filter: brightness(90%);
+#cancel-button:hover {
+    background-color: #c62828; /* Muda a cor ao passar o mouse */
 }
-
-.publicacaoexpandida .conteudo .headerPublicacao h1 {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 800;
-    font-size: 1.8rem;
-    margin-left: 1rem;
-}
-
-.publicacaoexpandida .conteudo .categoriaItem, .publicacaoexpandida .categoriaPublicacao,.publicacaoexpandida p {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    margin-left: 1rem;
-}
-
-.conteudo .categoriaItem {
-    color: gray;
-    font-size: 1rem;
-}
-
-.conteudo .categoriaPublicacao {
-    padding-left: 1rem;
-    border-left: 2px solid gray;
-    color:gray;
-    font-size: 1rem;
-}
-
-.publicacaoexpandida .conteudo p {
-    font-size: smaller;
-    margin-bottom: 0.5rem;
-}
-
-.catPostagem {
-    display: flex;
-    margin-bottom: 0.5rem;
-}
-
-.publicacaoexpandida .pfp-post {
-    margin-left: 1rem;
-    width: 3rem;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-    border:2px solid black;
-}
-
-.publicacaoexpandida .profile-post {
-    height: 3.5rem;
-    display: flex;
-    align-items: center;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-} 
-
-.publicacaoexpandida .profile-post .user-post {
-    margin-left: 0.5rem;
-    font-size: 1.2rem;
-    color:#000000;
-}
-
-.publicacaoexpandida .profile-post span {
-    font-size: 1.2rem;
-    color:gray;
-}
-
-
-.publicacaoexpandida .cancelar {
-    position: absolute;
-    width: 3rem;
-    height: 3rem;
-    background-color: rgb(192, 192, 192);
-    border-radius: 50%;
-    border: 2px solid black;
-    top: 1rem;
-    right: 1rem;
-    transition: 200ms all ease;
-}
-
-.publicacaoexpandida .cancelar:hover {
-    filter: brightness(90%);
-}
-
-/* Fim da tela de expandir postagem (de outro usuário) */
-
-
-
-/* Inicio da pagina de expandir publicacao(do usuario) */
-
-.editarPublicacao {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 800;
-    font-size: 1rem;
-    padding: .6rem 3rem;
-    background-color:#e2bbda;
-    border-radius: 30px;
-    border: 2px solid black;
-    cursor: pointer;
-}
-
-.main-container-minhaPublicacao {
-    display: grid;
-    grid-template-columns: 80px auto;
-    position: relative;
-    height: 100%;
-    filter: blur(5px);
-    opacity: 0.9;
-    
-}
-
-/* Fim da pagina de expandir publicacao (do usuario) */
-

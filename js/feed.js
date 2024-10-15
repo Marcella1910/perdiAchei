@@ -1,129 +1,82 @@
-function irAvaliar() {
-    window.location.href = "avaliar.html";
-}
-function criarPost() {
-    window.location.href = "criarPublicacao.html";
-}
+document.getElementById('file-upload').addEventListener('change', function(event) {
+    const file = event.target.files[0]; // Obter o arquivo selecionado
+    const fileInput = document.getElementById('file-upload');
+    const previewContainer = document.getElementById('preview-container');
+    const previewImage = document.getElementById('preview-image');
+    const previewVideo = document.getElementById('preview-video');
+    const cancelButton = document.getElementById('cancel-button');
 
-// menu do feed
+    if (file) {
+        const fileType = file.type;
 
-function abrirMenu() {
-    document.querySelector(".avalie-nos").style.transition = ".2s";
-    document.querySelector(".main-container").style.transition = ".2s";
-    document.querySelector(".main-container").style.gridTemplateColumns = "19vw auto 20vw";
-    document.querySelector(".menuFechar").style.display = "flex";
-    document.querySelector(".menuFechar").style.float = "right";
-    document.querySelector(".menuExpandir").style.opacity = 0;
-    document.querySelector(".avalie-nos").style.display = "flex";
-    
-}
+        // Verifica se o arquivo é uma imagem ou um vídeo
+        if (fileType.startsWith('image/')) {
+            // Se for uma imagem
+            const imageUrl = URL.createObjectURL(file);
+            previewImage.src = imageUrl;
+            previewImage.style.display = 'block';
+            previewVideo.style.display = 'none';
+            previewContainer.style.display = 'block';
+        } else if (fileType.startsWith('video/')) {
+            // Se for um vídeo
+            const videoUrl = URL.createObjectURL(file);
+            previewVideo.src = videoUrl;
+            previewVideo.style.display = 'block';
+            previewImage.style.display = 'none';
+            previewContainer.style.display = 'block';
+        } else {
+            // Se o tipo de arquivo não for suportado
+            alert('Formato de arquivo não suportado!');
+        }
+    }
 
-function fecharMenu() {
-    document.querySelector(".main-container").style.gridTemplateColumns = "80px auto 20vw";
-    document.querySelector(".menuFechar").style.display = "none";
-    document.querySelector(".menuExpandir").style.opacity = 1;
-    document.querySelector(".avalie-nos").style.display = "none";
-    document.querySelector(".avalie-nos").style.transition = ".2s";
-}
+    cancelButton.addEventListener('click', () => {
+        fileInput.value = ''; // Limpa o valor do input
+        previewImage.src = ''; // Limpa a imagem de pré-visualização
+        previewContainer.style.display = 'none'; // Esconde o contêiner de pré-visualização
+    });
+});
 
-// menu da pagina de minhas postagens
-
-function abrirMenuMeusPosts() {
-    document.querySelector(".avalie-nos").style.transition = ".2s";
-    document.querySelector(".main-container-my-posts").style.transition = ".2s";
-    document.querySelector(".main-container-my-posts").style.gridTemplateColumns = "19vw auto";
-    document.querySelector(".menuFechar").style.display = "flex";
-    document.querySelector(".menuFechar").style.float = "right";
-    document.querySelector(".menuExpandir").style.opacity = 0;
-    document.querySelector(".avalie-nos").style.display = "flex";
-}
-
-function fecharMenuMeusPosts() {
-    document.querySelector(".main-container-my-posts").style.gridTemplateColumns = "80px auto";
-    document.querySelector(".menuFechar").style.display = "none";
-    document.querySelector(".menuExpandir").style.opacity = 1;
-    document.querySelector(".avalie-nos").style.display = "none";
-    document.querySelector(".avalie-nos").style.transition = ".2s";
-}
-
-// menu da pagina de chats
-
-function abrirMenuChats() {
-    document.querySelector(".avalie-nos").style.transition = ".2s";
-    document.querySelector(".main-container-chats").style.transition = ".2s";
-    document.querySelector(".main-container-chats").style.gridTemplateColumns = "19vw auto 105vh";
-    document.querySelector(".menuFechar").style.display = "flex";
-    document.querySelector(".menuFechar").style.float = "right";
-    document.querySelector(".menuExpandir").style.opacity = 0;
-    document.querySelector(".avalie-nos").style.display = "flex";
-}
-
-function fecharMenuChats() {
-    document.querySelector(".main-container-chats").style.gridTemplateColumns = "80px auto 105vh";
-    document.querySelector(".menuFechar").style.display = "none";
-    document.querySelector(".menuExpandir").style.opacity = 1;
-    document.querySelector(".avalie-nos").style.display = "none";
-    document.querySelector(".avalie-nos").style.transition = ".2s";
-}
-
-// menu das paginas de configuracao
-
-function abrirMenuConfigs() {
-    document.querySelector(".avalie-nos").style.transition = ".2s";
-    document.querySelector(".main-container-config").style.transition = ".2s";
-    document.querySelector(".main-container-config").style.gridTemplateColumns = "19vw auto";
-    document.querySelector(".menuFechar").style.display = "flex";
-    document.querySelector(".menuFechar").style.float = "right";
-    document.querySelector(".menuExpandir").style.opacity = 0;
-    document.querySelector(".avalie-nos").style.display = "flex";
-}
-
-function fecharMenuConfigs() {
-    document.querySelector(".main-container-config").style.gridTemplateColumns = "80px auto";
-    document.querySelector(".menuFechar").style.display = "none";
-    document.querySelector(".menuExpandir").style.opacity = 1;
-    document.querySelector(".avalie-nos").style.display = "none";
-    document.querySelector(".avalie-nos").style.transition = ".2s";
-}
-
-// menu da pagina de avaliacao
-
-function abrirMenuAvaliar() {
-    document.querySelector(".avalie-nos").style.transition = ".2s";
-    document.querySelector(".main-container-feedback").style.transition = ".2s";
-    document.querySelector(".main-container-feedback").style.gridTemplateColumns = "19vw auto";
-    document.querySelector(".menuFechar").style.display = "flex";
-    document.querySelector(".menuFechar").style.float = "right";
-    document.querySelector(".menuExpandir").style.opacity = 0;
-    document.querySelector(".avalie-nos").style.display = "flex";
-}
-
-function fecharMenuAvaliar() {
-    document.querySelector(".main-container-feedback").style.gridTemplateColumns = "80px auto";
-    document.querySelector(".menuFechar").style.display = "none";
-    document.querySelector(".menuExpandir").style.opacity = 1;
-    document.querySelector(".avalie-nos").style.display = "none";
-    document.querySelector(".avalie-nos").style.transition = ".2s";
-}
+document.getElementById('file-upload').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    console.log(file); // Adicione isso para verificar se o arquivo está sendo selecionado corretamente
+});
 
 
-// menu da pagina de perfil
+const toggleButtons = document.querySelectorAll('.toggle-button');
 
-function abrirMenuMeuPerfil() {
-    document.querySelector(".avalie-nos").style.transition = ".2s";
-    document.querySelector(".main-container-meuperfil").style.transition = ".2s";
-    document.querySelector(".main-container-meuperfil").style.gridTemplateColumns = "19vw auto 80vh";
-    document.querySelector(".menuFechar").style.display = "flex";
-    document.querySelector(".menuFechar").style.float = "right";
-    document.querySelector(".menuExpandir").style.opacity = 0;
-    document.querySelector(".avalie-nos").style.display = "flex";
-}
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            toggleButtons.forEach(b => b.classList.remove('active')); // Remove 'active' de todos
+            this.classList.add('active'); // Adiciona 'active' ao botão clicado
+        });
+});
 
-function fecharMenuMeuPerfil() {
-    document.querySelector(".main-container-meuperfil").style.gridTemplateColumns = "80px auto 80vh";
-    document.querySelector(".menuFechar").style.display = "none";
-    document.querySelector(".menuExpandir").style.opacity = 1;
-    document.querySelector(".avalie-nos").style.display = "none";
-    document.querySelector(".avalie-nos").style.transition = ".2s";
-}
+// Seleciona todos os botões de menu
+const menuButtons = document.querySelectorAll('.menu-button');
 
+menuButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Encontra o dropdown correspondente ao botão clicado
+        const dropdownMenu = this.nextElementSibling;
+
+        // Fecha todos os outros menus dropdown antes de abrir o atual
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            if (menu !== dropdownMenu) {
+                menu.style.display = 'none';
+            }
+        });
+
+        // Alterna a exibição do menu dropdown atual
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
+});
+
+// Fecha o menu dropdown se clicar fora dele
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.menu-button')) {
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.style.display = 'none';
+        });
+    }
+});
