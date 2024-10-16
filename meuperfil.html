@@ -39,10 +39,7 @@
                 
                 
 
-                <!-- Link para a página de Chats(conversas) -->
-                <a href="chats.html" class="menu-item">
-                    <span><i class="fa-solid fa-comments fa-lg"></i></span><h3 class="nome-menu-item">Mensagens</h3>
-                </a>
+                
 
                 <!-- Link para a página de Configurações -->
                 <a href="configuracoes.html" class="menu-item">
@@ -102,23 +99,6 @@
                 </ul>
             </div>
 
-            <div class="visualiza-perfil">
-                <div class="header-perfil">
-                    <div class="ftperfil">
-                        <img src="img/userspfp/kdbicon.jpg"></img>
-                    </div>
-                </div>
-                
-                <div class="middle-perfil">
-                    <h2 class="nome">kevin de bruyne</h2>
-                    <h3 class="username">@kdb</h3>
-                    <div class="descricaoperfil">
-                        <p>Lorem ipsum dolor sit amet. Ut reprehenderit dolores sed aliquid reprehenderit cum facere molestias et amet molestiae ut enim saepe ut odit nostrum. Ea minima debitis in omnis voluptatem eum odio ipsum ut quia blanditiis eos cumque delectus et neque repellendus. Qui facere voluptatum et praesentium unde At nulla amet. . </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Create Post Section -->
             <div class="create-post">
                 <textarea maxlength="80" rows="1" cols="30" class="titulopost" placeholder="dê um título a postagem..."></textarea>
                 <textarea class="descricaopost" maxlength="280" rows="5" cols="30" placeholder="perdeu ou achou algo?"></textarea>
@@ -151,157 +131,200 @@
                 
             </div>
 
-            <!-- Posts -->
-            <div class="post">
+            <div class="visualiza-perfil">
+                <div class="header-perfil">
+                    <button class="editperfil">
+                        <i class="fa-solid fa-pen-to-square"></i>  
+                    </button>
+                    <div class="ftperfil">
+                        <img src="img/userspfp/kdbicon.jpg"></img>
+                        
+                    </div>
+                </div>
+                
+                <div class="middle-perfil">
+                    <h2 class="nome">kevin de bruyne</h2>
+                    <h3 class="username">@kdb</h3>
+                    <div class="descricaoperfil">
+                        <p>Lorem ipsum dolor sit amet. Ut reprehenderit dolores sed aliquid reprehenderit cum facere molestias et amet molestiae ut enim saepe ut odit nostrum. Ea minima debitis in omnis voluptatem eum odio ipsum ut quia blanditiis eos cumque delectus et neque repellendus. Qui facere voluptatum et praesentium unde At nulla amet. . </p>
+                    </div>
+                </div>
 
-                <div class="post-header">
-                    <div class="pfp-post">
-                        <img class="pfp" src="img/userspfp/kdbicon.jpg">
-                    </div>
-                    <div class="perfil-post">
-                        <p class="nome">kevin de bruyne</p>
-                        <p class="data-post">12/12/12</p>
-                    </div>
-                    <div class="menu-container">
-                        <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
-                        <div class="dropdown-menu" id="dropdown-menu">
-                            <ul>
-                                <li><a href="#">Editar</a></li>
-                                <li><a href="#">Excluir</a></li>
-                                <li><a href="#">Denunciar</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="menu-publicacoes">
+                    <button class="menu-btn active" onclick="showSection('objetos-perdidos')">objetos perdidos</button>
+                    <button class="menu-btn" onclick="showSection('objetos-achados')">objetos achados</button>
                     
                 </div>
-
-                <div class="conteudo-principal">
-                    <h2 class="titulo">
-                        perdi minha carteiraa
-                    </h2>
-                    <div class="midia">
-                        <img class="imagem-post" src="img/postagens/carteira.jpg">
-                    </div>
-                    <p class="texto-post">perdi minha carteira '-'</p>
-                </div>
-
-            
-                <div class="post-footer">
-                    <div class="tags-post">
-                        <button class="tp_publicacao">
-                            objeto perdido
-                        </button>
-                        <button class="tag-item">
-                            <i class="fa-solid fa-id-card"></i>
-                            documentos
-                        </button>
-                    </div>
-
-                    <div class="acoes">
-                        <button class="encontrei">encontrei !</button>
-                    </div>
-
-                </div>
             </div>
 
-            <div class="post">
+            <!-- Create Post Section -->
+           
 
-                <div class="post-header">
-                    <div class="pfp-post">
-                        <img class="pfp" src="img/userspfp/kdbicon.jpg">
+            <div id="objetos-perdidos" class="section active">
+                <h3>Objetos Perdidos</h3>
+                
+                <div class="post">
+
+                    <div class="post-header">
+                        <div class="pfp-post">
+                            <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                        </div>
+                        <div class="perfil-post">
+                            <p class="nome">kevin de bruyne</p>
+                            <p class="data-post">12/12/12</p>
+                        </div>
+                        <div class="menu-container">
+                            <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
+                            <div class="dropdown-menu" id="dropdown-menu">
+                                <ul>
+                                    <li><a href="#">Editar</a></li>
+                                    <li><a href="#">Excluir</a></li>
+                                    <li><a href="#">Denunciar</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
                     </div>
-                    <div class="perfil-post">
-                        <p class="nome">kevin de bruyne</p>
-                        <p class="data-post">12/12/12</p>
+    
+                    <div class="conteudo-principal">
+                        <h2 class="titulo">
+                            perdi minha carteiraa
+                        </h2>
+                        <div class="midia">
+                            <img class="imagem-post" src="img/postagens/carteira.jpg">
+                        </div>
+                        <p class="texto-post">perdi minha carteira '-'</p>
                     </div>
-                    <div class="menu-container">
-                        <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
-                        <div class="dropdown-menu" id="dropdown-menu">
-                            <ul>
-                                <li><a href="#">Editar</a></li>
-                                <li><a href="#">Excluir</a></li>
-                                <li><a href="#">Denunciar</a></li>
-                            </ul>
+    
+                
+                    <div class="post-footer">
+                        <div class="tags-post">
+                            <button class="tp_publicacao">
+                                objeto perdido
+                            </button>
+                            <button class="tag-item">
+                                <i class="fa-solid fa-id-card"></i>
+                                documentos
+                            </button>
+                        </div>
+    
+                        <div class="acoes">
+                            <button class="encontrei">encontrei !</button>
+                        </div>
+    
+                    </div>
+                </div>
+    
+
+            </div>
+        
+            <div id="objetos-achados" class="section">
+                <h3>Objetos Achados</h3>
+                
+                <div class="post">
+
+                    <div class="post-header">
+                        <div class="pfp-post">
+                            <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                        </div>
+                        <div class="perfil-post">
+                            <p class="nome">kevin de bruyne</p>
+                            <p class="data-post">12/12/12</p>
+                        </div>
+                        <div class="menu-container">
+                            <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
+                            <div class="dropdown-menu" id="dropdown-menu">
+                                <ul>
+                                    <li><a href="#">Editar</a></li>
+                                    <li><a href="#">Excluir</a></li>
+                                    <li><a href="#">Denunciar</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+    
+                    <div class="conteudo-principal">
+                        <h2 class="titulo">
+                            perdi minha carteiraa
+                        </h2>
+                        <div class="midia">
+                            <img class="imagem-post" src="img/postagens/carteira.jpg">
+                        </div>
+                        <p class="texto-post">perdi minha carteira '-'</p>
+                    </div>
+    
+                
+                    <div class="post-footer">
+                        <div class="tags-post">
+                            <button class="tp_publicacao">
+                                objeto perdido
+                            </button>
+                            <button class="tag-item">
+                                <i class="fa-solid fa-id-card"></i>
+                                documentos
+                            </button>
+                        </div>
+    
+                        <div class="acoes">
+                            <button class="encontrei">encontrei !</button>
+                        </div>
+    
+                    </div>
                 </div>
-
-                <div class="conteudo-principal">
-                    <h2 class="titulo">
-                        perdi minha carteiraa
-                    </h2>
-                    <div class="midia">
-                        <img class="imagem-post" src="img/postagens/carteira.jpg">
-                    </div>
-                    <p class="texto-post">perdi minha carteira '-'</p>
-                </div>
-
-            
-                <div class="post-footer">
-                    <div class="tags-post">
-                        <button class="tp_publicacao">
-                            objeto perdido
-                        </button>
-                        <button class="tag-item">
-                            <i class="fa-solid fa-id-card"></i>
-                            documentos
-                        </button>
-                    </div>
-
-                    <div class="acoes">
-                        <button class="encontrei">encontrei !</button>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="post">
-
-                <div class="post-header">
-                    <div class="pfp-post">
-                        <img class="pfp" src="img/userspfp/kdbicon.jpg">
-                    </div>
-                    <div class="perfil-post">
-                        <p class="nome">kevin de bruyne</p>
-                        <p class="data-post">12/12/12</p>
-                    </div>
-                    <div class="menu-container">
-                        <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
-                        <div class="dropdown-menu" id="dropdown-menu">
-                            <ul>
-                                <li><a href="#">Editar</a></li>
-                                <li><a href="#">Excluir</a></li>
-                                <li><a href="#">Denunciar</a></li>
-                            </ul>
+    
+                <div class="post">
+    
+                    <div class="post-header">
+                        <div class="pfp-post">
+                            <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                        </div>
+                        <div class="perfil-post">
+                            <p class="nome">kevin de bruyne</p>
+                            <p class="data-post">12/12/12</p>
+                        </div>
+                        <div class="menu-container">
+                            <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
+                            <div class="dropdown-menu" id="dropdown-menu">
+                                <ul>
+                                    <li><a href="#">Editar</a></li>
+                                    <li><a href="#">Excluir</a></li>
+                                    <li><a href="#">Denunciar</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+    
+                    <div class="conteudo-principal">
+                        <div class="midia">
+                            <img class="imagem-post" src="img/postagens/carteira.jpg">
+                        </div>
+                        <p class="texto-post">perdi minha carteira '-'</p>
+                    </div>
+    
+                
+                    <div class="post-footer">
+                        <div class="tags-post">
+                            <button class="tp_publicacao">
+                                objeto perdido
+                            </button>
+                            <button class="tag-item">
+                                <i class="fa-solid fa-id-card"></i>
+                                documentos
+                            </button>
+                        </div>
+    
+                        <div class="acoes">
+                            <button class="encontrei">encontrei !</button>
+                        </div>
+    
+                    </div>
                 </div>
 
-                <div class="conteudo-principal">
-                    <div class="midia">
-                        <img class="imagem-post" src="img/postagens/carteira.jpg">
-                    </div>
-                    <p class="texto-post">perdi minha carteira '-'</p>
-                </div>
-
-            
-                <div class="post-footer">
-                    <div class="tags-post">
-                        <button class="tp_publicacao">
-                            objeto perdido
-                        </button>
-                        <button class="tag-item">
-                            <i class="fa-solid fa-id-card"></i>
-                            documentos
-                        </button>
-                    </div>
-
-                    <div class="acoes">
-                        <button class="encontrei">encontrei !</button>
-                    </div>
-
-                </div>
             </div>
+
+            <!-- Posts -->
+            
+            
 
             
 
@@ -309,20 +332,7 @@
 
         <!-- Right Menu -->
         <div class="right-menu">
-            <div class="header-right-menu">
-                <p>Perfil</p>
-                <button class="editperfil">
-                    <i class="fa-solid fa-pen-to-square"></i>  
-                </button>
-            </div>
-            <div class="centro-menu-right">
-                <div class="ftperfil clickable-profile">
-                    <img src="img/userspfp/kdbicon.jpg"></img>
-                </div>
-                
-                <h2 class="nome clickable-profile">kevin de bruyne</h2>
-                <h3 class="username clickable-profile">@kdb</h3>
-            </div>
+            
         </div>
 
     </div>

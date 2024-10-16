@@ -124,3 +124,22 @@ clickableElements.forEach(element => {
         window.location.href = 'meuperfil.html';
     });
 });
+
+
+function showSection(sectionId) {
+    // Remove a classe 'active' de todas as seções
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Remove a classe 'active' de todos os botões
+    const buttons = document.querySelectorAll('.menu-btn');
+    buttons.forEach(button => {
+        button.classList.remove('active');
+    });
+
+    // Adiciona a classe 'active' na seção e no botão clicado
+    document.getElementById(sectionId).classList.add('active');
+    document.querySelector(`.menu-btn[onclick="showSection('${sectionId}')"]`).classList.add('active');
+}
