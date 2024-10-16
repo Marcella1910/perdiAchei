@@ -585,7 +585,7 @@ aside .menu-item:hover {
     align-items: center;         /* Centraliza verticalmente */
     justify-content: center;     /* Centraliza horizontalmente */
     cursor: pointer;             /* Muda o cursor para indicar que é clicável */
-    transition: background-color 0.1s; /* Animação suave na mudança de cor */
+    transition: background-color 0.3s; /* Animação suave na mudança de cor */
 }
 
 .editperfil:hover {
@@ -730,7 +730,7 @@ input[type="file"] {
     align-items: center;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    background-color: #ac689e;
+    background-color: #e0b7d8;
 }
 
 .middle-perfil {
@@ -773,6 +773,7 @@ input[type="file"] {
 }
 
 .middle-perfil h2 {
+    font-size: 28px;
     margin: 10px 0 5px 0; /* Espaçamento personalizado entre os textos */
 }
 
@@ -788,3 +789,12 @@ input[type="file"] {
     cursor: pointer; /* Adiciona o cursor pointer para elementos clicáveis */
 }
 
+.descricaoperfil {
+    font-size: 12px;
+    width: 230px;
+    height: fit-content;
+    text-align:justify;
+    margin: 10px;
+    margin-bottom: 1rem;
+    font-family: "Poppins";
+}
