@@ -133,30 +133,69 @@
             </div>
 
             <div class="tags">
-                <button class="tag">
+                <button class="tag active" onclick="showSection('todos')">
+                    Todos
+                </button>
+                <button class="tag" onclick="showSection('roupas')">
                     <i class="fa-solid fa-shirt"></i> Roupas e agasalhos
                 </button>
-                <button class="tag">
+                <button class="tag" onclick="showSection('eletronicos')">
                     <i class="fa-solid fa-mobile"></i> Eletrônicos 
                 </button>
-                <button class="tag">
+                <button class="tag" onclick="showSection('garrafas')">
                     <i class="fa-solid fa-bottle-water"></i> Garrafas e lancheiras
                 </button>
-                <button class="tag">
+                <button class="tag" onclick="showSection('utensilioscozinha')">
                     <i class="fa-solid fa-spoon"></i> Utensílios de cozinhha
                 </button>
-                <button class="tag">
+                <button class="tag" onclick="showSection('materiaisescolares')">
                     <i class="fa-solid fa-pencil"></i> Materiais escolares 
                 </button>
-                <button class="tag">
+                <button class="tag" onclick="showSection('documentos')">
                     <i class="fa-solid fa-id-card"></i> Documentos
                 </button>
-                <button class="tag">
+                <button class="tag" onclick="showSection('produtoshigiene')">
                     <i class="fa-solid fa-pump-soap"></i> Produtos de higiene/Cosmético
                 </button>
-                <button class="tag">
+                <button class="tag" onclick="showSection('outros')">
                     Outros
                 </button>
+            </div>
+
+            <div id="todos" class="section active">
+                <h3>Todos</h3>
+            </div>
+
+            <div id="roupas" class="section">
+                <h3>Roupas e agasalhos</h3>
+            </div>
+
+            <div id="eletronicos" class="section">
+                <h3>Eletrônicos</h3>
+            </div>
+
+            <div id="garrafas" class="section">
+                <h3>Garrafas e Lancheiras</h3>
+            </div>
+
+            <div id="utensilioscozinha" class="section">
+                <h3>Utensílios de cozinha</h3>
+            </div>
+
+            <div id="materiaisescolares" class="section">
+                <h3>Materiais Escolares</h3>
+            </div>
+
+            <div id="documentos" class="section">
+                <h3>Documentos</h3>
+            </div>
+
+            <div id="produtoshigiene" class="section">
+                <h3>Produtos higienicos</h3>
+            </div>
+
+            <div id="outros" class="section">
+                <h3>Outros</h3>
             </div>
 
             <!-- Posts -->

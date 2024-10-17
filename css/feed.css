@@ -882,7 +882,7 @@ input[type="file"] {
     cursor: pointer;
     border: 2px solid #dfdfdf;
     box-shadow: #e2da9e6c 0px 7px 29px 0px;
-    margin: 4px;
+    margin: 2px;
     transition: 0.3s all ease;
 }
 
@@ -892,4 +892,9 @@ input[type="file"] {
 
 .tag i {
     margin-right: 2px;
+}
+
+.tag.active {
+    background-color: #ac689e;
+    color: white;
 }

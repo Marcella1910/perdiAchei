@@ -139,7 +139,13 @@ function showSection(sectionId) {
         button.classList.remove('active');
     });
 
+    const tags = document.querySelectorAll('.tag');
+    tags.forEach(tag => {
+        tag.classList.remove('active');
+    });
+
     // Adiciona a classe 'active' na seção e no botão clicado
     document.getElementById(sectionId).classList.add('active');
     document.querySelector(`.menu-btn[onclick="showSection('${sectionId}')"]`).classList.add('active');
+    document.querySelector(`.tag[onclick="showSection('${sectionId}')"]`).classList.add('active');
 }
