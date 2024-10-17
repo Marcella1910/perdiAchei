@@ -861,3 +861,35 @@ input[type="file"] {
 .section.active {
     display: block;
 }
+
+.tags {
+    
+    width: fit-content;
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px 15px;
+    background-color: white;
+    color: #8f8f8f;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 2px solid #dfdfdf;
+    box-shadow: #e2da9e6c 0px 7px 29px 0px;
+    margin: 4px;
+    transition: 0.3s all ease;
+}
+
+.tag:hover {
+    background-color: #e6e6e6;
+}
+
+.tag i {
+    margin-right: 2px;
+}
