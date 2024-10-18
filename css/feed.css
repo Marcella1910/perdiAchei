@@ -566,6 +566,11 @@ aside .menu-item:hover {
     align-items: center;        /* Centraliza verticalmente */
     justify-content: center;    /* Centraliza horizontalmente */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  /* Sombra leve */
+    transition: all ease 0.2s;
+}
+
+.ftperfil:hover {
+    border: 2px solid white;
 }
 
 .ftperfil img {
