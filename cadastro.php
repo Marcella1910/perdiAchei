@@ -1,6 +1,23 @@
 <!-- Bem-vindo(a) ao perdiAchei! O achados e perdidos virtual do IFES Campus Serra. -->
 <!-- Feito por Gabriele Maria Modesto Luciano, Marcella Gaurink Oliveira Dias e Verônica Gonçalves de Souza -->
 <!-- INFO/5, 2024 -->
+<?php
+    if(isset($_POST['submit'])) {
+
+        include_once('config.php');
+
+        $nome = $_POST['nome'];
+        $user = $_POST['user'];
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+        $cnfsenha = $_POST['cnfsenha']
+
+
+
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,user,email,senha,cnfsenha) 
+        VALUES ($nome,$user,$email,$senha,$cnfsenha)");
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
