@@ -126,9 +126,9 @@ clickableElements.forEach(element => {
 });
 
 
-function showSection(sectionId) {
+function showSectionPerfil(sectionId) {
     // Remove a classe 'active' de todas as seções
-    const sections = document.querySelectorAll('.section');
+    const sections = document.querySelectorAll('.section-tipo');
     sections.forEach(section => {
         section.classList.remove('active');
     });
@@ -139,13 +139,22 @@ function showSection(sectionId) {
         button.classList.remove('active');
     });
 
+    // Adiciona a classe 'active' na seção e no botão clicado
+    document.getElementById(sectionId).classList.add('active');
+    document.querySelector(`.menu-btn[onclick="showSectionPerfil('${sectionId}')"]`).classList.add('active');
+}
+
+function showSection(sectionId) {
+    // Remove a classe 'active' de todas as seções
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => section.classList.remove('active'));
+
+    // Remove a classe 'active' de todos os botões de tag
     const tags = document.querySelectorAll('.tag');
-    tags.forEach(tag => {
-        tag.classList.remove('active');
-    });
+    tags.forEach(tag => tag.classList.remove('active'));
 
     // Adiciona a classe 'active' na seção e no botão clicado
     document.getElementById(sectionId).classList.add('active');
-    document.querySelector(`.menu-btn[onclick="showSection('${sectionId}')"]`).classList.add('active');
-    document.querySelector(`.tag[onclick="showSection('${sectionId}')"]`).classList.add('active');
+    document.querySelector(`.tag[data-section="${sectionId}"]`).classList.add('active');
 }
+

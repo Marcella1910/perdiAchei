@@ -848,6 +848,18 @@ input[type="file"] {
     font-family: "Poppins";
     font-size: 2rem;
     margin: 1rem;
+    color:#555;
+}
+
+.section-tipo {
+    display: none;
+    margin-top: 20px;
+}
+
+.section-tipo h3 {
+    font-family: "Poppins";
+    font-size: 2rem;
+    margin: 1rem;
 }
 
 #objetos-perdidos {
@@ -862,9 +874,12 @@ input[type="file"] {
     display: block;
 }
 
+.section-tipo.active {
+    display: block;
+}
+
 .tags {
-    
-    width: fit-content;
+    width: 50rem;
     display: block;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -874,16 +889,16 @@ input[type="file"] {
     font-family: "Varela Round", sans-serif;
     font-weight: 400;
     font-style: normal;
-    padding: 10px 15px;
+    padding: 9px 14px;
     background-color: white;
-    color: #8f8f8f;
+    color: #c0c0c0;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     border: 2px solid #dfdfdf;
     box-shadow: #e2da9e6c 0px 7px 29px 0px;
-    margin: 2px;
     transition: 0.3s all ease;
+    margin-bottom: 5px;
 }
 
 .tag:hover {
