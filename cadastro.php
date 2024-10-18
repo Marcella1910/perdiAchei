@@ -112,7 +112,7 @@
             <h4>Perdeu ou achou alguma coisa nos arredores do IFES Campus Serra? <span>Conecte-se!</span></h4>
 
             <!-- Botão para a página de login  -->
-            <button class="btnLog" onclick="window.location.href='login.php'"> Fazer Login </button>
+            <button class="btnLog" onclick="window.location.href='login.phps'"> Fazer Login </button>
 
         </div>
         <!-- Fim da div imgCad  -->

@@ -120,8 +120,8 @@ const clickableElements = document.querySelectorAll('.clickable-profile');
 // Adiciona um evento de clique em cada um deles
 clickableElements.forEach(element => {
     element.addEventListener('click', function() {
-        // Redireciona para a página meuperfil.html
-        window.location.href = 'meuperfil.html';
+        // Redireciona para a página meuperfil.php
+        window.location.href = 'meuperfil.php';
     });
 });
 

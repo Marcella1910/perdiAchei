@@ -918,3 +918,108 @@ input[type="file"] {
     background-color: #ac689e;
     color: white;
 }
+
+.config-conta {
+    height: 100%;
+    font-family: "Varela Round";
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: #e2da9e 0px 7px 29px 0px;
+    color: #555;
+    display: block;
+}
+
+.config-conta h3 {
+    font-family: "Poppins";
+    font-size: 30px;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #8f8f8f41;
+}
+
+.email-conta, .senha-conta, .excluir-conta {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    height: fit-content;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #8f8f8f38;
+    align-items: center;     /* Centraliza horizontalmente */
+} 
+
+.email-conta, .senha-conta, .excluir-conta h4{
+    font-family: "Poppins";
+}
+
+.user-email, .user-senha {
+    font-weight: 400;
+    font-size: 15px;
+    
+}
+
+.email-conta button, .senha-conta button {
+    width: 40px;                 /* Defina a largura do círculo */
+    height: 40px;                /* Defina a altura igual à largura para manter o formato circular */
+    border-radius: 50%;          /* Faz o botão ficar circular */
+    border: none;                /* Remove a borda padrão do botão */
+    color: #555;                /* Cor do ícone */
+    display: flex;               /* Usa flexbox para centralizar o ícone */
+    align-items: center;         /* Centraliza verticalmente */
+    justify-content: center;     /* Centraliza horizontalmente */
+    cursor: pointer;             /* Muda o cursor para indicar que é clicável */
+    font-size: 15px;
+
+}
+
+.excluir-conta-btn {
+    font-family: "Varela Round";
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 2px solid #d14747;
+    color: white;
+    background-color: #f17272;
+}
+
+.right-menu-configuracoes {
+    width: 20%;
+    margin-top: 1rem;
+    background-color: #fff;
+    position: sticky;
+    top: 60px; /* Fixed positioning relative to navbar */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #fdf7c9;
+    box-shadow: #fff9c8 0px 30px 60px -12px inset, #fdf7c9 0px 18px 36px -18px inset;
+    border-bottom-left-radius: 20px;
+}
+
+.menu-item.active {
+    background-color: #eee6ac;
+}
+
+.right-menu-configuracoes .menu-item {
+    display: flex;              /* Ativa flexbox */
+    flex-direction: column;     /* Alinha elementos em coluna (um embaixo do outro) */
+    justify-content: center;
+    align-items: flex-start;   
+    cursor: pointer;       /* Muda o cursor para indicar que é clicável */
+}
+
+.right-menu-configuracoes .menu-item:hover {
+    background-color: #eee6ac;
+}
+
+
+.right-menu-configuracoes .menu-item h4 {
+    font-family: "Varela Round";
+    color: #858585;
+    font-weight: 300;
+}
+
+.tituloconfiguracoes {
+    font-family: "Poppins";
+    color: #333;
+    margin: 1rem;
+    
+}
