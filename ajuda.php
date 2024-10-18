@@ -42,27 +42,27 @@
                 <aside>
 
                     <!-- Link para a página de feed(Home) -->
-                    <a href="feed.html" class="menu-item">
+                    <a href="feed.php" class="menu-item">
                         <span><i class="fa fa-solid fa-house fa-lg"></i></span><h3 class="nome-menu-item">Home</h3>
                     </a>
 
                     <!-- Link para a página de Notificações -->
-                    <a href="notificacoes.html" class="menu-item">
+                    <a href="notificacoes.php" class="menu-item">
                         <span><i class="fa-solid fa-bell fa-lg"></i></span><h3 class="nome-menu-item">Notificações</h3>
                     </a>
 
                     <!-- Link para a página de Minhas publicações -->
-                    <a href="my-posts.html" class="menu-item">
+                    <a href="my-posts.php" class="menu-item">
                         <span><i class="fa-solid fa-list fa-lg"></i></span><h3 class="nome-menu-item">Minhas publicações</h3>
                     </a>
 
                     <!-- Link para a página de Chats(conversas) -->
-                    <a href="chats.html" class="menu-item">
+                    <a href="chats.php" class="menu-item">
                         <span><i class="fa-solid fa-comments fa-lg"></i></span><h3 class="nome-menu-item">Mensagens</h3>
                     </a>
 
                     <!-- Link para a página de Configurações -->
-                    <a href="configuracoes.html" class="menu-item">
+                    <a href="configuracoes.php" class="menu-item">
                         <span><i class="fa-solid fa-gear fa-lg"></i></span><h3 class="nome-menu-item">Configurações</h3>
                     </a>
 
@@ -73,7 +73,7 @@
                     </div>
                     
                     <!-- Link para fazer logout; -->
-                    <a href="index.html" class="menu-item" id="log-out">
+                    <a href="index.php" class="menu-item" id="log-out">
                         <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span> <h3>Sair</h3>
                     </a>
 
@@ -115,19 +115,19 @@
                 <div class="conteudo-config">
 
                     <!-- Botão que leva para a página de Temas e acessibilidade(Configurações principais) -->
-                    <button class="tag-configuracao" onclick="window.location.href='configuracoes.html'">
+                    <button class="tag-configuracao" onclick="window.location.href='configuracoes.php'">
                         <i class="fa-solid fa-palette"></i>
                         Temas e acessibilidade
                     </button>
 
                     <!-- Botão que leva para a página de Configurações da Conta -->
-                    <button class="tag-configuracao" onclick="window.location.href='configConta.html'">
+                    <button class="tag-configuracao" onclick="window.location.href='configConta.php'">
                         <i class="fa-solid fa-user"></i>
                         Configurações da conta
                     </button>
 
                     <!-- Botão que leva para a página de Configurar Notificações -->
-                    <button class="tag-configuracao" onclick="window.location.href='configNot.html'">
+                    <button class="tag-configuracao" onclick="window.location.href='configNot.php'">
                         <i class="fa-solid fa-bell"></i>
                         Configurar notificações
                     </button>
@@ -139,7 +139,7 @@
                     </button>
 
                     <!-- Botão que leva para a página de Avaliação -->
-                    <button class="tag-configuracao" onclick="window.location.href='avaliar.html'">
+                    <button class="tag-configuracao" onclick="window.location.href='avaliar.php'">
                         <i class="fa-solid fa-star"></i>
                         Avalie-nos
                     </button>

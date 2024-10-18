@@ -62,7 +62,7 @@
                     <!--  -->
                     
                     <!-- Botão para tela de login  -->
-                    <button class="btnCad" onclick="window.location.href='login.html'"> Redefinir </button>
+                    <button class="btnCad" onclick="window.location.href='login.php'"> Redefinir </button>
                     <!--  -->
                     
                 </div>
@@ -70,7 +70,7 @@
                 
 
                 <!-- Caso não tenha recebido o email, clique para reenviar  -->
-                <p class="reenviarLink"> Caso não tenha recebido a mensagem, verifique se digitou o endereço de email corretamente ou se caiu na caixa de spam. <a href="esqueceSenha.html">Reenviar email</a></p>
+                <p class="reenviarLink"> Caso não tenha recebido a mensagem, verifique se digitou o endereço de email corretamente ou se caiu na caixa de spam. <a href="esqueceSenha.php">Reenviar email</a></p>
                 <!--  -->
      
             </div>

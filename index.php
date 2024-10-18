@@ -26,10 +26,10 @@
 
                 <!-- Link para a página de sobre -->
                 <ul id="nav-mobile" class="left">
-                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="sobre.php">Sobre</a></li>
 
                 <!-- Botão para o usuário fazer login -->
-                <button class="btnLogin" onclick="window.location.href='login.html'">
+                <button class="btnLogin" onclick="window.location.href='login.php'">
                     <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
                     Entrar
                 </button>
@@ -55,7 +55,7 @@
             <h3 class="subtitulo">Bem-vindo(a) ao perdiAchei! O Achados e Perdidos Online do IFES Campus Serra. Iremos te ajudar a encontrar o que você perdeu nos arredores do IFES!</h3>
             
             <!-- Botão para o usuário se cadastrar -->
-            <button class="btnCad" onclick="window.location.href='cadastro.html'"> CADASTRE-SE </button>
+            <button class="btnCad" onclick="window.location.href='cadastro.php'"> CADASTRE-SE </button>
 
         </div>
 

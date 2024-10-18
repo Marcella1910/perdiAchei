@@ -27,7 +27,7 @@
             <aside>
 
                 <!-- Link para a página de feed(Home) -->
-                <a href="feed.html" class="menu-item">
+                <a href="feed.php" class="menu-item">
                     <span><i class="fa fa-solid fa-house fa-lg"></i></span><h3 class="nome-menu-item">Home</h3>
                 </a>
 
@@ -38,12 +38,12 @@
 
                 
                 <!-- Link para a página de Chats(conversas) -->
-                <a href="chats.html" class="menu-item">
+                <a href="chats.php" class="menu-item">
                     <span><i class="fa-solid fa-comments fa-lg"></i></span><h3 class="nome-menu-item">Mensagens</h3>
                 </a>
 
                 <!-- Link para a página de Configurações -->
-                <a href="configuracoes.html" class="menu-item">
+                <a href="configuracoes.php" class="menu-item">
                     <span><i class="fa-solid fa-gear fa-lg"></i></span><h3 class="nome-menu-item">Configurações</h3>
                 </a>
 
@@ -51,7 +51,7 @@
                 
                 
                 <!-- Link para fazer logout; -->
-                <a href="index.html" class="menu-item" id="log-out">
+                <a href="index.php" class="menu-item" id="log-out">
                     <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span> <h3>Sair</h3>
                 </a>
 

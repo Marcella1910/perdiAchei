@@ -25,10 +25,10 @@
 
                 <!-- Voltar para a index page -->
                 <ul id="nav-mobile" class="left">
-                    <li><a href="index.html">Voltar</a> </li>
+                    <li><a href="index.php">Voltar</a> </li>
 
                 <!-- Botão para o usuário fazer login -->
-                    <button class="btnLogin" onclick="window.location.href='login.html'">
+                    <button class="btnLogin" onclick="window.location.href='login.php'">
                         <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
                         Entrar
                     </button> 

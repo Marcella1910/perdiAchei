@@ -29,7 +29,7 @@
                 <!--  -->
 
                 <!-- Botão que leva ao feed  -->
-                <button class="cancelar" onclick="window.location.href='feed.html'">
+                <button class="cancelar" onclick="window.location.href='feed.php'">
                     <i class="fa-solid fa-xmark fa-2xl"></i>
                 </button>
                 <!--  -->
@@ -144,19 +144,19 @@
                 
 
                 <aside>
-                    <a href="feed.html" class="menu-item">
+                    <a href="feed.php" class="menu-item">
                         <span><i class="fa fa-solid fa-house fa-lg"></i></span><h3 class="nome-menu-item">Home</h3>
                     </a>
-                    <a href="notificacoes.html" class="menu-item">
+                    <a href="notificacoes.php" class="menu-item">
                         <span><i class="fa-solid fa-bell fa-lg"></i></span><h3 class="nome-menu-item">Notificações</h3>
                     </a>
-                    <a href="my-posts.html" class="menu-item">
+                    <a href="my-posts.php" class="menu-item">
                         <span><i class="fa-solid fa-list fa-lg"></i></span><h3 class="nome-menu-item">Minhas publicações</h3>
                     </a>
-                    <a href="chats.html" class="menu-item">
+                    <a href="chats.php" class="menu-item">
                         <span><i class="fa-solid fa-comments fa-lg"></i></span><h3 class="nome-menu-item">Mensagens</h3>
                     </a>
-                    <a href="configuracoes.html" class="menu-item">
+                    <a href="configuracoes.php" class="menu-item">
                         <span><i class="fa-solid fa-gear fa-lg"></i></span><h3 class="nome-menu-item">Configurações</h3>
                     </a>
                     <div class="menu-item">
@@ -164,7 +164,7 @@
                         <button class="btnPostar" id="btnPostar" onclick="criarPost()">Criar post</button>
                     </div>
                     
-                    <a href="index.html" class="menu-item" id="log-out">
+                    <a href="index.php" class="menu-item" id="log-out">
                         <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span> <h3>Sair</h3>
                     </a>
                     <div class="avalie-nos">
@@ -359,7 +359,7 @@
 
             <div class="main-right">
                 <!--inicio da area do perfil-->
-                <a href="perfil.html" class="profile">
+                <a href="perfil.php" class="profile">
                     <div class="pfp"  id="my-pfp">
                         <img src="img/pfpusers/chuu.jpg">
                     </div>

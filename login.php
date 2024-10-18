@@ -62,7 +62,7 @@
             <!-- Fim de inputs  -->
 
             <!-- Caso tenha esquecido a senha  -->
-            <p class="esqueciSenha"> Esqueceu a senha? <a href="esqueceSenha.html">Clique aqui.</a></p>         
+            <p class="esqueciSenha"> Esqueceu a senha? <a href="esqueceSenha.php">Clique aqui.</a></p>         
      
         </div>
         <!-- Fim da div de login  -->
@@ -77,7 +77,7 @@
             <h4>Ainda não possui uma conta? <span>Conecte-se!</span></h4>
 
             <!-- Botão que leva ao cadastro  -->
-            <button class="btnLog" onclick="window.location.href='cadastro.html'"> Cadastre-se </button>
+            <button class="btnLog" onclick="window.location.href='cadastro.php'"> Cadastre-se </button>
 
         </div>
         <!-- Fim de imgLog  -->

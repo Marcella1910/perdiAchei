@@ -40,14 +40,14 @@
                     <!--  -->
 
                     <!-- Leva para a tela de redefinir senha  -->
-                    <button class="btnCad" onclick="window.location.href='redefinirsenha.html'"> Redefinir senha </button>
+                    <button class="btnCad" onclick="window.location.href='redefinirsenha.php'"> Redefinir senha </button>
                     <!--  -->
                     
                 </div>
                 <!-- Fim de inputs  -->
 
                 <!-- Link para a tela de login caso o usuário já possua cadastro  -->
-                <p class="esqueciSenha"> Já possui cadastro? <a href="login.html">Faça seu login!</a></p>
+                <p class="esqueciSenha"> Já possui cadastro? <a href="login.php">Faça seu login!</a></p>
                 <!--  -->
 
             </div>

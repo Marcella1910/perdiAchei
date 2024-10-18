@@ -94,7 +94,7 @@
             <!-- Fim de inputs -->
 
             <!-- Link para fazer login caso o usuário já possua conta  -->
-            <p class="fazerLogin"> Já possui uma conta? <a href="login.html">Fazer login.</a></p>
+            <p class="fazerLogin"> Já possui uma conta? <a href="login.php">Fazer login.</a></p>
 
                 
      
@@ -112,7 +112,7 @@
             <h4>Perdeu ou achou alguma coisa nos arredores do IFES Campus Serra? <span>Conecte-se!</span></h4>
 
             <!-- Botão para a página de login  -->
-            <button class="btnLog" onclick="window.location.href='login.html'"> Fazer Login </button>
+            <button class="btnLog" onclick="window.location.href='login.php'"> Fazer Login </button>
 
         </div>
         <!-- Fim da div imgCad  -->
