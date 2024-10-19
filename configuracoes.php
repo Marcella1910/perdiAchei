@@ -159,6 +159,6 @@
     </div>
     
 
-    <script src="js/feed.js"></script>
+    <script src="js/configuracoes.js"></script>
 </body>
 </html>

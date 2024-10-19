@@ -22,6 +22,8 @@
     <!-- Main Container -->
     <div class="container">
 
+    
+
         <!-- Left Menu -->
         <div class="left-menu">
             <aside>
@@ -99,15 +101,33 @@
             </div>
 
             <div class="config-conta">
-                <h3>Notificações</h3>
-                <div class="email-conta">
-                    <h4>Receber notificações por email</h4>
-                    <h4 class="user-notif" id="user-notif">Você receberá pedidos de reivindicação de itens, além de mensagens por email para a realização da troca de itens.</h4>
+                <h3>Painel</h3>
+                <div class="painel-tema">
+                    <h4>Temas</h4>
+                    <div class="dropdown">
+                        <button class="dropdown-btn">
+                            original
+                            <i class="fa-solid fa-caret-down"></i> <!-- Ícone da seta -->
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#">original</a>
+                            <a href="#">tema 2</a>
+                            <a href="#">tema 3</a>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="painel-barra-acessibilidade">
+                    <h4>Barra de acessibilidade</h4>
+                    <h4 class="user-acessibilidade" id="user-acessibilidade">Ativar barra de acessibilidade</h4>
                     <div class="toggle-switch">
                         <input type="checkbox" id="toggle" class="toggle-checkbox">
                         <label for="toggle" class="toggle-label"></label>
                     </div>
+
                 </div>
+                
             </div>
 
 
@@ -127,7 +147,7 @@
                 </a>
 
                 <!-- Link para a página de Configurações -->
-                <a href="tela-e-painel.php" class="menu-item">
+                <a href="tela-e-painel.php" class="menu-item active">
                     <h3 class="nome-menu-item">Painel</h3>
                     <h4>Tela e acessibilidade</h4>
                 </a>
@@ -136,7 +156,7 @@
 
 
                 <!-- Link para fazer logout; -->
-                <a href="notificacoes.php" class="menu-item active">
+                <a href="notificacoes.php" class="menu-item">
                     <h3>Notificações</h3>
                     <h4>Receba atualizações por e-mail</h4>
                 </a>
