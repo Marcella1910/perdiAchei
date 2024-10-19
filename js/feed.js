@@ -125,6 +125,17 @@ clickableElements.forEach(element => {
     });
 });
 
+// Seleciona todos os elementos clicáveis (foto de perfil, nome e username)
+const clickableElementsPerfil = document.querySelectorAll('.clickable-profile-alheio');
+
+// Adiciona um evento de clique em cada um deles
+clickableElementsPerfil.forEach(element => {
+    element.addEventListener('click', function() {
+        // Redireciona para a página perfil-alheio.php
+        window.location.href = 'perfil-alheio.php';
+    });
+});
+
 
 function showSectionPerfil(sectionId) {
     // Remove a classe 'active' de todas as seções

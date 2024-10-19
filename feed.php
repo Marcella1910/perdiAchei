@@ -158,7 +158,58 @@
                 <button class="tag" data-section="outros" onclick="showSection('outros')">Outros</button>
             </div>
             
-            <div id="todos" class="section active"><h3>Todos</h3>
+            <div id="todos" class="section active">
+                <div class="post">
+
+                    <div class="post-header">
+                        <div class="pfp-post clickable-profile-alheio">
+                            <img class="pfp" src="img/userspfp/chuu.jpg">
+                        </div>
+                        <div class="perfil-post">
+                            <p class="nome">chuu</p>
+                            <p class="data-post">12/12/12</p>
+                        </div>
+                        <div class="menu-container">
+                            <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
+                            <div class="dropdown-menu" id="dropdown-menu">
+                                <ul>
+                                    <li><a href="#">Reportar</a></li>
+                                    <li><a href="#">Entrar em contato com usuário</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+    
+                    <div class="conteudo-principal">
+                        <h2 class="titulo">
+                            achei uma garrafa
+                        </h2>
+                        <div class="midia">
+                            <img class="imagem-post" src="img/postagens/garrafinha.jpg">
+                        </div>
+                        <p class="texto-post">olha essa garrafa que eu achei</p>
+                    </div>
+    
+                
+                    <div class="post-footer">
+                        <div class="tags-post">
+                            <button class="tp_publicacao">
+                                objeto achado
+                            </button>
+                            <button class="tag-item">
+                                <i class="fa-solid fa-bottle-water"></i>
+                                garrafas e lancheiras
+                            </button>
+                        </div>
+    
+                        <div class="acoes">
+                            <button class="e-meu">é meu !</button>
+                        </div>
+    
+                    </div>
+                </div>
+
                 <div class="post">
 
                     <div class="post-header">
@@ -175,7 +226,7 @@
                                 <ul>
                                     <li><a href="#">Editar</a></li>
                                     <li><a href="#">Excluir</a></li>
-                                    <li><a href="#">Denunciar</a></li>
+                                    <li><a href="#">Marcar como 'encontrado'</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -227,59 +278,7 @@
                                 <ul>
                                     <li><a href="#">Editar</a></li>
                                     <li><a href="#">Excluir</a></li>
-                                    <li><a href="#">Denunciar</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                    </div>
-    
-                    <div class="conteudo-principal">
-                        <h2 class="titulo">
-                            perdi minha carteiraa
-                        </h2>
-                        <div class="midia">
-                            <img class="imagem-post" src="img/postagens/carteira.jpg">
-                        </div>
-                        <p class="texto-post">perdi minha carteira '-'</p>
-                    </div>
-    
-                
-                    <div class="post-footer">
-                        <div class="tags-post">
-                            <button class="tp_publicacao">
-                                objeto perdido
-                            </button>
-                            <button class="tag-item">
-                                <i class="fa-solid fa-id-card"></i>
-                                documentos
-                            </button>
-                        </div>
-    
-                        <div class="acoes">
-                            <button class="encontrei">encontrei !</button>
-                        </div>
-    
-                    </div>
-                </div>
-
-                <div class="post">
-
-                    <div class="post-header">
-                        <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/kdbicon.jpg">
-                        </div>
-                        <div class="perfil-post">
-                            <p class="nome">kevin de bruyne</p>
-                            <p class="data-post">12/12/12</p>
-                        </div>
-                        <div class="menu-container">
-                            <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
-                            <div class="dropdown-menu" id="dropdown-menu">
-                                <ul>
-                                    <li><a href="#">Editar</a></li>
-                                    <li><a href="#">Excluir</a></li>
-                                    <li><a href="#">Denunciar</a></li>
+                                    <li><a href="#">Marcar como 'encontrado'</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -339,7 +338,7 @@
                                 <ul>
                                     <li><a href="#">Editar</a></li>
                                     <li><a href="#">Excluir</a></li>
-                                    <li><a href="#">Denunciar</a></li>
+                                    <li><a href="#">Marcar como 'encontrado'</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -391,7 +390,7 @@
                                 <ul>
                                     <li><a href="#">Editar</a></li>
                                     <li><a href="#">Excluir</a></li>
-                                    <li><a href="#">Denunciar</a></li>
+                                    <li><a href="#">Marcar como 'encontrado'</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -443,7 +442,7 @@
                                 <ul>
                                     <li><a href="#">Editar</a></li>
                                     <li><a href="#">Excluir</a></li>
-                                    <li><a href="#">Denunciar</a></li>
+                                    <li><a href="#">Marcar como 'encontrado'</a></li>
                                 </ul>
                             </div>
                         </div>

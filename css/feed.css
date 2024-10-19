@@ -407,7 +407,7 @@ body {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     z-index: 100; /* Garante que o menu esteja acima de outros elementos */
-    width: fit-content;
+    width: max-content;
     font-size: 13px;
     font-family: "Poppins";
     font-weight: 600;
@@ -470,6 +470,26 @@ body {
     border-radius: 20px;
     cursor: pointer;
     border: 2px solid #ff4081;
+}
+
+.e-meu {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px 15px;
+    background-color: #ac689e;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 2px solid #ac689e;
+}
+
+.e-meu:hover {
+    background-color: transparent;
+    border: 2px solid #ac689e;
+    transition: all ease 0.2s;
+    color: #ac689e;
 }
 
 .encontrei:hover {
@@ -591,6 +611,25 @@ aside .menu-item:hover {
     justify-content: center;     /* Centraliza horizontalmente */
     cursor: pointer;             /* Muda o cursor para indicar que é clicável */
     transition: background-color 0.3s; /* Animação suave na mudança de cor */
+}
+
+.header-perfil .menu-button {
+    margin-top: 5px;
+    width: 40px;                 /* Defina a largura do círculo */
+    height: 40px;                /* Defina a altura igual à largura para manter o formato circular */
+    border-radius: 50%;          /* Faz o botão ficar circular */
+    border: none;                /* Remove a borda padrão do botão */
+    background-color: #fffce0;   /* Cor de fundo */
+    color: #555;                /* Cor do ícone */
+    display: flex;               /* Usa flexbox para centralizar o ícone */
+    align-items: center;         /* Centraliza verticalmente */
+    justify-content: center;     /* Centraliza horizontalmente */
+    cursor: pointer;             /* Muda o cursor para indicar que é clicável */
+    transition: background-color 0.3s; /* Animação suave na mudança de cor */
+}
+
+.header-perfil .menu-button i {
+    font-size: 18px; 
 }
 
 .editperfil:hover {
@@ -748,6 +787,12 @@ input[type="file"] {
     right: 10px; /* Ajuste conforme necessário */
 }
 
+.header-perfil .menu-button {
+    position: absolute;
+    top: 10px; /* Ajuste conforme necessário */
+    right: 10px; /* Ajuste conforme necessário */
+}
+
 .middle-perfil {
     background-color: white;
 }
@@ -884,7 +929,7 @@ input[type="file"] {
 }
 
 .tags {
-    width: 50rem;
+    max-width: 50rem;
     display: block;
     margin-top: 1rem;
     margin-bottom: 1rem;
