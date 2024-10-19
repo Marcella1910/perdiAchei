@@ -1,3 +1,16 @@
+function openModal() {
+    document.getElementById('deleteModal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('deleteModal').style.display = 'none';
+}
+
+function confirmSenha() {
+    alert("Email enviado!");
+    closeModal();
+}
+
 const activityButton = document.querySelector('.menu-item-notifications');
 const activityDropdown = document.querySelector('.notification-panel');
 
@@ -56,3 +69,5 @@ document.getElementById('toggle').addEventListener('change', function() {
         // Lógica para quando for desativado
     }
 });
+
+

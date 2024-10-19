@@ -62,6 +62,9 @@
 
         <!-- Middle Content -->
         <div class="main-content">
+
+            
+
             <div class="notification-panel">
                 <div class="notification-header">
                     <h2 class="username">@kdb</h2>
@@ -103,20 +106,30 @@
                 <div class="email-conta">
                     <h4>Email</h4>
                     <h4 class="user-email" id="user-email">kdb@gmail.com</h4>
-                    <button><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button onclick="openModal()" class="mudarEmailBtn"><i class="fa-solid fa-pen-to-square"></i></button>
                 </div>
                 <div class="senha-conta">
                     <h4>Senha</h4>
                     <h4 class="user-senha" id="user-senha">••••••••••</h4>
-                    <button><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button onclick="openModal()" ><i class="fa-solid fa-pen-to-square"></i></button>
                 </div>
                 <div class="excluir-conta">
                     <h4>Excluir conta</h4>
-                    <button class="excluir-conta-btn">excluir conta</button>
+                    <button onclick="openModal()" class="excluir-conta-btn">excluir conta</button>
                 </div>
 
             </div>
 
+            <div class="modal" id="deleteModal">
+                <div class="modal-content">
+                    <h3>Defina sua senha</h3>
+                    <p>Para fazer essas alterações, primeiro você precisa definir uma senha utilizando o link de redefinição de senha enviado ao seu e-mail.</p>
+                    <div class="bts-popup">
+                        <button onclick="closeModal()" class="fecharAba">Cancelar</button>
+                        <button onclick="confirmSenha()" class="confirmaSenha">Enviar e-mail de redefinição de senha</button>
+                    </div>
+                </div>
+            </div>
 
             <!-- Create Post Section -->
         
@@ -157,7 +170,6 @@
         </div>
 
     </div>
-    
 
     <script src="js/configuracoes.js"></script>
 </body>
