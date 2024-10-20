@@ -334,7 +334,7 @@
                                 <div class="dropdown-menu" id="dropdown-menu">
                                     <ul>
                                         <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
-                                        <li><button class="dropdown-item">Entrar em contato com usuário</button></li>
+                                        <li><button class="dropdown-item" onclick="openConfirmPopup()">Entrar em contato com usuário</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -551,8 +551,40 @@
                     </form>
                 </div>
             </div>
-           
 
+            <div class="modal" id="contactModal">
+                <div class="modal-content">
+                    <h3>Entrar em contato com @chuu</h3>
+                    <form id="contactForm">
+                        <label for="contactReason">Deseja reivindicar um item? Preencha as informações necessárias e sua mensagem será enviada por e-mail para o dono da postagem.</label><br>
+                        <div class="bts-popup">
+                            <button type="button" class="cancel-button" onclick="closeReportForm()">Cancelar</button>
+                            <button type="submit" class="submit-button">Reivindicar item</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+           
+            <div class="modal" id="confirmModal">
+                <div class="modal-content">
+                    <h3>Deseja realizar esta ação?</h3>
+                    <button class="cancel-button" onclick="closeConfirmPopup()">Cancelar</button>
+                    <button class="confirm-button" onclick="openFormPopup()">Confirmar</button>
+                </div>
+            </div>
+
+            <div class="modal" id="formModal">
+                <div class="modal-content">
+                    <h3>Reivindicar um item</h3>
+                    <form id="contactForm">
+                        <label for="contactReason">Descreva o motivo:</label><br>
+                        <textarea id="contactReason" name="contactReason" required></textarea><br>
+                        <button type="button" class="cancel-button" onclick="closeFormPopup()">Cancelar</button>
+                        <button type="submit" class="submit-button">Enviar</button>
+                    </form>
+                </div>
+            </div>
             
 
         </div>
