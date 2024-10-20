@@ -173,11 +173,12 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><a href="#">Reportar</a></li>
-                                    <li><a href="#">Entrar em contato com usuário</a></li>
+                                    <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
+                                    <li><button class="dropdown-item">Entrar em contato com usuário</button></li>
                                 </ul>
                             </div>
                         </div>
+
                         
                     </div>
     
@@ -224,9 +225,9 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><a href="#">Editar</a></li>
-                                    <li><a href="#">Excluir</a></li>
-                                    <li><a href="#">Marcar como 'encontrado'</a></li>
+                                    <li><button class="dropdown-item">Editar</button></li>
+                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -276,9 +277,9 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><a href="#">Editar</a></li>
-                                    <li><a href="#">Excluir</a></li>
-                                    <li><a href="#">Marcar como 'encontrado'</a></li>
+                                    <li><button class="dropdown-item">Editar</button></li>
+                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -317,7 +318,60 @@
             </div>
             <div id="roupas" class="section"><h3>Roupas e agasalhos</h3></div>
             <div id="eletronicos" class="section"><h3>Eletrônicos</h3></div>
-            <div id="garrafas" class="section"><h3>Garrafas e Lancheiras</h3></div>
+            <div id="garrafas" class="section"><h3>Garrafas e Lancheiras</h3>
+                <div class="post">
+
+                        <div class="post-header">
+                            <div class="pfp-post clickable-profile-alheio">
+                                <img class="pfp" src="img/userspfp/chuu.jpg">
+                            </div>
+                            <div class="perfil-post">
+                                <p class="nome">chuu</p>
+                                <p class="data-post">12/12/12</p>
+                            </div>
+                            <div class="menu-container">
+                                <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
+                                <div class="dropdown-menu" id="dropdown-menu">
+                                    <ul>
+                                        <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
+                                        <li><button class="dropdown-item">Entrar em contato com usuário</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+        
+                        <div class="conteudo-principal">
+                            <h2 class="titulo">
+                                achei uma garrafa
+                            </h2>
+                            <div class="midia">
+                                <img class="imagem-post" src="img/postagens/garrafinha.jpg">
+                            </div>
+                            <p class="texto-post">olha essa garrafa que eu achei</p>
+                        </div>
+        
+                    
+                        <div class="post-footer">
+                            <div class="tags-post">
+                                <button class="tp_publicacao">
+                                    objeto achado
+                                </button>
+                                <button class="tag-item">
+                                    <i class="fa-solid fa-bottle-water"></i>
+                                    garrafas e lancheiras
+                                </button>
+                            </div>
+        
+                            <div class="acoes">
+                                <button class="e-meu">é meu !</button>
+                            </div>
+        
+                        </div>
+                    </div>
+            
+            </div>
             <div id="utensilioscozinha" class="section"><h3>Utensílios de cozinha</h3></div>
             <div id="materiaisescolares" class="section"><h3>Materiais Escolares</h3></div>
             <div id="documentos" class="section"><h3>Documentos</h3>
@@ -336,9 +390,9 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><a href="#">Editar</a></li>
-                                    <li><a href="#">Excluir</a></li>
-                                    <li><a href="#">Marcar como 'encontrado'</a></li>
+                                    <li><button class="dropdown-item">Editar</button></li>
+                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -388,9 +442,9 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><a href="#">Editar</a></li>
-                                    <li><a href="#">Excluir</a></li>
-                                    <li><a href="#">Marcar como 'encontrado'</a></li>
+                                    <li><button class="dropdown-item">Editar</button></li>
+                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -440,9 +494,9 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><a href="#">Editar</a></li>
-                                    <li><a href="#">Excluir</a></li>
-                                    <li><a href="#">Marcar como 'encontrado'</a></li>
+                                    <li><button class="dropdown-item">Editar</button></li>
+                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -483,8 +537,20 @@
             <div id="outros" class="section"><h3>Outros</h3></div>
             
             
-            
-
+            <div class="modal" id="reportModal">
+                <div class="modal-content">
+                    <h3>Reportar @chuu</h3>
+                    <form id="reportForm">
+                        <label for="reportReason">Está vendo alguma coisa que não deveria?</label><br>
+                        <textarea id="reportReason" name="reportReason" placeholder="descreva o motivo da denúncia..." maxlength="280" required></textarea><br>
+                        <div class="bts-popup">
+                            <button type="button" class="cancel-button" onclick="closeReportForm()">Cancelar</button>
+                            <button type="submit" class="submit-button">Enviar Denúncia</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
            
 
             

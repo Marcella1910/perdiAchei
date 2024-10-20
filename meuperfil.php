@@ -177,9 +177,9 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><a href="#">Editar</a></li>
-                                    <li><a href="#">Excluir</a></li>
-                                    <li><a href="#">Marcar como 'encontrado'</a></li>
+                                    <li><button class="dropdown-item">Editar</button></li>
+                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -235,9 +235,9 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><a href="#">Editar</a></li>
-                                    <li><a href="#">Excluir</a></li>
-                                    <li><a href="#">Marcar como 'encontrado'</a></li>
+                                    <li><button class="dropdown-item">Editar</button></li>
+                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -286,9 +286,9 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><a href="#">Editar</a></li>
-                                    <li><a href="#">Excluir</a></li>
-                                    <li><a href="#">Marcar como 'encontrado'</a></li>
+                                    <li><button class="dropdown-item">Editar</button></li>
+                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
                         </div>

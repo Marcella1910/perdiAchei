@@ -1,3 +1,52 @@
+function openModal() {
+    document.getElementById('deleteModal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('deleteModal').style.display = 'none';
+}
+
+function confirmSenha() {
+    alert("Email enviado!");
+    closeModal();
+}
+
+// Função para abrir o modal
+function openReportForm() {
+    const reportModal = document.getElementById('reportModal');
+    if (reportModal) {
+        reportModal.style.display = 'flex';
+    }
+}
+
+// Função para fechar o modal e limpar a textarea
+function closeReportForm() {
+    const reportModal = document.getElementById('reportModal');
+    const reportReason = document.getElementById('reportReason');
+    if (reportModal && reportReason) {
+        reportModal.style.display = 'none';
+        reportReason.value = ''; // Limpa o conteúdo da textarea
+    }
+}
+
+// Verifique se o formulário de denúncia existe antes de adicionar o listener
+const reportForm = document.getElementById('reportForm');
+if (reportForm) {
+    reportForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        const reportReason = document.getElementById('reportReason').value;
+
+        if (reportReason.trim() !== "") {
+            alert("Denúncia enviada com sucesso!");
+            closeReportForm(); // Fechar o modal após o envio
+        } else {
+            alert("Por favor, descreva o motivo da denúncia.");
+        }
+    });
+}
+
+
 document.getElementById('file-upload').addEventListener('change', function(event) {
     const file = event.target.files[0]; // Obter o arquivo selecionado
     const fileInput = document.getElementById('file-upload');

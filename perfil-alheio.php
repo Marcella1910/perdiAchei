@@ -138,8 +138,8 @@
                     </button>
                     <div class="dropdown-menu" id="dropdown-menu">
                         <ul>
-                            <li><a href="#">Reportar</a></li>
-                            <li><a href="#">Entrar em contato com usuário</a></li>
+                            <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
+                            <li><button class="dropdown-item">Entrar em contato com usuário</button></li>
                         </ul>
                     </div>
                     <div class="ftperfil">
@@ -189,8 +189,8 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><a href="#">Reportar</a></li>
-                                    <li><a href="#">Entrar em contato com usuário</a></li>
+                                    <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
+                                    <li><button class="dropdown-item">Entrar em contato com usuário</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -229,9 +229,20 @@
             </div>
 
             <!-- Posts -->
-            
-            
-
+            <div class="modal" id="reportModal">
+                <div class="modal-content">
+                    <h3>Reportar @chuu</h3>
+                    <form id="reportForm">
+                        <label for="reportReason">Está vendo alguma coisa que não deveria?</label><br>
+                        <textarea id="reportReason" name="reportReason" placeholder="descreva o motivo da denúncia..." maxlength="280" required></textarea><br>
+                        <div class="bts-popup">
+                            <button type="button" class="cancel-button" onclick="closeReportForm()">Cancelar</button>
+                            <button type="submit" class="submit-button">Enviar Denúncia</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
             
 
         </div>
@@ -244,6 +255,6 @@
     </div>
     
 
-    <script src="js/feed.js"></script>
+    <script src="js/feed.js" defer></script>
 </body>
 </html>
