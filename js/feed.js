@@ -1,37 +1,4 @@
-function openConfirmPopup() {
-    document.getElementById('confirmModal').style.display = 'flex';
-}
 
-// Função para fechar o primeiro popup
-function closeConfirmPopup() {
-    document.getElementById('confirmModal').style.display = 'none';
-}
-
-// Função para abrir o segundo popup (formulário) e fechar o primeiro
-function openFormPopup() {
-    closeConfirmPopup();
-    document.getElementById('formModal').style.display = 'flex';
-}
-
-// Função para fechar o segundo popup (formulário)
-function closeFormPopup() {
-    document.getElementById('formModal').style.display = 'none';
-    document.getElementById('contactReason').value = ''; // Limpa o conteúdo do textarea
-}
-
-// Captura o evento de submit do formulário
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
-
-    const contactReason = document.getElementById('contactReason').value;
-
-    if (contactReason.trim() !== "") {
-        alert("Email enviado!");
-        closeFormPopup(); // Fecha o modal de formulário após o envio
-    } else {
-        alert("Por favor, insira as informações necessárias.");
-    }
-});
 
 function openModal() {
     document.getElementById('deleteModal').style.display = 'flex';
@@ -288,3 +255,39 @@ function removerFoto() {
     containerPreviewFoto.style.display = 'none';
     botaoRemoverFoto.style.display = 'none';
 }
+
+function openConfirmPopup() {
+    document.getElementById('confirmModal').style.display = 'flex';
+}
+
+// Função para fechar o primeiro popup
+function closeConfirmPopup() {
+    document.getElementById('confirmModal').style.display = 'none';
+}
+
+// Função para abrir o segundo popup (formulário) e fechar o primeiro
+function openFormPopup() {
+    closeConfirmPopup();
+    document.getElementById('formModal').style.display = 'flex';
+}
+
+// Função para fechar o segundo popup (formulário)
+function closeFormPopup() {
+    document.getElementById('formModal').style.display = 'none';
+    document.getElementById('contactReason').value = ''; // Limpa o conteúdo do textarea
+    removerFoto(); // Chama a função para limpar a foto selecionada
+}
+
+// Captura o evento de submit do formulário
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    const contactReason = document.getElementById('contactReason').value;
+
+    if (contactReason.trim() !== "") {
+        alert("Email enviado!");
+        closeFormPopup(); // Fecha o modal de formulário após o envio
+    } else {
+        alert("Por favor, insira as informações necessárias.");
+    }
+});
