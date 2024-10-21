@@ -1312,3 +1312,104 @@ input[type="file"] {
     border: 2px solid #ff4081;
 }    
 
+.confirm-button {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px 15px;
+    background-color: #ac689e;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 2px solid #ac689e;
+}
+
+#formModal p {
+    margin-bottom: 0;
+    font-size: 14px;
+    font-family: "Varela Round";
+}
+
+#formModal .modal-content {
+    width: 900px;
+}
+
+.container-upload-foto {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#input-upload-foto {
+    display: none; /* Esconde o input padrão */
+}
+
+.botao-upload-foto {
+    display: flex;
+    padding: 8px 15px;
+    background-color: #8f8f8fa9;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid #8f8f8f96;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: "Varela Round", sans-serif;
+    font-size: 12px;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.botao-upload-foto:hover {
+    background-color: #929292;
+}
+
+.container-upload-foto {
+    text-align: center;
+}
+
+#input-upload-foto {
+    display: none; /* Esconde o input padrão */
+}
+
+.container-preview-foto {
+    margin-top: 20px;
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    
+}
+
+#preview-foto {
+    max-width: 100%;
+    max-height: 70px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 2px solid #8f8f8f96;
+    margin: 0;
+}
+
+.botao-remover-foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    background-color: rgb(236, 112, 112);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Varela Round", sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin: 0;
+}
+
+.botao-remover-foto:hover {
+    background-color: rgb(190, 100, 100);
+}

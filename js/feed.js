@@ -1,36 +1,3 @@
-function openModal() {
-    document.getElementById('deleteModal').style.display = 'flex';
-}
-
-function closeModal() {
-    document.getElementById('deleteModal').style.display = 'none';
-}
-
-function confirmSenha() {
-    alert("Email enviado!");
-    closeModal();
-}
-
-// Função para abrir o modal
-function openReportForm() {
-    const reportModal = document.getElementById('reportModal');
-    if (reportModal) {
-        reportModal.style.display = 'flex';
-    }
-}
-
-// Função para fechar o modal e limpar a textarea
-function closeReportForm() {
-    const reportModal = document.getElementById('reportModal');
-    const reportReason = document.getElementById('reportReason');
-    if (reportModal && reportReason) {
-        reportModal.style.display = 'none';
-        reportReason.value = ''; // Limpa o conteúdo da textarea
-    }
-}
-
-
-// Função para abrir o primeiro popup (confirmação)
 function openConfirmPopup() {
     document.getElementById('confirmModal').style.display = 'flex';
 }
@@ -66,6 +33,36 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     }
 });
 
+function openModal() {
+    document.getElementById('deleteModal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('deleteModal').style.display = 'none';
+}
+
+function confirmSenha() {
+    alert("Email enviado!");
+    closeModal();
+}
+
+// Função para abrir o modal
+function openReportForm() {
+    const reportModal = document.getElementById('reportModal');
+    if (reportModal) {
+        reportModal.style.display = 'flex';
+    }
+}
+
+// Função para fechar o modal e limpar a textarea
+function closeReportForm() {
+    const reportModal = document.getElementById('reportModal');
+    const reportReason = document.getElementById('reportReason');
+    if (reportModal && reportReason) {
+        reportModal.style.display = 'none';
+        reportReason.value = ''; // Limpa o conteúdo da textarea
+    }
+}
 
 
 // Verifique se o formulário de denúncia existe antes de adicionar o listener
@@ -257,3 +254,37 @@ function showSection(sectionId) {
     document.querySelector(`.tag[data-section="${sectionId}"]`).classList.add('active');
 }
 
+// Função para pré-visualizar a foto
+function visualizarFoto(event) {
+    const arquivo = event.target.files[0];
+    const previewFoto = document.getElementById('preview-foto');
+    const containerPreviewFoto = document.getElementById('container-preview-foto');
+    const botaoRemoverFoto = document.getElementById('botao-remover-foto');
+
+    if (arquivo) {
+        const leitor = new FileReader();
+        
+        leitor.onload = function(e) {
+            previewFoto.src = e.target.result;
+            previewFoto.style.display = 'block';
+            containerPreviewFoto.style.display = 'flex';
+            botaoRemoverFoto.style.display = 'flex';
+        };
+        
+        leitor.readAsDataURL(arquivo); // Converte a imagem para base64 e exibe no preview
+    }
+}
+
+// Função para remover a foto
+function removerFoto() {
+    const inputUploadFoto = document.getElementById('input-upload-foto');
+    const previewFoto = document.getElementById('preview-foto');
+    const containerPreviewFoto = document.getElementById('container-preview-foto');
+    const botaoRemoverFoto = document.getElementById('botao-remover-foto');
+
+    inputUploadFoto.value = ''; // Limpa o input de arquivo
+    previewFoto.src = '#'; // Limpa a imagem de preview
+    previewFoto.style.display = 'none';
+    containerPreviewFoto.style.display = 'none';
+    botaoRemoverFoto.style.display = 'none';
+}
