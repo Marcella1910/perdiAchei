@@ -291,3 +291,111 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         alert("Por favor, insira as informações necessárias.");
     }
 });
+
+function openEditPost() {
+    document.getElementById('editModal').style.display = 'flex';
+}
+
+
+const fileUpload = document.getElementById("editFileUpload");
+const previewContainer = document.getElementById("editPreviewContainer");
+const previewImage = document.getElementById("editPreviewImage");
+const previewVideo = document.getElementById("editPreviewVideo");
+const cancelPreviewButton = document.getElementById("editCancelPreview");
+
+fileUpload.addEventListener("change", function() {
+    const file = fileUpload.files[0];
+    if (file) {
+        const fileType = file.type;
+
+        // Verifica o tipo de arquivo (imagem ou vídeo)
+        if (fileType.startsWith("image/")) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImage.src = e.target.result;
+                previewImage.style.display = "flex";
+                previewVideo.style.display = "none";
+                previewContainer.style.display = "flex";
+            };
+            reader.readAsDataURL(file);
+        } else if (fileType.startsWith("video/")) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewVideo.src = e.target.result;
+                previewVideo.style.display = "flex";
+                previewImage.style.display = "none";
+                previewContainer.style.display = "flex";
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+});
+
+// Botão para cancelar a pré-visualização
+cancelPreviewButton.addEventListener("click", function() {
+    resetPreview();
+});
+
+function resetPreview() {
+    previewImage.src = "";
+    previewVideo.src = "";
+    previewImage.style.display = "none";
+    previewVideo.style.display = "none";
+    previewContainer.style.display = "none";
+}
+
+
+// Exemplo de envio do formulário
+document.getElementById("editForm").onsubmit = function(e) {
+    e.preventDefault(); // Impede o comportamento padrão
+
+    // Aqui você pode adicionar a lógica para salvar as alterações
+    console.log("Título:", document.getElementById("postTitle").value);
+    console.log("Descrição:", document.getElementById("postContent").value);
+    
+    // Fechar o modal após salvar as alterações
+    closeEditPost();
+};
+
+// Função para fechar o modal apenas ao clicar no botão "Cancelar"
+function closeFormPopup() {
+    document.getElementById('formModal').style.display = 'none';
+    document.getElementById('contactReason').value = ''; // Limpa o conteúdo do textarea
+    removerFoto(); // Chama a função para limpar a foto selecionada
+}
+
+// Função para fechar o modal de edição apenas ao clicar no botão "Cancelar"
+function closeEditPost() {
+    document.getElementById('editModal').style.display = 'none';
+}
+
+// Função para abrir/fechar o dropdown sem fechar o modal
+document.querySelector('.dropdown-btn').addEventListener('click', function(event) {
+    event.stopPropagation(); // Impede o fechamento do modal ao clicar no dropdown
+    const dropdownContent = document.querySelector('.dropdown-content');
+    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+});
+
+// Fecha o dropdown apenas quando clicar fora dele, não do modal
+window.onclick = function(event) {
+    if (!event.target.matches('.dropdown-btn')) {
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+            const openDropdown = dropdowns[i];
+            if (openDropdown.style.display === 'block') {
+                openDropdown.style.display = 'none';
+            }
+        }
+    }
+};
+
+// Fechar o modal apenas quando o botão "Cancelar" for clicado
+document.querySelectorAll('.cancel-button').forEach(button => {
+    button.addEventListener('click', function(event) {
+        if (this.closest('#formModal')) {
+            closeFormPopup();
+        } else if (this.closest('#editModal')) {
+            closeEditPost();
+        }
+    });
+});

@@ -225,7 +225,7 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><button class="dropdown-item">Editar</button></li>
+                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
                                     <li><button class="dropdown-item">Excluir</button></li>
                                     <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
@@ -593,6 +593,73 @@
                 </div>
             </div>
             
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+
+                    <h2 class="editModalUsername">@kdb</h2>
+
+                    <form id="editForm">
+                        
+                            <div class="tags-tipos">
+
+                                <div class="toggle-buttons">
+                                    <input type="radio" id="perdido" name="status" value="perdido">
+                                    <label for="perdido" class="toggle-button">objeto perdido</label>
+                                
+                                    <input type="radio" id="encontrado" name="status" value="encontrado">
+                                    <label for="encontrado" class="toggle-button">objeto encontrado</label>
+                                </div>
+
+                                <div class="dropdown">
+                                    <button class="dropdown-btn">
+                                        original
+                                        <i class="fa-solid fa-caret-down"></i> <!-- Ícone da seta -->
+                                    </button>
+                                    <div class="dropdown-content">
+                                        <a href="#">original</a>
+                                        <a href="#">tema 2</a>
+                                        <a href="#">tema 3</a>
+                                    </div>
+                                </div>
+                            
+                                
+
+                            </div>
+                        <input type="text" id="postTitle" name="title" placeholder="dê um título a postagem..." value="">
+                        
+                        
+                        <textarea placeholder="descreva o item..." id="postContent"></textarea>
+
+                        <!-- Área de upload -->
+                        
+
+                        <!-- Pré-visualização -->
+                        <div id="editPreviewContainer" class="preview-container" style="display: none;">
+                            <button id="editCancelPreview" class="cancel-preview" style="margin-top: 10px;"><i class="fa-solid fa-xmark"></i></button>
+                            <img id="editPreviewImage" class="preview-image-editpost" alt="Pré-visualização da Imagem" style="display: none;">
+                            <video id="editPreviewVideo" class="preview-video-editpost" controls style="display: none;"></video>
+                        </div>
+
+                        <div class="footerEditForm">
+                            <div class="upload-container">
+                                <label for="editFileUpload" class="upload-button">
+                                    escolher arquivo
+                                </label>
+                                <input id="editFileUpload" type="file" accept="image/*,video/*" style="display: none;">
+                            </div>
+
+                            <div class="bts-popup">
+                                <button type="button" class="cancel-button" onclick="closeEditPost()">Cancelar</button>
+                                <button type="submit" class="submit-button">Salvar Alterações</button>
+                            </div>
+
+                        </div>
+                        <!-- Botões do modal -->
+                        
+                    </form>
+                </div>
+            </div>
+
 
         </div>
 

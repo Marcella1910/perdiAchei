@@ -1413,3 +1413,131 @@ input[type="file"] {
 .botao-remover-foto:hover {
     background-color: rgb(190, 100, 100);
 }
+
+.editModalUsername {
+    font-size: 15px;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #8f8f8f5e;
+}
+
+#editModal .modal-content {
+    width: 500px;
+    padding: 0;
+}
+
+.footerEditForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+#postTitle, #postContent {
+    border:none;
+    width: 100%;
+    padding: 0 1rem;
+    border-radius: 5px;
+    color: #333;
+    font-family: "Varela Round";
+
+}
+
+#postTitle {
+    font-size: 1.5rem;
+}
+
+#postContent {
+    font-size: 15px;
+}
+
+#postContent:focus {
+    background-color: transparent;
+}
+
+/* Estilizando o placeholder inicialmente */
+#postTitle::placeholder {
+    color: #555; /* Cor do placeholder do título quando não está focado */
+  }
+  
+  #postContent::placeholder {
+    color: #555; /* Cor do placeholder da descrição quando não está focado */
+  }
+  
+  /* Estilizando o placeholder quando o campo está focado */
+  #postTitle:focus::placeholder {
+    color: gray; /* Cor do placeholder do título quando o campo está focado */
+  }
+  
+  #postContent:focus::placeholder {
+    color: gray; /* Cor do placeholder da descrição quando o campo está focado */
+  }  
+
+
+.cancel-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: rgb(236, 112, 112);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Varela Round", sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin: 0;
+}
+
+.cancel-preview:hover {
+    background-color: rgb(190, 100, 100);
+}
+
+
+.editModalDescricao, .editModalTitulo {
+    font-weight: 500;
+    font-size: 14px;
+    color: #555;
+}
+
+
+.preview-image-editpost, .preview-video-editpost {
+    width: 100%;
+    border-radius: 10px;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+#editPreviewContainer {
+    width: auto;
+}
+
+.footerEditForm .upload-container {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footerEditForm .upload-container .upload-button {
+    font-size: 13px;
+    font-family: "Varela Round";
+    padding: 10px 15px;
+    font-weight: 500;
+    color: #8f8f8fc5;
+    border: 2px solid #8f8f8f5d;
+}
+
+.tags-tipos .toggle-buttons {
+    justify-content: left;
+    margin-left: 1rem;
+}
+
+.tags-tipos .toggle-button.active {
+    background-color: #8f8f8f80;
+    color: #555;
+    border: 2px solid #555;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
