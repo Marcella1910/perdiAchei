@@ -598,7 +598,7 @@
 
                     <h2 class="editModalUsername">@kdb</h2>
 
-                    <form id="editForm">
+                    <div id="editForm">
                         
                             <div class="tags-tipos">
 
@@ -613,7 +613,7 @@
                                 <div class="dropdown-tags">
                                     <button class="dropdown-btn-tags">
                                         Roupas e agasalhos
-                                        <i class="fa-solid fa-caret-down"></i> <!-- Ícone da seta -->
+                                    <i class="fa-solid fa-caret-down"></i> <!-- Ícone da seta -->
                                     </button>
                                     <div class="dropdown-content-tags">
                                         <a href="#">Roupas e agasalhos</a>
@@ -661,7 +661,7 @@
                         </div>
                         <!-- Botões do modal -->
                         
-                    </form>
+                    </div>
                 </div>
             </div>
 

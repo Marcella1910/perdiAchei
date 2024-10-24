@@ -1426,6 +1426,7 @@ input[type="file"] {
 #editModal .modal-content {
     width: 500px;
     padding: 0;
+    
 }
 
 .footerEditForm {
@@ -1439,16 +1440,19 @@ input[type="file"] {
     padding: 0 1rem;
     border-radius: 5px;
     color: #333;
-    font-family: "Varela Round";
+    font-family: "Poppins";
+    
 
 }
 
 #postTitle {
     font-size: 1.5rem;
+    font-weight: 700;
 }
 
 #postContent {
     font-size: 15px;
+    font-weight: 500;
 }
 
 #postContent:focus {
@@ -1525,8 +1529,8 @@ input[type="file"] {
     font-family: "Varela Round";
     padding: 10px 15px;
     font-weight: 500;
-    color: #8f8f8fc5;
-    border: 2px solid #8f8f8f5d;
+    color: #706c6c;
+    border: 2px solid #706c6c;
 }
 
 .tags-tipos .toggle-buttons {
@@ -1545,16 +1549,18 @@ input[type="file"] {
 .dropdown-tags {
     position: relative;
     display: inline-block;
+    margin-left: 5px;
+    padding: 0;
 }
 
 .dropdown-btn-tags {
     background-color: transparent; /* Cor de fundo */
-    color: #8f8f8fc5;
+    color: #706c6c;
     padding: 10px 20px;
     font-size: 13px;
     border: none;
     cursor: pointer;
-    border: 2px solid #8f8f8f5d;
+    border: 2px solid #706c6c;
     border-radius: 20px;
     font-family: "Varela Round";
     font-weight: 500;
@@ -1574,13 +1580,19 @@ input[type="file"] {
     min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+    border-radius: 10px;
+    border: 2px solid #706c6c3a;
 }
 
 .dropdown-content-tags a {
-    color: black;
+    color: #706c6c;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    font-size: 13px;
+    font-family: "Varela Round";
+    font-weight: 500;
+    border-radius: 10px;
 }
 
 .dropdown-content-tags a:hover {
@@ -1590,4 +1602,15 @@ input[type="file"] {
 /* Mostrar o dropdown ao clicar */
 .show {
     display: block;
+}
+
+
+.tags-tipos .toggle-buttons {
+    margin-left: 1rem;
+    padding: 0;
+}
+
+.tags-tipos .toggle-buttons .toggle-button {
+    color: #706c6c;
+    border: 2px solid #706c6c;
 }
