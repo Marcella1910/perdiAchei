@@ -292,9 +292,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     }
 });
 
-function openEditPost() {
-    document.getElementById('editModal').style.display = 'flex';
-}
+
 
 
 const fileUpload = document.getElementById("editFileUpload");
@@ -364,37 +362,42 @@ function closeFormPopup() {
     removerFoto(); // Chama a função para limpar a foto selecionada
 }
 
+function openEditPost() {
+    document.getElementById('editModal').style.display = 'flex';
+}
+
 // Função para fechar o modal de edição apenas ao clicar no botão "Cancelar"
 function closeEditPost() {
     document.getElementById('editModal').style.display = 'none';
 }
 
-// Função para abrir/fechar o dropdown sem fechar o modal
-document.querySelector('.dropdown-btn').addEventListener('click', function(event) {
-    event.stopPropagation(); // Impede o fechamento do modal ao clicar no dropdown
-    const dropdownContent = document.querySelector('.dropdown-content');
-    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+// Abrir/fechar o dropdown sem fechar o modal
+document.querySelector('.dropdown-btn-tags').addEventListener('click', function (event) {
+    event.stopPropagation(); // Evitar que o clique feche o modal
+    document.querySelector('.dropdown-content-tags').classList.toggle('show');
 });
 
-// Fecha o dropdown apenas quando clicar fora dele, não do modal
+document.querySelector('.dropdown-content-tags').addEventListener('click', function(event) {
+    event.stopPropagation(); // Evita que o clique no dropdown feche o modal
+});
+
+
+// Fecha o dropdown se o usuário clicar fora dele
 window.onclick = function(event) {
-    if (!event.target.matches('.dropdown-btn')) {
-        const dropdowns = document.getElementsByClassName("dropdown-content");
+    if (!event.target.matches('.dropdown-btn-tags')) {
+        const dropdowns = document.getElementsByClassName("dropdown-content-tags");
         for (let i = 0; i < dropdowns.length; i++) {
             const openDropdown = dropdowns[i];
-            if (openDropdown.style.display === 'block') {
-                openDropdown.style.display = 'none';
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
             }
         }
     }
 };
 
-// Fechar o modal apenas quando o botão "Cancelar" for clicado
 document.querySelectorAll('.cancel-button').forEach(button => {
-    button.addEventListener('click', function(event) {
-        if (this.closest('#formModal')) {
-            closeFormPopup();
-        } else if (this.closest('#editModal')) {
+    button.addEventListener('click', function() {
+        if (this.closest('#editModal')) {
             closeEditPost();
         }
     });

@@ -1541,3 +1541,53 @@ input[type="file"] {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
+/* Estilo do botão do dropdown */
+.dropdown-tags {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn-tags {
+    background-color: transparent; /* Cor de fundo */
+    color: #8f8f8fc5;
+    padding: 10px 20px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    border: 2px solid #8f8f8f5d;
+    border-radius: 20px;
+    font-family: "Varela Round";
+    font-weight: 500;
+    margin-left: 1rem;
+}
+
+.dropdown-btn-tags i {
+    margin-left: 10px;
+}
+
+
+/* Estilo do conteúdo do dropdown */
+.dropdown-content-tags {
+    display: none; /* Escondido por padrão */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.dropdown-content-tags a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content-tags a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Mostrar o dropdown ao clicar */
+.show {
+    display: block;
+}

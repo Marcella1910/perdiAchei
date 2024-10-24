@@ -610,21 +610,26 @@
                                     <label for="encontrado" class="toggle-button">objeto encontrado</label>
                                 </div>
 
-                                <div class="dropdown">
-                                    <button class="dropdown-btn">
-                                        original
+                                <div class="dropdown-tags">
+                                    <button class="dropdown-btn-tags">
+                                        Roupas e agasalhos
                                         <i class="fa-solid fa-caret-down"></i> <!-- Ícone da seta -->
                                     </button>
-                                    <div class="dropdown-content">
-                                        <a href="#">original</a>
-                                        <a href="#">tema 2</a>
-                                        <a href="#">tema 3</a>
+                                    <div class="dropdown-content-tags">
+                                        <a href="#">Roupas e agasalhos</a>
+                                        <a href="#">Eletrônicos</a>
+                                        <a href="#">Garrafas e Lancheiras</a>
+                                        <a href="#">Utensílios de cozinha</a>
+                                        <a href="#">Materiais escolares</a>
+                                        <a href="#">Documentos</a>
+                                        <a href="#">Produtos de higiene/Cosmético</a>
+                                        <a href="#">Outros</a>
                                     </div>
                                 </div>
                             
-                                
 
                             </div>
+                            
                         <input type="text" id="postTitle" name="title" placeholder="dê um título a postagem..." value="">
                         
                         
