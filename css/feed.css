@@ -1614,3 +1614,17 @@ input[type="file"] {
     color: #706c6c;
     border: 2px solid #706c6c;
 }
+
+.botoes-ladodir .dropdown-tags .dropdown-btn-tags {
+    background-color: transparent; /* Cor de fundo */
+    color: #ccc;
+    padding: 10px 20px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    font-family: "Varela Round";
+    font-weight: 500;
+    margin: 0;
+}

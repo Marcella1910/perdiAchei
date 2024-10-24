@@ -369,25 +369,44 @@ function closeEditPost() {
     document.getElementById('editModal').style.display = 'none';
 }
 
-// Função para abrir/fechar o dropdown sem fechar o modal
-document.querySelector('.dropdown-btn-tags').addEventListener('click', function(event) {
-    event.stopPropagation(); // Impede o fechamento do modal ao clicar no dropdown
-    const dropdownContent = document.querySelector('.dropdown-content-tags');
-    dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+// Abrir/fechar o dropdown sem fechar o modal
+document.querySelectorAll('.dropdown-btn-tags').forEach(button => {
+    button.addEventListener('click', function (event) {
+        event.stopPropagation(); // Evitar que o clique feche o modal
+        
+        // Obter o dropdown correspondente ao botão clicado
+        const dropdownContent = this.nextElementSibling;
+        
+        // Fechar outros dropdowns abertos antes de abrir o atual
+        document.querySelectorAll('.dropdown-content-tags').forEach(dropdown => {
+            if (dropdown !== dropdownContent) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // Alterna a visibilidade do dropdown atual
+        dropdownContent.classList.toggle('show');
+    });
 });
 
-// Fecha o dropdown apenas quando clicar fora dele, não do modal
-window.onclick = function(event) {
-    if (!event.target.matches('.dropdown-btn-tags')) {
-        const dropdowns = document.getElementsByClassName("dropdown-content-tags");
-        for (let i = 0; i < dropdowns.length; i++) {
-            const openDropdown = dropdowns[i];
-            if (openDropdown.style.display === 'block') {
-                openDropdown.style.display = 'none';
-            }
+// Evitar que o clique dentro do dropdown feche o modal
+document.querySelectorAll('.dropdown-content-tags').forEach(dropdown => {
+    dropdown.addEventListener('click', function(event) {
+        event.stopPropagation(); // Impede que cliques dentro do dropdown fechem o modal
+    });
+});
+
+// Fechar o dropdown ao clicar fora, sem fechar o modal
+document.addEventListener('click', function(event) {
+    document.querySelectorAll('.dropdown-content-tags').forEach(dropdown => {
+        const dropdownBtn = dropdown.previousElementSibling; // O botão relacionado ao dropdown
+        
+        if (!dropdown.contains(event.target) && !dropdownBtn.contains(event.target)) {
+            dropdown.classList.remove('show'); // Fecha o dropdown se clicar fora dele
         }
-    }
-};
+    });
+});
+
 
 // Fechar o modal apenas quando o botão "Cancelar" for clicado
 document.querySelectorAll('.cancel-button').forEach(button => {

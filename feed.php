@@ -109,8 +109,25 @@
                     <video id="preview-video" class="preview-video" controls style="display: none;"></video>
                 </div>
                 <div class="botoes">
-                    <button>criar publicação</button>
+                    <button class="createPostBtn" id="createPostBtn">criar publicação</button>
                     <div class="botoes-ladodir">
+
+                        <div class="dropdown-tags">
+                            <button class="dropdown-btn-tags">
+                                Roupas e agasalhos
+                                <i class="fa-solid fa-caret-down"></i> <!-- Ícone da seta -->
+                            </button>
+                            <div class="dropdown-content-tags">
+                                <a href="#">Roupas e agasalhos</a>
+                                <a href="#">Eletrônicos</a>
+                                <a href="#">Garrafas e Lancheiras</a>
+                                <a href="#">Utensílios de cozinha</a>
+                                <a href="#">Materiais escolares</a>
+                                <a href="#">Documentos</a>
+                                <a href="#">Produtos de higiene/Cosmético</a>
+                                <a href="#">Outros</a>
+                            </div>
+                        </div>
 
                         <div class="toggle-buttons">
                             <input type="radio" id="perdido" name="status" value="perdido">
