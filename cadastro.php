@@ -12,11 +12,36 @@
         $senha = $_POST['senha'];
         $cnfsenha = $_POST['cnfsenha']
 
+        // Verifica se a senha e a confirmação são iguais
+        if ($senha === $cnfsenha) {
+            // Criptografa a senha antes de armazená-la
+            $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
+            // Prepare a consulta para evitar SQL Injection
+            $stmt = $conexao->prepare("INSERT INTO usuarios (nome, user, email, senha) VALUES (?, ?, ?, ?)");
+        
+            // Vincula os parâmetros
+            $stmt->bind_param("ssss", $nome, $user, $email, $senha_hash);
+
+            // Executa a consulta
+            if ($stmt->execute()) {
+                header('Location: feed.php');
+            } 
+            else {
+                echo "Erro ao cadastrar usuário: " . $stmt->error;
+            }
+
+            // Fecha a consulta
+            $stmt->close();
+        } 
+        else {
+            echo "As senhas não coincidem.";
+        }
 
         $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,user,email,senha,cnfsenha) 
         VALUES ($nome,$user,$email,$senha,$cnfsenha)");
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -35,90 +60,93 @@
 </head>
 <body>
 
-    <!-- A div bdcad guarda o conteúdo principal da tela de cadastro  -->
-    <div class="bdcad">
+    <form action = "cadastro.php" method = "POST">  
+        <!-- A div bdcad guarda o conteúdo principal da tela de cadastro  -->
+        <div class="bdcad">
+            
+            <!-- Div do cadastro (onde preenche as informações)  -->
+            <div class = "cadastro" id = "cadastro">
+
+                <!-- Título da div  -->
+                <h1 class="lgtitulo">
+                    Cadastre-se
+                </h1>
+                    
+                <!-- Div inputs guarda os inputs que o usuário irá responder -->
+                <div class="inputs">
+
+                    <!-- Nome do usuário  -->
+                    <h4>Como devemos te chamar?</h4>
+                    <div class="inputarea">
+                        <input type="text" id="nome" class="nome" placeholder="Nome">
+                    </div>
+                    <!--  -->
+
+                    <!-- Username do usuário  -->
+                    <h4>Crie um nome de usuário</h4>
+                    <div class="inputarea">
+                        <input type="text" id="user" class="user" placeholder="Nome de Usuário">
+                    </div>
+                    <!--  -->
+                        
+                    <!-- Email do usuário  -->
+                    <h4>Insira seu email</h4>
+                    <div class="inputarea">
+                        <input type="email" id="email" class="email" placeholder="Email">
+                    </div>
+                    <!--  -->
+                        
+                    <!-- Criar senha  -->
+                    <h4>Crie uma senha</h4>
+                    <div class="inputarea password-container">
+                        <input type="password" id="senha" class="senha" placeholder="Criar senha">
+                        <i id="togglePassword1" class="fa-regular fa-eye"></i>
+                    </div>
+                    <!--  -->
+                        
+                    <!-- Repetir a senha  -->
+                    <div class="inputarea password-container">
+                        <input type="password" id="cnfsenha" class="cnfsenha" placeholder="Confirmar senha">
+                        <i id="togglePassword2" class="fa-regular fa-eye"></i>
+                    </div>
+                    <!--  -->
+                        
+                    <!-- Botão para fazer login  -->
+                    <button type="submit" id="btnCad" class="btnCad">Entrar ></button>
+                    <small id="erro" class="error-message"></small>
+
+                        
+                </div>
+                <!-- Fim de inputs -->
+
+                <!-- Link para fazer login caso o usuário já possua conta  -->
+                <p class="fazerLogin"> Já possui uma conta? <a href="login.php">Fazer login.</a></p>
+
+                    
         
-        <!-- Div do cadastro (onde preenche as informações)  -->
-        <div class = "cadastro" id = "cadastro">
-
-            <!-- Título da div  -->
-            <h1 class="lgtitulo">
-                Cadastre-se
-            </h1>
-                
-            <!-- Div inputs guarda os inputs que o usuário irá responder -->
-            <div class="inputs">
-
-                <!-- Nome do usuário  -->
-                <h4>Como devemos te chamar?</h4>
-                <div class="inputarea">
-                    <input type="text" id="nome" class="nome" placeholder="Nome">
-                </div>
-                <!--  -->
-
-                <!-- Username do usuário  -->
-                <h4>Crie um nome de usuário</h4>
-                <div class="inputarea">
-                    <input type="text" id="user" class="user" placeholder="Nome de Usuário">
-                </div>
-                <!--  -->
-                    
-                <!-- Email do usuário  -->
-                <h4>Insira seu email</h4>
-                <div class="inputarea">
-                    <input type="email" id="email" class="email" placeholder="Email">
-                </div>
-                <!--  -->
-                    
-                <!-- Criar senha  -->
-                <h4>Crie uma senha</h4>
-                <div class="inputarea password-container">
-                    <input type="password" id="senha" class="senha" placeholder="Criar senha">
-                    <i id="togglePassword1" class="fa-regular fa-eye"></i>
-                </div>
-                <!--  -->
-                    
-                <!-- Repetir a senha  -->
-                <div class="inputarea password-container">
-                    <input type="password" id="cnfsenha" class="cnfsenha" placeholder="Confirmar senha">
-                    <i id="togglePassword2" class="fa-regular fa-eye"></i>
-                </div>
-                <!--  -->
-                    
-                <!-- Botão para fazer login  -->
-                <button type="submit" id="btnCad" class="btnCad">Entrar ></button>
-                <small id="erro" class="error-message"></small>
-
-                    
             </div>
-            <!-- Fim de inputs -->
+            <!-- Fim da div do cadastro  -->
 
-            <!-- Link para fazer login caso o usuário já possua conta  -->
-            <p class="fazerLogin"> Já possui uma conta? <a href="login.php">Fazer login.</a></p>
 
-                
-     
+            <!-- A div imgCad guarda a area para fazer login caso o usuário já possua cadastro  -->
+            <div class = "imgCad">
+
+                <!-- Título da div  -->
+                <h1 class="lgtitulo">Bem-vindo(a) ao <span>perdiAchei!</span></h1>
+
+                <!-- Subtítulo da div  -->
+                <h4>Perdeu ou achou alguma coisa nos arredores do IFES Campus Serra? <span>Conecte-se!</span></h4>
+
+                <!-- Botão para a página de login  -->
+                <button class="btnLog" onclick="window.location.href='login.php'"> Fazer Login </button>
+
+            </div>
+            <!-- Fim da div imgCad  -->
+            
         </div>
-        <!-- Fim da div do cadastro  -->
+        <!-- Fim da div bdcad  -->
 
-
-        <!-- A div imgCad guarda a area para fazer login caso o usuário já possua cadastro  -->
-        <div class = "imgCad">
-
-            <!-- Título da div  -->
-            <h1 class="lgtitulo">Bem-vindo(a) ao <span>perdiAchei!</span></h1>
-
-            <!-- Subtítulo da div  -->
-            <h4>Perdeu ou achou alguma coisa nos arredores do IFES Campus Serra? <span>Conecte-se!</span></h4>
-
-            <!-- Botão para a página de login  -->
-            <button class="btnLog" onclick="window.location.href='login.phps'"> Fazer Login </button>
-
-        </div>
-        <!-- Fim da div imgCad  -->
-        
-    </div>
-    <!-- Fim da div bdcad  -->
+    </form>
     
 </body>
 </html>
