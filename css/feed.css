@@ -1628,3 +1628,107 @@ input[type="file"] {
     font-weight: 500;
     margin: 0;
 }
+
+#editPerfilModal .modal-content {
+    display: flex;
+    flex-direction: column; /* Coloca o conteúdo em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens verticalmente */
+}
+
+#editName {
+    border: none;
+    font-size: 1.5rem;
+    font-family: "Poppins";
+    font-weight: 700;
+    color: #333;
+    margin-top: 10px;
+    width: fit-content;
+    text-align: center;
+
+}
+
+#editUserName {
+    border: none;
+    font-size: 14px;
+    font-family: "Varela Round";
+    font-weight: 500;
+    color: #8f8f8f;
+    margin-top: 5px;
+    width: fit-content;
+    text-align: center;
+
+}
+
+#editUserName::placeholder {
+    color: #555; /* Cor do placeholder do título quando não está focado */
+}
+
+#editUserName:focus::placeholder {
+    color: rgb(180, 180, 180); /* Cor do placeholder do título quando o campo está focado */
+}
+
+#editName::placeholder {
+    color: #555; /* Cor do placeholder do título quando não está focado */
+}
+
+#editUserDesc:focus::placeholder {
+    color: rgb(180, 180, 180); /* Cor do placeholder do título quando o campo está focado */
+}
+
+#editUserDesc::placeholder {
+    color: #555; /* Cor do placeholder do título quando não está focado */
+}
+
+#editName:focus::placeholder {
+    color: gray; /* Cor do placeholder do título quando o campo está focado */
+}
+
+.profile-picture-container .upload-pfp {
+    position: absolute;
+    z-index: 1000;
+}
+
+.profile-picture-container .upload-pfp .upload-button {
+    background-color: #8f8f8f9f;
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+
+.profile-picture-container .upload-pfp .upload-button:hover {
+    background-color: #8f8f8fcb;
+}
+
+#editUserDesc {
+    font-family: "Poppins";
+    font-weight: 400;
+    width: 12rem;
+    text-align: center;
+    margin-top: 0;
+}
+
+#editUserDesc:focus {
+    background-color: transparent;
+}
+
+.profile-picture-container {
+    border: 2px solid #dfdfdf;
+    width: 150px;                /* Tamanho do contêiner da PFP */
+    height: 150px;               /* Altura igual à largura para ser quadrado/circular */
+    border-radius: 50%;         /* Torna o contêiner circular */
+    overflow: hidden;           /* Garante que a imagem não ultrapasse os limites do círculo */
+    display: flex;              /* Flexbox para centralizar a imagem */
+    align-items: center;        /* Centraliza verticalmente */
+    justify-content: center;    /* Centraliza horizontalmente */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  /* Sombra leve */
+    transition: all ease 0.2s;
+}
+
+.profile-picture-container:hover {
+    border: 2px solid white;
+}
+
+.profile-picture-container img {
+    width: 100%;                /* Faz a imagem ocupar 100% do contêiner */
+    height: 100%;               /* Mantém a proporção da imagem */
+}

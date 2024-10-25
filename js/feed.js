@@ -278,19 +278,23 @@ function closeFormPopup() {
     removerFoto(); // Chama a função para limpar a foto selecionada
 }
 
-// Captura o evento de submit do formulário
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
+const contactForm = document.getElementById('contactForm');
+const contactReasonInput = document.getElementById('contactReason');
 
-    const contactReason = document.getElementById('contactReason').value;
+if (contactForm && contactReasonInput) {  // Verifica se ambos os elementos existem
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
 
-    if (contactReason.trim() !== "") {
-        alert("Email enviado!");
-        closeFormPopup(); // Fecha o modal de formulário após o envio
-    } else {
-        alert("Por favor, insira as informações necessárias.");
-    }
-});
+        const contactReason = contactReasonInput.value;
+
+        if (contactReason.trim() !== "") {
+            alert("Email enviado!");
+            closeFormPopup(); // Fecha o modal de formulário após o envio
+        } else {
+            alert("Por favor, insira as informações necessárias.");
+        }
+    });
+}
 
 function openEditPost() {
     document.getElementById('editModal').style.display = 'flex';
@@ -303,38 +307,58 @@ const previewImage = document.getElementById("editPreviewImage");
 const previewVideo = document.getElementById("editPreviewVideo");
 const cancelPreviewButton = document.getElementById("editCancelPreview");
 
-fileUpload.addEventListener("change", function() {
-    const file = fileUpload.files[0];
-    if (file) {
-        const fileType = file.type;
+if (fileUpload && previewContainer && previewImage && previewVideo && cancelPreviewButton) {
+    fileUpload.addEventListener("change", function() {
+        const file = fileUpload.files[0];
+        if (file) {
+            const fileType = file.type;
 
-        // Verifica o tipo de arquivo (imagem ou vídeo)
-        if (fileType.startsWith("image/")) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                previewImage.src = e.target.result;
-                previewImage.style.display = "flex";
-                previewVideo.style.display = "none";
-                previewContainer.style.display = "flex";
-            };
-            reader.readAsDataURL(file);
-        } else if (fileType.startsWith("video/")) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                previewVideo.src = e.target.result;
-                previewVideo.style.display = "flex";
-                previewImage.style.display = "none";
-                previewContainer.style.display = "flex";
-            };
-            reader.readAsDataURL(file);
+            // Verifica o tipo de arquivo (imagem ou vídeo)
+            if (fileType.startsWith("image/")) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = "flex";
+                    previewVideo.style.display = "none";
+                    previewContainer.style.display = "flex";
+                };
+                reader.readAsDataURL(file);
+            } else if (fileType.startsWith("video/")) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewVideo.src = e.target.result;
+                    previewVideo.style.display = "flex";
+                    previewImage.style.display = "none";
+                    previewContainer.style.display = "flex";
+                };
+                reader.readAsDataURL(file);
+            }
         }
-    }
-});
+    });
 
-// Botão para cancelar a pré-visualização
-cancelPreviewButton.addEventListener("click", function() {
-    resetPreview();
-});
+    cancelPreviewButton.addEventListener("click", function() {
+        resetPreview();
+    });
+}
+
+// Função para limpar a pré-visualização
+function resetPreview() {
+    if (previewImage && previewVideo && previewContainer) {
+        previewImage.src = "";
+        previewVideo.src = "";
+        previewImage.style.display = "none";
+        previewVideo.style.display = "none";
+        previewContainer.style.display = "none";
+    }
+}
+
+
+if (cancelPreviewButton) { // Verifica se o botão existe
+    cancelPreviewButton.addEventListener("click", function() {
+        resetPreview();
+    });
+} 
+
 
 function resetPreview() {
     previewImage.src = "";
@@ -344,18 +368,6 @@ function resetPreview() {
     previewContainer.style.display = "none";
 }
 
-
-// Exemplo de envio do formulário
-document.getElementById("editForm").onsubmit = function(e) {
-    e.preventDefault(); // Impede o comportamento padrão
-
-    // Aqui você pode adicionar a lógica para salvar as alterações
-    console.log("Título:", document.getElementById("postTitle").value);
-    console.log("Descrição:", document.getElementById("postContent").value);
-    
-    // Fechar o modal após salvar as alterações
-    closeEditPost();
-};
 
 // Função para fechar o modal apenas ao clicar no botão "Cancelar"
 function closeFormPopup() {
@@ -418,3 +430,42 @@ document.querySelectorAll('.cancel-button').forEach(button => {
         }
     });
 });
+
+function openEditProfile() {
+    const modal = document.getElementById('editPerfilModal');
+    if (modal) {  // Verifica se o modal existe
+        modal.style.display = 'flex';
+    }
+}
+
+function closeEditProfile() {
+    const modal = document.getElementById('editPerfilModal');
+    if (modal) {  // Verifica se o modal existe
+        modal.style.display = 'none';
+    }
+    document.getElementById('editName').value = ''; // Limpa o conteúdo do textarea
+    document.getElementById('editUserName').value = ''; // Limpa o conteúdo do textarea
+    document.getElementById('editUserDesc').value = ''; // Limpa o conteúdo do textarea
+
+}
+
+const profileUpload = document.getElementById("profile-upload");
+const profileImage = document.getElementById("profile-image");
+
+if (profileUpload && profileImage) { // Verifica se ambos os elementos existem
+    profileUpload.addEventListener("change", function() {
+        const file = profileUpload.files[0]; // Obtém o arquivo selecionado
+        if (file && file.type.startsWith("image/")) { // Verifica se é uma imagem
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                profileImage.src = e.target.result; // Atualiza a imagem de visualização
+            };
+            reader.readAsDataURL(file); // Lê o arquivo como uma URL de dados
+        } else {
+            console.error("Por favor, selecione um arquivo de imagem.");
+        }
+    });
+} else {
+    console.error("Elemento 'profile-upload' ou 'profile-image' não encontrado.");
+}
+
