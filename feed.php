@@ -222,7 +222,7 @@
                         </div>
     
                         <div class="acoes">
-                            <button class="e-meu">é meu !</button>
+                            <button class="e-meu" onclick="openConfirmPopup()">é meu !</button>
                         </div>
     
                     </div>
@@ -382,7 +382,7 @@
                             </div>
         
                             <div class="acoes">
-                                <button class="e-meu">é meu !</button>
+                                <button class="e-meu" onclick="openConfirmPopup()">é meu !</button>
                             </div>
         
                         </div>
@@ -561,7 +561,7 @@
                         <label for="reportReason">Está vendo alguma coisa que não deveria?</label><br>
                         <textarea id="reportReason" name="reportReason" placeholder="descreva o motivo da denúncia..." maxlength="280" required></textarea><br>
                         <div class="bts-popup">
-                            <button type="button" class="cancel-button" onclick="closeReportForm()">Cancelar</button>
+                            <button class="cancelarReport" onclick="closeReportForm()">Cancelar</button>
                             <button type="submit" class="submit-button">Enviar Denúncia</button>
                         </div>
                         

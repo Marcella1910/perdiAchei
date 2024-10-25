@@ -25,12 +25,14 @@ function openReportForm() {
 function closeReportForm() {
     const reportModal = document.getElementById('reportModal');
     const reportReason = document.getElementById('reportReason');
-    if (reportModal && reportReason) {
+    
+    if (reportModal) {
         reportModal.style.display = 'none';
+    }
+    if (reportReason) {
         reportReason.value = ''; // Limpa o conteúdo da textarea
     }
 }
-
 
 // Verifique se o formulário de denúncia existe antes de adicionar o listener
 const reportForm = document.getElementById('reportForm');
@@ -48,6 +50,7 @@ if (reportForm) {
         }
     });
 }
+
 
 
 document.getElementById('file-upload').addEventListener('change', function(event) {

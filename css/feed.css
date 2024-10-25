@@ -118,6 +118,19 @@ body {
 
 }
 
+.cancelarReport {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px 15px;
+    background-color: transparent;
+    color: #555;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+}
+
 #formModal .modal-content p {
     font-size: 15px;
     font-weight: 500;
