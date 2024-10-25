@@ -191,7 +191,7 @@
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
                                     <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
-                                    <li><button class="dropdown-item" onclick="openConfirmPopup()">Entrar em contato com usuário</button></li>
+                                    <li><button class="dropdown-item" onclick="openConfirmPopup()">Reivindicar item</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -243,7 +243,7 @@
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
                                     <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
-                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button></li>
                                     <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
@@ -294,8 +294,8 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><button class="dropdown-item">Editar</button></li>
-                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
+                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button></li>
                                     <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
@@ -351,7 +351,7 @@
                                 <div class="dropdown-menu" id="dropdown-menu">
                                     <ul>
                                         <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
-                                        <li><button class="dropdown-item" onclick="openConfirmPopup()">Entrar em contato com usuário</button></li>
+                                        <li><button class="dropdown-item" onclick="openConfirmPopup()">Reivindicar item</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -407,8 +407,8 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><button class="dropdown-item">Editar</button></li>
-                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
+                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button></li>
                                     <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
@@ -459,8 +459,8 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><button class="dropdown-item">Editar</button></li>
-                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
+                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button></li>
                                     <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
@@ -511,8 +511,8 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><button class="dropdown-item">Editar</button></li>
-                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
+                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button></li>
                                     <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
@@ -672,7 +672,7 @@
 
                             <div class="bts-popup">
                                 <button type="button" class="cancel-button" onclick="closeEditPost()">Cancelar</button>
-                                <button type="submit" class="submit-button">Salvar Alterações</button>
+                                <button type="submit" class="submit-button" onclick="closeEditPost()">Salvar Alterações</button>
                             </div>
 
                         </div>
@@ -682,6 +682,21 @@
                 </div>
             </div>
 
+
+            <div id="deletePostModal" class="modal">
+                <div class="modal-content">
+                    <form id="excluirPostagemForm">
+                        <h2 class="excluirFormTitulo">
+                            Tem certeza que deseja excluir essa publicação?
+                        </h2>
+                        <h4 class="excluirFormSubtitulo">Essa ação é permanente e não poderá ser desfeita.</h4>
+                        <div class="bts-popup">
+                            <button type="button" class="cancel-button" onclick="closeDeletePost()">Cancelar</button>
+                            <button type="submit" class="submit-button">Ok</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
         </div>
 

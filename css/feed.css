@@ -87,6 +87,42 @@ body {
     
 }
 
+#contactReason {
+    background-color: transparent;
+    font-size: 13px;
+    font-family: "Poppins";
+    font-weight: 400;
+    padding: 0;
+}
+
+#contactReason::placeholder {
+    color: #555; /* Cor do placeholder do título quando não está focado */
+  }
+  
+#contactReason::placeholder {
+    color: #555; /* Cor do placeholder da descrição quando não está focado */
+}
+  
+  /* Estilizando o placeholder quando o campo está focado */
+#contactReason:focus::placeholder {
+    color: gray; /* Cor do placeholder do título quando o campo está focado */
+}
+  
+#contactReason:focus::placeholder {
+    color: gray; /* Cor do placeholder da descrição quando o campo está focado */
+}
+
+#formModal h3 {
+    font-size: 1.5rem;
+    color: #555;
+
+}
+
+#formModal .modal-content p {
+    font-size: 15px;
+    font-weight: 500;
+}
+
 .left-menu, .right-menu {
     width: 20%;
     margin-top: 1rem;
@@ -1731,4 +1767,14 @@ input[type="file"] {
 .profile-picture-container img {
     width: 100%;                /* Faz a imagem ocupar 100% do contêiner */
     height: 100%;               /* Mantém a proporção da imagem */
+}
+
+.excluirFormTitulo {
+    margin-bottom: 0.5rem;
+}
+
+.excluirFormSubtitulo {
+    margin-bottom: 2rem;
+    font-weight: 500;
+    color: #837373;
 }

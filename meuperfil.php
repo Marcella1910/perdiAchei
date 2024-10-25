@@ -108,8 +108,25 @@
                     <video id="preview-video" class="preview-video" controls style="display: none;"></video>
                 </div>
                 <div class="botoes">
-                    <button>criar publicação</button>
+                    <button class="createPostBtn" id="createPostBtn">criar publicação</button>
                     <div class="botoes-ladodir">
+
+                        <div class="dropdown-tags">
+                            <button class="dropdown-btn-tags">
+                                Roupas e agasalhos
+                                <i class="fa-solid fa-caret-down"></i> <!-- Ícone da seta -->
+                            </button>
+                            <div class="dropdown-content-tags">
+                                <a href="#">Roupas e agasalhos</a>
+                                <a href="#">Eletrônicos</a>
+                                <a href="#">Garrafas e Lancheiras</a>
+                                <a href="#">Utensílios de cozinha</a>
+                                <a href="#">Materiais escolares</a>
+                                <a href="#">Documentos</a>
+                                <a href="#">Produtos de higiene/Cosmético</a>
+                                <a href="#">Outros</a>
+                            </div>
+                        </div>
 
                         <div class="toggle-buttons">
                             <input type="radio" id="perdido" name="status" value="perdido">
@@ -177,8 +194,8 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><button class="dropdown-item">Editar</button></li>
-                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
+                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button></li>
                                     <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
@@ -235,8 +252,8 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><button class="dropdown-item">Editar</button></li>
-                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
+                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button></li>
                                     <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
@@ -286,8 +303,8 @@
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><button class="dropdown-item">Editar</button></li>
-                                    <li><button class="dropdown-item">Excluir</button></li>
+                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
+                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button></li>
                                     <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
@@ -351,7 +368,92 @@
                 </div>
             </div>
 
-            
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+
+                    <h2 class="editModalUsername">@kdb</h2>
+
+                    <div id="editForm">
+                        
+                            <div class="tags-tipos">
+
+                                <div class="toggle-buttons">
+                                    <input type="radio" id="perdido" name="status" value="perdido">
+                                    <label for="perdido" class="toggle-button">objeto perdido</label>
+                                
+                                    <input type="radio" id="encontrado" name="status" value="encontrado">
+                                    <label for="encontrado" class="toggle-button">objeto encontrado</label>
+                                </div>
+
+                                <div class="dropdown-tags">
+                                    <button class="dropdown-btn-tags">
+                                        Roupas e agasalhos
+                                    <i class="fa-solid fa-caret-down"></i> <!-- Ícone da seta -->
+                                    </button>
+                                    <div class="dropdown-content-tags">
+                                        <a href="#">Roupas e agasalhos</a>
+                                        <a href="#">Eletrônicos</a>
+                                        <a href="#">Garrafas e Lancheiras</a>
+                                        <a href="#">Utensílios de cozinha</a>
+                                        <a href="#">Materiais escolares</a>
+                                        <a href="#">Documentos</a>
+                                        <a href="#">Produtos de higiene/Cosmético</a>
+                                        <a href="#">Outros</a>
+                                    </div>
+                                </div>
+                            
+
+                            </div>
+                            
+                        <input type="text" id="postTitle" name="title" placeholder="dê um título a postagem..." value="">
+                        
+                        
+                        <textarea placeholder="descreva o item..." id="postContent"></textarea>
+
+                        <!-- Área de upload -->
+                        
+
+                        <!-- Pré-visualização -->
+                        <div id="editPreviewContainer" class="preview-container" style="display: none;">
+                            <button id="editCancelPreview" class="cancel-preview" style="margin-top: 10px;"><i class="fa-solid fa-xmark"></i></button>
+                            <img id="editPreviewImage" class="preview-image-editpost" alt="Pré-visualização da Imagem" style="display: none;">
+                            <video id="editPreviewVideo" class="preview-video-editpost" controls style="display: none;"></video>
+                        </div>
+
+                        <div class="footerEditForm">
+                            <div class="upload-container">
+                                <label for="editFileUpload" class="upload-button">
+                                    escolher arquivo
+                                </label>
+                                <input id="editFileUpload" type="file" accept="image/*,video/*" style="display: none;">
+                            </div>
+
+                            <div class="bts-popup">
+                                <button type="button" class="cancel-button" onclick="closeEditPost()">Cancelar</button>
+                                <button type="submit" class="submit-button" onclick="closeEditPost()">Salvar Alterações</button>
+                            </div>
+
+                        </div>
+                        <!-- Botões do modal -->
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div id="deletePostModal" class="modal">
+                <div class="modal-content">
+                    <form id="excluirPostagemForm">
+                        <h2 class="excluirFormTitulo">
+                            Tem certeza que deseja excluir essa publicação?
+                        </h2>
+                        <h4 class="excluirFormSubtitulo">Essa ação é permanente e não poderá ser desfeita.</h4>
+                        <div class="bts-popup">
+                            <button type="button" class="cancel-button" onclick="closeDeletePost()">Cancelar</button>
+                            <button type="submit" class="submit-button">Ok</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
         </div>
 

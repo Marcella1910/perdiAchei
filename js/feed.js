@@ -469,3 +469,39 @@ if (profileUpload && profileImage) { // Verifica se ambos os elementos existem
     console.error("Elemento 'profile-upload' ou 'profile-image' não encontrado.");
 }
 
+// Seleciona o modal e o formulário, se existirem
+const deletePostModal = document.getElementById("deletePostModal");
+const excluirPostagemForm = document.getElementById("excluirPostagemForm");
+const cancelButton = document.querySelector(".cancel-button");
+const submitButton = document.querySelector(".submit-button");
+
+// Verifica se todos os elementos existem antes de adicionar eventos e lógica
+if (deletePostModal && excluirPostagemForm && cancelButton && submitButton) {
+
+    // Função para abrir o modal
+    function openDeletePostModal() {
+        deletePostModal.style.display = "flex";
+    }
+
+    // Função para fechar o modal
+    function closeDeletePost() {
+        deletePostModal.style.display = "none";
+    }
+
+    // Evento para fechar o modal ao clicar no botão "Cancelar"
+    cancelButton.onclick = closeDeletePost;
+
+    // Evento para fechamento adicional ou lógica de exclusão ao confirmar com o botão "Ok"
+    excluirPostagemForm.onsubmit = function(event) {
+        event.preventDefault(); // Evita o envio padrão do formulário
+        closeDeletePost();
+        // Adicione aqui a lógica para excluir a postagem, se necessário
+    };
+
+    // Fecha o modal ao clicar fora do conteúdo
+    window.onclick = function(event) {
+        if (event.target === deletePostModal) {
+            closeDeletePost();
+        }
+    };
+}
