@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" href="css/feed.css">
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <!-- Navbar -->

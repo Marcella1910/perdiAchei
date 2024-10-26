@@ -196,7 +196,7 @@
                                 <ul>
                                     <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
                                     <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button></li>
-                                    <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
+                                    <li><button class="dropdown-item" onclick="openConfirmModalMarcarComoEncontrado()">Marcar como 'encontrado'</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -225,9 +225,7 @@
                             </button>
                         </div>
     
-                        <div class="acoes">
-                            <button class="encontrei">encontrei !</button>
-                        </div>
+                        
     
                     </div>
                 </div>
@@ -254,7 +252,7 @@
                                 <ul>
                                     <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
                                     <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button></li>
-                                    <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
+                                    <li><button class="dropdown-item" onclick="openConfirmModalMarcarComoReivindicado()">Marcar como 'reivindicado'</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -262,80 +260,32 @@
     
                     <div class="conteudo-principal">
                         <h2 class="titulo">
-                            perdi minha carteiraa
+                            encontrei um caderno
                         </h2>
                         <div class="midia">
-                            <img class="imagem-post" src="img/postagens/carteira.jpg">
+                            <img class="imagem-post" src="img/postagens/caderno.jpg">
                         </div>
-                        <p class="texto-post">perdi minha carteira '-'</p>
+                        <p class="texto-post">caderno</p>
                     </div>
     
                 
                     <div class="post-footer">
                         <div class="tags-post">
                             <button class="tp_publicacao">
-                                objeto perdido
+                                objeto achado
                             </button>
                             <button class="tag-item">
-                                <i class="fa-solid fa-id-card"></i>
-                                documentos
+                                <i class="fa-solid fa-pencil"></i> materiais escolares
                             </button>
                         </div>
     
-                        <div class="acoes">
-                            <button class="encontrei">encontrei !</button>
-                        </div>
+                        
     
                     </div>
                 </div>
-    
-                <div class="post">
-    
-                    <div class="post-header">
-                        <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/kdbicon.jpg">
-                        </div>
-                        <div class="perfil-post">
-                            <p class="nome">kevin de bruyne</p>
-                            <p class="data-post">12/12/12</p>
-                        </div>
-                        <div class="menu-container">
-                            <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
-                            <div class="dropdown-menu" id="dropdown-menu">
-                                <ul>
-                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
-                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button></li>
-                                    <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="conteudo-principal">
-                        <div class="midia">
-                            <img class="imagem-post" src="img/postagens/carteira.jpg">
-                        </div>
-                        <p class="texto-post">perdi minha carteira '-'</p>
-                    </div>
     
                 
-                    <div class="post-footer">
-                        <div class="tags-post">
-                            <button class="tp_publicacao">
-                                objeto perdido
-                            </button>
-                            <button class="tag-item">
-                                <i class="fa-solid fa-id-card"></i>
-                                documentos
-                            </button>
-                        </div>
-    
-                        <div class="acoes">
-                            <button class="encontrei">encontrei !</button>
-                        </div>
-    
-                    </div>
-                </div>
+                
 
             </div>
 
@@ -451,6 +401,57 @@
                             <button type="button" class="cancel-button" onclick="closeDeletePost()">Cancelar</button>
                             <button type="submit" class="submit-button">Ok</button>
                         </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal" id="confirmModalMarcarComoEncontrado">
+                <div class="modal-content">
+                    <h3 class="confirmModalMarcarComoEncontradoTitulo">Marcar como encontrado</h3>
+                    <p class="confirmModalMarcarComoEncontradoSubtitulo">Encontrou este objeto? Marcar como "encontrado" desativará a publicação, tornando-a invisível para outros usuários.</p>
+                    <form id="formMarcarComoEncontrado">
+                        <div class="bts-popup">
+                            <button type="button" class="cancel-button" onclick="closeConfirmModalMarcarComoEncontrado()">Cancelar</button>
+                            <button type="submit" class="submit-button">Marcar como encontrado</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal" id="confirmModalMarcarComoReivindicado">
+                <div class="modal-content">
+                    <h3 class="confirmModalMarcarComoReivindicadoTitulo">Marcar como reivindicado</h3>
+                    <p class="confirmModalMarcarComoReivindicadoSubtitulo">Devolveu este objeto? Marcar como
+                        "reivindicado"
+                        desativará a publicação, tornando-a invisível para outros usuários. Você precisará preencher
+                        algumas informações sobre o processo de reclamação do objeto.</p>
+
+                    <div class="bts-popup">
+                        <button class="cancel-button"
+                            onclick="closeConfirmModalMarcarComoReivindicado()">Cancelar</button>
+                        <button class="confirm-button" onclick="openFormModalMarcarComoReivindicado()">Próximo</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal" id="formModalMarcarComoReivindicado">
+                <div class="modal-content">
+                    <h3 class="formModalMarcarComoReivindicadoTitulo">Defina o dono</h3>
+                    <form id="formMarcarComoReivindicado">
+
+                        <div class="input-container">
+                            <label for="textarea" rows="1" cols="30">Marque o nome de usuário da pessoa para quem você entregou o item. Esta informação será registrada para garantir a segurança do site.</label>
+                            <textarea id="textarea" placeholder="Digite @ para marcar alguém..." spellcheck="false" required></textarea>
+                            <div id="suggestions" class="suggestions"></div>
+                        </div>
+
+                        <div class="bts-popup">
+                            <button type="button" class="cancel-button"
+                                onclick="closeFormModalMarcarComoReivindicado()">Cancelar</button>
+                            <button type="submit" class="submit-button">Marcar como reivindicado</button>
+                        </div>
+
                     </form>
                 </div>
             </div>

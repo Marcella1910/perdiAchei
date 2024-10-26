@@ -14,6 +14,7 @@
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
     <!-- Importando o JS -->
     <script src="js/login.js" defer></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- Importando o FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>

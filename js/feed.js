@@ -25,7 +25,7 @@ function openReportForm() {
 function closeReportForm() {
     const reportModal = document.getElementById('reportModal');
     const reportReason = document.getElementById('reportReason');
-    
+
     if (reportModal) {
         reportModal.style.display = 'none';
     }
@@ -37,7 +37,7 @@ function closeReportForm() {
 // Verifique se o formulário de denúncia existe antes de adicionar o listener
 const reportForm = document.getElementById('reportForm');
 if (reportForm) {
-    reportForm.addEventListener('submit', function(event) {
+    reportForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Impede o envio padrão do formulário
 
         const reportReason = document.getElementById('reportReason').value;
@@ -53,7 +53,7 @@ if (reportForm) {
 
 
 
-document.getElementById('file-upload').addEventListener('change', function(event) {
+document.getElementById('file-upload').addEventListener('change', function (event) {
     const file = event.target.files[0]; // Obter o arquivo selecionado
     const fileInput = document.getElementById('file-upload');
     const previewContainer = document.getElementById('preview-container');
@@ -92,7 +92,7 @@ document.getElementById('file-upload').addEventListener('change', function(event
     });
 });
 
-document.getElementById('file-upload').addEventListener('change', function(event) {
+document.getElementById('file-upload').addEventListener('change', function (event) {
     const file = event.target.files[0];
     console.log(file); // Adicione isso para verificar se o arquivo está sendo selecionado corretamente
 });
@@ -100,18 +100,18 @@ document.getElementById('file-upload').addEventListener('change', function(event
 
 const toggleButtons = document.querySelectorAll('.toggle-button');
 
-    toggleButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            toggleButtons.forEach(b => b.classList.remove('active')); // Remove 'active' de todos
-            this.classList.add('active'); // Adiciona 'active' ao botão clicado
-        });
+toggleButtons.forEach(button => {
+    button.addEventListener('click', function () {
+        toggleButtons.forEach(b => b.classList.remove('active')); // Remove 'active' de todos
+        this.classList.add('active'); // Adiciona 'active' ao botão clicado
+    });
 });
 
 // Seleciona todos os botões de menu
 const menuButtons = document.querySelectorAll('.menu-button');
 
 menuButtons.forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
         // Encontra o dropdown correspondente ao botão clicado
         const dropdownMenu = this.nextElementSibling;
 
@@ -128,7 +128,7 @@ menuButtons.forEach(button => {
 });
 
 // Fecha o menu dropdown se clicar fora dele
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     if (!e.target.closest('.menu-button')) {
         document.querySelectorAll('.dropdown-menu').forEach(menu => {
             menu.style.display = 'none';
@@ -140,7 +140,7 @@ document.addEventListener('click', function(e) {
 const activityButton = document.querySelector('.menu-item-notifications');
 const activityDropdown = document.querySelector('.notification-panel');
 
-activityButton.addEventListener('click', function(e) {
+activityButton.addEventListener('click', function (e) {
     e.stopPropagation(); // Evita o fechamento imediato
 
     if (activityDropdown.classList.contains('show')) {
@@ -159,7 +159,7 @@ activityButton.addEventListener('click', function(e) {
 });
 
 // Fecha o painel de notificações ao clicar fora dele
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     if (!e.target.closest('.menu-item-notifications') && !e.target.closest('.notification-panel')) {
         activityDropdown.style.opacity = '0'; // Inicia o fade-out
         setTimeout(() => {
@@ -174,7 +174,7 @@ const clickableElements = document.querySelectorAll('.clickable-profile');
 
 // Adiciona um evento de clique em cada um deles
 clickableElements.forEach(element => {
-    element.addEventListener('click', function() {
+    element.addEventListener('click', function () {
         // Redireciona para a página meuperfil.php
         window.location.href = 'meuperfil.php';
     });
@@ -185,7 +185,7 @@ const clickableElementsPerfil = document.querySelectorAll('.clickable-profile-al
 
 // Adiciona um evento de clique em cada um deles
 clickableElementsPerfil.forEach(element => {
-    element.addEventListener('click', function() {
+    element.addEventListener('click', function () {
         // Redireciona para a página perfil-alheio.php
         window.location.href = 'perfil-alheio.php';
     });
@@ -233,14 +233,14 @@ function visualizarFoto(event) {
 
     if (arquivo) {
         const leitor = new FileReader();
-        
-        leitor.onload = function(e) {
+
+        leitor.onload = function (e) {
             previewFoto.src = e.target.result;
             previewFoto.style.display = 'block';
             containerPreviewFoto.style.display = 'flex';
             botaoRemoverFoto.style.display = 'flex';
         };
-        
+
         leitor.readAsDataURL(arquivo); // Converte a imagem para base64 e exibe no preview
     }
 }
@@ -285,7 +285,7 @@ const contactForm = document.getElementById('contactForm');
 const contactReasonInput = document.getElementById('contactReason');
 
 if (contactForm && contactReasonInput) {  // Verifica se ambos os elementos existem
-    contactForm.addEventListener('submit', function(event) {
+    contactForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Impede o envio padrão do formulário
 
         const contactReason = contactReasonInput.value;
@@ -311,7 +311,7 @@ const previewVideo = document.getElementById("editPreviewVideo");
 const cancelPreviewButton = document.getElementById("editCancelPreview");
 
 if (fileUpload && previewContainer && previewImage && previewVideo && cancelPreviewButton) {
-    fileUpload.addEventListener("change", function() {
+    fileUpload.addEventListener("change", function () {
         const file = fileUpload.files[0];
         if (file) {
             const fileType = file.type;
@@ -319,7 +319,7 @@ if (fileUpload && previewContainer && previewImage && previewVideo && cancelPrev
             // Verifica o tipo de arquivo (imagem ou vídeo)
             if (fileType.startsWith("image/")) {
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     previewImage.src = e.target.result;
                     previewImage.style.display = "flex";
                     previewVideo.style.display = "none";
@@ -328,7 +328,7 @@ if (fileUpload && previewContainer && previewImage && previewVideo && cancelPrev
                 reader.readAsDataURL(file);
             } else if (fileType.startsWith("video/")) {
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     previewVideo.src = e.target.result;
                     previewVideo.style.display = "flex";
                     previewImage.style.display = "none";
@@ -339,7 +339,7 @@ if (fileUpload && previewContainer && previewImage && previewVideo && cancelPrev
         }
     });
 
-    cancelPreviewButton.addEventListener("click", function() {
+    cancelPreviewButton.addEventListener("click", function () {
         resetPreview();
     });
 }
@@ -357,10 +357,10 @@ function resetPreview() {
 
 
 if (cancelPreviewButton) { // Verifica se o botão existe
-    cancelPreviewButton.addEventListener("click", function() {
+    cancelPreviewButton.addEventListener("click", function () {
         resetPreview();
     });
-} 
+}
 
 
 function resetPreview() {
@@ -388,10 +388,10 @@ function closeEditPost() {
 document.querySelectorAll('.dropdown-btn-tags').forEach(button => {
     button.addEventListener('click', function (event) {
         event.stopPropagation(); // Evitar que o clique feche o modal
-        
+
         // Obter o dropdown correspondente ao botão clicado
         const dropdownContent = this.nextElementSibling;
-        
+
         // Fechar outros dropdowns abertos antes de abrir o atual
         document.querySelectorAll('.dropdown-content-tags').forEach(dropdown => {
             if (dropdown !== dropdownContent) {
@@ -406,16 +406,16 @@ document.querySelectorAll('.dropdown-btn-tags').forEach(button => {
 
 // Evitar que o clique dentro do dropdown feche o modal
 document.querySelectorAll('.dropdown-content-tags').forEach(dropdown => {
-    dropdown.addEventListener('click', function(event) {
+    dropdown.addEventListener('click', function (event) {
         event.stopPropagation(); // Impede que cliques dentro do dropdown fechem o modal
     });
 });
 
 // Fechar o dropdown ao clicar fora, sem fechar o modal
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     document.querySelectorAll('.dropdown-content-tags').forEach(dropdown => {
         const dropdownBtn = dropdown.previousElementSibling; // O botão relacionado ao dropdown
-        
+
         if (!dropdown.contains(event.target) && !dropdownBtn.contains(event.target)) {
             dropdown.classList.remove('show'); // Fecha o dropdown se clicar fora dele
         }
@@ -425,7 +425,7 @@ document.addEventListener('click', function(event) {
 
 // Fechar o modal apenas quando o botão "Cancelar" for clicado
 document.querySelectorAll('.cancel-button').forEach(button => {
-    button.addEventListener('click', function(event) {
+    button.addEventListener('click', function (event) {
         if (this.closest('#formModal')) {
             closeFormPopup();
         } else if (this.closest('#editModal')) {
@@ -456,11 +456,11 @@ const profileUpload = document.getElementById("profile-upload");
 const profileImage = document.getElementById("profile-image");
 
 if (profileUpload && profileImage) { // Verifica se ambos os elementos existem
-    profileUpload.addEventListener("change", function() {
+    profileUpload.addEventListener("change", function () {
         const file = profileUpload.files[0]; // Obtém o arquivo selecionado
         if (file && file.type.startsWith("image/")) { // Verifica se é uma imagem
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 profileImage.src = e.target.result; // Atualiza a imagem de visualização
             };
             reader.readAsDataURL(file); // Lê o arquivo como uma URL de dados
@@ -495,14 +495,14 @@ if (deletePostModal && excluirPostagemForm && cancelButton && submitButton) {
     cancelButton.onclick = closeDeletePost;
 
     // Evento para fechamento adicional ou lógica de exclusão ao confirmar com o botão "Ok"
-    excluirPostagemForm.onsubmit = function(event) {
+    excluirPostagemForm.onsubmit = function (event) {
         event.preventDefault(); // Evita o envio padrão do formulário
         closeDeletePost();
         // Adicione aqui a lógica para excluir a postagem, se necessário
     };
 
     // Fecha o modal ao clicar fora do conteúdo
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target === deletePostModal) {
             closeDeletePost();
         }
@@ -533,7 +533,7 @@ function exibirFotoItemPerdido(event) {
     const preview = document.getElementById("preview-foto-item-perdido");
     const removerBtn = document.getElementById("botao-remover-foto-item-perdido");
     const containerPreviewFotoItemPerdido = document.getElementById("container-preview-foto-item-perdido");
-    
+
     preview.src = URL.createObjectURL(event.target.files[0]);
     preview.style.display = "block";
     removerBtn.style.display = "flex";
@@ -545,9 +545,82 @@ function excluirFotoItemPerdido() {
     const inputFile = document.getElementById("input-upload-foto-item-perdido");
     const preview = document.getElementById("preview-foto-item-perdido");
     const removerBtn = document.getElementById("botao-remover-foto-item-perdido");
-    
+
     inputFile.value = "";
     preview.src = "#";
     preview.style.display = "none";
     removerBtn.style.display = "none";
+}
+
+function openConfirmModalMarcarComoEncontrado() {
+    document.getElementById("confirmModalMarcarComoEncontrado").style.display = "flex";
+}
+
+function closeConfirmModalMarcarComoEncontrado() {
+    document.getElementById("confirmModalMarcarComoEncontrado").style.display = "none";
+}
+
+function openConfirmModalMarcarComoReivindicado() {
+    document.getElementById("confirmModalMarcarComoReivindicado").style.display = "flex";
+}
+
+function closeConfirmModalMarcarComoReivindicado() {
+    document.getElementById("confirmModalMarcarComoReivindicado").style.display = "none";
+}
+
+function openFormModalMarcarComoReivindicado() {
+    document.getElementById("confirmModalMarcarComoReivindicado").style.display = "none";
+    document.getElementById("formModalMarcarComoReivindicado").style.display = "flex";
+}
+
+function closeFormModalMarcarComoReivindicado() {
+    document.getElementById("formModalMarcarComoReivindicado").style.display = "none";
+}
+
+const textarea = document.getElementById("textarea");
+const suggestionsContainer = document.getElementById("suggestions");
+
+// Lista simulada de perfis para sugerir
+const profiles = ["@maria_silva", "@joao_costa", "@lucas_rocha", "@ana_oliveira", "@bruna_pereira"];
+
+textarea.addEventListener("input", () => {
+    const text = textarea.value;
+    const lastWord = text.split(" ").pop(); // pega a última palavra
+
+    // Se a última palavra começar com '@', exibe sugestões
+    if (lastWord.startsWith("@")) {
+        const query = lastWord.slice(1).toLowerCase(); // retira '@' para buscar
+        const filteredProfiles = profiles.filter(profile =>
+            profile.toLowerCase().includes(query)
+        );
+
+        showSuggestions(filteredProfiles);
+    } else {
+        suggestionsContainer.style.display = "none";
+    }
+});
+
+function showSuggestions(profiles) {
+    suggestionsContainer.innerHTML = ""; // Limpa sugestões anteriores
+
+    if (profiles.length > 0) {
+        profiles.forEach(profile => {
+            const suggestionItem = document.createElement("div");
+            suggestionItem.classList.add("suggestion-item");
+            suggestionItem.textContent = profile;
+            suggestionItem.onclick = () => selectProfile(profile);
+            suggestionsContainer.appendChild(suggestionItem);
+        });
+        suggestionsContainer.style.display = "block";
+    } else {
+        suggestionsContainer.style.display = "none";
+    }
+}
+
+function selectProfile(profile) {
+    const words = textarea.value.split(" ");
+    words.pop(); // Remove a última palavra que estava sendo digitada
+    words.push(profile); // Adiciona o perfil selecionado
+    textarea.value = words.join(" ") + " ";
+    suggestionsContainer.style.display = "none";
 }

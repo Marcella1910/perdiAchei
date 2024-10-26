@@ -13,6 +13,7 @@
     <!-- Importando o CSS  -->
     <link rel="stylesheet" type="text/css" href="css/login.css"/>
     <!-- Importando o FontAwesome -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
