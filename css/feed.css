@@ -1415,6 +1415,27 @@ input[type="file"] {
     background-color: #929292;
 }
 
+.botao-upload-foto-item-perdido {
+    display: flex;
+    padding: 8px 15px;
+    background-color: #8f8f8fa9;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid #8f8f8f96;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: "Varela Round", sans-serif;
+    font-size: 12px;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.botao-upload-foto-item-perdido:hover {
+    background-color: #929292;
+}
+
 .container-upload-foto {
     text-align: center;
 }
@@ -1431,7 +1452,23 @@ input[type="file"] {
     
 }
 
+.container-preview-foto-item-perdido {
+    margin-top: 20px;
+    display: none;
+    align-items: center;
+    gap: 1rem;
+}
+
 #preview-foto {
+    max-width: 100%;
+    max-height: 70px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 2px solid #8f8f8f96;
+    margin: 0;
+}
+
+#preview-foto-item-perdido {
     max-width: 100%;
     max-height: 70px;
     margin-top: 10px;
@@ -1460,6 +1497,29 @@ input[type="file"] {
 }
 
 .botao-remover-foto:hover {
+    background-color: rgb(190, 100, 100);
+}
+
+.botao-remover-foto-item-perdido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    background-color: rgb(236, 112, 112);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Varela Round", sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin: 0;
+}
+
+.botao-remover-foto-item-perdido:hover {
     background-color: rgb(190, 100, 100);
 }
 
@@ -1790,4 +1850,104 @@ input[type="file"] {
     margin-bottom: 2rem;
     font-weight: 500;
     color: #837373;
+}
+
+#reportModal .modal-content h3 {
+    color: #555;
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-family: "Poppins";
+}
+
+#confirmModal .modal-content h3 {
+    color: #555;
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-family: "Poppins";
+}
+
+#confirmModal .modal-content p {
+    color: #706c6c;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#reportForm label  {
+    color: #706c6c;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#confirmModalItemPerdido .modal-content h3 {
+    color: #555;
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-family: "Poppins";
+}
+
+#confirmModalItemPerdido .modal-content p {
+    color: #706c6c;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.formModalItemPerdidoTitulo {
+    color: #555;
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-family: "Poppins";
+}
+
+#formModalItemPerdido .modal-content p {
+    margin: 0;
+    padding: 0;
+    color: #706c6c;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#contactReasonItemPerdido {
+    padding: 0;
+    background-color: transparent;
+    color: #333;
+}
+
+#contactReasonItemPerdido::placeholder {
+    color: #555; /* Cor do placeholder do título quando não está focado */
+  }
+  
+#contactReasonItemPerdido::placeholder {
+    color: #555; /* Cor do placeholder da descrição quando não está focado */
+}
+  
+  /* Estilizando o placeholder quando o campo está focado */
+#contactReasonItemPerdido:focus::placeholder {
+    color: gray; /* Cor do placeholder do título quando o campo está focado */
+}
+  
+#contactReasonItemPerdido:focus::placeholder {
+    color: gray; /* Cor do placeholder da descrição quando o campo está focado */
+}
+
+#reportReason {
+    padding: 0;
+    background-color: transparent;
+    color: #333;
+}
+
+#reportReason::placeholder {
+    color: #555; /* Cor do placeholder do título quando não está focado */
+  }
+  
+#reportReason::placeholder {
+    color: #555; /* Cor do placeholder da descrição quando não está focado */
+}
+  
+  /* Estilizando o placeholder quando o campo está focado */
+#reportReason:focus::placeholder {
+    color: gray; /* Cor do placeholder do título quando o campo está focado */
+}
+  
+#reportReason:focus::placeholder {
+    color: gray; /* Cor do placeholder da descrição quando o campo está focado */
 }

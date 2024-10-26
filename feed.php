@@ -232,19 +232,18 @@
 
                     <div class="post-header">
                         <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                            <img class="pfp" src="img/userspfp/haseul.jpg">
                         </div>
                         <div class="perfil-post">
-                            <p class="nome">kevin de bruyne</p>
+                            <p class="nome">haseul</p>
                             <p class="data-post">12/12/12</p>
                         </div>
                         <div class="menu-container">
                             <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                             <div class="dropdown-menu" id="dropdown-menu">
                                 <ul>
-                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
-                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button></li>
-                                    <li><button class="dropdown-item">Marcar como 'encontrado'</button></li>
+                                    <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
+                                    <li><button class="dropdown-item" onclick="openConfirmPopupItemPerdido()">Entrar em contato com usuário</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -253,12 +252,12 @@
     
                     <div class="conteudo-principal">
                         <h2 class="titulo">
-                            perdi minha carteiraa
+                            perdi minha estojo mi ajuda
                         </h2>
                         <div class="midia">
-                            <img class="imagem-post" src="img/postagens/carteira.jpg">
+                            <img class="imagem-post" src="img/postagens/estojo.jpg">
                         </div>
-                        <p class="texto-post">perdi minha carteira '-'</p>
+                        <p class="texto-post">meu estojo</p>
                     </div>
     
                 
@@ -268,13 +267,12 @@
                                 objeto perdido
                             </button>
                             <button class="tag-item">
-                                <i class="fa-solid fa-id-card"></i>
-                                documentos
+                                <i class="fa-solid fa-pencil"></i> materiais escolares
                             </button>
                         </div>
     
                         <div class="acoes">
-                            <button class="encontrei">encontrei !</button>
+                            <button class="encontrei" onclick="openConfirmPopupItemPerdido()" >encontrei !</button>
                         </div>
     
                     </div>
@@ -354,9 +352,7 @@
                                         <li><button class="dropdown-item" onclick="openConfirmPopup()">Reivindicar item</button></li>
                                     </ul>
                                 </div>
-                            </div>
-
-                            
+                            </div>  
                         </div>
         
                         <div class="conteudo-principal">
@@ -390,7 +386,58 @@
             
             </div>
             <div id="utensilioscozinha" class="section"><h3>Utensílios de cozinha</h3></div>
-            <div id="materiaisescolares" class="section"><h3>Materiais Escolares</h3></div>
+            <div id="materiaisescolares" class="section"><h3>Materiais Escolares</h3>
+
+                <div class="post">
+
+                    <div class="post-header">
+                        <div class="pfp-post">
+                            <img class="pfp" src="img/userspfp/haseul.jpg">
+                        </div>
+                        <div class="perfil-post">
+                            <p class="nome">haseul</p>
+                            <p class="data-post">12/12/12</p>
+                        </div>
+                        <div class="menu-container">
+                            <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
+                            <div class="dropdown-menu" id="dropdown-menu">
+                                <ul>
+                                    <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
+                                    <li><button class="dropdown-item" onclick="openConfirmPopupItemPerdido()">Entrar em contato com usuário</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conteudo-principal">
+                        <h2 class="titulo">
+                            perdi minha estojo mi ajuda
+                        </h2>
+                        <div class="midia">
+                            <img class="imagem-post" src="img/postagens/estojo.jpg">
+                        </div>
+                        <p class="texto-post">meu estojo</p>
+                    </div>
+
+
+                    <div class="post-footer">
+                        <div class="tags-post">
+                            <button class="tp_publicacao">
+                                objeto perdido
+                            </button>
+                            <button class="tag-item">
+                                <i class="fa-solid fa-pencil"></i> materiais escolares
+                            </button>
+                        </div>
+
+                        <div class="acoes">
+                            <button class="encontrei" onclick="openConfirmPopupItemPerdido()" >encontrei !</button>
+                        </div>
+
+                    </div>
+                </div>  
+            
+            </div>
             <div id="documentos" class="section"><h3>Documentos</h3>
 
                 <div class="post">
@@ -556,7 +603,7 @@
             
             <div class="modal" id="reportModal">
                 <div class="modal-content">
-                    <h3>Reportar @chuu</h3>
+                    <h3>Reportar usuário</h3>
                     <form id="reportForm">
                         <label for="reportReason">Está vendo alguma coisa que não deveria?</label><br>
                         <textarea id="reportReason" name="reportReason" placeholder="descreva o motivo da denúncia..." maxlength="280" required></textarea><br>
@@ -571,7 +618,7 @@
            
             <div class="modal" id="confirmModal">
                 <div class="modal-content">
-                    <h3>Entrar em contato com @chuu</h3>
+                    <h3>Entrar em contato com usuário</h3>
                     <p>Deseja reivindicar um item? Preencha as informações necessárias e sua mensagem será enviada por e-mail para o dono da postagem.</p>
                     <div class="bts-popup">
                         <button class="cancelarReport" onclick="closeConfirmPopup()">Cancelar</button>
@@ -698,6 +745,48 @@
                 </div>
             </div>
 
+            <div class="modal" id="confirmModalItemPerdido">
+                <div class="modal-content">
+                    <h3>Entrar em contato com usuário</h3>
+                    <p>Deseja devolver um item? Preencha as informações necessárias e sua mensagem será enviada por e-mail para o dono da postagem.</p>
+                    <div class="bts-popup">
+                        <button class="cancelarReport" onclick="closeConfirmPopupItemPerdido()">Cancelar</button>
+                        <button class="confirm-button" onclick="openFormPopupItemPerdido()">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="formModalItemPerdido">
+                <div class="modal-content">
+                    <h3 class="formModalItemPerdidoTitulo">Devolver um item</h3>
+                    <p class="formModalItemPerdidoSubtitulo">Envie uma mensagem ao proprietário da postagem com uma foto do item para que ele possa identificá-lo. Escolha um horário e um local dentro Campus para a devolução. Todas as informações fornecidas serão enviadas por e-mail ao proprietário, e seu endereço de e-mail cadastrado será compartilhado para que ele possa confirmar a troca. Fique atento à sua caixa de entrada para acompanhar a comunicação.</p>
+                    <form id="contactFormItemPerdido">
+                        
+                        <textarea id="contactReasonItemPerdido" name="contactReasonItemPerdido" placeholder="como deseja devolver este item?" required></textarea><br>
+                        <p>Você pode adicionar uma foto do item para mostrar ao proprietário que ele está com você. </p>
+                        <div class="container-upload-foto">
+                            <input type="file" id="input-upload-foto-item-perdido" accept="image/*" onchange="exibirFotoItemPerdido(event)" />
+                            <label for="input-upload-foto-item-perdido" class="botao-upload-foto-item-perdido">
+                                enviar foto
+                            </label>
+                            <div class="container-preview-foto-item-perdido" id="container-preview-foto-item-perdido">
+                                <img id="preview-foto-item-perdido" src="#" alt="Pré-visualização" style="display:none;" />
+                                <button id="botao-remover-foto-item-perdido" class="botao-remover-foto-item-perdido" style="display:none;" onclick="excluirFotoItemPerdido()"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                        </div>
+                    
+                        <div class="bts-popup">
+                            <button type="button" class="cancel-button" onclick="closeFormPopupItemPerdido()">Cancelar</button>
+                            <button type="submit" class="submit-button">Enviar</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+
+
+
+            
         </div>
 
         <!-- Right Menu -->

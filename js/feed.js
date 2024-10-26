@@ -508,3 +508,46 @@ if (deletePostModal && excluirPostagemForm && cancelButton && submitButton) {
         }
     };
 }
+
+function openConfirmPopupItemPerdido() {
+    document.getElementById("confirmModalItemPerdido").style.display = "flex";
+}
+// Função para abrir o modal de formulário após confirmar no modal de confirmação
+function openFormPopupItemPerdido() {
+    document.getElementById("confirmModalItemPerdido").style.display = "none";
+    document.getElementById("formModalItemPerdido").style.display = "flex";
+}
+
+// Função para fechar o modal de confirmação
+function closeConfirmPopupItemPerdido() {
+    document.getElementById("confirmModalItemPerdido").style.display = "none";
+}
+
+// Função para fechar o modal de formulário
+function closeFormPopupItemPerdido() {
+    document.getElementById("formModalItemPerdido").style.display = "none";
+}
+
+// Função para exibir a foto ao fazer upload
+function exibirFotoItemPerdido(event) {
+    const preview = document.getElementById("preview-foto-item-perdido");
+    const removerBtn = document.getElementById("botao-remover-foto-item-perdido");
+    const containerPreviewFotoItemPerdido = document.getElementById("container-preview-foto-item-perdido");
+    
+    preview.src = URL.createObjectURL(event.target.files[0]);
+    preview.style.display = "block";
+    removerBtn.style.display = "flex";
+    containerPreviewFotoItemPerdido.style.display = 'flex';
+}
+
+// Função para excluir a foto
+function excluirFotoItemPerdido() {
+    const inputFile = document.getElementById("input-upload-foto-item-perdido");
+    const preview = document.getElementById("preview-foto-item-perdido");
+    const removerBtn = document.getElementById("botao-remover-foto-item-perdido");
+    
+    inputFile.value = "";
+    preview.src = "#";
+    preview.style.display = "none";
+    removerBtn.style.display = "none";
+}
