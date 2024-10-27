@@ -311,7 +311,7 @@
 
                     <div class="footerEditPerfilModal">
                         <div class="bts-popup">
-                            <button type="button" class="cancel-button" onclick="closeEditProfile()">Cancelar</button>
+                            <button class="cancelarReport" onclick="closeEditProfile()">Cancelar</button>
                             <button type="submit" class="submit-button" onclick="closeEditProfile()">Salvar Alterações</button>
                         </div>
                     </div>

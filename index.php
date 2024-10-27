@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
 
     <header>
@@ -23,29 +25,29 @@
             <div class="topnav">
 
                 <!-- Nossa logo -->
-                <img class="logo" src = "img/logos/logo.png" alt = "logo">
+                <img class="logo" src="img/logos/logo.png" alt="logo">
 
                 <!-- Link para a página de sobre -->
                 <ul id="nav-mobile" class="left">
                     <li><a href="sobre.php">Sobre</a></li>
 
-                <!-- Botão para o usuário fazer login -->
-                <button class="btnLogin" onclick="window.location.href='login.php'">
-                    <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
-                    Entrar
-                </button>
+                    <!-- Botão para o usuário fazer login -->
+                    <button class="btnLogin" onclick="window.location.href='login.php'">
+                        <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
+                        Entrar
+                    </button>
 
-              </ul>
+                </ul>
 
             </div>
-          </nav>
-          <!-- Fim da navbar -->
+        </nav>
+        <!-- Fim da navbar -->
     </header>
 
     <!-- Início do meio e conteúdo principal da página -->
-    
+
     <div class="banner index">
-        
+
         <!-- A coluna esquerda guarda o conteúdo escrito da página -->
         <div class="colunaEsq">
 
@@ -53,8 +55,9 @@
             <h1 class="tituloPagina">Perdeu algo? Encontre <span>Aqui.</span></h1>
 
             <!-- Subtítulo da página -->
-            <h3 class="subtitulo">Bem-vindo(a) ao perdiAchei! O Achados e Perdidos Online do IFES Campus Serra. Iremos te ajudar a encontrar o que você perdeu nos arredores do IFES!</h3>
-            
+            <h3 class="subtitulo">Bem-vindo(a) ao perdiAchei! O Achados e Perdidos Online do IFES Campus Serra. Iremos
+                te ajudar a encontrar o que você perdeu nos arredores do IFES!</h3>
+
             <!-- Botão para o usuário se cadastrar -->
             <button class="btnCad" onclick="window.location.href='cadastro.php'"> CADASTRE-SE </button>
 
@@ -63,14 +66,14 @@
         <!-- A coluna direita guarda o símbolo do perdiAchei: a caixa do achados e perdidos -->
         <div class="colunaDir">
 
-            <img src="img/logos/caixinha.png">  
+            <img src="img/logos/caixinha.png">
 
         </div>
 
     </div>
     <!-- Fim do meio e conteúdo principal da página -->
 
-    
+
     <!-- Início do rodapé da página -->
     <footer class="rodape">
         <div class="interface">
@@ -81,7 +84,7 @@
 
                     <!-- Div contendo a logo do projeto -->
                     <div class="logo-footer cima">
-                        <img class="logo" src = "img/logos/versao2logo.png" alt = "O achados e perdidos do IFES Serra">
+                        <img class="logo" src="img/logos/versao2logo.png" alt="O achados e perdidos do IFES Serra">
                     </div>
 
                     <div class="btn-social">
@@ -91,17 +94,19 @@
                     </div>
 
                 </div>
-                
+
 
             </div>
-            
+
             <div class="line-footer borda">
-                <p><i class="fa-solid fa-envelope"></i><a href="mailto:projetoperdiachei@gmail.com">projetoperdiachei@gmail.com</a></p>
+                <p><i class="fa-solid fa-envelope"></i><a
+                        href="mailto:projetoperdiachei@gmail.com">projetoperdiachei@gmail.com</a></p>
             </div>
 
         </div>
-        
+
     </footer>
     <!-- Fim do rodapé da página -->
 </body>
+
 </html>

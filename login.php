@@ -37,21 +37,21 @@
                     <!-- Nome de usuário  -->
                     <h4>Insira seu nome de usuário</h4>
                     <div class="inputarea">
-                        <input type="text" id="text" class="user" placeholder="Nome de Usuário">
+                        <input type="text" name="username" id="username" class="user" placeholder="Nome de Usuário" required>
                     </div>
                     <!--  -->
         
                     <!-- Email  -->
                     <h4>Insira seu email</h4>
                     <div class="inputarea">
-                        <input type="email" id="email" class="email" placeholder="Email">
+                        <input type="email" name="email" id="email" class="email" placeholder="Email" required>
                     </div>
                     <!--  -->
 
                     <!-- Senha  -->
                     <h4>Insira sua senha</h4>
                     <div class="inputarea password-container">
-                        <input type="password" id="senha" class="senha" placeholder="Senha">
+                        <input type="password" name="password" id="password" class="senha" placeholder="Senha" required>
                         <i id="togglePassword1" class="fa-regular fa-eye"></i>
                     </div>
                     <!--  -->

@@ -1002,7 +1002,32 @@
                 </div>
             </div>
 
+            <div class="modal" id="editPerfilModal">
+                <div class="modal-content">
+                    <div class="profile-picture-container">
+                        <div class="upload-pfp">
+                            <label for="profile-upload" class="upload-button">
+                                <i class="fa-solid fa-camera"></i>
+                            </label>
+                            <input id="profile-upload" type="file" accept="image/*">
+                        </div>
+                        <img id="profile-image" src="img/userspfp/kdbicon.jpg" alt="Profile Picture">
+                    </div>
 
+                    <input type="text" id="editName" name="editName" placeholder="Nome" value="">
+
+                    <input type="text" id="editUserName" name="editUserName" placeholder="Username" value="">
+
+                    <textarea placeholder="Adicione uma breve descrição sobre você" id="editUserDesc"></textarea>
+
+                    <div class="footerEditPerfilModal">
+                        <div class="bts-popup">
+                            <button class="cancelarReport" onclick="closeEditProfile()">Cancelar</button>
+                            <button type="submit" class="submit-button" onclick="closeEditProfile()">Salvar Alterações</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
         </div>
@@ -1011,7 +1036,7 @@
         <div class="right-menu">
             <div class="header-right-menu">
                 <p>Perfil</p>
-                <button class="editperfil">
+                <button class="editperfil" onclick="openEditProfile()">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </button>
             </div>

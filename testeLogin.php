@@ -1,33 +1,38 @@
 <?php
-    //preenchimento dos dados
-    if(isset($_POST['submit']) && 
-    !empty($_POST['user']) &&
-    !empty($_POST['email']) && 
-    !empty($_POST['senha'])) {
-        
-        include_once('config.php');
-        $user = $_POST['user'];
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
+session_start(); // Inicia a sessão
 
-        $sql = "SELECT * FROM usuarios WHERE user = '$user' 
-        and email = '$email'
-        and senha = '$senha'";
+// Configurações do banco de dados
+include_once 'dbconnect.php';
 
-        $resultado = $conexao->query($sql);
+// Verifica se o formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $conn->real_escape_string($_POST["username"]);
+    $email = $conn->real_escape_string($_POST["email"]);
+    $password = $_POST["password"];
 
-        if(mysqli_num_rows($resultado) < 1) {
-            header('Location: login.php')
-            echo('Não cadastrado')
+    // Consulta ao banco para verificar usuário e email
+    $sql = "SELECT * FROM usuarios WHERE usuario = '$username' AND email = '$email'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+
+        // Verificação da senha
+        if (md5($password) === $user["senha"]) {
+            // Login bem-sucedido, armazenando dados na sessão
+            $_SESSION["usuario_id"] = $user["id"];
+            $_SESSION["usuario_nome"] = $user["nome"];
+
+            // Redireciona para a página de feed
+            header("Location: feed.php");
+            exit();
+        } else {
+            echo "<script>alert('Senha incorreta.'); window.location.href = 'login.php';</script>";
         }
-        else {
-            header('Location: feed.php')
-        }
+    } else {
+        echo "<script>alert('Usuário ou email não encontrado.'); window.location.href = 'login.php';</script>";
     }
+}
 
-    else {
-        header('Location: login.php');
-        echo('Preencha os campos')
-    }
-
+$conn->close();
 ?>

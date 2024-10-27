@@ -79,7 +79,7 @@ function validarForm() {
 
 
   // Se todas as validações passarem, redireciona para "feed.html"
-  window.location.href = "feed.html";
+  window.location.href = "feed.php";
   return false; // Para evitar que o formulário seja enviado antes do redirecionamento
 }
 
