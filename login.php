@@ -2,6 +2,45 @@
 <!-- Feito por Gabriele Maria Modesto Luciano, Marcella Gaurink Oliveira Dias e Verônica Gonçalves de Souza -->
 <!-- INFO/5, 2024 -->
 
+<?php
+session_start(); // Inicia a sessão
+
+// Configurações do banco de dados
+include_once 'dbconnect.php';
+
+// Verifica se o formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $conn->real_escape_string($_POST["username"]);
+    $email = $conn->real_escape_string($_POST["email"]);
+    $senha = $_POST["senha"];
+
+    // Consulta ao banco para verificar usuário e email
+    $sql = "SELECT * FROM usuarios WHERE usuario = '$username' AND email = '$email'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+
+        // Verificação da senha
+        if (md5($senha) === $user["senha"]) {
+            // Login bem-sucedido, armazenando dados na sessão
+            $_SESSION["usuario_id"] = $user["id"];
+            $_SESSION["usuario_nome"] = $user["nome"];
+
+            // Redireciona para a página de feed
+            header("Location: feed.php");
+            exit();
+        } else {
+            echo "<script>alert('Senha incorreta.'); window.location.href = 'login.php';</script>";
+        }
+    } else {
+        echo "<script>alert('Usuário ou email não encontrado.'); window.location.href = 'login.php';</script>";
+    }
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +58,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <form action = "testeLogin.php" method = "POST">
+    <form action = "login.php" method = "POST">
         <!-- A div bdlog guarda o conteúdo principal da tela de login  -->
         <div class="bdlog">
 
@@ -51,7 +90,7 @@
                     <!-- Senha  -->
                     <h4>Insira sua senha</h4>
                     <div class="inputarea password-container">
-                        <input type="password" name="password" id="password" class="senha" placeholder="Senha" required>
+                        <input type="password" name="senha" id="senha" class="senha" placeholder="Senha" required>
                         <i id="togglePassword1" class="fa-regular fa-eye"></i>
                     </div>
                     <!--  -->
@@ -79,7 +118,7 @@
                 <h4>Ainda não possui uma conta? <span>Conecte-se!</span></h4>
 
                 <!-- Botão que leva ao cadastro  -->
-                <button class="btnLog" onclick="window.location.href='cadastro.php'"> Cadastre-se </button>
+                <button class="btnCad" onclick="window.location.href='cadastro.php'"> Cadastre-se </button>
 
             </div>
             <!-- Fim de imgLog  -->

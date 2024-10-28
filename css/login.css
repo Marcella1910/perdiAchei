@@ -187,7 +187,7 @@ input:focus {
 }
 
 
-.btnCad {
+.btnLogin {
     margin: 0.5rem;
     font-family: "Poppins", sans-serif;
     font-style: normal;
@@ -203,7 +203,7 @@ input:focus {
     border-radius: 30px;
 }
 
-.btnLogin {
+.btnCad {
     margin-top: 2rem;
     font-family: "Poppins", sans-serif;
     font-style: normal;
@@ -220,11 +220,7 @@ input:focus {
     box-shadow: 2px 2px 1px 1px;
 }
 
-#btnLogin{
-    background-color: #ff0000;
-}
-
-.btnLogin:hover {
+.btnCad:hover {
     background-color: orange;
     color: #0E1111;
     border: 2px solid #0E1111;
