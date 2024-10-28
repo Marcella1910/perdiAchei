@@ -1546,6 +1546,30 @@ input[type="file"] {
     
 }
 
+#editForm .select-tags {
+    height: 40px;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 5px;
+    color: #555;
+    border: 2px solid #555;
+}
+
+.temas-select {
+    height: 40px;
+    width: 200px;
+    background-color: white; /* Cor de fundo */
+    color: #ccc;           /* Cor do texto */
+    border: 2px solid #ccc;
+    border-radius: 10px;    /* Borda arredondada */
+    font-size: 16px;       /* Tamanho da fonte */
+    outline: none;         /* Remove o contorno ao focar */
+    font-family: "Varela Round";
+    font-weight: 500;   
+    font-size: 13px;  
+    padding-left: 5px;
+}
+
 .footerEditForm {
     display: flex;
     justify-content: space-between;
@@ -1663,12 +1687,26 @@ input[type="file"] {
 }
 
 /* Estilo do botão do dropdown */
-.dropdown-tags {
-    position: relative;
-    display: inline-block;
-    margin-left: 5px;
-    padding: 0;
+
+.select-tags {
+    width: fit-content;
+    background-color: white; /* Cor de fundo */
+    color: #ccc;           /* Cor do texto */
+    border: 2px solid #ccc;
+    border-radius: 10px;    /* Borda arredondada */
+    font-size: 16px;       /* Tamanho da fonte */
+    outline: none;         /* Remove o contorno ao focar */
+    font-family: "Varela Round";
+    font-weight: 500;   
+    font-size: 13px;  
+    padding-left: 5px;
 }
+
+.select-tags option {
+    background-color: #8f8f8f;
+    color: white;
+}
+
 
 .dropdown-btn-tags {
     background-color: transparent; /* Cor de fundo */

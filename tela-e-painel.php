@@ -104,17 +104,11 @@
                 <h3>Painel</h3>
                 <div class="painel-tema">
                     <h4>Temas</h4>
-                    <div class="dropdown">
-                        <button class="dropdown-btn">
-                            original
-                            <i class="fa-solid fa-caret-down"></i> <!-- Ícone da seta -->
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="#">original</a>
-                            <a href="#">tema 2</a>
-                            <a href="#">tema 3</a>
-                        </div>
-                    </div>
+                    <select class="temas-select">
+                        <option value="1">Original</option>
+                        <option value="2">Escuro</option>
+                        <option value="3">Claro</option>
+                    </select>
                 </div>
                 
 

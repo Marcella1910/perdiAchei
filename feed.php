@@ -126,23 +126,18 @@
                 <div class="botoes">
                     <button class="createPostBtn" id="createPostBtn">criar publicação</button>
                     <div class="botoes-ladodir">
-
-                        <div class="dropdown-tags">
-                            <button class="dropdown-btn-tags">
-                                Roupas e agasalhos
-                                <i class="fa-solid fa-caret-down"></i> <!-- Ícone da seta -->
-                            </button>
-                            <div class="dropdown-content-tags">
-                                <a href="#">Roupas e agasalhos</a>
-                                <a href="#">Eletrônicos</a>
-                                <a href="#">Garrafas e Lancheiras</a>
-                                <a href="#">Utensílios de cozinha</a>
-                                <a href="#">Materiais escolares</a>
-                                <a href="#">Documentos</a>
-                                <a href="#">Produtos de higiene/Cosmético</a>
-                                <a href="#">Outros</a>
-                            </div>
-                        </div>
+                        <select class="select-tags">
+                            
+                                <option value="1">Roupas e agasalhos</option>
+                                <option value="2">Eletrônicos</option>
+                                <option value="3">Garrafas e Lancheiras</option>
+                                <option value="4">Utensílios de cozinha</option>
+                                <option value="5">Materiais escolares</option>
+                                <option value="6">Documentos</option>
+                                <option value="7">Produtos de higiene/Cosmético</option>
+                                <option value="8">Outros</option>
+                            
+                        </select>
 
                         <div class="toggle-buttons">
                             <input type="radio" id="perdido" name="status" value="perdido">
@@ -823,22 +818,18 @@
                                 <label for="encontrado" class="toggle-button">objeto encontrado</label>
                             </div>
 
-                            <div class="dropdown-tags">
-                                <button class="dropdown-btn-tags">
-                                    Roupas e agasalhos
-                                    <i class="fa-solid fa-caret-down"></i> <!-- Ícone da seta -->
-                                </button>
-                                <div class="dropdown-content-tags">
-                                    <a href="#">Roupas e agasalhos</a>
-                                    <a href="#">Eletrônicos</a>
-                                    <a href="#">Garrafas e Lancheiras</a>
-                                    <a href="#">Utensílios de cozinha</a>
-                                    <a href="#">Materiais escolares</a>
-                                    <a href="#">Documentos</a>
-                                    <a href="#">Produtos de higiene/Cosmético</a>
-                                    <a href="#">Outros</a>
-                                </div>
-                            </div>
+                            <select class="select-tags">
+                            
+                                <option value="1">Roupas e agasalhos</option>
+                                <option value="2">Eletrônicos</option>
+                                <option value="3">Garrafas e Lancheiras</option>
+                                <option value="4">Utensílios de cozinha</option>
+                                <option value="5">Materiais escolares</option>
+                                <option value="6">Documentos</option>
+                                <option value="7">Produtos de higiene/Cosmético</option>
+                                <option value="8">Outros</option>
+                            
+                            </select>
 
 
                         </div>
