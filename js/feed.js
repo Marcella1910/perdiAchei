@@ -1,5 +1,4 @@
 
-
 function openModal() {
     document.getElementById('deleteModal').style.display = 'flex';
 }

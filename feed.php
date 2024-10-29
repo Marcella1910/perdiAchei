@@ -1,5 +1,16 @@
+<?php
+
+include_once 'dbconnect.php';
+
+$result = $conn->query("SELECT titulo, descricao, categoria, status, imagem, tipo_imagem, data_criacao FROM posts ORDER BY data_criacao DESC");
+
+date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário desejado
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,6 +81,7 @@
         <!-- Middle Content -->
         <div class="main-content">
 
+
             <div class="notification-panel">
                 <div class="notification-header">
                     <h2 class="username">@kdb</h2>
@@ -113,21 +125,22 @@
 
             <!-- Create Post Section -->
             <div class="create-post">
-                <textarea maxlength="80" rows="1" cols="30" class="titulopost"
-                    placeholder="dê um título a postagem..."></textarea>
-                <textarea class="descricaopost" maxlength="280" rows="5" cols="30"
-                    placeholder="perdeu ou achou algo?"></textarea>
-                <div id="preview-container" class="preview-container" style="display: none;">
-                    <button id="cancel-button" style="margin-top: 10px;"><i class="fa-solid fa-xmark"></i></button>
-                    <img id="preview-image" class="preview-image" alt="Pré-visualização da Imagem"
-                        style="display: none;">
-                    <video id="preview-video" class="preview-video" controls style="display: none;"></video>
-                </div>
-                <div class="botoes">
-                    <button class="createPostBtn" id="createPostBtn">criar publicação</button>
-                    <div class="botoes-ladodir">
-                        <select class="select-tags">
-                            
+                <form action="criar_post.php" method="POST" enctype="multipart/form-data">
+                    <textarea name="titulo" maxlength="80" rows="1" cols="30" class="titulopost"
+                        placeholder="dê um título a postagem..."></textarea>
+                    <textarea name="descricao" class="descricaopost" maxlength="280" rows="5" cols="30"
+                        placeholder="perdeu ou achou algo?"></textarea>
+                    <div id="preview-container" class="preview-container" style="display: none;">
+                        <button id="cancel-button" style="margin-top: 10px;"><i class="fa-solid fa-xmark"></i></button>
+                        <img id="preview-image" class="preview-image" alt="Pré-visualização da Imagem"
+                            style="display: none;">
+                        <video id="preview-video" class="preview-video" controls style="display: none;"></video>
+                    </div>
+                    <div class="botoes">
+                        <button type="submit" class="createPostBtn" id="createPostBtn">criar publicação</button>
+                        <div class="botoes-ladodir">
+                            <select name="categoria" class="select-tags">
+
                                 <option value="1">Roupas e agasalhos</option>
                                 <option value="2">Eletrônicos</option>
                                 <option value="3">Garrafas e Lancheiras</option>
@@ -136,27 +149,27 @@
                                 <option value="6">Documentos</option>
                                 <option value="7">Produtos de higiene/Cosmético</option>
                                 <option value="8">Outros</option>
-                            
-                        </select>
 
-                        <div class="toggle-buttons">
-                            <input type="radio" id="perdido" name="status" value="perdido">
-                            <label for="perdido" class="toggle-button">objeto perdido</label>
+                            </select>
 
-                            <input type="radio" id="encontrado" name="status" value="encontrado">
-                            <label for="encontrado" class="toggle-button">objeto encontrado</label>
+                            <div class="toggle-buttons">
+                                <input type="radio" id="perdido" name="status" value="perdido">
+                                <label for="perdido" class="toggle-button">objeto perdido</label>
+
+                                <input type="radio" id="encontrado" name="status" value="encontrado">
+                                <label for="encontrado" class="toggle-button">objeto encontrado</label>
+                            </div>
+
+                            <div class="upload-container">
+                                <label for="file-upload" class="upload-button">
+                                    <i class="fa-solid fa-upload"></i>
+                                </label>
+                                <input name="image" id="file-upload" type="file" required accept="image/*,video/*">
+                            </div>
                         </div>
 
-                        <div class="upload-container">
-                            <label for="file-upload" class="upload-button">
-                                <i class="fa-solid fa-upload"></i>
-                            </label>
-                            <input id="file-upload" type="file" accept="image/*,video/*">
-                        </div>
                     </div>
-
-                </div>
-
+                </form>
             </div>
 
             <div class="tags">
@@ -186,6 +199,73 @@
             </div>
 
             <div id="todos" class="section active">
+
+                <?php while ($row = $result->fetch_assoc()): ?>
+                    <div class="post">
+
+                        <div class="post-header">
+                            <div class="pfp-post clickable-profile-alheio">
+                                <img class="pfp" src="img/userspfp/chuu.jpg" alt="Foto de perfil">
+                            </div>
+                            <div class="perfil-post">
+                                <p class="nome">chuu</p>
+                                <p class="data-post"><?php echo date("d/m/Y", strtotime($row['data_criacao'])); ?></p>
+                            </div>
+                            <div class="menu-container">
+                                <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
+                                <div class="dropdown-menu" id="dropdown-menu">
+                                    <ul>
+                                        <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
+                                        <li><button class="dropdown-item" onclick="openConfirmPopup()">Reivindicar
+                                                item</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="conteudo-principal">
+                            <h2 class="titulo">
+                                <?php echo htmlspecialchars($row['titulo']); ?>
+                            </h2>
+                            <div class="midia">
+                                <?php if ($row['imagem']): ?>
+                                    <?php if (strpos($row['tipo_imagem'], 'image') === 0): ?>
+                                        <img class="imagem-post"
+                                            src="data:<?php echo $row['tipo_imagem']; ?>;base64,<?php echo base64_encode($row['imagem']); ?>"
+                                            alt="Imagem da postagem">
+                                    <?php else: ?>
+                                        <video class="video-post" controls>
+                                            <source
+                                                src="data:<?php echo $row['tipo_imagem']; ?>;base64,<?php echo base64_encode($row['imagem']); ?>">
+                                        </video>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </div>
+                            <p class="texto-post"><?php echo htmlspecialchars($row['descricao']); ?></p>
+                        </div>
+
+                        <div class="post-footer">
+                            <div class="tags-post">
+                                <button class="tp_publicacao">
+                                    <?php echo htmlspecialchars($row['status'] == 'encontrado' ? 'objeto achado' : 'objeto perdido'); ?>
+                                </button>
+                                <button class="tag-item">
+                                    <i class="fa-solid fa-bottle-water"></i>
+                                    <?php echo htmlspecialchars($row['categoria']); ?>
+                                </button>
+                            </div>
+
+                            <div class="acoes">
+                                <button class="e-meu" onclick="openConfirmPopup()">é meu !</button>
+                            </div>
+
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+
+
+
+
 
                 <div class="post">
 
@@ -819,7 +899,7 @@
                             </div>
 
                             <select class="select-tags">
-                            
+
                                 <option value="1">Roupas e agasalhos</option>
                                 <option value="2">Eletrônicos</option>
                                 <option value="3">Garrafas e Lancheiras</option>
@@ -828,7 +908,7 @@
                                 <option value="6">Documentos</option>
                                 <option value="7">Produtos de higiene/Cosmético</option>
                                 <option value="8">Outros</option>
-                            
+
                             </select>
 
 
@@ -978,8 +1058,11 @@
                     <form id="formMarcarComoReivindicado">
 
                         <div class="input-container">
-                            <label for="textarea" rows="1" cols="30">Marque o nome de usuário da pessoa para quem você entregou o item. Esta informação será registrada para garantir a segurança do site.</label>
-                            <textarea id="textarea" placeholder="Digite @ para marcar alguém..." spellcheck="false" required></textarea>
+                            <label for="textarea" rows="1" cols="30">Marque o nome de usuário da pessoa para quem você
+                                entregou o item. Esta informação será registrada para garantir a segurança do
+                                site.</label>
+                            <textarea id="textarea" placeholder="Digite @ para marcar alguém..." spellcheck="false"
+                                required></textarea>
                             <div id="suggestions" class="suggestions"></div>
                         </div>
 
@@ -1014,7 +1097,8 @@
                     <div class="footerEditPerfilModal">
                         <div class="bts-popup">
                             <button class="cancelarReport" onclick="closeEditProfile()">Cancelar</button>
-                            <button type="submit" class="submit-button" onclick="closeEditProfile()">Salvar Alterações</button>
+                            <button type="submit" class="submit-button" onclick="closeEditProfile()">Salvar
+                                Alterações</button>
                         </div>
                     </div>
                 </div>
