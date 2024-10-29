@@ -6,6 +6,8 @@ $result = $conn->query("SELECT titulo, descricao, categoria, status, imagem, tip
 
 date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário desejado
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -51,9 +53,6 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                     <span><i class="fa-solid fa-bell fa-lg"></i></span>
                     <h3 class="nome-menu-item">Notificações</h3>
                 </button>
-
-
-
 
 
                 <!-- Link para a página de Configurações -->
@@ -139,16 +138,16 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                     <div class="botoes">
                         <button type="submit" class="createPostBtn" id="createPostBtn">criar publicação</button>
                         <div class="botoes-ladodir">
-                            <select name="categoria" class="select-tags">
+                            <select name="categoria" class="select-tags" id="select-tags">
 
-                                <option value="1">Roupas e agasalhos</option>
-                                <option value="2">Eletrônicos</option>
-                                <option value="3">Garrafas e Lancheiras</option>
-                                <option value="4">Utensílios de cozinha</option>
-                                <option value="5">Materiais escolares</option>
-                                <option value="6">Documentos</option>
-                                <option value="7">Produtos de higiene/Cosmético</option>
-                                <option value="8">Outros</option>
+                                <option value="roupas e agasalhos">roupas e agasalhos</option>
+                                <option value="eletrônicos">eletrônicos</option>
+                                <option value="garrafas e lancheiras">garrafas e lancheiras</option>
+                                <option value="utensílios de cozinha">utensílios de cozinha</option>
+                                <option value="materiais escolares">materiais escolares</option>
+                                <option value="documentos">documentos</option>
+                                <option value="produtos de higiene/cosmético">produtos de higiene/cosmético</option>
+                                <option value="outros">outros</option>
 
                             </select>
 
@@ -164,7 +163,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                 <label for="file-upload" class="upload-button">
                                     <i class="fa-solid fa-upload"></i>
                                 </label>
-                                <input name="image" id="file-upload" type="file" required accept="image/*,video/*">
+                                <input name="media" id="file-upload" type="file" required accept="image/*,video/*">
                             </div>
                         </div>
 
@@ -250,7 +249,6 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                     <?php echo htmlspecialchars($row['status'] == 'encontrado' ? 'objeto achado' : 'objeto perdido'); ?>
                                 </button>
                                 <button class="tag-item">
-                                    <i class="fa-solid fa-bottle-water"></i>
                                     <?php echo htmlspecialchars($row['categoria']); ?>
                                 </button>
                             </div>

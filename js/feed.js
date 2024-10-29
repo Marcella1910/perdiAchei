@@ -599,6 +599,9 @@ textarea.addEventListener("input", () => {
     }
 });
 
+
+
+
 function showSuggestions(profiles) {
     suggestionsContainer.innerHTML = ""; // Limpa sugestões anteriores
 

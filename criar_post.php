@@ -11,6 +11,7 @@ $status = $_POST['status'];
 $media = null;
 $tipo_imagem = null;
 
+
 // Verifica se um arquivo foi enviado
 if (isset($_FILES['media']) && $_FILES['media']['size'] > 0) {
     $media = file_get_contents($_FILES['media']['tmp_name']);
@@ -24,6 +25,7 @@ $sql->bind_param("ssssss", $titulo, $descricao, $categoria, $status, $media, $ti
 
 if ($sql->execute()) {
     echo "Postagem criada com sucesso!";
+    
 } else {
     echo "Erro ao criar postagem: " . $conn->error;
 }
