@@ -3,44 +3,8 @@
 <!-- INFO/5, 2024 -->
 
 <?php
-session_start(); // Inicia a sessão
-
-// Configurações do banco de dados
-include_once 'dbconnect.php';
-
-// Verifica se o formulário foi enviado
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $conn->real_escape_string($_POST["username"]);
-    $email = $conn->real_escape_string($_POST["email"]);
-    $senha = $_POST["senha"];
-
-    // Consulta ao banco para verificar usuário e email
-    $sql = "SELECT * FROM usuarios WHERE usuario = '$username' AND email = '$email'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-
-        // Verificação da senha
-        if (md5($senha) === $user["senha"]) {
-            // Login bem-sucedido, armazenando dados na sessão
-            $_SESSION["usuario_id"] = $user["id"];
-            $_SESSION["usuario_nome"] = $user["nome"];
-
-            // Redireciona para a página de feed
-            header("Location: feed.php");
-            exit();
-        } else {
-            echo "<script>alert('Senha incorreta.'); window.location.href = 'login.php';</script>";
-        }
-    } else {
-        echo "<script>alert('Usuário ou email não encontrado.'); window.location.href = 'login.php';</script>";
-    }
-}
-
-$conn->close();
+    include_once('dbconnect.php')
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +22,7 @@ $conn->close();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <form action = "login.php" method = "POST">
+    <form action = "validaLogin.php" method = "POST">
         <!-- A div bdlog guarda o conteúdo principal da tela de login  -->
         <div class="bdlog">
 
@@ -74,10 +38,10 @@ $conn->close();
                 <div class="inputs">
         
                     <!-- Nome de usuário  -->
-                    <h4>Insira seu nome de usuário</h4>
+                    <!-- <h4>Insira seu nome de usuário</h4>
                     <div class="inputarea">
                         <input type="text" name="username" id="username" class="user" placeholder="Nome de Usuário" required>
-                    </div>
+                    </div> -->
                     <!--  -->
         
                     <!-- Email  -->

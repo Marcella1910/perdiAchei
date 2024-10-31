@@ -4,6 +4,11 @@ include_once 'dbconnect.php';
 
 $result = $conn->query("SELECT titulo, descricao, categoria, status, imagem, tipo_imagem, data_criacao FROM posts ORDER BY data_criacao DESC");
 
+if (!$result) {
+    die("Erro na consulta SQL: " . $conn->error);
+}
+
+
 date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário desejado
 
 
