@@ -15,16 +15,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['email']) && !empty($_
 
     if ($result->num_rows == 1) {
         $user = $result->fetch_assoc();
-        $_SESSION["usuario_id"] = $user["id"];
+        $_SESSION["id"] = $user["id"];
         //$_SESSION["usuario_nome"] = $usuario["nome"];
-        $_SESSION["usuario_email"] = $email["email"];
-        $_SESSION["usuario_senha"] = $senha["senha"]; 
+        $_SESSION["email"] = $email;
+        $_SESSION["senha"] = $senha;
+        header('Location: feed.php');
     } 
     else {
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
         echo "<script>alert('Usuário ou email não encontrado.'); window.location.href = 'login.php';</script>";
-        header('Location: login.php')
+        header('Location: login.php');
     }
 }
 

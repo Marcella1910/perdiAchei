@@ -12,10 +12,12 @@ if (!$result) {
 date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário desejado
 
 if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
+
     unset($_SESSION['email']);
     unset($_SESSION['senha']);
-    header('location: login.php')
+    header('location: login.php');
 }
+
 $logado = $_SESSION['email'];
 
 
@@ -91,7 +93,9 @@ $logado = $_SESSION['email'];
 
         <!-- Middle Content -->
         <div class="main-content">
-
+            <?php
+                echo "<h2> @<u> $logado </u></h2>";
+            ?>
 
             <div class="notification-panel">
                 <div class="notification-header">
