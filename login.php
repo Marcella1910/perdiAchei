@@ -40,9 +40,8 @@
                     <!-- Nome de usuário  -->
                     <!-- <h4>Insira seu nome de usuário</h4>
                     <div class="inputarea">
-                        <input type="text" name="username" id="username" class="user" placeholder="Nome de Usuário" required>
-                    </div> -->
-                    <!--  -->
+                        <input type="text" name="usuario" id="usuario" class="usuario" placeholder="Nome de Usuário" required>
+                    </div>  -->
         
                     <!-- Email  -->
                     <h4>Insira seu email</h4>

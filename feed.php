@@ -11,15 +11,13 @@ if (!$result) {
 
 date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário desejado
 
-if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
+if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
 
     unset($_SESSION['email']);
     unset($_SESSION['senha']);
     header('location: login.php');
+    exit();
 }
-
-$logado = $_SESSION['email'];
-
 
 
 ?>
@@ -33,10 +31,15 @@ $logado = $_SESSION['email'];
     <title>perdiAchei</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/feed.css">
+    <link rel="stylesheet" href="atbar/atbar.css">
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+
+
+
+
     <!-- Navbar -->
     <div class="navbar">
         <div class="logo">
@@ -93,9 +96,7 @@ $logado = $_SESSION['email'];
 
         <!-- Middle Content -->
         <div class="main-content">
-            <?php
-                echo "<h2> @<u> $logado </u></h2>";
-            ?>
+
 
             <div class="notification-panel">
                 <div class="notification-header">
@@ -285,7 +286,7 @@ $logado = $_SESSION['email'];
 
                     <div class="post-header">
                         <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                            <img class="pfp" src="img/userspfp/usericon.jpg">
                         </div>
                         <div class="perfil-post">
                             <p class="nome">kevin de bruyne</p>
@@ -440,7 +441,7 @@ $logado = $_SESSION['email'];
 
                     <div class="post-header">
                         <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                            <img class="pfp" src="img/userspfp/usericon.jpg">
                         </div>
                         <div class="perfil-post">
                             <p class="nome">kevin de bruyne</p>
@@ -560,7 +561,7 @@ $logado = $_SESSION['email'];
 
                     <div class="post-header">
                         <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                            <img class="pfp" src="img/userspfp/usericon.jpg">
                         </div>
                         <div class="perfil-post">
                             <p class="nome">kevin de bruyne</p>
@@ -665,7 +666,7 @@ $logado = $_SESSION['email'];
 
                     <div class="post-header">
                         <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                            <img class="pfp" src="img/userspfp/usericon.jpg">
                         </div>
                         <div class="perfil-post">
                             <p class="nome">kevin de bruyne</p>
@@ -718,7 +719,7 @@ $logado = $_SESSION['email'];
 
                     <div class="post-header">
                         <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                            <img class="pfp" src="img/userspfp/usericon.jpg">
                         </div>
                         <div class="perfil-post">
                             <p class="nome">kevin de bruyne</p>
@@ -771,7 +772,7 @@ $logado = $_SESSION['email'];
 
                     <div class="post-header">
                         <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                            <img class="pfp" src="img/userspfp/usericon.jpg">
                         </div>
                         <div class="perfil-post">
                             <p class="nome">kevin de bruyne</p>
@@ -1099,7 +1100,7 @@ $logado = $_SESSION['email'];
                             </label>
                             <input id="profile-upload" type="file" accept="image/*">
                         </div>
-                        <img id="profile-image" src="img/userspfp/kdbicon.jpg" alt="Profile Picture">
+                        <img id="profile-image" src="img/userspfp/usericon.jpg" alt="Profile Picture">
                     </div>
 
                     <input type="text" id="editName" name="editName" placeholder="Nome" value="">
@@ -1131,11 +1132,14 @@ $logado = $_SESSION['email'];
             </div>
             <div class="centro-menu-right">
                 <div class="ftperfil clickable-profile">
-                    <img src="img/userspfp/kdbicon.jpg"></img>
+                    <img src="img/userspfp/usericon.jpg"></img>
                 </div>
 
-                <h2 class="nome clickable-profile">kevin de bruyne</h2>
-                <h3 class="username clickable-profile">@kdb</h3>
+                <?php
+                echo "<h2 class='nome clickable-profile'>{$_SESSION['nome']}</h2>";
+                echo "<h2 class='username clickable-profile'> @<u>{$_SESSION['usuario']}</u></h2>";
+                ?>
+                
             </div>
         </div>
 
@@ -1143,6 +1147,8 @@ $logado = $_SESSION['email'];
 
 
     <script src="js/feed.js"></script>
+
+
 </body>
 
 </html>

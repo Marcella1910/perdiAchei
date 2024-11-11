@@ -166,7 +166,7 @@
                         <i class="fa-solid fa-pen-to-square"></i>
                     </button>
                     <div class="ftperfil">
-                        <img src="img/userspfp/kdbicon.jpg"></img>
+                        <img src="img/userspfp/usericon.jpg"></img>
 
                     </div>
                 </div>
@@ -200,7 +200,7 @@
 
                     <div class="post-header">
                         <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                            <img class="pfp" src="img/userspfp/usericon.jpg">
                         </div>
                         <div class="perfil-post">
                             <p class="nome">kevin de bruyne</p>
@@ -259,7 +259,7 @@
 
                     <div class="post-header">
                         <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/kdbicon.jpg">
+                            <img class="pfp" src="img/userspfp/usericon.jpg">
                         </div>
                         <div class="perfil-post">
                             <p class="nome">kevin de bruyne</p>
@@ -322,7 +322,7 @@
                             </label>
                             <input id="profile-upload" type="file" accept="image/*">
                         </div>
-                        <img id="profile-image" src="img/userspfp/kdbicon.jpg" alt="Profile Picture">
+                        <img id="profile-image" src="img/userspfp/usericon.jpg" alt="Profile Picture">
                     </div>
 
                     <input type="text" id="editName" name="editName" placeholder="Nome" value="">
