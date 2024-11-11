@@ -20,7 +20,7 @@
 body {
     height: 100%;
     background-attachment: fixed;
-    background-color: #fff9c8;
+    background-color: #fffce0;
 }
 
 /*  */
@@ -28,7 +28,7 @@ body {
 /* Menu de cima (Navbar) */
 
 header {
-    background-color: #fff9c8;
+    background-color: #fffce0;
     width: 100%; 
 }
 
@@ -192,18 +192,19 @@ i {
 
 
 .tituloPagina {
-    font-family: "Varela Round", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 900;
     font-size: 4.5rem;
     width: 100%;
+    color: #555;
     
 }
 
 span {
-    font-family: "Varela Round", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 800;
     font-size: 4.5rem;   
-    color: #f17272;
+    color: #555
     
 }
 
