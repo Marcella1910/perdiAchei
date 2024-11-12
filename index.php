@@ -59,7 +59,7 @@
                 te ajudar a encontrar o que você perdeu nos arredores do IFES!</h3>
 
             <!-- Botão para o usuário se cadastrar -->
-            <button class="btnCad" onclick="window.location.href='cadastro.php'"> CADASTRE-SE </button>
+            <button class="btnCad" onclick="window.location.href='cadastro.php'"> cadastre-se! </button>
 
         </div>
 
@@ -73,6 +73,82 @@
     </div>
     <!-- Fim do meio e conteúdo principal da página -->
 
+    <div class="banner sobre">
+
+        <!-- Conteúdo escrito da página -->
+        <div class="conteudo">
+
+            <!-- Título da página -->
+            <h1 class="titulosobre">Sobre nós e nosso trabalho</h1>
+
+            <!-- A div explicação guarda a explicação sobre o que é o perdiAchei -->
+            <div class="explicacao">
+
+                <!-- Guarda a parte escrita da explicação -->
+                <div class="txtmissao">
+                    <h2>O que é o perdiAchei?</h2>
+                    <p>O perdiAchei é o sistema de achados e perdidos virtual do IFES Campus Serra.
+                        O sistema nasce com o objetivo de tornar a recuperação de itens perdidos no Campus mais fácil e
+                        dinâmica, sendo assim um adicional para o já existente Achados e Perdidos da instituição.</p>
+                </div>
+
+                <!-- Guarda uma imagem para exemplificação -->
+                <div class="imgMissao">
+                    <img class="misImg" src="img/sobre/imagemsobre1.png" alt="missao">
+                </div>
+            </div>
+
+            <!-- Fim da div explicação -->
+
+
+            <!-- A div pesquisa guarda a explicação sobre o perdiAchei foi formado -->
+            <div class="pesquisa">
+
+
+
+                <!-- Guarda a parte escrita da explicação -->
+                <div class="txtpesquisa">
+                    <h2>Como nasce o perdiAchei?</h2>
+                    <p>As constantes idas e vindas ao Campus e, algumas experiências pessoais nos fizeram aprender que o
+                        Achados e Perdidos físico que temos não é tão eficiente quanto poderia ser.
+                        <br></br>
+                        A partir disso, fizemos uma pesquisa com vários outros alunos da instituição e a grande parte
+                        relataram os mesmos problemas: falta de organização, dificuldade de encontrar o Achados e
+                        Perdidos(ele sempre muda de lugar), além de experiências
+                        de nunca ter reencontrado os itens perdidos. Assim, nasce a ideia de fazer um sistema on-line
+                        para mediar as devoluções.
+                    </p>
+                </div>
+
+                <!-- Guarda uma imagem para exemplificação -->
+                <div class="imgPesquisa">
+                    <img class="pesquisaImg" src="img/sobre/imgsobre2.png" alt="pesquisa">
+                </div>
+
+            </div>
+            <!-- Fim da div pesquisa -->
+
+            <!-- A div nos guarda informações sobre as integrantes do grupo que fez o perdiAchei -->
+            <div class="nos">
+
+                <!-- Guarda a parte escrita da explicação -->
+                <div class="txtnos">
+                    <h2>Quem somos nós?</h2>
+                    <p>Somos um grupo de três alunas preocupadas em ajudar os estudantes de nosso campus a encontrar
+                        seus itens perdidos pelos arredores da escola.</p>
+                </div>
+
+                <!-- Guarda uma imagem para exemplificação -->
+                <div class="imgNos">
+                    <img class="nosImg" src="img/sobre/nos.png" alt="FtSobreNos">
+                </div>
+
+            </div>
+            <!-- Fim da div nos -->
+
+        </div>
+
+    </div>
 
     <!-- Início do rodapé da página -->
     <footer class="rodape">
@@ -87,11 +163,9 @@
                         <img class="logo" src="img/logos/versao2logo.png" alt="O achados e perdidos do IFES Serra">
                     </div>
 
-                    <div class="btn-social">
-                        <a href="#"><button><i class="fa-brands fa-github"></i></button></a>
-                        <a href="#"><button><i class="fa-brands fa-instagram"></i></button></a>
-                        <a href="#"><button><i class="fa-brands fa-readme"></i></button></a>
-                    </div>
+                    <button class="btn-social"><i class="fa-brands fa-github"></i>
+                    </button>
+
 
                 </div>
 
@@ -99,8 +173,9 @@
             </div>
 
             <div class="line-footer borda">
-                <p><i class="fa-solid fa-envelope"></i><a
-                        href="mailto:projetoperdiachei@gmail.com">projetoperdiachei@gmail.com</a></p>
+                <p><i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:projetoperdiachei@gmail.com">projetoperdiachei@gmail.com</a>
+                </p>
             </div>
 
         </div>

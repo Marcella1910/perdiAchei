@@ -126,11 +126,8 @@
                         <img class="logo" src = "img/logos/versao2logo.png" alt = "O achados e perdidos do IFES Serra">
                     </div>
 
-                    <div class="btn-social">
-                        <a href="#"><button><i class="fa-brands fa-github"></i></button></a>
-                        <a href="#"><button><i class="fa-brands fa-instagram"></i></button></a>
-                        <a href="#"><button><i class="fa-brands fa-readme"></i></button></a>
-                    </div>
+                    <button class="btn-social"><i class="fa-brands fa-github"></i>
+                    </button>
 
                 </div>
                 

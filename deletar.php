@@ -8,7 +8,7 @@
         $result = $conn->query($bancoSelect);
 
         if($result->num_rows > 0) {
-            sqlDelete = "DELETE FROM usuario WHERE id=$id";
+            $sqlDelete = "DELETE FROM usuario WHERE id=$id";
             $resultDel = $conn->query(sqlDelete);
         }
     }

@@ -37,8 +37,11 @@ header {
 }
 
 a {
-    color: black;
+    color: #c0c0c0;
     text-decoration: none;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 14px;
 }
 
 .topnav img {
@@ -64,23 +67,27 @@ a {
 
 
 .btnLogin {
-    background-color: transparent;
-    font-size: 14px;
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
-    padding: 8px 10px;
-    border: 2.5px solid black;
+    font-style: normal;
+    padding: 5px 13px;
+    background-color: white;
+    color: #c0c0c0;
+    border: none;
     border-radius: 20px;
-    transition: 0.2s ease;
-    box-shadow: 1px 1.5px 0.5px 1px;
-    color: #555;
+    cursor: pointer;
+    border: 2px solid #c0c0c0;
+    transition: 0.3s all ease;
+    margin-bottom: 5px;
 
 
 }
 
 .btnLogin:hover {
-    color:rgb(192, 38, 182);
-    border: 2px solid rgb(192, 38, 182);
-    box-shadow: 1px 1.5px 0.5px 1px rgb(192, 38, 182);
+    background-color: #555;
+    color: white;
+    border: 2px solid #555;
+    
 }
 
 /* Fim da navbar  */
@@ -89,26 +96,29 @@ a {
 
 .btnCad {
     margin-top: 2rem;
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins";
     font-style: normal;
     background-color: orange;
-    font-size: 20px;
+    border: 2px solid orange;
+    font-size: 18px;
     font-weight: 500;
-    padding: 10px;
+    padding: 12px 14px;
     color: white;
     border-radius: 40px;
     transition: 0.2s ease;
     width: 100%;
-    border: none;
-
+    
 }
 
 .btnCad:hover {
-    border: none;
+    border: 2px solid orange;
+    color: orange;
+
     cursor: pointer;
+    background-color: transparent;
 }
 
-i {
+.btnLogin i {
     margin-right: 5px;
 }
 
@@ -123,10 +133,10 @@ i {
 .subtitulo {
     padding-top: 2rem;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 18px;
     font-family: "Poppins", sans-serif;
     font-style: normal;
-    text-align: justify;
+    text-align: left;
     width: 100%;
     color: #555;
 }
@@ -136,7 +146,7 @@ i {
 }
 
 .left a:hover {
-    color:  rgb(192, 38, 182);
+    color:  #555;
 }
 
 
@@ -148,8 +158,17 @@ i {
 .banner {
     display: flex;
     height: 100%;
-    padding-top: 6rem;
-    padding-bottom: 10rem;
+    
+}
+
+.sobre {
+    padding-left: 7rem;
+    padding-right: 3rem;
+}
+
+.index {
+    padding-top: 10rem;
+    height: 100vh;
 }
 
 .colunaEsq, .colunaDir {
@@ -196,7 +215,7 @@ i {
 .tituloPagina {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
-    font-size: 4.5rem;
+    font-size: 5rem;
     width: 100%;
     color: #555;
     
@@ -204,8 +223,8 @@ i {
 
 span {
     font-family: "Poppins", sans-serif;
-    font-weight: 800;
-    font-size: 4.5rem;   
+    font-weight: 700;
+    font-size: 5rem;   
     color: #555
     
 }
@@ -224,7 +243,10 @@ span:hover {
 /* Início do rodapé // Mesmo pra todas as páginas */
 .rodape {
     padding: 40px 4%;
-    border-top: solid 2.5px black;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    box-shadow: #e2da9e 0px 7px 29px 0px;
+    background-color: white;
 }
 
 .logo-footer img {
@@ -235,25 +257,25 @@ span:hover {
     justify-content: space-between;
 }
 
-.btn-social button {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    border: solid 2.5px black;
-    background-color: transparent;
-    font-size: 28px;
-    cursor: pointer;
-    margin: 5px 5px;
-    transition: .2s;
+.btn-social { 
+    font-size: 30px;
+    width: 3rem;                 /* Defina a largura do círculo */
+    height: 3rem;                /* Defina a altura igual à largura para manter o formato circular */
+    border-radius: 50%;          /* Faz o botão ficar circular */
+    border: none;                /* Remove a borda padrão do botão */
+    background-color: #555;   /* Cor de fundo */
+    color: white;                /* Cor do ícone */
+    display: flex;               /* Usa flexbox para centralizar o ícone */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;             /* Muda o cursor para indicar que é clicável */
+    transition: background-color 0.3s; /* Animação suave na mudança de cor */
 }
 
-.btn-social button:hover {
-    border: solid 2.5px #c026b6;
-    color: #c026b6;
-}
+
 
 .borda {
-    border-top: 2.5px solid black;
+    border-top: 2.5px solid rgba(138, 138, 138, 0.144);
 }
 
 .borda-bottom {
@@ -265,22 +287,19 @@ span:hover {
 }
 
 .rodape .line-footer p i{
-    color: black;
-    font-size: 22px;
+    color: #555;
+    font-size: 15px;
     margin-right: 0.7rem;
     
 }
 
 .rodape .line-footer p a{
-    color: black;
-    font-size: 18px;
+    color:#555;
+    font-family: "Varela Round";
+    font-size: 14px;
 }
 
-.rodape .line-footer p a:hover {
-    color: #c026b6;
-    cursor: pointer;
-    transition: 0.2s;
-}
+
 
 /* Fim do rodapé  */
 
@@ -305,16 +324,17 @@ span:hover {
 }
 
 .titulosobre {
-    font-family: "Varela Round", sans-serif;
-    font-weight: 900;
-    font-size: 3rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 4rem;
     width: 100%;
     padding-bottom: 2rem;
-    text-align: left;
+    text-align: center;
+    color: #555;
 }
 
 .conteudo {
-    padding: 3rem;
+    padding: 0;
 }
 
 
