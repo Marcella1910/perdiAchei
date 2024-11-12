@@ -79,7 +79,7 @@
         <div class="conteudo">
 
             <!-- Título da página -->
-            <h1 class="titulosobre">Sobre nós e nosso trabalho</h1>
+            
 
             <!-- A div explicação guarda a explicação sobre o que é o perdiAchei -->
             <div class="explicacao">
@@ -93,9 +93,7 @@
                 </div>
 
                 <!-- Guarda uma imagem para exemplificação -->
-                <div class="imgMissao">
-                    <img class="misImg" src="img/sobre/imagemsobre1.png" alt="missao">
-                </div>
+                
             </div>
 
             <!-- Fim da div explicação -->
@@ -121,9 +119,7 @@
                 </div>
 
                 <!-- Guarda uma imagem para exemplificação -->
-                <div class="imgPesquisa">
-                    <img class="pesquisaImg" src="img/sobre/imgsobre2.png" alt="pesquisa">
-                </div>
+                
 
             </div>
             <!-- Fim da div pesquisa -->
@@ -139,9 +135,7 @@
                 </div>
 
                 <!-- Guarda uma imagem para exemplificação -->
-                <div class="imgNos">
-                    <img class="nosImg" src="img/sobre/nos.png" alt="FtSobreNos">
-                </div>
+                
 
             </div>
             <!-- Fim da div nos -->
