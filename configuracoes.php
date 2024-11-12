@@ -113,6 +113,9 @@
                     <h4 class="user-senha" id="user-senha">••••••••••</h4>
                     <button onclick="openModal()" ><i class="fa-solid fa-pen-to-square"></i></button>
                 </div>
+                <?php
+                    include_once 'deletar.php';
+                ?>
                 <div class="excluir-conta">
                     <h4>Excluir conta</h4>
                     <button onclick="openModal()" class="excluir-conta-btn">excluir conta</button>

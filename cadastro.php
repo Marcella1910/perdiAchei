@@ -4,6 +4,7 @@
 
 <?php
 // Configurações do banco de dados
+session_start();
 include_once 'dbconnect.php';
 
 // Verificar se o formulário foi enviado

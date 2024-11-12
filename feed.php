@@ -20,6 +20,8 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 }
 
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -82,6 +84,9 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 
 
                 <!-- Link para fazer logout; -->
+                <?php
+                    session_destroy();
+                ?>
                 <a href="index.php" class="menu-item" id="log-out">
                     <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span>
                     <h3>Sair</h3>
