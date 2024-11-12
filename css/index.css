@@ -356,32 +356,26 @@ span:hover {
 }
 
 .txtmissao h2, .txtnos h2, .txtpesquisa h2{
-    font-family: "Varela Round", sans-serif;
-    font-weight: 900;
-    font-size: 2rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 4rem;
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 1rem;
-
+    color: #555;
 }
 
-.txtmissao h2 {
-    color:#f17272;
-}
 
-.txtnos h2 {
-    color: #c026b6;
+.txtpesquisa h2, .txtnos h2, .txtmissao h2{
     
-}
-
-.txtpesquisa h2 {
-    color: #ffa500;
 }
 
 .txtmissao p, .txtnos p, .txtpesquisa p {
     font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
+    font-weight: 600;
+    font-size: 16px;
+    color: #555;
+    
 }
 
 
@@ -405,26 +399,15 @@ span:hover {
 }
 
 .txtmissao, .txtnos, .txtpesquisa {
-    background-color: white;
+    background-color: transparent;
     border-radius: 30px;
     padding: 2rem;
-    border: 2px solid black ;
+   
+    
+
 }
 
-.txtmissao {
-    text-align: left;
-    box-shadow: 3px 3px 1px 1px #c026b6;
-}
 
-.txtpesquisa {
-    box-shadow: 3px 3px 1px 1px #f17272;
-    text-align: left;
-}
-
-.txtnos {
-    text-align: left;
-    box-shadow: 3px 3px 1px 1px #ffa500;
-}
 
 /* Fim da página de sobre  */
 
