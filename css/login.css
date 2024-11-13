@@ -19,15 +19,11 @@
 }
 
 body {
-    background: rgb(241,114,114);
-    background: linear-gradient(45deg, rgba(241,114,114,1) 10%, rgba(255,165,0,1) 40%, rgba(172,104,158,1) 100%);
-    background-size: 100%;
+    background-color: #fffce0;
     display: flex;
     justify-content: center;
     align-items: center;
-    color:#0E1111;
-    height: 100%;
-    background-attachment: fixed;  
+    color:#555;
 }
 
 /* Início da tela de Login, EsqueciSenha e Redefinir senha  */
@@ -38,9 +34,8 @@ body {
     justify-content: center;
     align-items: center;
     margin: 50px;
-    background-color: #fffce0;
-    border: 2px solid black;
-    box-shadow: 2px 3px 0.5px 1px;
+    background-color: white;
+    box-shadow: #e2da9e 0px 7px 29px 0px;
     border-radius: 20px;
     width: fit-content;
     height: fit-content;
@@ -97,17 +92,35 @@ body {
 
 .inputarea {
     display: flex;
-    background-color: white;
-    width: 100%;
-    border-bottom:2px solid #0E1111;
-    margin: 0.5rem;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-left: 4px;
+    background-color: transparent;
+    margin-left: 5px;
+    border: none;
+    border-radius: 20px;
+    width:100%;
+    outline: none;
     
 }
+
 .inputs {
     padding: 15px;
     display: grid; 
     width: 100%;
     text-align: left;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+.inputarea input::placeholder {
+    font-family: "Poppins";
+    font-size: 12px;
+    outline: none;
 }
 
 .password-container {
@@ -166,24 +179,12 @@ i.fa-eye {
 
 /*  */
 
-input {
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    background: transparent;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 10px;
-    border: none;
-    border: 0;
-    transition: 100ms ease all;
-    color:black;
-    width: 100%;
-}
+
 
 input:focus {
-    background-color: #fae0f5;
+    
     border: none;
-    border: 0;
+    outline: none;
 }
 
 
