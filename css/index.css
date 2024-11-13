@@ -15,6 +15,11 @@
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
+    
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -63,6 +68,7 @@ a {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     box-shadow: #e2da9e 0px 7px 29px 0px;
+    
 }
 
 
@@ -161,16 +167,20 @@ a {
     
 }
 
-.sobre {
-    padding-left: 7rem;
-    padding-right: 3rem;
+.banner.index {
+    display: flex;
+    align-items: center;
+    padding: 1rem 5%;
+    padding-bottom: 5rem;
 }
 
-.index {
-    padding-top: 10rem;
-    height: 100vh;
+.banner.index .colunaEsq {
+    flex: 1;
 }
 
+.banner.sobre {
+    padding: 0;
+}
 .colunaEsq, .colunaDir {
     flex-basis: 50%;
 }
@@ -215,7 +225,7 @@ a {
 .tituloPagina {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
-    font-size: 5rem;
+    font-size: 4rem;
     width: 100%;
     color: #555;
     
@@ -224,8 +234,8 @@ a {
 span {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
-    font-size: 5rem;   
-    color: #555
+    font-size: 4rem;   
+    color: #ff4081;
     
 }
 
@@ -243,8 +253,7 @@ span:hover {
 /* Início do rodapé // Mesmo pra todas as páginas */
 .rodape {
     padding: 40px 4%;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+    
     box-shadow: #e2da9e 0px 7px 29px 0px;
     background-color: white;
 }
@@ -309,19 +318,42 @@ span:hover {
 
 .explicacao, .pesquisa, .nos {
     display: flex;
-    padding: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
     text-align: left;
+    padding: 2rem 5%;
 }
 
 .pesquisa {
     flex-direction: row-reverse;
+    background-color: #c0f173;
+    color: #555;
+}
+
+.pesquisa h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+
+.explicacao {
+    background-color: #ff4081;
+    color: white;
 }
 
 .nos {
-    margin-bottom: 5rem;
+    display: block;
+    background-color: #ac689e;
 }
+
+.nos h2 {
+
+} 
 
 .titulosobre {
     font-family: "Poppins", sans-serif;
@@ -358,26 +390,155 @@ span:hover {
 .txtmissao h2, .txtnos h2, .txtpesquisa h2{
     font-family: "Poppins", sans-serif;
     font-weight: 700;
-    font-size: 4rem;
+    font-size: 3rem;
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 1rem;
     color: #555;
 }
 
-
-.txtpesquisa h2, .txtnos h2, .txtmissao h2{
-    
+.explicacao, .pesquisa {
+    align-items: center;
 }
 
-.txtmissao p, .txtnos p, .txtpesquisa p {
+.nos {
+    display: block;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 100%;
+}
+.explicacao h2, .nos h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 4rem;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.explicacao p, .nos p {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-size: 16px;
-    color: #555;
+    width: 100%;
+}
+
+.explicacao, .nos, .pesquisa {
+    min-height: 400px;
+}
+
+.topnav .logo p{
+    font-family: "Varela Round";
+    color: #ac689e;
+    font-size: 15px;
+    margin-left: 1rem;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+.card {
+    background-color: transparent;
+    width: 220px;
+    border-radius: 8px;
+    border: 2px solid white;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-title {
+    color: white;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-family: "Poppins";
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.card-description {
+    font-family: "Varela Round";
+    font-size: 15px;
+    color: #fffce0;
+    font-weight: 200;
+    margin-bottom: 10px;
+
+}
+
+.card-button {
+    display: inline-block;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px 15px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #ccc;
+    font-size: 13px;
+}
+
+.card-button:hover {
+    background-color: #555;
+}
+
+.pesquisa span {
+    padding-top: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.pesquisa p {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    width: 100%;
+} 
+
+.txtnos p, .txtpesquisa p, .txtmissao p {
+    
+    
     
 }
 
+.txtpesquisa p {
+    color: #555;
+}
+
+.txtnos p, .txtnos h2 {
+    color: white;
+}
+
+.txtmissao p, .txtmissao h2{
+    color: white;
+}
 
 .txtnos p {
     margin-bottom: 2rem;
@@ -406,6 +567,8 @@ span:hover {
     
 
 }
+
+
 
 
 

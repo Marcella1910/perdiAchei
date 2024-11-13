@@ -25,11 +25,13 @@
             <div class="topnav">
 
                 <!-- Nossa logo -->
-                <img class="logo" src="img/logos/logo.png" alt="logo">
+                <div class="logo">
+                    <p>perdeu algo? ache aqui!</p>
+                </div>
 
                 <!-- Link para a página de sobre -->
                 <ul id="nav-mobile" class="left">
-                    <li><a href="sobre.php">Sobre</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
 
                     <!-- Botão para o usuário fazer login -->
                     <button class="btnLogin" onclick="window.location.href='login.php'">
@@ -73,27 +75,28 @@
     </div>
     <!-- Fim do meio e conteúdo principal da página -->
 
-    <div class="banner sobre">
+    <div class="banner sobre" id="sobre">
 
         <!-- Conteúdo escrito da página -->
         <div class="conteudo">
 
             <!-- Título da página -->
-            
+
 
             <!-- A div explicação guarda a explicação sobre o que é o perdiAchei -->
             <div class="explicacao">
 
                 <!-- Guarda a parte escrita da explicação -->
-                <div class="txtmissao">
-                    <h2>O que é o perdiAchei?</h2>
-                    <p>O perdiAchei é o sistema de achados e perdidos virtual do IFES Campus Serra.
-                        O sistema nasce com o objetivo de tornar a recuperação de itens perdidos no Campus mais fácil e
-                        dinâmica, sendo assim um adicional para o já existente Achados e Perdidos da instituição.</p>
-                </div>
+
+                <h2>O que é o perdiAchei?</h2>
+
+
 
                 <!-- Guarda uma imagem para exemplificação -->
-                
+                <p>O perdiAchei é o sistema de achados e perdidos virtual do IFES Campus Serra.
+                    O sistema nasce com o objetivo de tornar a recuperação de itens perdidos no Campus mais fácil e
+                    dinâmica, sendo assim um adicional para o já existente Achados e Perdidos da instituição.</p>
+
             </div>
 
             <!-- Fim da div explicação -->
@@ -105,21 +108,20 @@
 
 
                 <!-- Guarda a parte escrita da explicação -->
-                <div class="txtpesquisa">
-                    <h2>Como nasce o perdiAchei?</h2>
-                    <p>As constantes idas e vindas ao Campus e, algumas experiências pessoais nos fizeram aprender que o
-                        Achados e Perdidos físico que temos não é tão eficiente quanto poderia ser.
-                        <br></br>
-                        A partir disso, fizemos uma pesquisa com vários outros alunos da instituição e a grande parte
-                        relataram os mesmos problemas: falta de organização, dificuldade de encontrar o Achados e
-                        Perdidos(ele sempre muda de lugar), além de experiências
-                        de nunca ter reencontrado os itens perdidos. Assim, nasce a ideia de fazer um sistema on-line
-                        para mediar as devoluções.
-                    </p>
-                </div>
+
+
+                <p>
+                    Algumas experiências pessoais nos fizeram perceber que o
+                    Achados e Perdidos físico que temos não é tão eficiente quanto poderia ser.
+                    Falta de organização e a dificuldade de encontrar o Achados e
+                    Perdidos eram as opiniões que prevaleciam.
+                    <br><span>Assim, nasce a ideia de fazer um sistema on-line
+                        para mediar as devoluções.</span>
+                </p>
+
 
                 <!-- Guarda uma imagem para exemplificação -->
-                
+
 
             </div>
             <!-- Fim da div pesquisa -->
@@ -128,14 +130,53 @@
             <div class="nos">
 
                 <!-- Guarda a parte escrita da explicação -->
-                <div class="txtnos">
-                    <h2>Quem somos nós?</h2>
-                    <p>Somos um grupo de três alunas preocupadas em ajudar os estudantes de nosso campus a encontrar
-                        seus itens perdidos pelos arredores da escola.</p>
+
+                <h2>Quem somos nós?</h2>
+
+                <div class="cards-container">
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <img src="img/userspfp/gabi.jpg" alt="Gabi">
+                        <div class="card-content">
+                            <h3 class="card-title">Gabriele</h3>
+                            <p class="card-description">Descrição breve sobre a pessoa ou seu papel.</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <img src="https://via.placeholder.com/220" alt="Foto de perfil">
+                        <div class="card-content">
+                            <h3 class="card-title">Jean</h3>
+                            <p class="card-description">Descrição breve sobre a pessoa ou seu papel.</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card">
+                        <img src="https://via.placeholder.com/220" alt="Foto de perfil">
+                        <div class="card-content">
+                            <h3 class="card-title">Marcella</h3>
+                            <p class="card-description">Descrição breve sobre a pessoa ou seu papel.</p>
+
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card">
+                        <img src="https://via.placeholder.com/220" alt="Foto de perfil">
+                        <div class="card-content">
+                            <h3 class="card-title">Verônica</h3>
+                            <p class="card-description">Descrição breve sobre a pessoa ou seu papel.</p>
+
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Guarda uma imagem para exemplificação -->
-                
+
 
             </div>
             <!-- Fim da div nos -->
