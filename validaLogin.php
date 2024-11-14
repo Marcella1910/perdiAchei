@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['email']) && !empty($_
         $_SESSION["nome"] = $user["nome"]; // Aqui usa $user e não $usuario
         $_SESSION["usuario"] = $user["usuario"]; // Aqui usa $user e não $usuario
         $_SESSION["email"] = $user["email"];
-        $_SESSION["senha"] = $senha;
+        $_SESSION["senha"] = $senha["senha"];
         
         header('Location: feed.php');
         exit();

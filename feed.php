@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once 'dbconnect.php';
+include_once 'validaSessao.php';
 
 $result = $conn->query("SELECT titulo, descricao, categoria, status, imagem, tipo_imagem, data_criacao FROM posts ORDER BY data_criacao DESC");
 
@@ -10,16 +11,6 @@ if (!$result) {
 
 
 date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário desejado
-
-if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
-
-    unset($_SESSION['email']);
-    unset($_SESSION['senha']);
-    header('location: login.php');
-    exit();
-}
-
-
 
 
 ?>
