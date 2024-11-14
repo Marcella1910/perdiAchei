@@ -163,17 +163,15 @@ a {
     padding-left: 50px;
 }
 
-.banner {
-    display: flex;
-    height: 100%;
-    
-}
+
 
 .banner.index {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 1rem 5%;
-    padding-bottom: 5rem;
+    margin-top: 90px;
+    height: 100vh;
 }
 
 .banner.index .colunaEsq {
@@ -419,6 +417,10 @@ span:hover {
     margin-top: 1rem;
     margin-bottom: 1rem;
     color: white;
+}
+
+.explicacao h2 {
+    margin-right: 2rem;
 }
 
 .explicacao p, .nos p {
