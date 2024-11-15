@@ -20,9 +20,10 @@
 
 body {
     background-color: #fffce0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex;              /* Ativa o Flexbox */
+    justify-content: center;    /* Centraliza horizontalmente */
+    align-items: center;        /* Centraliza verticalmente */
+    height: 100vh;
     color:#555;
 }
 
@@ -46,13 +47,15 @@ body {
 }
 
 .imgLog {
-    display: block;
+    display: flex; /* Ativa o Flexbox */
+    flex-direction: column; /* Organiza os itens na vertical */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Opcional: centraliza o texto dentro dos elementos */
     width: 50%;
     height: 100%;
-    align-items: center;
-    
     padding: 1rem;  
-    background-color: #333;
+    background-color: #555;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -226,13 +229,19 @@ input:focus {
     color: rgb(228, 228, 228);
     background-color: #555;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
     padding: 10px;
-    border:0;
     transition: 0.2s ease;
     width: 100%;
     margin-top: 3rem;
     border-radius: 30px;
+    border: 2px solid #555;
+}
+
+.btnLogin:hover {
+    border: 2px solid #555;
+    background-color: transparent;
+    color: #555;
 }
 
 .btnCad {
@@ -241,19 +250,20 @@ input:focus {
     font-style: normal;
     background-color: transparent;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     padding: 10px;
-    border:0;
+    border: 2px solid orange;
     transition: 0.2s ease;
     width: 100%;
     border-radius: 30px;
-    background-color: #e2da9e;
+    background-color: orange;
     color: #333;
 }
 
 .btnCad:hover {
-    background-color: orange;
-
+    border: 2px solid orange;
+    background-color: transparent;
+    color: #ff9f21;
 }
 
 a:link {
@@ -331,10 +341,16 @@ a:visited {
 
 /*  */
 
-small{
-    color:#ff0000;
-    text-decoration:none;
+
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+    margin-left: 1rem;
 }
+
 
 
 @media screen and (max-width: 1028px) {

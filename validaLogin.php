@@ -1,33 +1,43 @@
 <?php
-session_start(); // Inicia a sessão
+session_start();
 
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['email']) && !empty($_POST['senha'])) {
-    // Inclue o banco de dados
     include_once 'dbconnect.php';
+
     $email = $conn->real_escape_string($_POST["email"]);
     $senha = md5($_POST["senha"]);
 
-    // Consulta ao banco para verificar usuário e email
+    // Consulta ao banco para verificar usuário
     $sql = "SELECT * FROM usuarios WHERE senha = '$senha' AND email = '$email'";
     $result = $conn->query($sql);
 
     if ($result->num_rows == 1) {
         $user = $result->fetch_assoc();
-        $_SESSION["id"] = $user["id"];
-        $_SESSION["nome"] = $user["nome"]; // Aqui usa $user e não $usuario
-        $_SESSION["usuario"] = $user["usuario"]; // Aqui usa $user e não $usuario
-        $_SESSION["email"] = $user["email"];
-        $_SESSION["senha"] = $senha["senha"];
-        
-        header('Location: feed.php');
-        exit();
-    } 
-    else {
-        unset($_SESSION['email']);
-        unset($_SESSION['senha']);
-        echo "<script>alert('Email ou senha incorretos.'); window.location.href = 'login.php';</script>";
+
+        // Gera um token único
+        $token = bin2hex(openssl_random_pseudo_bytes(32));
+        $userId = $user["id"];
+
+        // Atualiza o token no banco de dados
+        $updateToken = "UPDATE usuarios SET token = '$token' WHERE id = '$userId'";
+        if ($conn->query($updateToken)) {
+            // Configura um cookie para prolongar a sessão
+            setcookie("auth_token", $token, time() + (7 * 24 * 60 * 60), "/", "", true, true); // Expira em 7 dias
+
+            header('Location: feed.php');
+            exit();
+        } else {
+            $_SESSION['erro_login'] = "Erro ao salvar o token.";
+            header('Location: login.php');
+            exit();
+        }
+    } else {
+        $_SESSION['erro_login'] = "Email ou senha incorretos.";
+        error_log("Mensagem de erro armazenada na sessão: " . $_SESSION['erro_login']);
         header('Location: login.php');
+        exit();
+
     }
 }
 

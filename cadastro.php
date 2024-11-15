@@ -1,124 +1,145 @@
-<!-- Bem-vindo(a) ao perdiAchei! O achados e perdidos virtual do IFES Campus Serra. -->
-<!-- Feito por Gabriele Maria Modesto Luciano, Marcella Gaurink Oliveira Dias e Verônica Gonçalves de Souza -->
-<!-- INFO/5, 2024 -->
-
 <?php
 // Configurações do banco de dados
 session_start();
 include_once 'dbconnect.php';
 
+// Definir variáveis de erro para o formulário
+$erro_usuario = '';
+$erro_email = '';
+$erro_senha = '';
+$erro_geral = '';
+
+// Verificar se o formulário foi enviado
 // Verificar se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recuperar e validar os dados do formulário
     $nome = $conn->real_escape_string($_POST["nome"]);
     $usuario = $conn->real_escape_string($_POST["usuario"]);
     $email = $conn->real_escape_string($_POST["email"]);
-    $senha = md5($_POST["senha"]);
+    $senha = trim($_POST["senha"]);
+    $cnfsenha = isset($_POST["cnfsenha"]) ? trim($_POST["cnfsenha"]) : ''; // Usando trim para remover espaços extras
 
-    // Inserir dados no banco
-    $sql = "INSERT INTO usuarios (nome, usuario, email, senha) VALUES ('$nome', '$usuario', '$email', '$senha')";
+    // Verificar se as senhas são iguais
+    if ($senha !== $cnfsenha) {
+        $erro_senha = 'As senhas não coincidem.';
+    }
 
-    if ($conn->query($sql) === TRUE) {
-        // Redireciona para a página feed.php
-        header("Location: feed.php");
-        exit(); // Encerra o script após o redirecionamento
-    } else {
-        echo "Erro ao cadastrar: " . $conn->error;
+    // Verificar se o nome de usuário já existe
+    $sql_usuario = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
+    $result_usuario = $conn->query($sql_usuario);
+    if ($result_usuario->num_rows > 0) {
+        $erro_usuario = 'Nome de usuário já cadastrado.';
+    }
+
+    // Verificar se o email já existe
+    $sql_email = "SELECT * FROM usuarios WHERE email = '$email'";
+    $result_email = $conn->query($sql_email);
+    if ($result_email->num_rows > 0) {
+        $erro_email = 'Email já cadastrado.';
+    }
+
+    // Se não houver erros, realizar o cadastro
+    if (empty($erro_usuario) && empty($erro_email) && empty($erro_senha)) {
+        // Criptografar a senha
+        $senha_hash = md5($senha); // Use `password_hash()` em um ambiente de produção
+
+        // Inserir dados no banco
+        $sql = "INSERT INTO usuarios (nome, usuario, email, senha) VALUES ('$nome', '$usuario', '$email', '$senha_hash')";
+
+        if ($conn->query($sql) === TRUE) {
+            // Redireciona para a página de login após o cadastro
+            header("Location: login.php");
+            exit(); // Encerra o script após o redirecionamento
+        } else {
+            $erro_geral = 'Erro ao cadastrar: ' . $conn->error;
+        }
     }
 }
 
 $conn->close();
+
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastre-se</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- Importando o CSS -->
     <link rel="stylesheet" type="text/css" href="css/cadastro.css" />
-    <!-- Importando o FontAwesome -->
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Importando o JS  -->
     <script src="js/cadastro.js" defer></script>
 </head>
 
 <body>
 
     <form action="cadastro.php" method="POST">
-        <!-- A div bdcad guarda o conteúdo principal da tela de cadastro  -->
         <div class="bdcad">
 
-            <!-- Div do cadastro (onde preenche as informações)  -->
             <div class="cadastro" id="cadastro">
-
-                <!-- Título da div  -->
-                <h1 class="lgtitulo">
-                    Cadastre-se
-                </h1>
-
-                <!-- Div inputs guarda os inputs que o usuário irá responder -->
+                <h1 class="lgtitulo">Cadastre-se</h1>
                 <div class="inputs">
 
-                    <!-- Nome do usuário  -->
                     <h4>Como devemos te chamar?</h4>
                     <div class="inputarea">
-                        <input type="text" id="nome" name="nome" class="nome" placeholder="Nome">
+                        <input type="text" id="nome" name="nome" class="nome" placeholder="Nome" required
+                            value="<?php echo isset($nome) ? $nome : ''; ?>">
                     </div>
-                    <!--  -->
 
-                    <!-- Username do usuário  -->
                     <h4>Crie um nome de usuário</h4>
                     <div class="inputarea">
-                        <input type="text" id="user" name="usuario" class="user" placeholder="Nome de Usuário">
+                        <input type="text" id="user" name="usuario" class="user" placeholder="Nome de Usuário" required
+                            value="<?php echo isset($usuario) ? $usuario : ''; ?>">
+                        <?php if ($erro_usuario): ?>
+                            <small class="error-message"><?php echo $erro_usuario; ?></small>
+                            <?php unset($erro_usuario); ?>
+                        <?php endif; ?>
                     </div>
-                    <!--  -->
 
-                    <!-- Email do usuário  -->
                     <h4>Insira seu email</h4>
                     <div class="inputarea">
-                        <input type="email" id="email" name="email" class="email" placeholder="Email">
+                        <input type="email" id="email" name="email" class="email" placeholder="Email" required
+                            value="<?php echo isset($email) ? $email : ''; ?>">
+                        <?php if ($erro_email): ?>
+                            <small class="error-message"><?php echo $erro_email; ?></small>
+                            <?php unset($erro_email); ?>
+                        <?php endif; ?>
                     </div>
-                    <!--  -->
 
-                    <!-- Criar senha  -->
                     <h4>Crie uma senha</h4>
                     <div class="inputarea password-container">
-                        <input type="password" id="senha" name="senha" class="senha" placeholder="Criar senha">
-                        <i id="togglePassword1" class="fa-regular fa-eye"></i>
+                        <input type="password" id="senha" name="senha" class="senha" placeholder="Criar senha" required>
+                        <i id="togglePassword1" class="fa-regular fa-eye" style="color: #555;"></i>
                     </div>
-                    <!--  -->
 
-                    <!-- Repetir a senha  -->
+                    <h4>Confirmar senha</h4>
                     <div class="inputarea password-container">
-                        <input type="password" id="cnfsenha" class="cnfsenha" placeholder="Confirmar senha">
-                        <i id="togglePassword2" class="fa-regular fa-eye"></i>
+                        <input type="password" id="cnfsenha" name="cnfsenha" class="cnfsenha"
+                            placeholder="Confirmar senha" required>
+
+                        <i id="togglePassword2" class="fa-regular fa-eye" style="color: #555;"></i>
+                        <?php if ($erro_senha): ?>
+                            <small class="error-message"><?php echo $erro_senha; ?></small>
+                            <?php unset($erro_senha); ?>
+                        <?php endif; ?>
                     </div>
-                    <!--  -->
 
-                    <!-- Botão para fazer login  -->
-                    <button type="submit" id="btnCad" class="btnCad">Entrar ></button>
-                    <small id="erro" class="error-message"></small>
+                    <button type="submit" id="btnCad" class="btnCad">Cadastrar</button>
 
+                    <?php if ($erro_geral): ?>
+                        <small class="error-message"><?php echo $erro_geral; ?></small>
+                        <?php unset($erro_geral); ?>
+                    <?php endif; ?>
 
                 </div>
-                <!-- Fim de inputs -->
 
-                <!-- Link para fazer login caso o usuário já possua conta  -->
-                <p class="fazerLogin"> Já possui uma conta? <a href="login.php">Fazer login.</a></p>
-
-
+                
 
             </div>
-            <!-- Fim da div do cadastro  -->
 
-
-            <!-- A div imgCad guarda a area para fazer login caso o usuário já possua cadastro  -->
             <div class="imgCad">
 
                 <!-- Título da div  -->
@@ -131,11 +152,8 @@ $conn->close();
                 <button class="btnLog" onclick="window.location.href='login.php'"> Fazer Login </button>
 
             </div>
-            <!-- Fim da div imgCad  -->
 
         </div>
-        <!-- Fim da div bdcad  -->
-
     </form>
 
 </body>

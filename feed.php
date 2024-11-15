@@ -1,7 +1,10 @@
 <?php
+
 session_start();
+
 include_once 'dbconnect.php';
 include_once 'validaSessao.php';
+
 
 $result = $conn->query("SELECT titulo, descricao, categoria, status, imagem, tipo_imagem, data_criacao FROM posts ORDER BY data_criacao DESC");
 
@@ -75,13 +78,11 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
 
                 <!-- Link para fazer logout; -->
-                <?php
-                    session_destroy();
-                ?>
-                <a href="index.php" class="menu-item" id="log-out">
+                <a href="logout.php" class="menu-item" id="log-out">
                     <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span>
                     <h3>Sair</h3>
                 </a>
+
 
                 <!-- Essa div leva para a página de avaliação -->
 
@@ -1135,7 +1136,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                 echo "<h2 class='nome clickable-profile'>{$_SESSION['nome']}</h2>";
                 echo "<h2 class='username clickable-profile'> @<u>{$_SESSION['usuario']}</u></h2>";
                 ?>
-                
+
             </div>
         </div>
 
