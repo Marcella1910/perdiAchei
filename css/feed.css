@@ -1864,6 +1864,7 @@ input[type="file"] {
 
 #editUserDesc:focus {
     background-color: transparent;
+    border: 1px solid #ccc; 
 }
 
 .profile-picture-container {
