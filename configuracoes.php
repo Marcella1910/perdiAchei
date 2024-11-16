@@ -6,11 +6,16 @@
     <title>perdiAchei</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/feed.css">
+
+    <!-- Estilos e scripts da barra -->
+    <link rel="stylesheet" href="css/barra-acessibilidade.css">
+    <script src="js/barra-acessibilidade.js" defer></script>
+
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Navbar -->
-    <div class="navbar">
+    <div class="adjustable-font navbar">
         <div class="logo"><p>perdeu algo? ache aqui!</p></div>
         <img src="img/logos/caixinha.png"></img>
         <div class="search-bar">
@@ -18,9 +23,12 @@
             <input type="text" placeholder="pesquisar um item...">
         </div>
     </div>
+    
+    <!-- Inclui a barra de acessibilidade -->
+    <?php include 'barra-acessibilidade.php'; ?>
 
     <!-- Main Container -->
-    <div class="container">
+    <div class="adjustable-font container">
 
         <!-- Left Menu -->
         <div class="left-menu">
