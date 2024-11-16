@@ -1,0 +1,40 @@
+#accessibility-bar {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 60px; /* Dá um espaçamento entre a navbar e a barra de acessibilidade */
+}
+
+
+
+#accessibility-bar button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#accessibility-bar button:hover {
+    background-color: #777;
+}
+
+/* Estilos de alto contraste */
+.high-contrast {
+    background-color: black !important;
+    color: yellow !important;
+}
+
+/* Estilos de baixo contraste */
+.low-contrast {
+    background-color: #f0f0f0 !important;
+    color: #333 !important;
+}
+
+/* Fonte alternativa - Times New Roman */
+.alternative-font {
+    font-family: "Times New Roman", Times, serif !important; /* Fonte alternativa */
+}
