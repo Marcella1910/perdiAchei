@@ -7,67 +7,27 @@
     <title>perdiAchei</title>
 
     <link rel="stylesheet" href="css/feed.css">
+
+    <!-- Estilos e scripts da barra -->
+    <link rel="stylesheet" href="css/barra-acessibilidade.css">
+    <script src="js/barra-acessibilidade.js" defer></script>
+
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <div class="navbar">
-        <div class="logo">
-            <p>perdeu algo? ache aqui!</p>
-        </div>
-        <img src="img/logos/caixinha.png"></img>
-        <div class="search-bar">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="pesquisar um item...">
-        </div>
-    </div>
+
+    <!-- Inclui a Navbar -->
+    <?php include 'navbar.php'; ?>
+
+    <!-- Inclui a barra de acessibilidade -->
+    <?php include 'barra-acessibilidade.php'; ?>
 
     <!-- Main Container -->
-    <div class="container">
+    <div class="adjustable-font container">
 
-        <!-- Left Menu -->
-        <div class="left-menu">
-            <aside>
-
-                <!-- Link para a página de feed(Home) -->
-                <a href="feed.php" class="menu-item">
-                    <span><i class="fa fa-solid fa-house fa-lg"></i></span>
-                    <h3 class="nome-menu-item">Home</h3>
-                </a>
-
-                <!-- Link para a página de Notificações -->
-                <button class="menu-item-notifications">
-                    <span><i class="fa-solid fa-bell fa-lg"></i></span>
-                    <h3 class="nome-menu-item">Notificações</h3>
-                </button>
-
-
-
-
-
-
-                <!-- Link para a página de Configurações -->
-                <a href="configuracoes.php" class="menu-item">
-                    <span><i class="fa-solid fa-gear fa-lg"></i></span>
-                    <h3 class="nome-menu-item">Configurações</h3>
-                </a>
-
-                <!-- Botão de criar postagem -->
-
-
-                <!-- Link para fazer logout; -->
-                <a href="index.php" class="menu-item" id="log-out">
-                    <span><i class="fa-solid fa-right-from-bracket fa-lg"></i></span>
-                    <h3>Sair</h3>
-                </a>
-
-                <!-- Essa div leva para a página de avaliação -->
-
-                <!-- Fim da div de avaliação -->
-
-            </aside>
-        </div>
+        <!-- Inclui Left Menu -->
+        <?php include 'leftMenu.php'; ?>
 
         <!-- Middle Content -->
         <div class="main-content">
