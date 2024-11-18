@@ -1,25 +1,59 @@
-#accessibility-bar {
-    width: 100%;
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    margin-top: 60px; /* Dá um espaçamento entre a navbar e a barra de acessibilidade */
+.barra-e-botao {
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+#accessibility-bar {
+    width: fit-content;
+    color: #ccc;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #ccc;
+    
+}
 
+#ativa-barra {
+    width: 40px;                 /* Defina a largura do círculo */
+    height: 40px;                /* Defina a altura igual à largura para manter o formato circular */
+    border-radius: 50%;          /* Faz o botão ficar circular */
+    border: none; 
+    font-size: 20px;               /* Remove a borda padrão do botão */
+    background-color: #ccc;
+    border: 2px solid #ccc;   /* Cor de fundo */
+    color: #fffce0;                /* Cor do ícone */
+    display: flex; 
+    text-align: center;              /* Usa flexbox para centralizar o ícone */
+    align-items: center;         /* Centraliza verticalmente */
+    justify-content: center;     /* Centraliza horizontalmente */
+    cursor: pointer;             /* Muda o cursor para indicar que é clicável */
+    transition: background-color 0.3s; /* Animação suave na mudança de cor */
+}
+
+#ativa-barra:hover {
+    background-color: transparent;
+    color: #ccc;
+}
 
 #accessibility-bar button {
-    background-color: #555;
-    color: white;
+    background-color: white;
+    color: #555;
     border: none;
-    padding: 10px;
+    padding: 8px;
     margin: 5px;
     cursor: pointer;
+    border-radius: 5px;
+    font-family: "Poppins";
+    font-weight: 600;
+    transition: 0.2s all ease;
+    border: 2px solid #ccc;
 }
 
 #accessibility-bar button:hover {
-    background-color: #777;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
 }
 
 /* Estilos de alto contraste */
