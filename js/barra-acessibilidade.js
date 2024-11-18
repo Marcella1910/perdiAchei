@@ -1,3 +1,24 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const ativaBarraBtn = document.getElementById("ativa-barra");
+    const barraAcessibilidade = document.getElementById("accessibility-bar");
+
+    // Recuperar o estado do localStorage
+    const isAcessibilidadeAtiva = localStorage.getItem("acessibilidadeAtiva") === "true";
+
+    // Aplicar o estado inicial
+    barraAcessibilidade.style.display = isAcessibilidadeAtiva ? "flex" : "none";
+
+    // Alternar visibilidade ao clicar no botão
+    ativaBarraBtn.addEventListener("click", () => {
+        const estaAtiva = barraAcessibilidade.style.display === "flex";
+        barraAcessibilidade.style.display = estaAtiva ? "none" : "flex";
+
+        // Salvar o estado no localStorage
+        localStorage.setItem("acessibilidadeAtiva", !estaAtiva);
+    });
+});
+
+
 // Limites de tamanho de fonte
 var minFontSize = 12; // tamanho mínimo da fonte em pixels
 var maxFontSize = 24; // tamanho máximo da fonte em pixels
