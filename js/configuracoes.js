@@ -42,32 +42,8 @@ document.addEventListener('click', function(e) {
     }
 });
 
-document.querySelector('.dropdown-btn').addEventListener('click', function() {
-    this.parentNode.classList.toggle('show');
-});
-
-// Fecha o dropdown se o usuário clicar fora dele
-window.onclick = function(event) {
-  if (!event.target.matches('.dropdown-btn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    for (var i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.parentNode.classList.contains('show')) {
-        openDropdown.parentNode.classList.remove('show');
-      }
-    }
-  }
-}
 
 
-document.getElementById('toggle').addEventListener('change', function() {
-    if (this.checked) {
-        console.log("Ativado");
-        // Lógica para quando for ativado
-    } else {
-        console.log("Desativado");
-        // Lógica para quando for desativado
-    }
-});
+
 
 
