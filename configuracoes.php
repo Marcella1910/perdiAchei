@@ -17,9 +17,6 @@
     <!-- Inclui a Navbar -->
     <?php include 'navbar.php'; ?>
 
-    <!-- Inclui a barra de acessibilidade -->
-    <?php include 'barra-acessibilidade.php'; ?>
-
     <!-- Main Container -->
     <div class="adjustable-font container">
 
