@@ -6,6 +6,9 @@
     <title>perdiAchei</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/feed.css">
+    <link rel="stylesheet" href="css/barra-acessibilidade.css">
+    <script src="js/barra-acessibilidade.js" defer></script>
+    <script src="js/configuracoes.js" defer></script>
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -111,6 +114,6 @@
     </div>
     
 
-    <script src="js/configuracoes.js"></script>
+    
 </body>
 </html>
