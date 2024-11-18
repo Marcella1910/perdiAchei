@@ -2,7 +2,7 @@
     <div class="logo">
         <p>perdeu algo? ache aqui!</p>
     </div>
-    <img src="img/logos/caixinha.png" alt="Logo">
+    <?php include 'barra-acessibilidade.php'; ?>
     <div class="search-bar">
         <i class="fas fa-search"></i>
         <input type="text" placeholder="pesquisar um item...">
