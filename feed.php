@@ -40,9 +40,6 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
     <!-- Inclui a Navbar -->
     <?php include 'navbar.php'; ?>
 
-    <!-- Inclui a barra de acessibilidade -->
-    <?php include 'barra-acessibilidade.php'; ?>
-
     <!-- Main Container -->
     <div class="adjustable-font container">
 
@@ -178,10 +175,18 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
                         <div class="post-header">
                             <div class="pfp-post clickable-profile-alheio">
-                                <img class="pfp" src="img/userspfp/chuu.jpg" alt="Foto de perfil">
+                                <?php
+                                if (isset($_SESSION['foto_perfil']) && file_exists($_SESSION['foto_perfil'])) {
+                                    echo '<img class="pfp" src="' . $_SESSION['foto_perfil'] . '" alt="Profile Picture">';
+                                } else {
+                                    echo '<img class="pfp" src="img/userspfp/usericon.jpg" alt="Profile Picture">';
+                                }
+                                ?>
                             </div>
                             <div class="perfil-post">
-                                <p class="nome">chuu</p>
+                                <?php
+                                echo "<p class='nome'>{$_SESSION['nome']}</p>";
+                                ?>
                                 <p class="data-post"><?php echo date("d/m/Y", strtotime($row['data_criacao'])); ?></p>
                             </div>
                             <div class="menu-container">
@@ -228,8 +233,18 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                             </div>
 
                             <div class="acoes">
-                                <button class="e-meu" onclick="openConfirmPopup()">é meu !</button>
+                                <?php if ($row['status'] == 'encontrado'): ?>
+                                    <!-- Objeto encontrado: Mostrar "é meu!" e esconder "encontrei!" -->
+                                    <button class="e-meu" onclick="openConfirmPopup()">é meu !</button>
+                                    <button class="encontrei" style="display: none;" disabled>encontrei !</button>
+                                <?php else: ?>
+                                    <!-- Objeto perdido: Mostrar "encontrei!" e esconder "é meu!" -->
+                                    <button class="encontrei" onclick="openConfirmPopupItemPerdido()">encontrei !</button>
+                                    <button class="e-meu" style="display: none;" disabled>é meu !</button>
+                                <?php endif; ?>
                             </div>
+
+
 
                         </div>
                     </div>
@@ -1082,8 +1097,8 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                         <textarea placeholder="Adicione uma breve descrição sobre você" id="editUserDesc"
                             name="editUserDesc">
                             <?php
-                                // Verifica se a descrição existe e remove os espaços extras
-                                echo isset($_SESSION['descricao']) ? htmlspecialchars(trim($_SESSION['descricao'])) : '';
+                            // Verifica se a descrição existe e remove os espaços extras
+                            echo isset($_SESSION['descricao']) ? htmlspecialchars(trim($_SESSION['descricao'])) : '';
                             ?>
                         </textarea>
 
