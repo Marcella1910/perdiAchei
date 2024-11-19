@@ -1,18 +1,18 @@
 <?php
-    session_start();
+session_start();
 
-    include_once 'dbconnect.php';
-    include_once 'validaSessao.php';
-    
-    
-    $result = $conn->query("SELECT titulo, descricao, categoria, status, imagem, tipo_imagem, data_criacao FROM posts ORDER BY data_criacao DESC");
-    
-    if (!$result) {
-        die("Erro na consulta SQL: " . $conn->error);
-    }
-    
-    
-    date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário desejado
+include_once 'dbconnect.php';
+include_once 'validaSessao.php';
+
+
+$result = $conn->query("SELECT titulo, descricao, categoria, status, imagem, tipo_imagem, data_criacao FROM posts ORDER BY data_criacao DESC");
+
+if (!$result) {
+    die("Erro na consulta SQL: " . $conn->error);
+}
+
+
+date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário desejado
 
 ?>
 
@@ -38,7 +38,7 @@
     <!-- Inclui a Navbar -->
     <?php include 'navbar.php'; ?>
 
-    
+
     <!-- Main Container -->
     <div class="adjustable-font container">
 
@@ -143,27 +143,27 @@
                     </button>
                     <div class="ftperfil">
                         <?php
-                            if (isset($_SESSION['foto_perfil']) && file_exists($_SESSION['foto_perfil'])) {
-                                echo '<img src="' . $_SESSION['foto_perfil'] . '" alt="Profile Picture">';
-                            } else {
-                                echo '<img src="img/userspfp/usericon.jpg" alt="Profile Picture">';
-                            }
+                        if (isset($_SESSION['foto_perfil']) && file_exists($_SESSION['foto_perfil'])) {
+                            echo '<img src="' . $_SESSION['foto_perfil'] . '" alt="Profile Picture">';
+                        } else {
+                            echo '<img src="img/userspfp/usericon.jpg" alt="Profile Picture">';
+                        }
                         ?>
 
                     </div>
                 </div>
 
                 <div class="middle-perfil">
-                    
+
                     <?php
-                        echo "<h2 class='nome'><u>{$_SESSION['nome']}</u></h2>";
+                    echo "<h2 class='nome'><u>{$_SESSION['nome']}</u></h2>";
                     ?>
                     <?php
-                        echo "<h3 class = 'username'> @<u>{$_SESSION['usuario']}</u></h3>";
+                    echo "<h3 class = 'username'> @<u>{$_SESSION['usuario']}</u></h3>";
                     ?>
                     <div class="descricaoperfil">
                         <?php
-                            echo "<p><u>{$_SESSION['descricao']}</u></p>";
+                        echo "<p><u>{$_SESSION['descricao']}</u></p>";
                         ?>
                     </div>
                 </div>
@@ -309,30 +309,37 @@
                                 </label>
                                 <input id="profile-upload" name="profile-upload" type="file" accept="image/*">
                             </div>
-                            <img id="profile-image" src="img/userspfp/usericon.jpg" alt="Profile Picture">
+                            <?php
+                            if (isset($_SESSION['foto_perfil']) && file_exists($_SESSION['foto_perfil'])) {
+                                echo '<img id="profile-image" src="' . $_SESSION['foto_perfil'] . '" alt="Profile Picture">';
+                            } else {
+                                echo '<img id="profile-image" src="img/userspfp/usericon.jpg" alt="Profile Picture">';
+                            }
+                            ?>
                         </div>
 
                         <input type="text" id="editName" name="editName" placeholder="Nome"
                             value="<?php echo $_SESSION['nome']; ?>">
 
                         <input type="text" id="editUserName" name="editUserName" placeholder="Username"
-                            value="<?php echo $_SESSION['usuario']; ?>">
+                            value="@<?php echo $_SESSION['usuario']; ?>">
 
                         <?php
-                            // Inicializar a chave 'descricao' se não estiver definida
-                            if (!isset($_SESSION['descricao'])) {
-                                $_SESSION['descricao'] = ''; // ou algum valor padrão
-                            }
+                        // Inicializar a chave 'descricao' se não estiver definida
+                        if (!isset($_SESSION['descricao'])) {
+                            $_SESSION['descricao'] = ''; // ou algum valor padrão
+                        }
                         ?>
 
                         <?php
-                            // Depuração - Exibe o conteúdo de $_SESSION['descricao']
-                            var_dump($_SESSION['descricao']);
+                        // Depuração - Exibe o conteúdo de $_SESSION['descricao']
+                        var_dump($_SESSION['descricao']);
                         ?>
 
-                        <textarea placeholder="Adicione uma breve descrição sobre você" id="editUserDesc" name="editUserDesc">
+                        <textarea placeholder="Adicione uma breve descrição sobre você" id="editUserDesc"
+                            name="editUserDesc">
                             <?php
-                                // Verifica se a descrição existe e remove os espaços extras
+                            // Verifica se a descrição existe e remove os espaços extras
                             echo isset($_SESSION['descricao']) ? htmlspecialchars(trim($_SESSION['descricao'])) : '';
                             ?>
                         </textarea>
@@ -387,7 +394,8 @@
 
                         </div>
 
-                        <input type="text" id="postTitle" name="title" placeholder="dê um título a postagem..." value="">
+                        <input type="text" id="postTitle" name="title" placeholder="dê um título a postagem..."
+                            value="">
 
 
                         <textarea placeholder="descreva o item..." id="postContent"></textarea>

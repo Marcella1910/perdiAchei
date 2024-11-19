@@ -626,3 +626,20 @@ function selectProfile(profile) {
     textarea.value = words.join(" ") + " ";
     suggestionsContainer.style.display = "none";
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const formFields = document.querySelectorAll("#editPerfilModal input, #editPerfilModal textarea");
+
+    // Carrega os valores salvos do sessionStorage
+    formFields.forEach((field) => {
+        const savedValue = localStorage.getItem(field.name);
+        if (savedValue) {
+            field.value = savedValue;
+        }
+
+        // Salva o valor no sessionStorage ao alterar
+        field.addEventListener("input", function () {
+            localStorage.setItem(field.name, field.value);
+        });
+    });
+});

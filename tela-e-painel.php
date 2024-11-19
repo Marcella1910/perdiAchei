@@ -80,15 +80,7 @@
                 </div>
 
 
-                <div class="painel-barra-acessibilidade">
-                    <h4>Barra de acessibilidade</h4>
-                    <h4 class="user-acessibilidade" id="user-acessibilidade">Ativar barra de acessibilidade</h4>
-                    <div class="toggle-switch">
-                        <input type="checkbox" id="toggle" class="toggle-checkbox">
-                        <label for="toggle" class="toggle-label"></label>
-                    </div>
-
-                </div>
+                
 
             </div>
 

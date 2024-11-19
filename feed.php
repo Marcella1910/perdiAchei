@@ -174,7 +174,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                     <div class="post">
 
                         <div class="post-header">
-                            <div class="pfp-post clickable-profile-alheio">
+                            <div class="pfp-post clickable-profile">
                                 <?php
                                 if (isset($_SESSION['foto_perfil']) && file_exists($_SESSION['foto_perfil'])) {
                                     echo '<img class="pfp" src="' . $_SESSION['foto_perfil'] . '" alt="Profile Picture">';
@@ -1073,12 +1073,18 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                 </label>
                                 <input id="profile-upload" name="profile-upload" type="file" accept="image/*">
                             </div>
-                            <img id="profile-image" src="img/userspfp/usericon.jpg" alt="Profile Picture">
+                            <?php
+                            if (isset($_SESSION['foto_perfil']) && file_exists($_SESSION['foto_perfil'])) {
+                                echo '<img id="profile-image" src="' . $_SESSION['foto_perfil'] . '" alt="Profile Picture">';
+                            } else {
+                                echo '<img id="profile-image" src="img/userspfp/usericon.jpg" alt="Profile Picture">';
+                            }
+                            ?>
                         </div>
 
                         <input type="text" id="editName" name="editName" placeholder="Nome"
                             value="<?php echo $_SESSION['nome']; ?>">
-
+                            
                         <input type="text" id="editUserName" name="editUserName" placeholder="Username"
                             value="<?php echo $_SESSION['usuario']; ?>">
 

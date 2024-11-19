@@ -1,5 +1,15 @@
+<?php
+
+session_start();
+
+include_once 'dbconnect.php';
+include_once 'validaSessao.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +23,7 @@
 
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <!-- Inclui a Navbar -->
     <?php include 'navbar.php'; ?>
@@ -26,19 +37,20 @@
         <!-- Middle Content -->
         <div class="main-content">
 
-            
+
 
             <div class="notification-panel">
                 <div class="notification-header">
                     <h2 class="username">@kdb</h2>
                 </div>
                 <ul class="notification-list">
-                    <li><div class="notif">
-                        <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                        <div class="dados-notif">
-                            <p>@jinsoul</p>
-                            <p>quer reivindicar um item postado!</p>
-                        </div>
+                    <li>
+                        <div class="notif">
+                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
+                            <div class="dados-notif">
+                                <p>@jinsoul</p>
+                                <p>quer reivindicar um item postado!</p>
+                            </div>
                     </li>
                     <li>
                         <div class="notif">
@@ -48,18 +60,22 @@
                                 <p>quer reivindicar um item postado!</p>
                             </div>
                     </li>
-                    <li><div class="notif">
-                        <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                        <div class="dados-notif">
-                            <p>@jinsoul</p>
-                            <p>quer reivindicar um item postado!</p>
-                        </div></li>
-                    <li><div class="notif">
-                        <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                        <div class="dados-notif">
-                            <p>@jinsoul</p>
-                            <p>quer reivindicar um item postado!</p>
-                        </div></li>
+                    <li>
+                        <div class="notif">
+                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
+                            <div class="dados-notif">
+                                <p>@jinsoul</p>
+                                <p>quer reivindicar um item postado!</p>
+                            </div>
+                    </li>
+                    <li>
+                        <div class="notif">
+                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
+                            <div class="dados-notif">
+                                <p>@jinsoul</p>
+                                <p>quer reivindicar um item postado!</p>
+                            </div>
+                    </li>
                     <!-- Adicione mais notificações aqui -->
                 </ul>
             </div>
@@ -68,17 +84,16 @@
                 <h3>Conta</h3>
                 <div class="email-conta">
                     <h4>Email</h4>
-                    <h4 class="user-email" id="user-email">kdb@gmail.com</h4>
+                    <?php echo "<h4 class='user-email' id='user-email'><u>{$_SESSION['email']}</u></h4>"; ?>
+
                     <button onclick="openModal()" class="mudarEmailBtn"><i class="fa-solid fa-pen-to-square"></i></button>
                 </div>
                 <div class="senha-conta">
                     <h4>Senha</h4>
                     <h4 class="user-senha" id="user-senha">••••••••••</h4>
-                    <button onclick="openModal()" ><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button onclick="openModal()"><i class="fa-solid fa-pen-to-square"></i></button>
                 </div>
-                <?php
-                    include_once 'deletar.php';
-                ?>
+                
                 <div class="excluir-conta">
                     <h4>Excluir conta</h4>
                     <button onclick="openModal()" class="excluir-conta-btn">excluir conta</button>
@@ -89,17 +104,19 @@
             <div class="modal" id="deleteModal">
                 <div class="modal-content">
                     <h3>Defina sua senha</h3>
-                    <p>Para fazer essas alterações, primeiro você precisa definir uma senha utilizando o link de redefinição de senha enviado ao seu e-mail.</p>
+                    <p>Para fazer essas alterações, primeiro você precisa definir uma senha utilizando o link de
+                        redefinição de senha enviado ao seu e-mail.</p>
                     <div class="bts-popup">
                         <button onclick="closeModal()" class="fecharAba">Cancelar</button>
-                        <button onclick="confirmSenha()" class="confirmaSenha">Enviar e-mail de redefinição de senha</button>
+                        <button onclick="confirmSenha()" class="confirmaSenha">Enviar e-mail de redefinição de
+                            senha</button>
                     </div>
                 </div>
             </div>
 
             <!-- Create Post Section -->
-        
-        </div>     
+
+        </div>
 
         <!-- Right Menu -->
         <div class="right-menu-configuracoes">
@@ -139,4 +156,5 @@
 
     <script src="js/configuracoes.js"></script>
 </body>
+
 </html>

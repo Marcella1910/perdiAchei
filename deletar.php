@@ -1,17 +1,24 @@
 <?php
-    if(!empty($_GET['id'])) {
-        include_once 'dbconnect.php';
-        $id = $_GET['id'];
+error_reporting(0); // Desativa mensagens de erro para evitar saídas indesejadas
+ini_set('display_errors', 0);
 
-        $bancoSelect = "SELECT * FROM usuarios WHERE id=$id";
+if (!empty($_GET['id'])) {
+    include_once 'dbconnect.php'; // Verifique se não há espaços no arquivo incluído
 
-        $result = $conn->query($bancoSelect);
+    $id = intval($_GET['id']); // Converte para inteiro (segurança)
 
-        if($result->num_rows > 0) {
-            $sqlDelete = "DELETE FROM usuario WHERE id=$id";
-            $resultDel = $conn->query(sqlDelete);
-        }
+    // Verifica se o usuário existe antes de deletar
+    $bancoSelect = "SELECT * FROM usuarios WHERE id = $id";
+    $result = $conn->query($bancoSelect);
+
+    if ($result && $result->num_rows > 0) {
+        $sqlDelete = $conn->prepare("DELETE FROM usuarios WHERE id = ?");
+        $sqlDelete->bind_param("i", $id);
+        $sqlDelete->execute();
     }
+}
 
-    header('Location: login.php');
-?>
+// Fecha a sessão e redireciona
+session_write_close();
+header('Location: login.php');
+exit();
