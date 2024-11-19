@@ -1,3 +1,21 @@
+<?php
+    session_start();
+
+    include_once 'dbconnect.php';
+    include_once 'validaSessao.php';
+    
+    
+    $result = $conn->query("SELECT titulo, descricao, categoria, status, imagem, tipo_imagem, data_criacao FROM posts ORDER BY data_criacao DESC");
+    
+    if (!$result) {
+        die("Erro na consulta SQL: " . $conn->error);
+    }
+    
+    
+    date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário desejado
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -124,19 +142,29 @@
                         <i class="fa-solid fa-pen-to-square"></i>
                     </button>
                     <div class="ftperfil">
-                        <img src="img/userspfp/usericon.jpg"></img>
+                        <?php
+                            if (isset($_SESSION['foto_perfil']) && file_exists($_SESSION['foto_perfil'])) {
+                                echo '<img src="' . $_SESSION['foto_perfil'] . '" alt="Profile Picture">';
+                            } else {
+                                echo '<img src="img/userspfp/usericon.jpg" alt="Profile Picture">';
+                            }
+                        ?>
 
                     </div>
                 </div>
 
                 <div class="middle-perfil">
-                    <h2 class="nome">kevin de bruyne</h2>
-                    <h3 class="username">@kdb</h3>
+                    
+                    <?php
+                        echo "<h2 class='nome'><u>{$_SESSION['nome']}</u></h2>";
+                    ?>
+                    <?php
+                        echo "<h3 class = 'username'> @<u>{$_SESSION['usuario']}</u></h3>";
+                    ?>
                     <div class="descricaoperfil">
-                        <p>Lorem ipsum dolor sit amet. Ut reprehenderit dolores sed aliquid reprehenderit cum facere
-                            molestias et amet molestiae ut enim saepe ut odit nostrum. Ea minima debitis in omnis
-                            voluptatem eum odio ipsum ut quia blanditiis eos cumque delectus et neque repellendus. Qui
-                            facere voluptatum et praesentium unde At nulla amet. . </p>
+                        <?php
+                            echo "<p><u>{$_SESSION['descricao']}</u></p>";
+                        ?>
                     </div>
                 </div>
 
@@ -272,31 +300,58 @@
             <!-- Posts -->
 
             <div class="modal" id="editPerfilModal">
-                <div class="modal-content">
-                    <div class="profile-picture-container">
-                        <div class="upload-pfp">
-                            <label for="profile-upload" class="upload-button">
-                                <i class="fa-solid fa-camera"></i>
-                            </label>
-                            <input id="profile-upload" type="file" accept="image/*">
+                <form action="editar_perfil.php" method="POST" enctype="multipart/form-data">
+                    <div class="modal-content">
+                        <div class="profile-picture-container">
+                            <div class="upload-pfp">
+                                <label for="profile-upload" class="upload-button">
+                                    <i class="fa-solid fa-camera"></i>
+                                </label>
+                                <input id="profile-upload" name="profile-upload" type="file" accept="image/*">
+                            </div>
+                            <img id="profile-image" src="img/userspfp/usericon.jpg" alt="Profile Picture">
                         </div>
-                        <img id="profile-image" src="img/userspfp/usericon.jpg" alt="Profile Picture">
-                    </div>
 
-                    <input type="text" id="editName" name="editName" placeholder="Nome" value="">
+                        <input type="text" id="editName" name="editName" placeholder="Nome"
+                            value="<?php echo $_SESSION['nome']; ?>">
 
-                    <input type="text" id="editUserName" name="editUserName" placeholder="Username" value="">
+                        <input type="text" id="editUserName" name="editUserName" placeholder="Username"
+                            value="<?php echo $_SESSION['usuario']; ?>">
 
-                    <textarea placeholder="Adicione uma breve descrição sobre você" id="editUserDesc"></textarea>
+                        <?php
+                            // Inicializar a chave 'descricao' se não estiver definida
+                            if (!isset($_SESSION['descricao'])) {
+                                $_SESSION['descricao'] = ''; // ou algum valor padrão
+                            }
+                        ?>
 
-                    <div class="footerEditPerfilModal">
-                        <div class="bts-popup">
-                            <button class="cancelarReport" onclick="closeEditProfile()">Cancelar</button>
-                            <button type="submit" class="submit-button" onclick="closeEditProfile()">Salvar
-                                Alterações</button>
+                        <?php
+                            // Depuração - Exibe o conteúdo de $_SESSION['descricao']
+                            var_dump($_SESSION['descricao']);
+                        ?>
+
+                        <textarea placeholder="Adicione uma breve descrição sobre você" id="editUserDesc" name="editUserDesc">
+                            <?php
+                                // Verifica se a descrição existe e remove os espaços extras
+                            echo isset($_SESSION['descricao']) ? htmlspecialchars(trim($_SESSION['descricao'])) : '';
+                            ?>
+                        </textarea>
+
+
+
+
+
+
+
+                        <div class="footerEditPerfilModal">
+                            <div class="bts-popup">
+                                <button type="button" class="cancelarReport"
+                                    onclick="closeEditProfile()">Cancelar</button>
+                                <button type="submit" class="submit-button">Salvar Alterações</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
 
             <div id="editModal" class="modal">
