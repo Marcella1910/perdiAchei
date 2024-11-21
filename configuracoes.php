@@ -96,7 +96,7 @@ include_once 'validaSessao.php';
                 
                 <div class="excluir-conta">
                     <h4>Excluir conta</h4>
-                    <button onclick="openModal()" class="excluir-conta-btn">excluir conta</button>
+                    <button onclick="openModalDeleteAccount()" class="excluir-conta-btn">excluir conta</button>
                 </div>
 
             </div>
@@ -113,6 +113,24 @@ include_once 'validaSessao.php';
                     </div>
                 </div>
             </div>
+
+            <div class="modal" id="deleteAccountModal" style="display: none;">
+                <div class="modal-content">
+                    <h3>Confirmar Exclusão de Conta</h3>
+                    <p>Tem certeza de que deseja excluir sua conta? Essa ação não pode ser desfeita.</p>
+                    <form id="deleteAccountForm" action="deletar.php" method="POST">
+                        <label for="password">Digite sua senha para confirmar:</label>
+                        <input type="password" id="password" name="password" required placeholder="Sua senha">
+                        <!-- Campo oculto para enviar o ID do usuário -->
+                        <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
+                        <div class="bts-popup">
+                            <button type="button" onclick="closeModalDeleteAccount()" class="fecharAba">Cancelar</button>
+                            <button type="submit" class="confirmaSenha">Excluir Conta</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
 
             <!-- Create Post Section -->
 

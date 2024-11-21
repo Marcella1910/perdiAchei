@@ -2,6 +2,15 @@ function openModal() {
     document.getElementById('deleteModal').style.display = 'flex';
 }
 
+function openModalDeleteAccount() {
+    document.getElementById('deleteAccountModal').style.display = 'flex';
+}
+
+function closeModalDeleteAccount() {
+    document.getElementById('deleteAccountModal').style.display = 'none';
+}
+
+
 function closeModal() {
     document.getElementById('deleteModal').style.display = 'none';
 }

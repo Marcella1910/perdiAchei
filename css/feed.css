@@ -2119,3 +2119,9 @@ input[type="file"] {
 .suggestion-item:hover {
     background-color: #f0f0f0;
 }
+
+
+#deleteAccountModal .modal-content {
+    height: 20rem;
+    
+}

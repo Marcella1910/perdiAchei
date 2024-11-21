@@ -8,16 +8,24 @@ $erro_usuario = '';
 $erro_email = '';
 $erro_senha = '';
 $erro_geral = '';
+$nome = $usuario = $email = ''; // Variáveis para manter os dados preenchidos
 
-// Verificar se o formulário foi enviado
 // Verificar se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recuperar e validar os dados do formulário
-    $nome = $conn->real_escape_string($_POST["nome"]);
-    $usuario = $conn->real_escape_string($_POST["usuario"]);
-    $email = $conn->real_escape_string($_POST["email"]);
+    $nome = $conn->real_escape_string(trim($_POST["nome"]));
+    $usuario = $conn->real_escape_string(trim($_POST["usuario"]));
+    $email = trim($_POST["email"]);
     $senha = trim($_POST["senha"]);
-    $cnfsenha = isset($_POST["cnfsenha"]) ? trim($_POST["cnfsenha"]) : ''; // Usando trim para remover espaços extras
+    $cnfsenha = isset($_POST["cnfsenha"]) ? trim($_POST["cnfsenha"]) : '';
+
+    // Sanitizar o email
+    $email_sanitizado = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+    // Validar o email
+    if (!filter_var($email_sanitizado, FILTER_VALIDATE_EMAIL)) {
+        $erro_email = 'O email fornecido é inválido.';
+    }
 
     // Verificar se as senhas são iguais
     if ($senha !== $cnfsenha) {
@@ -25,31 +33,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Verificar se o nome de usuário já existe
-    $sql_usuario = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
-    $result_usuario = $conn->query($sql_usuario);
-    if ($result_usuario->num_rows > 0) {
-        $erro_usuario = 'Nome de usuário já cadastrado.';
-    }
+    if (empty($erro_email)) {
+        $sql_usuario = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
+        $result_usuario = $conn->query($sql_usuario);
+        if ($result_usuario->num_rows > 0) {
+            $erro_usuario = 'Nome de usuário já cadastrado.';
+        }
 
-    // Verificar se o email já existe
-    $sql_email = "SELECT * FROM usuarios WHERE email = '$email'";
-    $result_email = $conn->query($sql_email);
-    if ($result_email->num_rows > 0) {
-        $erro_email = 'Email já cadastrado.';
+        // Verificar se o email já existe
+        $sql_email = "SELECT * FROM usuarios WHERE email = '$email_sanitizado'";
+        $result_email = $conn->query($sql_email);
+        if ($result_email->num_rows > 0) {
+            $erro_email = 'Email já cadastrado.';
+        }
     }
 
     // Se não houver erros, realizar o cadastro
     if (empty($erro_usuario) && empty($erro_email) && empty($erro_senha)) {
         // Criptografar a senha
-        $senha_hash = md5($senha); // Use `password_hash()` em um ambiente de produção
+        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
         // Inserir dados no banco
-        $sql = "INSERT INTO usuarios (nome, usuario, email, senha) VALUES ('$nome', '$usuario', '$email', '$senha_hash')";
+        $sql = "INSERT INTO usuarios (nome, usuario, email, senha) VALUES ('$nome', '$usuario', '$email_sanitizado', '$senha_hash')";
 
         if ($conn->query($sql) === TRUE) {
             // Redireciona para a página de login após o cadastro
             header("Location: login.php");
-            exit(); // Encerra o script após o redirecionamento
+            exit();
         } else {
             $erro_geral = 'Erro ao cadastrar: ' . $conn->error;
         }
@@ -57,8 +67,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
-
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -105,6 +116,7 @@ $conn->close();
                             value="<?php echo isset($email) ? $email : ''; ?>">
                         <?php if ($erro_email): ?>
                             <small class="error-message"><?php echo $erro_email; ?></small>
+                            <span class="error"><?php echo $erro_usuario; ?></span>
                             <?php unset($erro_email); ?>
                         <?php endif; ?>
                     </div>
