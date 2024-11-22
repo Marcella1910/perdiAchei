@@ -374,6 +374,10 @@ body {
     font-family: "Poppins";
 }
 
+.perfil-post .nome {
+    cursor: pointer;
+}
+
 .post-header {
     display: grid;
     grid-template-columns: 60px auto 60px;
@@ -518,6 +522,7 @@ body {
     align-items: center;        /* Centraliza verticalmente */
     justify-content: center;    /* Centraliza horizontalmente */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  /* Sombra leve */
+    cursor: pointer;
 }
 
 .pfp {
@@ -2123,5 +2128,9 @@ input[type="file"] {
 
 #deleteAccountModal .modal-content {
     height: 20rem;
+    
+}
+
+#deleteAccountForm #password {
     
 }

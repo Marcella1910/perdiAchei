@@ -185,19 +185,22 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                             </div>
                             <div class="perfil-post">
                                 <?php
-                                echo "<p class='nome'>{$_SESSION['nome']}</p>";
+                                echo "<p class='nome clickable-profile'>{$_SESSION['nome']}</p>";
                                 ?>
                                 <p class="data-post"><?php echo date("d/m/Y", strtotime($row['data_criacao'])); ?></p>
                             </div>
                             <div class="menu-container">
                                 <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                                 <div class="dropdown-menu" id="dropdown-menu">
-                                    <ul>
-                                        <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
-                                        <li><button class="dropdown-item" onclick="openConfirmPopup()">Reivindicar
-                                                item</button></li>
-                                    </ul>
-                                </div>
+                                <ul>
+                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
+                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
+                                    </li>
+                                    <li><button class="dropdown-item"
+                                            onclick="openConfirmModalMarcarComoEncontrado()">Marcar como
+                                            'encontrado'</button></li>
+                                </ul>
+                            </div>
                             </div>
                         </div>
 
@@ -232,79 +235,20 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                 </button>
                             </div>
 
-                            <div class="acoes">
-                                <?php if ($row['status'] == 'encontrado'): ?>
-                                    <!-- Objeto encontrado: Mostrar "é meu!" e esconder "encontrei!" -->
-                                    <button class="e-meu" onclick="openConfirmPopup()">é meu !</button>
-                                    <button class="encontrei" style="display: none;" disabled>encontrei !</button>
-                                <?php else: ?>
-                                    <!-- Objeto perdido: Mostrar "encontrei!" e esconder "é meu!" -->
-                                    <button class="encontrei" onclick="openConfirmPopupItemPerdido()">encontrei !</button>
-                                    <button class="e-meu" style="display: none;" disabled>é meu !</button>
-                                <?php endif; ?>
-                            </div>
+                            
 
 
 
                         </div>
                     </div>
+                    
                 <?php endwhile; ?>
 
 
 
 
 
-                <div class="post">
-
-                    <div class="post-header">
-                        <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/usericon.jpg">
-                        </div>
-                        <div class="perfil-post">
-                            <p class="nome">kevin de bruyne</p>
-                            <p class="data-post">12/12/12</p>
-                        </div>
-                        <div class="menu-container">
-                            <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
-                            <div class="dropdown-menu" id="dropdown-menu">
-                                <ul>
-                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
-                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
-                                    </li>
-                                    <li><button class="dropdown-item"
-                                            onclick="openConfirmModalMarcarComoReivindicado()">Marcar como
-                                            'reivindicado'</button></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="conteudo-principal">
-                        <h2 class="titulo">
-                            encontrei um caderno
-                        </h2>
-                        <div class="midia">
-                            <img class="imagem-post" src="img/postagens/caderno.jpg">
-                        </div>
-                        <p class="texto-post">caderno</p>
-                    </div>
-
-
-                    <div class="post-footer">
-                        <div class="tags-post">
-                            <button class="tp_publicacao">
-                                objeto achado
-                            </button>
-                            <button class="tag-item">
-                                <i class="fa-solid fa-pencil"></i> materiais escolares
-                            </button>
-                        </div>
-
-
-
-                    </div>
-                </div>
-
+                
                 <div class="post">
 
                     <div class="post-header">
@@ -312,7 +256,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                             <img class="pfp" src="img/userspfp/chuu.jpg">
                         </div>
                         <div class="perfil-post">
-                            <p class="nome">chuu</p>
+                            <p class="nome clickable-profile-alheio">chuu</p>
                             <p class="data-post">12/12/12</p>
                         </div>
                         <div class="menu-container">
@@ -409,58 +353,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                     </div>
                 </div>
 
-                <div class="post">
-
-                    <div class="post-header">
-                        <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/usericon.jpg">
-                        </div>
-                        <div class="perfil-post">
-                            <p class="nome">kevin de bruyne</p>
-                            <p class="data-post">12/12/12</p>
-                        </div>
-                        <div class="menu-container">
-                            <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
-                            <div class="dropdown-menu" id="dropdown-menu">
-                                <ul>
-                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
-                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
-                                    </li>
-                                    <li><button class="dropdown-item"
-                                            onclick="openConfirmModalMarcarComoEncontrado()">Marcar como
-                                            'encontrado'</button></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="conteudo-principal">
-                        <h2 class="titulo">
-                            perdi minha carteiraa
-                        </h2>
-                        <div class="midia">
-                            <img class="imagem-post" src="img/postagens/carteira.jpg">
-                        </div>
-                        <p class="texto-post">perdi minha carteira '-'</p>
-                    </div>
-
-
-                    <div class="post-footer">
-                        <div class="tags-post">
-                            <button class="tp_publicacao">
-                                objeto perdido
-                            </button>
-                            <button class="tag-item">
-                                <i class="fa-solid fa-id-card"></i>
-                                documentos
-                            </button>
-                        </div>
-
-
-
-                    </div>
-                </div>
+                
 
             </div>
             <div id="roupas" class="section">
@@ -529,56 +422,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             <div id="materiaisescolares" class="section">
                 <h3>Materiais Escolares</h3>
 
-                <div class="post">
-
-                    <div class="post-header">
-                        <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/usericon.jpg">
-                        </div>
-                        <div class="perfil-post">
-                            <p class="nome">kevin de bruyne</p>
-                            <p class="data-post">12/12/12</p>
-                        </div>
-                        <div class="menu-container">
-                            <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
-                            <div class="dropdown-menu" id="dropdown-menu">
-                                <ul>
-                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
-                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
-                                    </li>
-                                    <li><button class="dropdown-item"
-                                            onclick="openConfirmModalMarcarComoReivindicado()">Marcar como
-                                            'reivindicado'</button></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="conteudo-principal">
-                        <h2 class="titulo">
-                            encontrei um caderno
-                        </h2>
-                        <div class="midia">
-                            <img class="imagem-post" src="img/postagens/caderno.jpg">
-                        </div>
-                        <p class="texto-post">caderno</p>
-                    </div>
-
-
-                    <div class="post-footer">
-                        <div class="tags-post">
-                            <button class="tp_publicacao">
-                                objeto achado
-                            </button>
-                            <button class="tag-item">
-                                <i class="fa-solid fa-pencil"></i> materiais escolares
-                            </button>
-                        </div>
-
-
-
-                    </div>
-                </div>
+                
 
                 <div class="post">
 
@@ -634,164 +478,9 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             <div id="documentos" class="section">
                 <h3>Documentos</h3>
 
-                <div class="post">
+                
 
-                    <div class="post-header">
-                        <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/usericon.jpg">
-                        </div>
-                        <div class="perfil-post">
-                            <p class="nome">kevin de bruyne</p>
-                            <p class="data-post">12/12/12</p>
-                        </div>
-                        <div class="menu-container">
-                            <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
-                            <div class="dropdown-menu" id="dropdown-menu">
-                                <ul>
-                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
-                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
-                                    </li>
-                                    <li><button class="dropdown-item"
-                                            onclick="openConfirmModalMarcarComoEncontrado()">Marcar como
-                                            'encontrado'</button></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="conteudo-principal">
-                        <h2 class="titulo">
-                            perdi minha carteiraa
-                        </h2>
-                        <div class="midia">
-                            <img class="imagem-post" src="img/postagens/carteira.jpg">
-                        </div>
-                        <p class="texto-post">perdi minha carteira '-'</p>
-                    </div>
-
-
-                    <div class="post-footer">
-                        <div class="tags-post">
-                            <button class="tp_publicacao">
-                                objeto perdido
-                            </button>
-                            <button class="tag-item">
-                                <i class="fa-solid fa-id-card"></i>
-                                documentos
-                            </button>
-                        </div>
-
-
-
-                    </div>
-                </div>
-
-                <div class="post">
-
-                    <div class="post-header">
-                        <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/usericon.jpg">
-                        </div>
-                        <div class="perfil-post">
-                            <p class="nome">kevin de bruyne</p>
-                            <p class="data-post">12/12/12</p>
-                        </div>
-                        <div class="menu-container">
-                            <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
-                            <div class="dropdown-menu" id="dropdown-menu">
-                                <ul>
-                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
-                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
-                                    </li>
-                                    <li><button class="dropdown-item"
-                                            onclick="openConfirmModalMarcarComoEncontrado()">Marcar como
-                                            'encontrado'</button></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="conteudo-principal">
-                        <h2 class="titulo">
-                            perdi minha carteiraa
-                        </h2>
-                        <div class="midia">
-                            <img class="imagem-post" src="img/postagens/carteira.jpg">
-                        </div>
-                        <p class="texto-post">perdi minha carteira '-'</p>
-                    </div>
-
-
-                    <div class="post-footer">
-                        <div class="tags-post">
-                            <button class="tp_publicacao">
-                                objeto perdido
-                            </button>
-                            <button class="tag-item">
-                                <i class="fa-solid fa-id-card"></i>
-                                documentos
-                            </button>
-                        </div>
-
-
-
-                    </div>
-                </div>
-
-                <div class="post">
-
-                    <div class="post-header">
-                        <div class="pfp-post">
-                            <img class="pfp" src="img/userspfp/usericon.jpg">
-                        </div>
-                        <div class="perfil-post">
-                            <p class="nome">kevin de bruyne</p>
-                            <p class="data-post">12/12/12</p>
-                        </div>
-                        <div class="menu-container">
-                            <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
-                            <div class="dropdown-menu" id="dropdown-menu">
-                                <ul>
-                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
-                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
-                                    </li>
-                                    <li><button class="dropdown-item"
-                                            onclick="openConfirmModalMarcarComoEncontrado()">Marcar como
-                                            'encontrado'</button></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="conteudo-principal">
-                        <h2 class="titulo">
-                            perdi minha carteiraa
-                        </h2>
-                        <div class="midia">
-                            <img class="imagem-post" src="img/postagens/carteira.jpg">
-                        </div>
-                        <p class="texto-post">perdi minha carteira '-'</p>
-                    </div>
-
-
-                    <div class="post-footer">
-                        <div class="tags-post">
-                            <button class="tp_publicacao">
-                                objeto perdido
-                            </button>
-                            <button class="tag-item">
-                                <i class="fa-solid fa-id-card"></i>
-                                documentos
-                            </button>
-                        </div>
-
-
-
-                    </div>
-                </div>
+                
 
             </div>
             <div id="produtoshigiene" class="section">
@@ -1150,7 +839,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
                 <?php
                 echo "<h2 class='nome clickable-profile'>{$_SESSION['nome']}</h2>";
-                echo "<h2 class='username clickable-profile'>@<u>{$_SESSION['usuario']}</u></h2>";
+                echo "<h2 class='username clickable-profile'><u>{$_SESSION['usuario']}</u></h2>";
                 ?>
             </div>
         </div>

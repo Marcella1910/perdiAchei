@@ -191,6 +191,8 @@ clickableElementsPerfil.forEach(element => {
 });
 
 
+
+
 function showSectionPerfil(sectionId) {
     // Remove a classe 'active' de todas as seções
     const sections = document.querySelectorAll('.section-tipo');
