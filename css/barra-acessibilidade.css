@@ -1,5 +1,4 @@
 .barra-e-botao {
-
     display: flex;
     align-items: center;
     gap: 10px;
@@ -66,9 +65,4 @@
 .low-contrast {
     background-color: #f0f0f0 !important;
     color: #333 !important;
-}
-
-/* Fonte alternativa - Times New Roman */
-.alternative-font {
-    font-family: "Times New Roman", Times, serif !important; /* Fonte alternativa */
 }
