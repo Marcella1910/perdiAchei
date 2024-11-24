@@ -7,6 +7,5 @@
         <button onclick="resetFontSize()">A</button>
         <button onclick="toggleHighContrast()">Alto contraste</button>
         <button onclick="toggleLowContrast()">Baixo contraste</button>
-        <button onclick="toggleFont()">Mudar Fonte</button>
     </div>
 </div>
