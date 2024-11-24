@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Se não houver erros, realizar o cadastro
     if (empty($erro_usuario) && empty($erro_email) && empty($erro_senha)) {
         // Criptografar a senha
-        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+        $senha_hash = md5($senha);
 
         // Inserir dados no banco
         $sql = "INSERT INTO usuarios (nome, usuario, email, senha) VALUES ('$nome', '$usuario', '$email_sanitizado', '$senha_hash')";
