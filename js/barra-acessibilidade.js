@@ -55,17 +55,6 @@ function resetFontSize() {
     localStorage.removeItem('fontSize'); // Remove o estado do localStorage
 }
 
-// Função para alternar entre fontes
-function toggleFont() {
-    var body = document.body;
-    body.classList.toggle('alternative-font');
-
-    // Salva a escolha da fonte no localStorage
-    localStorage.setItem('font', body.classList.contains('alternative-font') ? 'alternative' : 'default');
-}
-
-
-
 // Função para alternar o modo de alto contraste
 function toggleHighContrast() {
     var body = document.body;
