@@ -169,7 +169,130 @@
 }
 
 /* Estilos de baixo contraste */
-.low-contrast {
+.low-contrast, .low-contrast * {
     background-color: #f0f0f0 !important;
     color: #333 !important;
+}
+
+.low-contrast button {
+    border: 2px solid #ccc!important;
+}
+
+.low-contrast .menu-item-notifications {
+    border: 0!important;
+}
+
+.low-contrast .config-conta h3 {
+    border-bottom: 2px solid #ccc!important;
+}
+
+.low-contrast .right-menu, .low-contrast .right-menu-configuracoes {
+    box-shadow: #ccc 0px 1px 3px 0px, #ccc 0px 0px 0px 1px!important;
+    overflow: hidden!important;
+}
+
+.low-contrast .config-conta select {
+    border: 2px solid #ccc!important;
+}
+
+.low-contrast .search-bar {
+    color: #ccc!important;
+    border: 2px solid #ccc!important;
+}
+
+.low-contrast input::placeholder {
+    color: #555!important;
+}
+
+.low-contrast .left-menu {
+    box-shadow: #ccc 0px 1px 3px 0px, #ccc 0px 0px 0px 1px!important;
+}
+
+.low-contrast .create-post textarea::placeholder {
+    color: #555!important;
+}
+
+.low-contrast .create-post {
+    box-shadow: #ccc 0px 1px 3px 0px, #ccc 0px 0px 0px 1px!important;
+}
+
+.low-contrast .create-post select {
+    border: 2px solid #ccc!important;
+}
+
+.low-contrast .tags .tag {
+    box-shadow: none;
+}
+
+.low-contrast .toggle-button {
+    border: 2px solid #ccc!important;
+} 
+
+.low-contrast .pfp-post, .low-contrast .ftperfil {
+    border: 2px solid #ccc!important;
+}
+
+.low-contrast .notification-panel {
+    border: 2px solid #ccc!important;
+    overflow: hidden!important;
+}
+
+.low-contrast .toggle-button.active {
+    background-color: #ccc!important;
+    color: black!important;
+    border: 2px solid #ccc!important;
+}
+
+.low-contrast .post, .low-contrast .visualiza-perfil, .low-contrast .config-conta {
+    box-shadow: #ccc 0px 1px 3px 0px, #ccc 0px 0px 0px 1px!important;
+}
+
+.low-contrast .visualiza-perfil .menu-publicacoes {
+    border-top: 2px solid #ccc;
+}
+
+.low-contrast .modal {
+    background-color: rgba(94, 94, 94, 0.288)!important;
+}
+
+.low-contrast .modal-content {
+    border-radius: 5px!important;
+    overflow: hidden!important;
+}
+
+.low-contrast .modal-content .profile-picture-container {
+    border: 2px solid #ccc!important;
+}
+
+  /* Estilo da "alavanca" do toggle */
+.low-contrast .toggle-label {
+    background-color: rgba(94, 94, 94, 0.288)!important;
+}
+  
+/* Alavanca interna */
+.low-contrast .toggle-label::before {
+    
+    background-color: black!important;
+    
+}
+  
+/* Estilo quando o toggle estiver ativado */
+.low-contrast .toggle-checkbox:checked + .toggle-label {
+    background-color: #555!important; /* Cor quando ativo */
+}
+
+.low-contrast .menu-container .dropdown-menu button {
+    border: none!important;
+}
+
+.high-contrast .menu-container .dropdown-menu button {
+    border: none!important;
+}
+
+.high-contrast .menu-container .dropdown-menu {
+    box-shadow: yellow 0px 1px 3px 0px, yellow 0px 0px 0px 1px!important;
+}
+
+.low-contrast .menu-container .dropdown-menu {
+    box-shadow: #ccc 0px 1px 3px 0px, #ccc 0px 0px 0px 1px!important;
 }
