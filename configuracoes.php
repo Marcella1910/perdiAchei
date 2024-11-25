@@ -119,8 +119,8 @@ include_once 'validaSessao.php';
                     <h3>Confirmar Exclusão de Conta</h3>
                     <p>Tem certeza de que deseja excluir sua conta? Essa ação não pode ser desfeita.</p>
                     <form id="deleteAccountForm" action="deletar.php" method="POST">
-                        <label for="password">Digite sua senha para confirmar:</label>
-                        <input type="password" id="password" name="password" required placeholder="Sua senha">
+                        
+                        <input type="password" id="password" name="password" required placeholder="Digite sua senha para confirmar...">
                         <!-- Campo oculto para enviar o ID do usuário -->
                         <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
                         <div class="bts-popup">

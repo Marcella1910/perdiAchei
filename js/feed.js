@@ -447,9 +447,6 @@ function closeEditProfile() {
     if (modal) {  // Verifica se o modal existe
         modal.style.display = 'none';
     }
-    document.getElementById('editName').value = ''; // Limpa o conteúdo do textarea
-    document.getElementById('editUserName').value = ''; // Limpa o conteúdo do textarea
-    document.getElementById('editUserDesc').value = ''; // Limpa o conteúdo do textarea
 
 }
 
