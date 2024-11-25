@@ -21,7 +21,7 @@
                 value="<?php echo $_SESSION['nome']; ?>">
 
             <input type="text" id="editUserName" name="editUserName" placeholder="Username"
-                value="@<?php echo $_SESSION['usuario']; ?>">
+                value="<?php echo $_SESSION['usuario']; ?>">
 
 
             <div class="footerEditPerfilModal">

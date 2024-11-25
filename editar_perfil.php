@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userId = $_SESSION['id']; // Identifica o usuário logado
     $nome = $conn->real_escape_string($_POST['editName']);
     $usuario = $conn->real_escape_string($_POST['editUserName']);
-    $descricao = isset($_POST['editUserDesc']) ? trim($_POST['editUserDesc']) : ''; // Limpando a descrição
+    
     $fotoPerfilPath = null;
 
     // Verificar se uma nova foto de perfil foi enviada
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Montar a query de atualização
-    $sql = "UPDATE usuarios SET nome = '$nome', usuario = '$usuario', descricao = '$descricao'";
+    $sql = "UPDATE usuarios SET nome = '$nome', usuario = '$usuario'";
     if ($fotoPerfilPath) {
         $sql .= ", foto_perfil = '$fotoPerfilPath'";
     }
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Atualizar a sessão com os novos dados
         $_SESSION['nome'] = $nome;
         $_SESSION['usuario'] = $usuario;
-        $_SESSION['descricao'] = $descricao;
+        
         if ($fotoPerfilPath) {
             $_SESSION['foto_perfil'] = $fotoPerfilPath;
         }

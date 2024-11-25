@@ -298,151 +298,26 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             <!-- Modal de editar perfil  -->
             <?php include 'editPerfilModal.php'; ?>
 
+            <?php include 'confirmarReivindicarItemModal.php'; ?>
+
+            <?php include 'editModal.php'; ?>
+
+            <?php include 'deletePostModal.php'; ?>
+
+            <?php include 'confirmModalItemPerdido.php'; ?>
+
+            <!-- Modal de marcar como encontrado  -->
+            <?php include 'confirmModalMarcarComoEncontrado.php'; ?>
+
+            <!-- Modal de marcar como encontrado  -->
+            <?php include 'formModalItemPerdido.php'; ?>
+
+            <!-- Modal de marcar como reivindicado  -->
+            <?php include 'confirmModalMarcarComoReivindicado.php'; ?>
             
-
-            <div id="editModal" class="modal">
-                <div class="modal-content">
-
-                    <h2 class="editModalUsername">@kdb</h2>
-
-                    <div id="editForm">
-
-                        <div class="tags-tipos">
-
-                            <div class="toggle-buttons">
-                                <input type="radio" id="perdido" name="status" value="perdido">
-                                <label for="perdido" class="toggle-button">objeto perdido</label>
-
-                                <input type="radio" id="encontrado" name="status" value="encontrado">
-                                <label for="encontrado" class="toggle-button">objeto encontrado</label>
-                            </div>
-
-                            <select class="select-tags">
-
-                                <option value="1">Roupas e agasalhos</option>
-                                <option value="2">Eletrônicos</option>
-                                <option value="3">Garrafas e Lancheiras</option>
-                                <option value="4">Utensílios de cozinha</option>
-                                <option value="5">Materiais escolares</option>
-                                <option value="6">Documentos</option>
-                                <option value="7">Produtos de higiene/Cosmético</option>
-                                <option value="8">Outros</option>
-
-                            </select>
-
-
-                        </div>
-
-                        <input type="text" id="postTitle" name="title" placeholder="dê um título a postagem..."
-                            value="">
-
-
-                        <textarea placeholder="descreva o item..." id="postContent"></textarea>
-
-                        <!-- Área de upload -->
-
-
-                        <!-- Pré-visualização -->
-                        <div id="editPreviewContainer" class="preview-container" style="display: none;">
-                            <button id="editCancelPreview" class="cancel-preview" style="margin-top: 10px;"><i
-                                    class="fa-solid fa-xmark"></i></button>
-                            <img id="editPreviewImage" class="preview-image-editpost" alt="Pré-visualização da Imagem"
-                                style="display: none;">
-                            <video id="editPreviewVideo" class="preview-video-editpost" controls
-                                style="display: none;"></video>
-                        </div>
-
-                        <div class="footerEditForm">
-                            <div class="upload-container">
-                                <label for="editFileUpload" class="upload-button">
-                                    escolher arquivo
-                                </label>
-                                <input id="editFileUpload" type="file" accept="image/*,video/*" style="display: none;">
-                            </div>
-
-                            <div class="bts-popup">
-                                <button type="button" class="cancel-button" onclick="closeEditPost()">Cancelar</button>
-                                <button type="submit" class="submit-button" onclick="closeEditPost()">Salvar
-                                    Alterações</button>
-                            </div>
-
-                        </div>
-                        <!-- Botões do modal -->
-
-                    </div>
-                </div>
-            </div>
-
-            <div id="deletePostModal" class="modal">
-                <div class="modal-content">
-                    <form id="excluirPostagemForm">
-                        <h2 class="excluirFormTitulo">
-                            Tem certeza que deseja excluir essa publicação?
-                        </h2>
-                        <h4 class="excluirFormSubtitulo">Essa ação é permanente e não poderá ser desfeita.</h4>
-                        <div class="bts-popup">
-                            <button type="button" class="cancel-button" onclick="closeDeletePost()">Cancelar</button>
-                            <button type="submit" class="submit-button">Ok</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="modal" id="confirmModalMarcarComoEncontrado">
-                <div class="modal-content">
-                    <h3 class="confirmModalMarcarComoEncontradoTitulo">Marcar como encontrado</h3>
-                    <p class="confirmModalMarcarComoEncontradoSubtitulo">Encontrou este objeto? Marcar como "encontrado"
-                        desativará a publicação, tornando-a invisível para outros usuários.</p>
-                    <form id="formMarcarComoEncontrado">
-                        <div class="bts-popup">
-                            <button type="button" class="cancel-button"
-                                onclick="closeConfirmModalMarcarComoEncontrado()">Cancelar</button>
-                            <button type="submit" class="submit-button">Marcar como encontrado</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="modal" id="confirmModalMarcarComoReivindicado">
-                <div class="modal-content">
-                    <h3 class="confirmModalMarcarComoReivindicadoTitulo">Marcar como reivindicado</h3>
-                    <p class="confirmModalMarcarComoReivindicadoSubtitulo">Devolveu este objeto? Marcar como
-                        "reivindicado"
-                        desativará a publicação, tornando-a invisível para outros usuários. Você precisará preencher
-                        algumas informações sobre o processo de reclamação do objeto.</p>
-
-                    <div class="bts-popup">
-                        <button class="cancel-button"
-                            onclick="closeConfirmModalMarcarComoReivindicado()">Cancelar</button>
-                        <button class="confirm-button" onclick="openFormModalMarcarComoReivindicado()">Próximo</button>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="modal" id="formModalMarcarComoReivindicado">
-                <div class="modal-content">
-                    <h3 class="formModalMarcarComoReivindicadoTitulo">Defina o dono</h3>
-                    <form id="formMarcarComoReivindicado">
-
-                        <div class="input-container">
-                            <label for="textarea" rows="1" cols="30">Marque o nome de usuário da pessoa para quem você
-                                entregou o item. Esta informação será registrada para garantir a segurança do
-                                site.</label>
-                            <textarea id="textarea" placeholder="Digite @ para marcar alguém..." spellcheck="false"
-                                required></textarea>
-                            <div id="suggestions" class="suggestions"></div>
-                        </div>
-
-                        <div class="bts-popup">
-                            <button type="button" class="cancel-button"
-                                onclick="closeFormModalMarcarComoReivindicado()">Cancelar</button>
-                            <button type="submit" class="submit-button">Marcar como reivindicado</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
+            <!-- Modal de marcar como reivindicado  -->
+            <?php include 'marcarComoReivindicado.php'; ?>
+            
 
         </div>
 
