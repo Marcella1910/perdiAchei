@@ -161,11 +161,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                     <?php
                     echo "<h3 class = 'username'> @<u>{$_SESSION['usuario']}</u></h3>";
                     ?>
-                    <div class="descricaoperfil">
-                        <?php
-                        echo "<p><u>{$_SESSION['descricao']}</u></p>";
-                        ?>
-                    </div>
+                
                 </div>
 
                 <div class="menu-publicacoes">
@@ -299,67 +295,10 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
             <!-- Posts -->
 
-            <div class="modal" id="editPerfilModal">
-                <form action="editar_perfil.php" method="POST" enctype="multipart/form-data">
-                    <div class="modal-content">
-                        <div class="profile-picture-container">
-                            <div class="upload-pfp">
-                                <label for="profile-upload" class="upload-button">
-                                    <i class="fa-solid fa-camera"></i>
-                                </label>
-                                <input id="profile-upload" name="profile-upload" type="file" accept="image/*">
-                            </div>
-                            <?php
-                            if (isset($_SESSION['foto_perfil']) && file_exists($_SESSION['foto_perfil'])) {
-                                echo '<img id="profile-image" src="' . $_SESSION['foto_perfil'] . '" alt="Profile Picture">';
-                            } else {
-                                echo '<img id="profile-image" src="img/userspfp/usericon.jpg" alt="Profile Picture">';
-                            }
-                            ?>
-                        </div>
+            <!-- Modal de editar perfil  -->
+            <?php include 'editPerfilModal.php'; ?>
 
-                        <input type="text" id="editName" name="editName" placeholder="Nome"
-                            value="<?php echo $_SESSION['nome']; ?>">
-
-                        <input type="text" id="editUserName" name="editUserName" placeholder="Username"
-                            value="@<?php echo $_SESSION['usuario']; ?>">
-
-                        <?php
-                        // Inicializar a chave 'descricao' se não estiver definida
-                        if (!isset($_SESSION['descricao'])) {
-                            $_SESSION['descricao'] = ''; // ou algum valor padrão
-                        }
-                        ?>
-
-                        <?php
-                        // Depuração - Exibe o conteúdo de $_SESSION['descricao']
-                        var_dump($_SESSION['descricao']);
-                        ?>
-
-                        <textarea placeholder="Adicione uma breve descrição sobre você" id="editUserDesc"
-                            name="editUserDesc">
-                            <?php
-                            // Verifica se a descrição existe e remove os espaços extras
-                            echo isset($_SESSION['descricao']) ? htmlspecialchars(trim($_SESSION['descricao'])) : '';
-                            ?>
-                        </textarea>
-
-
-
-
-
-
-
-                        <div class="footerEditPerfilModal">
-                            <div class="bts-popup">
-                                <button type="button" class="cancelarReport"
-                                    onclick="closeEditProfile()">Cancelar</button>
-                                <button type="submit" class="submit-button">Salvar Alterações</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            
 
             <div id="editModal" class="modal">
                 <div class="modal-content">
