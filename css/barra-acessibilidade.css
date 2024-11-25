@@ -56,9 +56,116 @@
 }
 
 /* Estilos de alto contraste */
-.high-contrast {
+.high-contrast, .high-contrast * {
     background-color: black !important;
     color: yellow !important;
+}
+
+.high-contrast button {
+    border: 2px solid yellow!important;
+}
+
+.high-contrast .menu-item-notifications {
+    border: 0!important;
+}
+
+.high-contrast .config-conta h3 {
+    border-bottom: 2px solid yellow!important;
+}
+
+.high-contrast .right-menu, .high-contrast .right-menu-configuracoes {
+    box-shadow: yellow 0px 1px 3px 0px, yellow 0px 0px 0px 1px!important;
+    overflow: hidden!important;
+}
+
+.high-contrast .config-conta select {
+    border: 2px solid yellow!important;
+}
+
+.high-contrast .search-bar {
+    color: yellow!important;
+    border: 2px solid yellow!important;
+}
+
+.high-contrast input::placeholder {
+    color: yellow!important;
+}
+
+.high-contrast .left-menu {
+    box-shadow: yellow 0px 1px 3px 0px, yellow 0px 0px 0px 1px!important;
+}
+
+.high-contrast .create-post textarea::placeholder {
+    color: yellow!important;
+}
+
+.high-contrast .create-post {
+    box-shadow: yellow 0px 1px 3px 0px, yellow 0px 0px 0px 1px!important;
+}
+
+.high-contrast .create-post select {
+    border: 2px solid yellow!important;
+}
+
+.high-contrast .tags .tag {
+    box-shadow: none;
+}
+
+.high-contrast .toggle-button {
+    border: 2px solid yellow!important;
+} 
+
+.high-contrast .pfp-post, .high-contrast .ftperfil {
+    border: 2px solid yellow!important;
+}
+
+.high-contrast .notification-panel {
+    border: 2px solid yellow!important;
+    overflow: hidden!important;
+}
+
+.high-contrast .toggle-button.active {
+    background-color: yellow!important;
+    color: black!important;
+    border: 2px solid yellow!important;
+}
+
+.high-contrast .post, .high-contrast .visualiza-perfil, .high-contrast .config-conta {
+    box-shadow: yellow 0px 1px 3px 0px, yellow 0px 0px 0px 1px!important;
+}
+
+.high-contrast .visualiza-perfil .menu-publicacoes {
+    border-top: 2px solid yellow;
+}
+
+.high-contrast .modal {
+    background-color: rgba(255, 255, 0, 0.288)!important;
+}
+
+.high-contrast .modal-content {
+    border-radius: 5px!important;
+    overflow: hidden!important;
+}
+
+.high-contrast .modal-content .profile-picture-container {
+    border: 2px solid yellow!important;
+}
+
+  /* Estilo da "alavanca" do toggle */
+.high-contrast .toggle-label {
+    background-color: rgba(255, 255, 0, 0.281)!important;
+}
+  
+/* Alavanca interna */
+.high-contrast .toggle-label::before {
+    
+    background-color: black!important;
+    
+}
+  
+/* Estilo quando o toggle estiver ativado */
+.high-contrast .toggle-checkbox:checked + .toggle-label {
+    background-color: yellow!important; /* Cor quando ativo */
 }
 
 /* Estilos de baixo contraste */

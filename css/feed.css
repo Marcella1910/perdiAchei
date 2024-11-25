@@ -599,6 +599,8 @@ body {
 aside {
     overflow: hidden;
     padding-top: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 aside .menu-item {
@@ -631,6 +633,7 @@ aside .menu-item:hover {
 .header-right-menu {
     display: flex;
     justify-content: space-between;
+    z-index: 1000;
 }
 
 .header-right-menu p {
@@ -647,6 +650,7 @@ aside .menu-item:hover {
     justify-content: center; /* Centraliza verticalmente */
     text-align: center; /* Para centralizar o texto */
     font-family: "Poppins";
+    
 }
 
 .ftperfil {

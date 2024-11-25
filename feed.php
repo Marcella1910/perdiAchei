@@ -558,7 +558,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
                 <?php
                 echo "<h2 class='nome clickable-profile'>{$_SESSION['nome']}</h2>";
-                echo "<h2 class='username clickable-profile'><u>{$_SESSION['usuario']}</u></h2>";
+                echo "<h2 class='username clickable-profile'><u>@{$_SESSION['usuario']}</u></h2>";
                 ?>
             </div>
         </div>
