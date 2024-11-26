@@ -12,6 +12,19 @@ function confirmSenha() {
     closeModal();
 }
 
+// Função para abrir o segundo popup (formulário) e fechar o primeiro
+function openFormPopup() {
+    closeConfirmPopup();
+    document.getElementById('formModal').style.display = 'flex';
+}
+
+// Função para fechar o segundo popup (formulário)
+function closeFormPopup() {
+    document.getElementById('formModal').style.display = 'none';
+    document.getElementById('contactReason').value = ''; // Limpa o conteúdo do textarea
+    removerFoto(); // Chama a função para limpar a foto selecionada
+}
+
 // Função para abrir o modal
 function openReportForm() {
     const reportModal = document.getElementById('reportModal');
@@ -260,6 +273,8 @@ function removerFoto() {
     botaoRemoverFoto.style.display = 'none';
 }
 
+
+
 function openConfirmPopup() {
     document.getElementById('confirmModal').style.display = 'flex';
 }
@@ -269,18 +284,7 @@ function closeConfirmPopup() {
     document.getElementById('confirmModal').style.display = 'none';
 }
 
-// Função para abrir o segundo popup (formulário) e fechar o primeiro
-function openFormPopup() {
-    closeConfirmPopup();
-    document.getElementById('formModal').style.display = 'flex';
-}
 
-// Função para fechar o segundo popup (formulário)
-function closeFormPopup() {
-    document.getElementById('formModal').style.display = 'none';
-    document.getElementById('contactReason').value = ''; // Limpa o conteúdo do textarea
-    removerFoto(); // Chama a função para limpar a foto selecionada
-}
 
 const contactForm = document.getElementById('contactForm');
 const contactReasonInput = document.getElementById('contactReason');
@@ -578,25 +582,29 @@ function closeFormModalMarcarComoReivindicado() {
 const textarea = document.getElementById("textarea");
 const suggestionsContainer = document.getElementById("suggestions");
 
-// Lista simulada de perfis para sugerir
-const profiles = ["@maria_silva", "@joao_costa", "@lucas_rocha", "@ana_oliveira", "@bruna_pereira"];
+// Verifica se os elementos existem antes de adicionar o evento
+if (textarea && suggestionsContainer) {
+    // Lista simulada de perfis para sugerir
+    const profiles = ["@maria_silva", "@joao_costa", "@lucas_rocha", "@ana_oliveira", "@bruna_pereira"];
 
-textarea.addEventListener("input", () => {
-    const text = textarea.value;
-    const lastWord = text.split(" ").pop(); // pega a última palavra
+    textarea.addEventListener("input", () => {
+        const text = textarea.value;
+        const lastWord = text.split(" ").pop(); // pega a última palavra
 
-    // Se a última palavra começar com '@', exibe sugestões
-    if (lastWord.startsWith("@")) {
-        const query = lastWord.slice(1).toLowerCase(); // retira '@' para buscar
-        const filteredProfiles = profiles.filter(profile =>
-            profile.toLowerCase().includes(query)
-        );
+        // Se a última palavra começar com '@', exibe sugestões
+        if (lastWord.startsWith("@")) {
+            const query = lastWord.slice(1).toLowerCase(); // retira '@' para buscar
+            const filteredProfiles = profiles.filter(profile =>
+                profile.toLowerCase().includes(query)
+            );
 
-        showSuggestions(filteredProfiles);
-    } else {
-        suggestionsContainer.style.display = "none";
-    }
-});
+            showSuggestions(filteredProfiles);
+        } else {
+            suggestionsContainer.style.display = "none";
+        }
+    });
+}
+
 
 
 

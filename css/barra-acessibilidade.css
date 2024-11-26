@@ -170,8 +170,8 @@
 
 /* Estilos de baixo contraste */
 .low-contrast, .low-contrast * {
-    background-color: #f0f0f0 !important;
-    color: #333 !important;
+    background-color: #fffce0!important;
+    color: #555 !important;
 }
 
 .low-contrast button {
@@ -295,4 +295,17 @@
 
 .low-contrast .menu-container .dropdown-menu {
     box-shadow: #ccc 0px 1px 3px 0px, #ccc 0px 0px 0px 1px!important;
+}
+
+.low-contrast .menu-publicacoes .menu-btn.active {
+    background-color: #555!important;
+    color: white!important;
+}
+
+.low-contrast .visualiza-perfil .dropdown-menu button {
+    border: none!important;
+}
+
+.low-contrast .visualiza-perfil .dropdown-menu {
+    border: 1px solid #ccc!important;
 }
