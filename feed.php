@@ -49,7 +49,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
         <!-- Middle Content -->
         <div class="main-content">
 
-
+            <!--Div da pequena tela que aparece quando se clica em notificações-->
             <div class="notification-panel">
                 <div class="notification-header">
                     <?php
@@ -93,7 +93,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                 </ul>
             </div>
 
-            <!-- Create Post Section -->
+            <!-- Criar local de post -->
             <div class="create-post">
                 <form action="criar_post.php" method="POST" enctype="multipart/form-data">
                     <textarea name="titulo" maxlength="80" rows="1" cols="30" class="titulopost"

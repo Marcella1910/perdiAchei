@@ -1,3 +1,4 @@
+<!--Perfil de outro usuário-->
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -30,6 +31,7 @@
 
         <!-- Middle Content -->
         <div class="main-content">
+             <!--Div da pequena tela que aparece quando se clica em notificações-->
             <div class="notification-panel">
                 <div class="notification-header">
                     <h2 class="username">@kdb</h2>
@@ -71,6 +73,7 @@
                 </ul>
             </div>
 
+            <!--Criar local de post-->
             <div class="create-post">
                 <textarea maxlength="80" rows="1" cols="30" class="titulopost"
                     placeholder="dê um título a postagem..."></textarea>
@@ -106,6 +109,7 @@
 
             </div>
 
+            <!--Visualizar perfil de outro usuário-->
             <div class="visualiza-perfil">
                 <div class="header-perfil">
                     <button class="menu-button">
@@ -138,7 +142,7 @@
 
             <!-- Create Post Section -->
 
-
+            <!--Items perdidos de outro usuário-->
             <div id="objetos-perdidos" class="section-tipo active">
                 <h3>Objetos Perdidos</h3>
 
@@ -147,6 +151,7 @@
 
             </div>
 
+            <!--Items achados do outro usuário-->
             <div id="objetos-achados" class="section-tipo">
                 <h3>Objetos Achados</h3>
                 <div class="post">
@@ -203,16 +208,22 @@
 
             </div>
 
+            <!-- Modal de reportar usuário -->
             <?php include 'reportModal.php'; ?>
 
+            <!-- Modal de quando se reinvidica um item -->
             <?php include 'confirmarReivindicarItemModal.php'; ?>
 
+            <!-- Modal de quando o usuário quer reinvidicar um item -->
             <?php include 'reivindicarItemModal.php'; ?>
 
+            <!-- Modal de editar publicação -->
             <?php include 'editModal.php'; ?>
 
+            <!-- Modal de excluir publicação -->
             <?php include 'deletePostModal.php'; ?>
 
+            <!-- Modal de quando se encontrar um item -->
             <?php include 'confirmModalItemPerdido.php'; ?>
 
             <!-- Modal de marcar como encontrado  -->

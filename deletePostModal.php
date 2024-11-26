@@ -1,3 +1,4 @@
+,<!--PopUp de exclusão de publicação-->
 <div id="deletePostModal" class="modal">
     <div class="modal-content">
         <form id="excluirPostagemForm">

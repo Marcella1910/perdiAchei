@@ -86,7 +86,7 @@ $conn->close();
 </head>
 
 <body>
-
+    <!--formulario para preencher cadastro-->
     <form action="cadastro.php" method="POST">
         <div class="bdcad">
 
@@ -94,12 +94,14 @@ $conn->close();
                 <h1 class="lgtitulo">Cadastre-se</h1>
                 <div class="inputs">
 
+                    <!--Cadastro para nome-->
                     <h4>Como devemos te chamar?</h4>
                     <div class="inputarea">
                         <input type="text" id="nome" name="nome" class="nome" placeholder="Nome" required
                             value="<?php echo isset($nome) ? $nome : ''; ?>">
                     </div>
 
+                    <!--Cadastro para username-->
                     <h4>Crie um nome de usuário</h4>
                     <div class="inputarea">
                         <input type="text" id="user" name="usuario" class="user" placeholder="Nome de Usuário" required
@@ -110,6 +112,7 @@ $conn->close();
                         <?php endif; ?>
                     </div>
 
+                    <!--Cadastro para email válido-->
                     <h4>Insira seu email</h4>
                     <div class="inputarea">
                         <input type="email" id="email" name="email" class="email" placeholder="Email" required
@@ -121,26 +124,32 @@ $conn->close();
                         <?php endif; ?>
                     </div>
 
+                    <!--Cadastro para senha-->
                     <h4>Crie uma senha</h4>
                     <div class="inputarea password-container">
                         <input type="password" id="senha" name="senha" class="senha" placeholder="Criar senha" required>
                         <i id="togglePassword1" class="fa-regular fa-eye" style="color: #555;"></i>
                     </div>
 
+                    <!--Confirmar senha já preenchida anteriormente-->
                     <h4>Confirmar senha</h4>
                     <div class="inputarea password-container">
                         <input type="password" id="cnfsenha" name="cnfsenha" class="cnfsenha"
                             placeholder="Confirmar senha" required>
 
                         <i id="togglePassword2" class="fa-regular fa-eye" style="color: #555;"></i>
+                        
+                        <!--php para verificar se a senha e o confirma senha é´o mesmo-->
                         <?php if ($erro_senha): ?>
                             <small class="error-message"><?php echo $erro_senha; ?></small>
                             <?php unset($erro_senha); ?>
                         <?php endif; ?>
                     </div>
 
+                    <!--Botão de cadastrar-->
                     <button type="submit" id="btnCad" class="btnCad">Cadastrar</button>
 
+                    <!--php para caso algo não esteja de acordo com o desejado-->
                     <?php if ($erro_geral): ?>
                         <small class="error-message"><?php echo $erro_geral; ?></small>
                         <?php unset($erro_geral); ?>

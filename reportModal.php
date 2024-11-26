@@ -1,3 +1,4 @@
+<!-- PopUp de reportar usuário -->
 <div class="modal" id="reportModal">
     <div class="modal-content">
         <h3>Reportar usuário</h3>

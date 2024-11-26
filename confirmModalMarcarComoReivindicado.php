@@ -1,3 +1,4 @@
+<!--PopUp de quando o usuário devolve o item de outro usuário-->
 <div class="modal" id="confirmModalMarcarComoReivindicado">
     <div class="modal-content">
         <h3 class="confirmModalMarcarComoReivindicadoTitulo">Marcar como reivindicado</h3>

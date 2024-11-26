@@ -1,3 +1,4 @@
+<!--PopUp de quando se encontrar um item-->
 <div class="modal" id="confirmModalItemPerdido">
     <div class="modal-content">
         <h3>Entrar em contato com usuário</h3>

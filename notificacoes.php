@@ -24,6 +24,7 @@
 
         <!-- Middle Content -->
         <div class="main-content">
+             <!--Div da pequena tela que aparece quando se clica em notificações-->
             <div class="notification-panel">
                 <div class="notification-header">
                     <h2 class="username">@kdb</h2>

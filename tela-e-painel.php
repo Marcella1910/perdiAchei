@@ -27,6 +27,7 @@
 
         <!-- Middle Content -->
         <div class="main-content">
+            <!--Div da pequena tela que aparece quando se clica em notificações-->
             <div class="notification-panel">
                 <div class="notification-header">
                     <h2 class="username">@kdb</h2>
@@ -67,7 +68,7 @@
                     <!-- Adicione mais notificações aqui -->
                 </ul>
             </div>
-
+            <!-- Mudança de cores no site -->
             <div class="config-conta">
                 <h3>Painel</h3>
                 <div class="painel-tema">

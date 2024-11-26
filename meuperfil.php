@@ -47,6 +47,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
         <!-- Middle Content -->
         <div class="main-content">
+            <!--Div da pequena tela que aparece quando se clica em notificações-->
             <div class="notification-panel">
                 <div class="notification-header">
                     <h2 class="username">@kdb</h2>
@@ -87,7 +88,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                     <!-- Adicione mais notificações aqui -->
                 </ul>
             </div>
-
+            <!--Criar local de post-->
             <div class="create-post">
                 <textarea maxlength="80" rows="1" cols="30" class="titulopost"
                     placeholder="dê um título a postagem..."></textarea>
@@ -136,12 +137,14 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
             </div>
 
+            <!--Visualizar o seu perfil-->
             <div class="visualiza-perfil">
                 <div class="header-perfil">
                     <button class="editperfil" onclick="openEditProfile()">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </button>
                     <div class="ftperfil">
+                        <!--Conferir de que cada foto de perfil de cada usuário apareça, e seja aquela que o usuário colocou-->
                         <?php
                         if (isset($_SESSION['foto_perfil']) && file_exists($_SESSION['foto_perfil'])) {
                             echo '<img src="' . $_SESSION['foto_perfil'] . '" alt="Profile Picture">';
@@ -154,16 +157,17 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                 </div>
 
                 <div class="middle-perfil">
-
+                    <!--Mostrar nome do usuário da sessão-->
                     <?php
                     echo "<h2 class='nome'><u>{$_SESSION['nome']}</u></h2>";
                     ?>
+                    <!--Mostrar username do usuário da sessão-->
                     <?php
                     echo "<h3 class = 'username'> @<u>{$_SESSION['usuario']}</u></h3>";
                     ?>
                 
                 </div>
-
+                <!--Separação dos tipos dos itens-->
                 <div class="menu-publicacoes">
                     <button class="menu-btn active" onclick="showSectionPerfil('objetos-perdidos')">objetos
                         perdidos</button>
@@ -174,7 +178,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
             <!-- Create Post Section -->
 
-
+            <!--Items perdidos do usuário-->
             <div id="objetos-perdidos" class="section-tipo active">
                 <h3>Objetos Perdidos</h3>
 
@@ -233,7 +237,8 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
 
             </div>
-
+            
+            <!--Items achados do usuário-->
             <div id="objetos-achados" class="section-tipo">
                 <h3>Objetos Achados</h3>
 

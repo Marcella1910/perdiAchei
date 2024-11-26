@@ -38,7 +38,7 @@ include_once 'validaSessao.php';
         <div class="main-content">
 
 
-
+            <!--Div da pequena tela que aparece quando se clica em notificações-->
             <div class="notification-panel">
                 <div class="notification-header">
                     <h2 class="username">@kdb</h2>
@@ -80,10 +80,12 @@ include_once 'validaSessao.php';
                 </ul>
             </div>
 
+            <!--configurações-->
             <div class="config-conta">
                 <h3>Conta</h3>
                 <div class="email-conta">
                     <h4>Email</h4>
+                    <!--Pega o email cadastrado da sessao e mostra na tela-->
                     <?php echo "<h4 class='user-email' id='user-email'><u>{$_SESSION['email']}</u></h4>"; ?>
 
                     <button onclick="openModal()" class="mudarEmailBtn"><i class="fa-solid fa-pen-to-square"></i></button>
@@ -94,6 +96,7 @@ include_once 'validaSessao.php';
                     <button onclick="openModal()"><i class="fa-solid fa-pen-to-square"></i></button>
                 </div>
                 
+                <!--Botâo para excluir conta cadastrada do banco de dados-->
                 <div class="excluir-conta">
                     <h4>Excluir conta</h4>
                     <button onclick="openModalDeleteAccount()" class="excluir-conta-btn">excluir conta</button>
@@ -101,6 +104,7 @@ include_once 'validaSessao.php';
 
             </div>
 
+            <!--PopUp de quando se clica para redefinir senha-->
             <div class="modal" id="deleteModal">
                 <div class="modal-content">
                     <h3>Defina sua senha</h3>
@@ -114,6 +118,7 @@ include_once 'validaSessao.php';
                 </div>
             </div>
 
+            <!--PopUp de quando se clica para excluir conta-->
             <div class="modal" id="deleteAccountModal" style="display: none;">
                 <div class="modal-content">
                     <h3>Confirmar Exclusão de Conta</h3>

@@ -1,3 +1,4 @@
+<!-- PopUp de quando o usuário quer reinvidicar um item -->
 <div class="modal" id="formModal">
     <div class="modal-content">
         <h3>Reivindicar um item</h3>

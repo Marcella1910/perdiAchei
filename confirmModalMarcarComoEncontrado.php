@@ -1,3 +1,4 @@
+<!--PopUp de quando o usuario encontra o seu item perdido-->
 <div class="modal" id="confirmModalMarcarComoEncontrado">
     <div class="modal-content">
         <h3 class="confirmModalMarcarComoEncontradoTitulo">Marcar como encontrado</h3>

@@ -1,3 +1,4 @@
+<!--Editar publicação-->
 <div id="editModal" class="modal">
     <div class="modal-content">
 
@@ -7,6 +8,7 @@
 
             <div class="tags-tipos">
 
+                <!--Mudar tipo de item-->
                 <div class="toggle-buttons">
                     <input type="radio" id="perdido" name="status" value="perdido">
                     <label for="perdido" class="toggle-button">objeto perdido</label>
@@ -15,6 +17,7 @@
                     <label for="encontrado" class="toggle-button">objeto encontrado</label>
                 </div>
 
+                <!--Mudar categoria-->
                 <select class="select-tags">
 
                     <option value="1">Roupas e agasalhos</option>
@@ -31,9 +34,10 @@
 
             </div>
 
+            <!--Mudar titulo-->
             <input type="text" id="postTitle" name="title" placeholder="dê um título a postagem..." value="">
 
-
+            <!--Mudar descrição-->
             <textarea placeholder="descreva o item..." id="postContent"></textarea>
 
             <!-- Área de upload -->
