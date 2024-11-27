@@ -351,10 +351,6 @@ span:hover {
     background-color: #ac689e;
 }
 
-.nos h2 {
-
-} 
-
 .titulosobre {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
@@ -525,12 +521,6 @@ span:hover {
     font-size: 18px;
     width: 100%;
 } 
-
-.txtnos p, .txtpesquisa p, .txtmissao p {
-    
-    
-    
-}
 
 .txtpesquisa p {
     color: #555;

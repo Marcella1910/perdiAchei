@@ -49,98 +49,11 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
         <!-- Middle Content -->
         <div class="main-content">
 
-            <!--Div da pequena tela que aparece quando se clica em notificações-->
-            <div class="notification-panel">
-                <div class="notification-header">
-                    <?php
-                    echo "<h2 class='username'> @<u>{$_SESSION['usuario']}</u></h2>";
-                    ?>
-                </div>
-                <ul class="notification-list">
-                    <li>
-                        <div class="notif">
-                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                            <div class="dados-notif">
-                                <p>@jinsoul</p>
-                                <p>quer reivindicar um item postado!</p>
-                            </div>
-                    </li>
-                    <li>
-                        <div class="notif">
-                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                            <div class="dados-notif">
-                                <p>@jinsoul</p>
-                                <p>quer reivindicar um item postado!</p>
-                            </div>
-                    </li>
-                    <li>
-                        <div class="notif">
-                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                            <div class="dados-notif">
-                                <p>@jinsoul</p>
-                                <p>quer reivindicar um item postado!</p>
-                            </div>
-                    </li>
-                    <li>
-                        <div class="notif">
-                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                            <div class="dados-notif">
-                                <p>@jinsoul</p>
-                                <p>quer reivindicar um item postado!</p>
-                            </div>
-                    </li>
-                    <!-- Adicione mais notificações aqui -->
-                </ul>
-            </div>
+            <!-- Painel de notificações -->
+            <?php include 'notifications-painel.php'?>
 
-            <!-- Criar local de post -->
-            <div class="create-post">
-                <form action="criar_post.php" method="POST" enctype="multipart/form-data">
-                    <textarea name="titulo" maxlength="80" rows="1" cols="30" class="titulopost"
-                        placeholder="dê um título a postagem..."></textarea>
-                    <textarea name="descricao" class="descricaopost" maxlength="280" rows="5" cols="30"
-                        placeholder="perdeu ou achou algo?"></textarea>
-                    <div id="preview-container" class="preview-container" style="display: none;">
-                        <button id="cancel-button" style="margin-top: 10px;"><i class="fa-solid fa-xmark"></i></button>
-                        <img id="preview-image" class="preview-image" alt="Pré-visualização da Imagem"
-                            style="display: none;">
-                        <video id="preview-video" class="preview-video" controls style="display: none;"></video>
-                    </div>
-                    <div class="botoes">
-                        <button type="submit" class="createPostBtn" id="createPostBtn">criar publicação</button>
-                        <div class="botoes-ladodir">
-                            <select name="categoria" class="select-tags" id="select-tags">
-
-                                <option value="roupas e agasalhos">roupas e agasalhos</option>
-                                <option value="eletrônicos">eletrônicos</option>
-                                <option value="garrafas e lancheiras">garrafas e lancheiras</option>
-                                <option value="utensílios de cozinha">utensílios de cozinha</option>
-                                <option value="materiais escolares">materiais escolares</option>
-                                <option value="documentos">documentos</option>
-                                <option value="produtos de higiene/cosmético">produtos de higiene/cosmético</option>
-                                <option value="outros">outros</option>
-
-                            </select>
-
-                            <div class="toggle-buttons">
-                                <input type="radio" id="perdido" name="status" value="perdido">
-                                <label for="perdido" class="toggle-button">objeto perdido</label>
-
-                                <input type="radio" id="encontrado" name="status" value="encontrado">
-                                <label for="encontrado" class="toggle-button">objeto encontrado</label>
-                            </div>
-
-                            <div class="upload-container">
-                                <label for="file-upload" class="upload-button">
-                                    <i class="fa-solid fa-upload"></i>
-                                </label>
-                                <input name="media" id="file-upload" type="file" required accept="image/*,video/*">
-                            </div>
-                        </div>
-
-                    </div>
-                </form>
-            </div>
+            <!-- Criar post formulário  -->
+            <?php include 'create-post-form.php'; ?>
 
             <div class="tags">
                 <button class="tag active" data-section="todos" onclick="showSection('todos')">Todos</button>
@@ -192,15 +105,15 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                             <div class="menu-container">
                                 <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                                 <div class="dropdown-menu" id="dropdown-menu">
-                                <ul>
-                                    <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
-                                    <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
-                                    </li>
-                                    <li><button class="dropdown-item"
-                                            onclick="openConfirmModalMarcarComoEncontrado()">Marcar como
-                                            'encontrado'</button></li>
-                                </ul>
-                            </div>
+                                    <ul>
+                                        <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
+                                        <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
+                                        </li>
+                                        <li><button class="dropdown-item"
+                                                onclick="openConfirmModalMarcarComoEncontrado()">Marcar como
+                                                'encontrado'</button></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
@@ -235,20 +148,20 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                 </button>
                             </div>
 
-                            
+
 
 
 
                         </div>
                     </div>
-                    
+
                 <?php endwhile; ?>
 
 
 
 
 
-                
+
                 <div class="post">
 
                     <div class="post-header">
@@ -353,7 +266,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                     </div>
                 </div>
 
-                
+
 
             </div>
             <div id="roupas" class="section">
@@ -422,7 +335,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             <div id="materiaisescolares" class="section">
                 <h3>Materiais Escolares</h3>
 
-                
+
 
                 <div class="post">
 
@@ -478,9 +391,9 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             <div id="documentos" class="section">
                 <h3>Documentos</h3>
 
-                
 
-                
+
+
 
             </div>
             <div id="produtoshigiene" class="section">
@@ -491,9 +404,22 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             </div>
 
 
-            
-            
-            <?php include 'reportModal.php'; ?>
+            <div class="modal" id="reportModal">
+                <div class="modal-content">
+                    <h3>Reportar usuário</h3>
+                    <form id="reportForm">
+                        <label for="reportReason">Está vendo alguma coisa que não deveria?</label><br>
+                        <textarea id="reportReason" name="reportReason" placeholder="descreva o motivo da denúncia..."
+                            maxlength="280" required></textarea><br>
+                        <div class="bts-popup">
+                            <button class="cancelarReport" onclick="closeReportForm()">Cancelar</button>
+                            <button type="submit" class="submit-button">Enviar Denúncia</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
 
             <?php include 'confirmarReivindicarItemModal.php'; ?>
 
@@ -513,7 +439,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
             <!-- Modal de marcar como reivindicado  -->
             <?php include 'confirmModalMarcarComoReivindicado.php'; ?>
-            
+
             <!-- Modal de marcar como reivindicado  -->
             <?php include 'marcarComoReivindicado.php'; ?>
 

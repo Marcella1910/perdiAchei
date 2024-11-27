@@ -1,3 +1,5 @@
+// Página de configurações 
+
 function openModal() {
     document.getElementById('deleteModal').style.display = 'flex';
 }

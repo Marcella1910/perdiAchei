@@ -38,47 +38,10 @@ include_once 'validaSessao.php';
         <div class="main-content">
 
 
-            <!--Div da pequena tela que aparece quando se clica em notificações-->
-            <div class="notification-panel">
-                <div class="notification-header">
-                    <h2 class="username">@kdb</h2>
-                </div>
-                <ul class="notification-list">
-                    <li>
-                        <div class="notif">
-                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                            <div class="dados-notif">
-                                <p>@jinsoul</p>
-                                <p>quer reivindicar um item postado!</p>
-                            </div>
-                    </li>
-                    <li>
-                        <div class="notif">
-                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                            <div class="dados-notif">
-                                <p>@jinsoul</p>
-                                <p>quer reivindicar um item postado!</p>
-                            </div>
-                    </li>
-                    <li>
-                        <div class="notif">
-                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                            <div class="dados-notif">
-                                <p>@jinsoul</p>
-                                <p>quer reivindicar um item postado!</p>
-                            </div>
-                    </li>
-                    <li>
-                        <div class="notif">
-                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                            <div class="dados-notif">
-                                <p>@jinsoul</p>
-                                <p>quer reivindicar um item postado!</p>
-                            </div>
-                    </li>
-                    <!-- Adicione mais notificações aqui -->
-                </ul>
-            </div>
+            <!-- Painel de notificações -->
+            <?php include 'notifications-painel.php'; ?>
+
+            
 
             <!--configurações-->
             <div class="config-conta">

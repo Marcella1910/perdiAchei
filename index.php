@@ -126,60 +126,7 @@
             </div>
             <!-- Fim da div pesquisa -->
 
-            <!-- A div nos guarda informações sobre as integrantes do grupo que fez o perdiAchei -->
-            <div class="nos">
 
-                <!-- Guarda a parte escrita da explicação -->
-
-                <h2>Quem somos nós?</h2>
-
-                <div class="cards-container">
-                    <!-- Card 1 -->
-                    <div class="card">
-                        <img src="img/userspfp/gabi.jpg" alt="Gabi">
-                        <div class="card-content">
-                            <h3 class="card-title">Gabriele</h3>
-                            <p class="card-description">Descrição breve sobre a pessoa ou seu papel.</p>
-
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="card">
-                        <img src="https://via.placeholder.com/220" alt="Foto de perfil">
-                        <div class="card-content">
-                            <h3 class="card-title">Jean</h3>
-                            <p class="card-description">Descrição breve sobre a pessoa ou seu papel.</p>
-
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="card">
-                        <img src="https://via.placeholder.com/220" alt="Foto de perfil">
-                        <div class="card-content">
-                            <h3 class="card-title">Marcella</h3>
-                            <p class="card-description">Descrição breve sobre a pessoa ou seu papel.</p>
-
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="card">
-                        <img src="https://via.placeholder.com/220" alt="Foto de perfil">
-                        <div class="card-content">
-                            <h3 class="card-title">Verônica</h3>
-                            <p class="card-description">Descrição breve sobre a pessoa ou seu papel.</p>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Guarda uma imagem para exemplificação -->
-
-
-            </div>
-            <!-- Fim da div nos -->
 
         </div>
 
@@ -198,8 +145,11 @@
                         <img class="logo" src="img/logos/versao2logo.png" alt="O achados e perdidos do IFES Serra">
                     </div>
 
-                    <button class="btn-social"><i class="fa-brands fa-github"></i>
+                    <button class="btn-social"
+                        onclick="window.location.href='https://github.com/Marcella1910/perdiAchei'">
+                        <i class="fa-brands fa-github"></i>
                     </button>
+
 
 
                 </div>

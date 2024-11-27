@@ -47,95 +47,12 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
         <!-- Middle Content -->
         <div class="main-content">
-            <!--Div da pequena tela que aparece quando se clica em notificações-->
-            <div class="notification-panel">
-                <div class="notification-header">
-                    <h2 class="username">@kdb</h2>
-                </div>
-                <ul class="notification-list">
-                    <li>
-                        <div class="notif">
-                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                            <div class="dados-notif">
-                                <p>@jinsoul</p>
-                                <p>quer reivindicar um item postado!</p>
-                            </div>
-                    </li>
-                    <li>
-                        <div class="notif">
-                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                            <div class="dados-notif">
-                                <p>@jinsoul</p>
-                                <p>quer reivindicar um item postado!</p>
-                            </div>
-                    </li>
-                    <li>
-                        <div class="notif">
-                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                            <div class="dados-notif">
-                                <p>@jinsoul</p>
-                                <p>quer reivindicar um item postado!</p>
-                            </div>
-                    </li>
-                    <li>
-                        <div class="notif">
-                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                            <div class="dados-notif">
-                                <p>@jinsoul</p>
-                                <p>quer reivindicar um item postado!</p>
-                            </div>
-                    </li>
-                    <!-- Adicione mais notificações aqui -->
-                </ul>
-            </div>
-            <!--Criar local de post-->
-            <div class="create-post">
-                <textarea maxlength="80" rows="1" cols="30" class="titulopost"
-                    placeholder="dê um título a postagem..."></textarea>
-                <textarea class="descricaopost" maxlength="280" rows="5" cols="30"
-                    placeholder="perdeu ou achou algo?"></textarea>
-                <div id="preview-container" class="preview-container" style="display: none;">
-                    <button id="cancel-button" style="margin-top: 10px;"><i class="fa-solid fa-xmark"></i></button>
-                    <img id="preview-image" class="preview-image" alt="Pré-visualização da Imagem"
-                        style="display: none;">
-                    <video id="preview-video" class="preview-video" controls style="display: none;"></video>
-                </div>
-                <div class="botoes">
-                    <button class="createPostBtn" id="createPostBtn">criar publicação</button>
-                    <div class="botoes-ladodir">
 
-                        <select class="select-tags">
+            <!-- Painel de notificações -->
+            <?php include 'notifications-painel.php'; ?>
 
-                            <option value="1">Roupas e agasalhos</option>
-                            <option value="2">Eletrônicos</option>
-                            <option value="3">Garrafas e Lancheiras</option>
-                            <option value="4">Utensílios de cozinha</option>
-                            <option value="5">Materiais escolares</option>
-                            <option value="6">Documentos</option>
-                            <option value="7">Produtos de higiene/Cosmético</option>
-                            <option value="8">Outros</option>
-
-                        </select>
-
-                        <div class="toggle-buttons">
-                            <input type="radio" id="perdido" name="status" value="perdido">
-                            <label for="perdido" class="toggle-button">objeto perdido</label>
-
-                            <input type="radio" id="encontrado" name="status" value="encontrado">
-                            <label for="encontrado" class="toggle-button">objeto encontrado</label>
-                        </div>
-
-                        <div class="upload-container">
-                            <label for="file-upload" class="upload-button">
-                                <i class="fa-solid fa-upload"></i>
-                            </label>
-                            <input id="file-upload" type="file" accept="image/*,video/*">
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
+            <!-- Criar post formulário -->
+            <?php include 'create-post-form.php'; ?>
 
             <!--Visualizar o seu perfil-->
             <div class="visualiza-perfil">
@@ -165,7 +82,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                     <?php
                     echo "<h3 class = 'username'> @<u>{$_SESSION['usuario']}</u></h3>";
                     ?>
-                
+
                 </div>
                 <!--Separação dos tipos dos itens-->
                 <div class="menu-publicacoes">
@@ -237,7 +154,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
 
             </div>
-            
+
             <!--Items achados do usuário-->
             <div id="objetos-achados" class="section-tipo">
                 <h3>Objetos Achados</h3>
@@ -319,10 +236,10 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
             <!-- Modal de marcar como reivindicado  -->
             <?php include 'confirmModalMarcarComoReivindicado.php'; ?>
-            
+
             <!-- Modal de marcar como reivindicado  -->
             <?php include 'marcarComoReivindicado.php'; ?>
-            
+
 
         </div>
 

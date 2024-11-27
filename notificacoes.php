@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+
+include_once 'dbconnect.php';
+include_once 'validaSessao.php';
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -24,42 +32,10 @@
 
         <!-- Middle Content -->
         <div class="main-content">
-             <!--Div da pequena tela que aparece quando se clica em notificações-->
-            <div class="notification-panel">
-                <div class="notification-header">
-                    <h2 class="username">@kdb</h2>
-                </div>
-                <ul class="notification-list">
-                    <li><div class="notif">
-                        <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                        <div class="dados-notif">
-                            <p>@jinsoul</p>
-                            <p>quer reivindicar um item postado!</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="notif">
-                            <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                            <div class="dados-notif">
-                                <p>@jinsoul</p>
-                                <p>quer reivindicar um item postado!</p>
-                            </div>
-                    </li>
-                    <li><div class="notif">
-                        <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                        <div class="dados-notif">
-                            <p>@jinsoul</p>
-                            <p>quer reivindicar um item postado!</p>
-                        </div></li>
-                    <li><div class="notif">
-                        <img src="img/userspfp/jinsoul.jpg" alt="Usuário 1">
-                        <div class="dados-notif">
-                            <p>@jinsoul</p>
-                            <p>quer reivindicar um item postado!</p>
-                        </div></li>
-                    <!-- Adicione mais notificações aqui -->
-                </ul>
-            </div>
+
+             <!-- Painel de notificações -->
+            <?php include 'notifications-painel.php'; ?>
+
 
             <div class="config-conta">
                 <h3>Notificações</h3>
@@ -74,7 +50,7 @@
             </div>
 
 
-            <!-- Create Post Section -->
+            
         
         </div>     
 
@@ -83,30 +59,28 @@
             <aside>
 
                 <h3 class="tituloconfiguracoes">Configurações</h3>
-                <!-- Link para a página de feed(Home) -->
+               
                 <a href="configuracoes.php" class="menu-item">
                     <h3 class="nome-menu-item">Conta</h3>
                     <h4>O principal</h4>
                 </a>
 
-                <!-- Link para a página de Configurações -->
+                
                 <a href="tela-e-painel.php" class="menu-item">
                     <h3 class="nome-menu-item">Painel</h3>
                     <h4>Tela e acessibilidade</h4>
                 </a>
 
-                <!-- Botão de criar postagem -->
+               
 
 
-                <!-- Link para fazer logout; -->
+                
                 <a href="notificacoes.php" class="menu-item active">
                     <h3>Notificações</h3>
                     <h4>Receba atualizações por e-mail</h4>
                 </a>
 
-                <!-- Essa div leva para a página de avaliação -->
-
-                <!-- Fim da div de avaliação -->
+                
 
             </aside>
 
