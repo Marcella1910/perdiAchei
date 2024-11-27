@@ -42,6 +42,21 @@ body {
     height: 30rem;
 }
 
+.redefinesenha {
+    height: 33rem;
+}
+
+.redefinesenha .lgtitulo {
+    padding: 0;
+    margin: 0;
+}
+
+
+.redefinesenha .reenviarLink {
+    font-weight: 500;
+    color: white;
+}
+
 .imgLog h4 {
     color: #fffce0;
 }

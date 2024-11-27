@@ -21,7 +21,7 @@
 
     <!-- Mesma que a de login  -->
     <!-- A div bdlog guarda o conteúdo principal da tela de login  -->
-    <div class="bdlog">
+    <div class="bdlog redefinesenha">
         
             <!-- Div do login (onde preenche as informações)  -->
             <div class = "login" id = "login">
@@ -35,9 +35,7 @@
                 <!-- Div inputs guarda as informações que devem ser preenchidas  -->
                 <div class="inputs">
 
-                    <!-- Instruções  -->
-                    <h4 class="explicacao">Por favor, insira no campo abaixo o código de ativação que você recebeu por email e redefina uma nova senha.</h4>
-                    <!--  -->
+                   
 
                     <!-- Inserir o código  -->
                     <h4>Insira o código recebido</h4>
@@ -70,9 +68,7 @@
                 <!-- Fim de inputs  -->
                 
 
-                <!-- Caso não tenha recebido o email, clique para reenviar  -->
-                <p class="reenviarLink"> Caso não tenha recebido a mensagem, verifique se digitou o endereço de email corretamente ou se caiu na caixa de spam. <a href="esqueceSenha.php">Reenviar email</a></p>
-                <!--  -->
+                
      
             </div>
             <!-- Fim da div de login  -->
@@ -86,6 +82,10 @@
 
                 <!-- Sobre  -->
                 <h4>Enviamos um email para <span>email_do_usuario@gmail.com</span> para finalizar o cadastro.</h4>
+                <!--  -->
+
+                <!-- Caso não tenha recebido o email, clique para reenviar  -->
+                <p class="reenviarLink"> Caso não tenha recebido a mensagem, verifique se digitou o endereço de email corretamente ou se caiu na caixa de spam. <a href="esqueceSenha.php">Reenviar email</a></p>
                 <!--  -->
 
             </div>
