@@ -12,3 +12,5 @@ Integrantes: Gabriele Luciano, Marcella Oliveira e Verônica Gonçalves.
 
 ![1722380970689](https://github.com/user-attachments/assets/804d5214-0810-40bc-b19e-a11a8bb8cceb)
 
+Link dos slides de Prog web: https://docs.google.com/presentation/d/1cMWf4Uxz0M05AokmSkxYKVUy5cH1BGVbgecBT4x6nN8/edit?usp=sharing
+
