@@ -1,7 +1,7 @@
-,<!--PopUp de exclusão de publicação-->
+<!--PopUp de exclusão de publicação-->
 <div id="deletePostModal" class="modal">
     <div class="modal-content">
-        <form id="excluirPostagemForm">
+        <form id="excluirPostagemForm" method = "POST" action = "excluiPostagem.php">
             <h2 class="excluirFormTitulo">
                 Tem certeza que deseja excluir essa publicação?
             </h2>
