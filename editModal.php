@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="modal-content">
 
         <?php
-        echo "<h2 class='username clickable-profile'><u>@{$_SESSION['usuario']}</u></h2>";
+        echo "<h2 class='editModalUsername'><u>@{$_SESSION['usuario']}</u></h2>";
         ?>
 
         <div id="editForm">

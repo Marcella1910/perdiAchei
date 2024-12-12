@@ -86,6 +86,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             <div id="todos" class="section active">
 
                 <?php while ($row = $result->fetch_assoc()): ?>
+                    <?php $postId = $row['id']; ?> <!-- Garantindo que $postId está correto -->
                     <div class="post">
                         <div class="post-header">
                             <div class="pfp-post clickable-profile">
@@ -111,7 +112,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                     <ul>
                                         <?php if ($row['usuario_id'] == $_SESSION['id']): ?>
                                             <!-- Se a postagem pertence ao usuário logado -->
-                                            <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
+                                            <li><button onclick="openEditPost(<?php echo $postId; ?>)">Editar</button></li>
                                             <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
                                             </li>
                                             <li><button class="dropdown-item"
