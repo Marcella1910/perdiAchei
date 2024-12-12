@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once 'dbconnect.php';
 
 // Verificar se o formulário foi enviado
@@ -50,16 +49,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$conn->close();
 ?>
 
 <!--Editar publicação-->
 <div id="editModal" class="modal">
     <div class="modal-content">
 
-            <?php
-            echo "<h2 class='username clickable-profile'><u>@{$_SESSION['usuario']}</u></h2>";
-            ?>
+        <?php
+        echo "<h2 class='username clickable-profile'><u>@{$_SESSION['usuario']}</u></h2>";
+        ?>
 
         <div id="editForm">
 

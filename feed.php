@@ -6,8 +6,8 @@ include_once 'validaSessao.php';
 
 // Consulta SQL para buscar posts e dados do usuário associado
 $result = $conn->query("
-    SELECT posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, 
-           posts.tipo_imagem, posts.data_criacao, usuarios.nome, usuarios.foto_perfil
+    SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, 
+           posts.tipo_imagem, posts.data_criacao, posts.usuario_id, usuarios.nome, usuarios.foto_perfil
     FROM posts
     INNER JOIN usuarios ON posts.usuario_id = usuarios.id
     ORDER BY posts.data_criacao DESC
@@ -109,12 +109,27 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                 <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                                 <div class="dropdown-menu" id="dropdown-menu">
                                     <ul>
-                                        <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
-                                        <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
-                                        </li>
-                                        <li><button class="dropdown-item"
-                                                onclick="openConfirmModalMarcarComoEncontrado()">Marcar como
-                                                'encontrado'</button></li>
+                                        <?php if ($row['usuario_id'] == $_SESSION['id']): ?>
+                                            <!-- Se a postagem pertence ao usuário logado -->
+                                            <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
+                                            <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
+                                            </li>
+                                            <li><button class="dropdown-item"
+                                                    onclick="openConfirmModalMarcarComoEncontrado()">Marcar como
+                                                    'encontrado'</button></li>
+                                        <?php else: ?>
+                                            <!-- Se a postagem pertence a outro usuário -->
+                                            <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
+                                            <?php if ($row['status'] == 'encontrado'): ?>
+                                                <!-- Caso seja um objeto achado -->
+                                                <li><button class="dropdown-item" onclick="openConfirmPopup()">Reivindicar
+                                                        item</button></li>
+                                            <?php else: ?>
+                                                <!-- Caso seja um objeto perdido -->
+                                                <li><button class="dropdown-item" onclick="openConfirmPopupItemPerdido()">Entrar em
+                                                        contato com usuário</button></li>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
                                     </ul>
                                 </div>
                             </div>
