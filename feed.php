@@ -1,21 +1,23 @@
 <?php
-
 session_start();
 
 include_once 'dbconnect.php';
 include_once 'validaSessao.php';
 
-
-$result = $conn->query("SELECT titulo, descricao, categoria, status, imagem, tipo_imagem, data_criacao FROM posts ORDER BY data_criacao DESC");
+// Consulta SQL para buscar posts e dados do usuário associado
+$result = $conn->query("
+    SELECT posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, 
+           posts.tipo_imagem, posts.data_criacao, usuarios.nome, usuarios.foto_perfil
+    FROM posts
+    INNER JOIN usuarios ON posts.usuario_id = usuarios.id
+    ORDER BY posts.data_criacao DESC
+");
 
 if (!$result) {
     die("Erro na consulta SQL: " . $conn->error);
 }
 
-
 date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário desejado
-
-
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +52,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
         <div class="main-content">
 
             <!-- Painel de notificações -->
-            <?php include 'notifications-painel.php'?>
+            <?php include 'notifications-painel.php' ?>
 
             <!-- Criar post formulário  -->
             <?php include 'create-post-form.php'; ?>
@@ -85,12 +87,12 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
                 <?php while ($row = $result->fetch_assoc()): ?>
                     <div class="post">
-
                         <div class="post-header">
                             <div class="pfp-post clickable-profile">
                                 <?php
-                                if (isset($_SESSION['foto_perfil']) && file_exists($_SESSION['foto_perfil'])) {
-                                    echo '<img class="pfp" src="' . $_SESSION['foto_perfil'] . '" alt="Profile Picture">';
+                                // Exibe a foto do usuário ou uma imagem padrão
+                                if ($row['foto_perfil'] && file_exists($row['foto_perfil'])) {
+                                    echo '<img class="pfp" src="' . htmlspecialchars($row['foto_perfil']) . '" alt="Profile Picture">';
                                 } else {
                                     echo '<img class="pfp" src="img/userspfp/usericon.jpg" alt="Profile Picture">';
                                 }
@@ -98,7 +100,8 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                             </div>
                             <div class="perfil-post">
                                 <?php
-                                echo "<p class='nome clickable-profile'>{$_SESSION['nome']}</p>";
+                                // Exibe o nome do usuário associado
+                                echo "<p class='nome clickable-profile'>" . htmlspecialchars($row['nome']) . "</p>";
                                 ?>
                                 <p class="data-post"><?php echo date("d/m/Y", strtotime($row['data_criacao'])); ?></p>
                             </div>
@@ -118,9 +121,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                         </div>
 
                         <div class="conteudo-principal">
-                            <h2 class="titulo">
-                                <?php echo htmlspecialchars($row['titulo']); ?>
-                            </h2>
+                            <h2 class="titulo"><?php echo htmlspecialchars($row['titulo']); ?></h2>
                             <div class="midia">
                                 <?php if ($row['imagem']): ?>
                                     <?php if (strpos($row['tipo_imagem'], 'image') === 0): ?>
@@ -143,18 +144,10 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                 <button class="tp_publicacao">
                                     <?php echo htmlspecialchars($row['status'] == 'encontrado' ? 'objeto achado' : 'objeto perdido'); ?>
                                 </button>
-                                <button class="tag-item">
-                                    <?php echo htmlspecialchars($row['categoria']); ?>
-                                </button>
+                                <button class="tag-item"><?php echo htmlspecialchars($row['categoria']); ?></button>
                             </div>
-
-
-
-
-
                         </div>
                     </div>
-
                 <?php endwhile; ?>
 
 
