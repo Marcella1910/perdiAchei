@@ -6,7 +6,9 @@ CREATE TABLE posts (
     status ENUM('perdido', 'encontrado') NOT NULL,
     imagem LONGBLOB,
     tipo_imagem VARCHAR(50),
-    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    usuario_id INT NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
 );
 
 CREATE TABLE usuarios (

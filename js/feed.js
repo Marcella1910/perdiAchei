@@ -304,9 +304,78 @@ if (contactForm && contactReasonInput) {  // Verifica se ambos os elementos exis
     });
 }
 
-function openEditPost() {
-    document.getElementById('editModal').style.display = 'flex';
+function openEditPost(postId) {
+
+    window.currentPostId = postId;
+
+    // Fazer uma requisição AJAX para buscar os dados da postagem
+    fetch(`get_post_data.php?id=${postId}`)
+        .then(response => response.json())
+        .then(data => {
+            // Preencher os campos do modal com os dados da postagem
+            document.getElementById('postTitle').value = data.titulo;
+            document.getElementById('postContent').value = data.descricao;
+
+            // Selecionar o status
+            document.getElementById(data.status).checked = true;
+
+            // Selecionar a categoria
+            const selectTags = document.querySelector('.select-tags');
+            selectTags.value = data.categoria;
+
+            // Carregar pré-visualização da mídia, se houver
+            const previewImage = document.getElementById('editPreviewImage');
+            const previewVideo = document.getElementById('editPreviewVideo');
+
+            if (data.tipo_imagem.startsWith('image')) {
+                previewImage.src = `data:${data.tipo_imagem};base64,${data.imagem}`;
+                previewImage.style.display = 'block';
+                previewVideo.style.display = 'none';
+            } else if (data.tipo_imagem.startsWith('video')) {
+                previewVideo.src = `data:${data.tipo_imagem};base64,${data.imagem}`;
+                previewVideo.style.display = 'block';
+                previewImage.style.display = 'none';
+            }
+
+            // Exibir o modal
+            document.getElementById('editModal').style.display = 'block';
+        })
+        .catch(error => console.error('Erro ao carregar os dados:', error));
 }
+
+
+
+function closeEditPost() {
+    document.getElementById('editModal').style.display = 'none';
+}
+
+document.querySelector('.submit-button').addEventListener('click', function () {
+    const formData = new FormData();
+    formData.append('id', window.currentPostId); // Adicionar o ID da postagem
+    formData.append('titulo', document.getElementById('postTitle').value);
+    formData.append('descricao', document.getElementById('postContent').value);
+    formData.append('status', document.querySelector('input[name="status"]:checked').value);
+    formData.append('categoria', document.querySelector('.select-tags').value);
+
+    // Verificar se há um arquivo
+    const file = document.getElementById('editFileUpload').files[0];
+    if (file) {
+        formData.append('media', file);
+    }
+
+    // Enviar os dados para o servidor
+    fetch('update_post.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data); // Mensagem de sucesso ou erro
+        closeEditPost();
+        location.reload(); // Atualizar a página (opcional)
+    })
+    .catch(error => console.error('Erro ao atualizar a postagem:', error));
+});
 
 
 const fileUpload = document.getElementById("editFileUpload");
@@ -384,10 +453,6 @@ function closeFormPopup() {
     removerFoto(); // Chama a função para limpar a foto selecionada
 }
 
-// Função para fechar o modal de edição apenas ao clicar no botão "Cancelar"
-function closeEditPost() {
-    document.getElementById('editModal').style.display = 'none';
-}
 
 // Abrir/fechar o dropdown sem fechar o modal
 document.querySelectorAll('.dropdown-btn-tags').forEach(button => {

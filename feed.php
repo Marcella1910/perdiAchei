@@ -1,21 +1,27 @@
 <?php
-
 session_start();
 
 include_once 'dbconnect.php';
 include_once 'validaSessao.php';
 
 
-$result = $conn->query("SELECT titulo, descricao, categoria, status, imagem, tipo_imagem, data_criacao FROM posts ORDER BY data_criacao DESC");
+// Consulta SQL para buscar posts e dados do usuário associado
+// Consulta SQL para buscar posts, dados do usuário associado e o nome da categoria
+$query = "SELECT posts.id, posts.titulo, posts.descricao, categorias.nome AS categoria, posts.status, 
+                 posts.imagem, posts.tipo_imagem, posts.data_criacao, posts.usuario_id, 
+                 usuarios.nome AS usuario_nome, usuarios.foto_perfil
+          FROM posts
+          INNER JOIN usuarios ON posts.usuario_id = usuarios.id
+          INNER JOIN categorias ON posts.categoria_id = categorias.id
+          ORDER BY posts.data_criacao DESC";
 
-if (!$result) {
-    die("Erro na consulta SQL: " . $conn->error);
+$result = $conn->query($query);
+
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
 }
 
-
 date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário desejado
-
-
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +56,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
         <div class="main-content">
 
             <!-- Painel de notificações -->
-            <?php include 'notifications-painel.php'?>
+            <?php include 'notifications-painel.php' ?>
 
             <!-- Criar post formulário  -->
             <?php include 'create-post-form.php'; ?>
@@ -84,13 +90,18 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             <div id="todos" class="section active">
 
                 <?php while ($row = $result->fetch_assoc()): ?>
-                    <div class="post">
 
+
+                    <?php var_dump($row); ?> <!-- Aqui você vê os dados de cada linha -->
+
+                    <?php $postId = $row['id']; ?> <!-- Garantindo que $postId está correto -->
+                    <div class="post">
                         <div class="post-header">
-                            <div class="pfp-post clickable-profile">
+                            <div class="pfp-post">
                                 <?php
-                                if (isset($_SESSION['foto_perfil']) && file_exists($_SESSION['foto_perfil'])) {
-                                    echo '<img class="pfp" src="' . $_SESSION['foto_perfil'] . '" alt="Profile Picture">';
+                                // Exibe a foto do usuário ou uma imagem padrão
+                                if ($row['foto_perfil'] && file_exists($row['foto_perfil'])) {
+                                    echo '<img class="pfp" src="' . htmlspecialchars($row['foto_perfil']) . '" alt="Profile Picture">';
                                 } else {
                                     echo '<img class="pfp" src="img/userspfp/usericon.jpg" alt="Profile Picture">';
                                 }
@@ -98,7 +109,8 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                             </div>
                             <div class="perfil-post">
                                 <?php
-                                echo "<p class='nome clickable-profile'>{$_SESSION['nome']}</p>";
+                                // Exibe o nome do usuário associado
+                                echo "<p class='nome'>" . htmlspecialchars($row['nome']) . "</p>";
                                 ?>
                                 <p class="data-post"><?php echo date("d/m/Y", strtotime($row['data_criacao'])); ?></p>
                             </div>
@@ -106,21 +118,34 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                 <button class="menu-button" id="menu-button"><i class="fa-solid fa-ellipsis"></i></button>
                                 <div class="dropdown-menu" id="dropdown-menu">
                                     <ul>
-                                        <li><button class="dropdown-item" onclick="openEditPost()">Editar</button></li>
-                                        <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
-                                        </li>
-                                        <li><button class="dropdown-item"
-                                                onclick="openConfirmModalMarcarComoEncontrado()">Marcar como
-                                                'encontrado'</button></li>
+                                        <?php if ($row['usuario_id'] == $_SESSION['id']): ?>
+                                            <!-- Se a postagem pertence ao usuário logado -->
+                                            <li><button onclick="openEditPost(<?php echo $postId; ?>)">Editar</button></li>
+                                            <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
+                                            </li>
+                                            <li><button class="dropdown-item"
+                                                    onclick="openConfirmModalMarcarComoEncontrado()">Marcar como
+                                                    'encontrado'</button></li>
+                                        <?php else: ?>
+                                            <!-- Se a postagem pertence a outro usuário -->
+                                            <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
+                                            <?php if ($row['status'] == 'encontrado'): ?>
+                                                <!-- Caso seja um objeto achado -->
+                                                <li><button class="dropdown-item" onclick="openConfirmPopup()">Reivindicar
+                                                        item</button></li>
+                                            <?php else: ?>
+                                                <!-- Caso seja um objeto perdido -->
+                                                <li><button class="dropdown-item" onclick="openConfirmPopupItemPerdido()">Entrar em
+                                                        contato com usuário</button></li>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
                         <div class="conteudo-principal">
-                            <h2 class="titulo">
-                                <?php echo htmlspecialchars($row['titulo']); ?>
-                            </h2>
+                            <h2 class="titulo"><?php echo htmlspecialchars($row['titulo']); ?></h2>
                             <div class="midia">
                                 <?php if ($row['imagem']): ?>
                                     <?php if (strpos($row['tipo_imagem'], 'image') === 0): ?>
@@ -143,18 +168,23 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                 <button class="tp_publicacao">
                                     <?php echo htmlspecialchars($row['status'] == 'encontrado' ? 'objeto achado' : 'objeto perdido'); ?>
                                 </button>
-                                <button class="tag-item">
-                                    <?php echo htmlspecialchars($row['categoria']); ?>
-                                </button>
+                                <button class="tag-item"><?php echo htmlspecialchars($row['categoria']); ?></button>
                             </div>
-
-
-
-
+                            <div class="acoes">
+                                <?php if ($row['usuario_id'] != $_SESSION['id']): ?>
+                                    <!-- Verifica se a postagem não pertence ao usuário logado -->
+                                    <?php if ($row['status'] == 'encontrado'): ?>
+                                        <!-- Caso seja um objeto encontrado -->
+                                        <button class="e-meu" onclick="openConfirmPopup()">é meu !</button>
+                                    <?php elseif ($row['status'] == 'perdido'): ?>
+                                        <!-- Caso seja um objeto perdido -->
+                                        <button class="encontrei" onclick="openConfirmPopupItemPerdido()">encontrei !</button>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </div>
 
                         </div>
                     </div>
-
                 <?php endwhile; ?>
 
 
