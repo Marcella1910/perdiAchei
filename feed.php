@@ -92,8 +92,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                 <?php while ($row = $result->fetch_assoc()): ?>
 
 
-                    <?php var_dump($row); ?> <!-- Aqui você vê os dados de cada linha -->
-
+                    
                     <?php $postId = $row['id']; ?> <!-- Garantindo que $postId está correto -->
                     <div class="post">
                         <div class="post-header">

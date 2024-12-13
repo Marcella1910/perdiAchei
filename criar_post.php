@@ -24,12 +24,15 @@ if (isset($_FILES['media']) && $_FILES['media']['size'] > 0) {
     $tipo_imagem = $_FILES['media']['type'];
 }
 
-// Inserir dados no banco de dados
-$sql = $conn->prepare("
-    INSERT INTO posts (titulo, descricao, categoria_id, status, imagem, tipo_imagem, usuario_id) 
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-");
-$sql->bind_param("ssisssi", $titulo, $descricao, $categoria_id, $status, $media, $tipo_imagem, $usuario_id);
+
+$sql = $conn->prepare("INSERT INTO posts (titulo, descricao, categoria_id, status, usuario_id) VALUES (?, ?, ?, ?, ?)");
+
+if ($sql === false) {
+    die('Erro ao preparar a consulta: ' . $conn->error);
+}
+
+$sql->bind_param("ssisi", $titulo, $descricao, $categoria_id, $status, $usuario_id);
+
 
 if ($sql->execute()) {
     echo "Postagem criada com sucesso!";
