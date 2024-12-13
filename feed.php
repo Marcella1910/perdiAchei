@@ -89,7 +89,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                     <?php $postId = $row['id']; ?> <!-- Garantindo que $postId está correto -->
                     <div class="post">
                         <div class="post-header">
-                            <div class="pfp-post clickable-profile">
+                            <div class="pfp-post">
                                 <?php
                                 // Exibe a foto do usuário ou uma imagem padrão
                                 if ($row['foto_perfil'] && file_exists($row['foto_perfil'])) {
@@ -102,7 +102,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                             <div class="perfil-post">
                                 <?php
                                 // Exibe o nome do usuário associado
-                                echo "<p class='nome clickable-profile'>" . htmlspecialchars($row['nome']) . "</p>";
+                                echo "<p class='nome'>" . htmlspecialchars($row['nome']) . "</p>";
                                 ?>
                                 <p class="data-post"><?php echo date("d/m/Y", strtotime($row['data_criacao'])); ?></p>
                             </div>
@@ -162,6 +162,19 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                 </button>
                                 <button class="tag-item"><?php echo htmlspecialchars($row['categoria']); ?></button>
                             </div>
+                            <div class="acoes">
+                                <?php if ($row['usuario_id'] != $_SESSION['id']): ?>
+                                    <!-- Verifica se a postagem não pertence ao usuário logado -->
+                                    <?php if ($row['status'] == 'encontrado'): ?>
+                                        <!-- Caso seja um objeto encontrado -->
+                                        <button class="e-meu" onclick="openConfirmPopup()">é meu !</button>
+                                    <?php elseif ($row['status'] == 'perdido'): ?>
+                                        <!-- Caso seja um objeto perdido -->
+                                        <button class="encontrei" onclick="openConfirmPopupItemPerdido()">encontrei !</button>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </div>
+
                         </div>
                     </div>
                 <?php endwhile; ?>
