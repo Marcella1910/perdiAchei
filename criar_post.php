@@ -12,7 +12,7 @@ if (!isset($_SESSION['id'])) {
 
 $titulo = $_POST['titulo'];
 $descricao = $_POST['descricao'];
-$categoria = $_POST['categoria'];
+$categoria_id = $_POST['categoria_id']; // ID da categoria
 $status = $_POST['status'];
 $media = null;
 $tipo_imagem = null;
@@ -26,10 +26,10 @@ if (isset($_FILES['media']) && $_FILES['media']['size'] > 0) {
 
 // Inserir dados no banco de dados
 $sql = $conn->prepare("
-    INSERT INTO posts (titulo, descricao, categoria, status, imagem, tipo_imagem, usuario_id) 
+    INSERT INTO posts (titulo, descricao, categoria_id, status, imagem, tipo_imagem, usuario_id) 
     VALUES (?, ?, ?, ?, ?, ?, ?)
 ");
-$sql->bind_param("ssssssi", $titulo, $descricao, $categoria, $status, $media, $tipo_imagem, $usuario_id);
+$sql->bind_param("ssisssi", $titulo, $descricao, $categoria_id, $status, $media, $tipo_imagem, $usuario_id);
 
 if ($sql->execute()) {
     echo "Postagem criada com sucesso!";

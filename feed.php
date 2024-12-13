@@ -4,17 +4,21 @@ session_start();
 include_once 'dbconnect.php';
 include_once 'validaSessao.php';
 
-// Consulta SQL para buscar posts e dados do usuário associado
-$result = $conn->query("
-    SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, 
-           posts.tipo_imagem, posts.data_criacao, posts.usuario_id, usuarios.nome, usuarios.foto_perfil
-    FROM posts
-    INNER JOIN usuarios ON posts.usuario_id = usuarios.id
-    ORDER BY posts.data_criacao DESC
-");
 
-if (!$result) {
-    die("Erro na consulta SQL: " . $conn->error);
+// Consulta SQL para buscar posts e dados do usuário associado
+// Consulta SQL para buscar posts, dados do usuário associado e o nome da categoria
+$query = "SELECT posts.id, posts.titulo, posts.descricao, categorias.nome AS categoria, posts.status, 
+                 posts.imagem, posts.tipo_imagem, posts.data_criacao, posts.usuario_id, 
+                 usuarios.nome AS usuario_nome, usuarios.foto_perfil
+          FROM posts
+          INNER JOIN usuarios ON posts.usuario_id = usuarios.id
+          INNER JOIN categorias ON posts.categoria_id = categorias.id
+          ORDER BY posts.data_criacao DESC";
+
+$result = $conn->query($query);
+
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
 }
 
 date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário desejado
@@ -86,6 +90,10 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             <div id="todos" class="section active">
 
                 <?php while ($row = $result->fetch_assoc()): ?>
+
+
+                    <?php var_dump($row); ?> <!-- Aqui você vê os dados de cada linha -->
+
                     <?php $postId = $row['id']; ?> <!-- Garantindo que $postId está correto -->
                     <div class="post">
                         <div class="post-header">
