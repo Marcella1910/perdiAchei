@@ -24,6 +24,8 @@ $result = $conn->query("SELECT id, nome FROM categorias");
         <div class="botoes">
             <button type="submit" class="createPostBtn" id="createPostBtn">criar publicação</button>
             <div class="botoes-ladodir">
+                
+
                 <!-- Select dinâmico para categorias -->
                 <select name="categoria_id" class="select-tags" id="select-tags">
                     <option value="" disabled selected>Escolha uma categoria</option>

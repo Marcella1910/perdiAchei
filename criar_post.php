@@ -20,19 +20,20 @@ $usuario_id = $_SESSION['id']; // Pega o ID do usuário logado
 
 // Verifica se um arquivo foi enviado
 if (isset($_FILES['media']) && $_FILES['media']['size'] > 0) {
-    $media = file_get_contents($_FILES['media']['tmp_name']);
-    $tipo_imagem = $_FILES['media']['type'];
+    $media = file_get_contents($_FILES['media']['tmp_name']); // Captura o conteúdo do arquivo
+    $tipo_imagem = $_FILES['media']['type']; // Captura o tipo do arquivo
 }
 
-
-$sql = $conn->prepare("INSERT INTO posts (titulo, descricao, categoria_id, status, usuario_id) VALUES (?, ?, ?, ?, ?)");
+// Ajusta a query para incluir os campos imagem e tipo_imagem
+$sql = $conn->prepare("INSERT INTO posts (titulo, descricao, categoria_id, status, usuario_id, imagem, tipo_imagem) 
+                       VALUES (?, ?, ?, ?, ?, ?, ?)");
 
 if ($sql === false) {
     die('Erro ao preparar a consulta: ' . $conn->error);
 }
 
-$sql->bind_param("ssisi", $titulo, $descricao, $categoria_id, $status, $usuario_id);
-
+// Adicione "b" para tipos binários (imagem)
+$sql->bind_param("ssisiss", $titulo, $descricao, $categoria_id, $status, $usuario_id, $media, $tipo_imagem);
 
 if ($sql->execute()) {
     echo "Postagem criada com sucesso!";
