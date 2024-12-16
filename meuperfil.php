@@ -5,16 +5,13 @@ include_once 'dbconnect.php';
 include_once 'validaSessao.php';
 
 
-$query = "SELECT posts.id, posts.titulo, posts.descricao, categorias.nome AS categoria,
-          posts.status, posts.imagem, posts.tipo_imagem, posts.data_criacao, posts.usuario_id,
-          usuarios.nome AS usuario_nome, usuarios.foto_perfil
-          FROM posts
-          INNER JOIN usuarios ON posts.usuario_id = usuarios.id
-          LEFT JOIN categorias ON posts.categoria_id = categorias.id
-          ORDER BY posts.data_criacao DESC";
-
-
-$result = $conn->query($query);
+$result = $conn->query("
+    SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, 
+           posts.tipo_imagem, posts.data_criacao, posts.usuario_id, usuarios.nome, usuarios.foto_perfil
+    FROM posts
+    INNER JOIN usuarios ON posts.usuario_id = usuarios.id
+    ORDER BY posts.data_criacao DESC
+");
 
 if (!$result) {
     die("Erro na consulta SQL: " . $conn->error);

@@ -4,30 +4,17 @@ session_start();
 include_once 'dbconnect.php';
 include_once 'validaSessao.php';
 
-
 // Consulta SQL para buscar posts e dados do usuário associado
-// Consulta SQL para buscar posts, dados do usuário associado e o nome da categoria
-$query = "SELECT posts.id, posts.titulo, posts.descricao, categorias.nome AS categoria,
-          posts.status, posts.imagem, posts.tipo_imagem, posts.data_criacao, posts.usuario_id,
-          usuarios.nome AS usuario_nome, usuarios.foto_perfil
-          FROM posts
-          INNER JOIN usuarios ON posts.usuario_id = usuarios.id
-          LEFT JOIN categorias ON posts.categoria_id = categorias.id
-          ORDER BY posts.data_criacao DESC";
-
-
-$result = $conn->query($query);
+$result = $conn->query("
+    SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, 
+           posts.tipo_imagem, posts.data_criacao, posts.usuario_id, usuarios.nome, usuarios.foto_perfil
+    FROM posts
+    INNER JOIN usuarios ON posts.usuario_id = usuarios.id
+    ORDER BY posts.data_criacao DESC
+");
 
 if (!$result) {
     die("Erro na consulta SQL: " . $conn->error);
-}
-
-if (!isset($_SESSION['id'])) {
-    die("Erro: Sessão do usuário não iniciada.");
-}
-
-if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
 }
 
 date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário desejado
@@ -98,10 +85,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
             <div id="todos" class="section active">
 
-                
-
                 <?php while ($row = $result->fetch_assoc()): ?>
-
                     <?php $postId = $row['id']; ?> <!-- Garantindo que $postId está correto -->
                     <div class="post">
                         <div class="post-header">
@@ -155,7 +139,6 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                         <div class="conteudo-principal">
                             <h2 class="titulo"><?php echo htmlspecialchars($row['titulo']); ?></h2>
                             <div class="midia">
-
                                 <?php if ($row['imagem']): ?>
                                     <?php if (strpos($row['tipo_imagem'], 'image') === 0): ?>
                                         <img class="imagem-post"
