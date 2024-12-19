@@ -549,7 +549,11 @@ const submitButton = document.querySelector(".submit-button");
 if (deletePostModal && excluirPostagemForm && cancelButton && submitButton) {
 
     // Função para abrir o modal
-    function openDeletePostModal() {
+    function openDeletePostModal(postId) {
+        const postIdInput = excluirPostagemForm.querySelector("input[name = 'id']");
+        if(postIdInput) {
+            postIdInput.value = postId; //Define o ID da postagem no campo oculto
+        }
         deletePostModal.style.display = "flex";
     }
 
@@ -564,8 +568,28 @@ if (deletePostModal && excluirPostagemForm && cancelButton && submitButton) {
     // Evento para fechamento adicional ou lógica de exclusão ao confirmar com o botão "Ok"
     excluirPostagemForm.onsubmit = function (event) {
         event.preventDefault(); // Evita o envio padrão do formulário
-        closeDeletePost();
-        // Adicione aqui a lógica para excluir a postagem, se necessário
+
+        const formData = new FormData(excluirPostagemForm);
+
+        fetch("excluiPostagem.php", {
+            method: "POST",
+            body: formData,
+        })
+        .then(response => response.text())
+        .then(result => {
+            alert(result); //Exibe o conteudo da exclusão
+            closeDeletePost(); // Adicione aqui a lógica para excluir a postagem, se necessário
+
+            //Remove o elemento do feed(opcional, com base no ID)
+            const postId = formData.get("id");
+            const postElement = document.getElementById(`post-${postId}`);
+            if(postElement) {
+                postElement.remove();
+            }
+        })
+        .catch(error => {
+            console.error("Erro ao excluir a postagem: ", error);
+        });
     };
 
     // Fecha o modal ao clicar fora do conteúdo
@@ -574,6 +598,8 @@ if (deletePostModal && excluirPostagemForm && cancelButton && submitButton) {
             closeDeletePost();
         }
     };
+} else {
+    console.error("Elementos necessários não encontrados para o modal de exclusão.")
 }
 
 function openConfirmPopupItemPerdido() {
