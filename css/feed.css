@@ -25,7 +25,6 @@ body {
     align-items: center;
     background-color: transparent;
     padding: 10px;
-    color: white;
     position: fixed;
     width: 100%;
     top: 0;
@@ -46,37 +45,74 @@ body {
     font-size: 15px;
     margin-left: 1rem;
     margin-top: 0.5rem;
+    width: 20%;
+}
+
+.navbar .nomeusuario {
+    margin-left: 10px;
+    font-family: "Varela Round";
+    font-size: 15px;
+    color: #8f8f8f;
+    font-weight: 200;
+    cursor: pointer;
 }
 
 
-
-.navbar img {
-    width: 2rem;
-    margin-left: 5rem;
-}
-
-.navbar .search-bar {
+.navbar .perfil-navbar {
     display: flex;
-    justify-content: space-between;
+    padding-left: 1rem;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    width: 20%;
     
+}
+
+.navbar .ftperfil-navbar {
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  /* Sombra leve */
+    cursor: pointer;
+    border: 2px solid #dfdfdf;
+}
+
+.navbar .ftperfil-navbar .pfpnavbar {
+    width: 100%;
+    height: 100%;
+   
+}
+
+.search-bar {
+    display: flex;
     color: #837373;
     background-color: #efc5c5;
-    border-radius: 20px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 400;
     padding: 12px;
+    width: auto;
+    margin-bottom: 1rem;
     
 }
 
-.navbar input[type="text"] {
+.search-bar input[type="text"] {
     font-family: "Varela Round", sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: 15px;
     padding-left: 4px;
     background-color: transparent;
     margin-left: 5px;
     border: none;
     border-radius: 20px;
-    width: 270px;
+    width: 100%;
     outline: none;
+    color: #706c6c;
 }
 
 .container {

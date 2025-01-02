@@ -54,6 +54,11 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             <!-- Painel de notificações -->
             <?php include 'notifications-painel.php' ?>
 
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="pesquisar um item...">
+            </div>
+
             <!-- Criar post formulário  -->
             <?php include 'create-post-form.php'; ?>
 
@@ -496,6 +501,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                 echo "<h2 class='username clickable-profile'><u>@{$_SESSION['usuario']}</u></h2>";
                 ?>
             </div>
+
         </div>
 
 
