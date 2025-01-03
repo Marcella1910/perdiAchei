@@ -4,6 +4,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    position: fixed;
+    top: 10px; /* Distância do canto inferior */
+    right: 0;  /* Distância do canto direito */
+    z-index: 100000;
 }
 
 #accessibility-bar {
@@ -18,7 +22,8 @@
 #ativa-barra {
     width: 40px;                 /* Defina a largura do círculo */
     height: 40px;                /* Defina a altura igual à largura para manter o formato circular */
-    border-radius: 50%;          /* Faz o botão ficar circular */
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     border: none; 
     font-size: 20px;               /* Remove a borda padrão do botão */
     background-color: #ccc;
@@ -41,11 +46,12 @@
     background-color: white;
     color: #555;
     border: none;
-    padding: 8px;
-    margin: 5px;
+    padding: 5px;
+    margin: 3px;
     cursor: pointer;
     border-radius: 5px;
     font-family: "Poppins";
+    font-size: 13px;
     font-weight: 600;
     transition: 0.2s all ease;
     border: 2px solid #ccc;
