@@ -23,10 +23,6 @@
             <!--Mostrar nome do usuário da sessão-->
             <input type="text" id="editName" name="editName" placeholder="Nome"
                 value="<?php echo $_SESSION['nome']; ?>">
-            
-            <!--Mostrar username do usuário da sessão-->
-            <input type="text" id="editUserName" name="editUserName" placeholder="Username"
-                value="<?php echo $_SESSION['usuario']; ?>">
 
 
             <div class="footerEditPerfilModal">

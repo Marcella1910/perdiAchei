@@ -19,7 +19,7 @@ include_once 'validaSessao.php';
 
     <!-- Estilos e scripts da barra -->
     <link rel="stylesheet" href="css/barra-acessibilidade.css">
-    <script src="js/barra-acessibilidade.js" defer></script>
+    <!-- <script src="js/barra-acessibilidade.js" defer></script> -->
 
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
 </head>
@@ -46,13 +46,8 @@ include_once 'validaSessao.php';
             <!--configurações-->
             <div class="config-conta">
                 <h3>Conta</h3>
-                <div class="email-conta">
-                    <h4>Email</h4>
-                    <!--Pega o email cadastrado da sessao e mostra na tela-->
-                    <?php echo "<h4 class='user-email' id='user-email'><u>{$_SESSION['email']}</u></h4>"; ?>
-
-                    <button onclick="openModal()" class="mudarEmailBtn"><i class="fa-solid fa-pen-to-square"></i></button>
-                </div>
+                
+                    
                 <div class="senha-conta">
                     <h4>Senha</h4>
                     <h4 class="user-senha" id="user-senha">••••••••••</h4>
@@ -64,6 +59,8 @@ include_once 'validaSessao.php';
                     <h4>Excluir conta</h4>
                     <button onclick="openModalDeleteAccount()" class="excluir-conta-btn">excluir conta</button>
                 </div>
+
+
 
             </div>
 
@@ -104,43 +101,17 @@ include_once 'validaSessao.php';
 
         </div>
 
+        <!-- Modal de editar perfil  -->
+        <?php include 'editPerfilModal.php'; ?>
+
+        
         <!-- Right Menu -->
-        <div class="right-menu-configuracoes">
-            <aside>
-
-                <h3 class="tituloconfiguracoes">Configurações</h3>
-                <!-- Link para a página de feed(Home) -->
-                <a href="configuracoes.php" class="menu-item active">
-                    <h3 class="nome-menu-item">Conta</h3>
-                    <h4>O principal</h4>
-                </a>
-
-                <!-- Link para a página de Configurações -->
-                <a href="tela-e-painel.php" class="menu-item">
-                    <h3 class="nome-menu-item">Painel</h3>
-                    <h4>Tela e acessibilidade</h4>
-                </a>
-
-                <!-- Botão de criar postagem -->
-
-
-                <!-- Link para fazer logout; -->
-                <a href="notificacoes.php" class="menu-item">
-                    <h3>Notificações</h3>
-                    <h4>Receba atualizações por e-mail</h4>
-                </a>
-
-                <!-- Essa div leva para a página de avaliação -->
-
-                <!-- Fim da div de avaliação -->
-
-            </aside>
-
-        </div>
+        <?php include 'right-menu.php'; ?>
 
     </div>
 
     <script src="js/configuracoes.js"></script>
+
 </body>
 
 </html>

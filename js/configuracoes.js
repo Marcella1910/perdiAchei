@@ -1,4 +1,48 @@
 // Página de configurações 
+const clickableElements = document.querySelectorAll('.clickable-profile');
+
+// Adiciona um evento de clique em cada um deles
+clickableElements.forEach(element => {
+    element.addEventListener('click', function () {
+        // Redireciona para a página meuperfil.php
+        window.location.href = 'meuperfil.php';
+    });
+});
+
+function openEditProfile() {
+    const modal = document.getElementById('editPerfilModal');
+    if (modal) {  // Verifica se o modal existe
+        modal.style.display = 'flex';
+    }
+}
+
+function closeEditProfile() {
+    const modal = document.getElementById('editPerfilModal');
+    if (modal) {  // Verifica se o modal existe
+        modal.style.display = 'none';
+    }
+
+}
+
+const profileUpload = document.getElementById("profile-upload");
+const profileImage = document.getElementById("profile-image");
+
+if (profileUpload && profileImage) { // Verifica se ambos os elementos existem
+    profileUpload.addEventListener("change", function () {
+        const file = profileUpload.files[0]; // Obtém o arquivo selecionado
+        if (file && file.type.startsWith("image/")) { // Verifica se é uma imagem
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                profileImage.src = e.target.result; // Atualiza a imagem de visualização
+            };
+            reader.readAsDataURL(file); // Lê o arquivo como uma URL de dados
+        } else {
+            console.error("Por favor, selecione um arquivo de imagem.");
+        }
+    });
+} else {
+    console.error("Elemento 'profile-upload' ou 'profile-image' não encontrado.");
+}
 
 function openModal() {
     document.getElementById('deleteModal').style.display = 'flex';

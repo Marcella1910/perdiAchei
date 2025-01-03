@@ -86,7 +86,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                     ?>
                     <!--Mostrar username do usuário da sessão-->
                     <?php
-                    echo "<h3 class = 'username'> @<u>{$_SESSION['usuario']}</u></h3>";
+                    echo "<h3 class = 'username'><u>{$_SESSION['email']}</u></h3>";
                     ?>
 
                 </div>

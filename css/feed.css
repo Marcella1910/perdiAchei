@@ -50,10 +50,10 @@ body {
 
 .navbar .nomeusuario {
     margin-left: 10px;
-    font-family: "Varela Round";
+    font-family: "Poppins";
     font-size: 15px;
     color: #8f8f8f;
-    font-weight: 200;
+    font-weight: 400;
     cursor: pointer;
 }
 

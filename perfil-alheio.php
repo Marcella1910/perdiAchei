@@ -64,7 +64,7 @@ include_once 'validaSessao.php';
 
                 <div class="middle-perfil">
                     <h2 class="nome">chuu</h2>
-                    <h3 class="username">@chuu</h3>
+                    <h3 class="username">chuu@gmail.com</h3>
 
                 </div>
 

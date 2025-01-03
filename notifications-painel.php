@@ -2,7 +2,7 @@
 <div class="notification-panel">
     <div class="notification-header">
         <?php
-        echo "<h2 class='username'> @<u>{$_SESSION['usuario']}</u></h2>";
+        echo "<h2 class='username'> <u>{$_SESSION['nome']}</u></h2>";
         ?>
     </div>
     <ul class="notification-list">
