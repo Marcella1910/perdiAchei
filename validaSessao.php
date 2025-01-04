@@ -22,6 +22,8 @@ if ($result->num_rows == 1) {
     $_SESSION["nome"] = $user["nome"];
     $_SESSION["usuario"] = $user["usuario"];
     $_SESSION["email"] = $user["email"];
+    $_SESSION['foto_perfil'] = $user['foto_perfil'];  // Atualize com o caminho correto do BD
+
 } else {
     // Token inválido ou expirado
     setcookie("auth_token", "", time() - 3600, "/"); // Remove o cookie

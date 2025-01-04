@@ -8,8 +8,23 @@
     <div class="centro-menu-right">
         <div class="ftperfil clickable-profile">
             <?php
+            // Certifique-se de que a conexão com o banco está ativa
+            if (!isset($conn)) {
+                include 'db_connection.php';  // ou o caminho correto do arquivo de conexão
+            }
+
+            // Atualiza a sessão com a foto do banco de dados
+            $idUsuario = $_SESSION['id'];
+            $result = $conn->query("SELECT foto_perfil FROM usuarios WHERE id = $idUsuario");
+
+            if ($result->num_rows > 0) {
+                $usuario = $result->fetch_assoc();
+                $_SESSION['foto_perfil'] = $usuario['foto_perfil'];
+            }
+
+            // Exibe a foto de perfil
             if (isset($_SESSION['foto_perfil']) && file_exists($_SESSION['foto_perfil'])) {
-                echo '<img src="' . $_SESSION['foto_perfil'] . '" alt="Profile Picture">';
+                echo '<img src="' . htmlspecialchars($_SESSION['foto_perfil']) . '" alt="Profile Picture">';
             } else {
                 echo '<img src="img/userspfp/usericon.jpg" alt="Profile Picture">';
             }
@@ -17,9 +32,8 @@
         </div>
 
         <?php
-        echo "<h2 class='nome clickable-profile'>{$_SESSION['nome']}</h2>";
-        echo "<h2 class='username clickable-profile'><u>{$_SESSION['email']}</u></h2>";
+        echo "<h2 class='nome clickable-profile'>" . htmlspecialchars($_SESSION['nome']) . "</h2>";
+        echo "<h2 class='username clickable-profile'><u>" . htmlspecialchars($_SESSION['email']) . "</u></h2>";
         ?>
     </div>
-
 </div>

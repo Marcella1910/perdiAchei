@@ -5,8 +5,10 @@ include_once 'dbconnect.php';
 // Verificar se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userId = $_SESSION['id']; // Identifica o usuário logado
-    $nome = $conn->real_escape_string($_POST['editName']);
-    $usuario = $conn->real_escape_string($_POST['editUserName']);
+    
+    // Verificar se os campos existem antes de acessá-los
+    $nome = isset($_POST['editName']) ? $conn->real_escape_string($_POST['editName']) : $_SESSION['nome'];
+    $usuario = isset($_POST['editUserName']) ? $conn->real_escape_string($_POST['editUserName']) : $_SESSION['usuario'];
     
     $fotoPerfilPath = null;
 
@@ -24,8 +26,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    // Verificar se o campo usuário está vazio
+    if (!empty($usuario)) {
+        // Verificar se o nome de usuário já existe
+        $checkQuery = "SELECT id FROM usuarios WHERE usuario = '$usuario' AND id != $userId";
+        $checkResult = $conn->query($checkQuery);
+        
+        if ($checkResult->num_rows > 0) {
+            echo "Erro: Nome de usuário já está em uso.";
+            exit();
+        }
+    }
+
     // Montar a query de atualização
-    $sql = "UPDATE usuarios SET nome = '$nome', usuario = '$usuario'";
+    $sql = "UPDATE usuarios SET nome = '$nome'";
+    if (!empty($usuario)) {
+        $sql .= ", usuario = '$usuario'";
+    }
     if ($fotoPerfilPath) {
         $sql .= ", foto_perfil = '$fotoPerfilPath'";
     }
