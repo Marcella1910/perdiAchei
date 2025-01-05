@@ -7,8 +7,9 @@
             devolução. Todas as informações fornecidas serão enviadas por e-mail ao proprietário, e seu
             endereço de e-mail cadastrado será compartilhado para que ele possa confirmar a troca. Fique
             atento à sua caixa de entrada para acompanhar a comunicação.</p>
-        <form id="contactFormItemPerdido" action="handle_contact.php" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="postId" value="<?php echo $postId; ?>" />
+            <form id="contactFormItemPerdido" action="handle_contact.php" method="post" enctype="multipart/form-data"> 
+                <input type="hidden" name="postId" value="" />
+
 
             <textarea id="contactReasonItemPerdido" name="contactReasonItemPerdido"
                 placeholder="como deseja devolver este item?" required></textarea><br>
