@@ -1,41 +1,47 @@
 <?php
-// Inclua o arquivo do PHPMailer manualmente (ajuste o caminho conforme a pasta onde você colocou os arquivos)
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/SMTP.php';
 
-// Função para enviar o e-mail
-function sendEmail($toEmail, $fromEmail, $subject, $message, $attachment = null) {
-    $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+function sendEmail($fromEmail, $toEmail, $subject, $messageBody, $attachmentPath = null) {
+    $mail = new PHPMailer(true);
 
     try {
-        // Configuração do servidor de e-mail
+        // Configuração do servidor SMTP
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';  // Servidor SMTP
+        $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'projetoperdiachei@gmail.com';  // Seu e-mail
-        $mail->Password = 'projetoPerdiachei1504';  // Senha do aplicativo do Gmail
-        $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Username = 'perdiachei.projeto@gmail.com'; // Substitua pelo seu e-mail
+        $mail->Password = 'ggylgzrgepjyngwo';   // Substitua pela senha de aplicativo do Gmail
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
-        // Remetente e destinatário
-        $mail->setFrom($fromEmail, 'PerdiAchei');
-        $mail->addAddress($toEmail);
+        // Configurações do remetente e destinatário
+        $mail->setFrom($fromEmail, 'PerdiAchei'); // Remetente
+        $mail->addAddress($toEmail);             // Destinatário
 
-        // Assunto e corpo do e-mail
+        // Conteúdo do e-mail
+        $mail->isHTML(true);
         $mail->Subject = $subject;
-        $mail->Body = $message;
+        $mail->Body = $messageBody;
 
-        // Envio do arquivo anexo, se fornecido
-        if ($attachment) {
-            $mail->addAttachment($attachment);
+        // Adiciona anexo, se fornecido
+        if ($attachmentPath && file_exists($attachmentPath)) {
+            $mail->addAttachment($attachmentPath);
         }
 
         // Envia o e-mail
         $mail->send();
-        echo 'Mensagem enviada com sucesso!';
-    } catch (PHPMailer\PHPMailer\Exception $e) {
-        echo "Erro ao enviar mensagem: {$mail->ErrorInfo}";
+        echo "Debug: E-mail enviado para $toEmail<br>"; // Mensagem de depuração
+        return true;
+    } catch (Exception $e) {
+        echo "Debug: Erro ao enviar mensagem: " . $mail->ErrorInfo . "<br>"; // Mensagem de depuração
+        throw new Exception("Erro ao enviar mensagem: " . $mail->ErrorInfo);
     }
+
+    
 }
 ?>
