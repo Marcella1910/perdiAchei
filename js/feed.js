@@ -633,11 +633,22 @@ function handleDeletePost(event) {
 //     console.error("Elementos necessários não encontrados para o modal de exclusão.")
 // }
 
-function openConfirmPopupItemPerdido() {
-    document.getElementById("confirmModalItemPerdido").style.display = "flex";
+function openConfirmPopupItemPerdido(postId) {
+    console.log("Debug: postId recebido: " + postId); // Mensagem de depuração
+    // Defina o valor do postId no campo oculto do formulário e exiba a confirmação
+    document.querySelector('#confirmModalItemPerdido').style.display = 'flex';
+    document.getElementById('confirmModalItemPerdido').dataset.postId = postId; // Armazena o postId como um dataset no elemento de confirmação
 }
+
+
 // Função para abrir o modal de formulário após confirmar no modal de confirmação
 function openFormPopupItemPerdido() {
+    // Obtém o postId do dataset do elemento de confirmação
+    const postId = document.getElementById('confirmModalItemPerdido').dataset.postId;
+    console.log("Debug: postId passado para o formulário: " + postId); // Mensagem de depuração
+    // Define o valor do postId no campo oculto do formulário
+    document.querySelector('#contactFormItemPerdido input[name="postId"]').value = postId;
+    // Esconde a confirmação e exibe o formulário de contato
     document.getElementById("confirmModalItemPerdido").style.display = "none";
     document.getElementById("formModalItemPerdido").style.display = "flex";
 }
