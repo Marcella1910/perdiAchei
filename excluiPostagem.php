@@ -1,28 +1,39 @@
 <?php
+session_start();
+var_dump($_POST);
+include_once 'dbconnect.php';
 
-include_once "dbconnect.php";
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['id'])) {
-        $postId = $_POST['id'];
-
-        // Preparar a query para excluir a postagem
-        $query = "DELETE FROM posts WHERE id = :id";
-        $stmt = $pdo->prepare($query);
-
-        // Bind do parâmetro
-        $stmt->bindParam(':id', $postId, PDO::PARAM_INT);
-
-        // Executa a query
-        if ($stmt->execute()) {
-            echo "Postagem excluída com sucesso!";
-        } else {
-            echo "Erro ao excluir a postagem.";
-        }
-    } else {
-        echo "ID da postagem não foi fornecido.";
-    }
-} else {
-    echo "Método HTTP inválido.";
+// Verifica se o ID da postagem foi enviado
+if (!isset($_POST['id']) || empty($_POST['id'])) {
+    die("Erro: ID da postagem não fornecido.");
 }
+
+$postId = $_POST['id'];
+$usuarioId = $_SESSION['id']; // ID do usuário logado
+
+// Consulta para verificar se a postagem pertence ao usuário logado
+$checkSql = $conn->prepare("SELECT * FROM posts WHERE id = ? AND usuario_id = ?");
+$checkSql->bind_param("ii", $postId, $usuarioId);
+$checkSql->execute();
+$result = $checkSql->get_result();
+
+if ($result->num_rows === 0) {
+    die("Erro: Postagem não encontrada ou você não tem permissão para excluí-la.");
+}
+
+// Excluir a postagem
+$deleteSql = $conn->prepare("DELETE FROM posts WHERE id = ?");
+$deleteSql->bind_param("i", $postId);
+
+if ($deleteSql->execute()) {
+    echo "Postagem excluída com sucesso!";
+} else {
+    echo "Erro ao excluir a postagem: " . $conn->error;
+}
+
+$deleteSql->close();
+$conn->close();
+
+header("Location: feed.php");
+exit();
 ?>

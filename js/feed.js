@@ -539,68 +539,99 @@ if (profileUpload && profileImage) { // Verifica se ambos os elementos existem
     console.error("Elemento 'profile-upload' ou 'profile-image' não encontrado.");
 }
 
-// Seleciona o modal e o formulário, se existirem
-const deletePostModal = document.getElementById("deletePostModal");
-const excluirPostagemForm = document.getElementById("excluirPostagemForm");
-const cancelButton = document.querySelector(".cancel-button");
-const submitButton = document.querySelector(".submit-button");
 
-// Verifica se todos os elementos existem antes de adicionar eventos e lógica
-if (deletePostModal && excluirPostagemForm && cancelButton && submitButton) {
-
-    // Função para abrir o modal
-    function openDeletePostModal(postId) {
-        const postIdInput = excluirPostagemForm.querySelector("input[name = 'id']");
-        if(postIdInput) {
-            postIdInput.value = postId; //Define o ID da postagem no campo oculto
-        }
-        deletePostModal.style.display = "flex";
+function openDeletePostModal(postId) {
+    console.log("ID da postagem a ser excluída:", postId);  // Teste se o ID está correto
+    const modal = document.getElementById('deletePostModal');
+    const postIdInput = document.getElementById('postIdToDelete');
+        
+    if (postIdInput) {
+        postIdInput.value = postId;
     }
+        
+    modal.style.display = 'flex';
+}    
 
-    // Função para fechar o modal
-    function closeDeletePost() {
-        deletePostModal.style.display = "none";
-    }
 
-    // Evento para fechar o modal ao clicar no botão "Cancelar"
-    cancelButton.onclick = closeDeletePost;
-
-    // Evento para fechamento adicional ou lógica de exclusão ao confirmar com o botão "Ok"
-    excluirPostagemForm.onsubmit = function (event) {
-        event.preventDefault(); // Evita o envio padrão do formulário
-
-        const formData = new FormData(excluirPostagemForm);
-
-        fetch("excluiPostagem.php", {
-            method: "POST",
-            body: formData,
-        })
-        .then(response => response.text())
-        .then(result => {
-            alert(result); //Exibe o conteudo da exclusão
-            closeDeletePost(); // Adicione aqui a lógica para excluir a postagem, se necessário
-
-            //Remove o elemento do feed(opcional, com base no ID)
-            const postId = formData.get("id");
-            const postElement = document.getElementById(`post-${postId}`);
-            if(postElement) {
-                postElement.remove();
-            }
-        })
-        .catch(error => {
-            console.error("Erro ao excluir a postagem: ", error);
-        });
-    };
-
-    // Fecha o modal ao clicar fora do conteúdo
-    window.onclick = function (event) {
-        if (event.target === deletePostModal) {
-            closeDeletePost();
-        }
-    };
-} else {
-    console.error("Elementos necessários não encontrados para o modal de exclusão.")
+function closeDeletePost() {
+    const modal = document.getElementById('deletePostModal');
+    modal.style.display = 'none';
 }
+
+function handleDeletePost(event) {
+    const postId = document.getElementById('postIdToDelete').value;
+
+    if (!postId) {
+        event.preventDefault();
+        alert("Erro: Nenhuma postagem foi selecionada para exclusão.");
+        return false;
+    }
+    return true;
+}
+
+
+// Seleciona o modal e o formulário, se existirem
+// const deletePostModal = document.getElementById("deletePostModal");
+// const excluirPostagemForm = document.getElementById("excluirPostagemForm");
+// const cancelButton = document.querySelector(".cancel-button");
+// const submitButton = document.querySelector(".submit-button");
+
+// // Verifica se todos os elementos existem antes de adicionar eventos e lógica
+// if (deletePostModal && excluirPostagemForm && cancelButton && submitButton) {
+
+//     // Função para abrir o modal
+//     function openDeletePostModal(postId) {
+//         const postIdInput = excluirPostagemForm.querySelector("input[name = 'id']");
+//         if(postIdInput) {
+//             postIdInput.value = postId; //Define o ID da postagem no campo oculto
+//         }
+//         deletePostModal.style.display = "flex";
+//     }
+
+//     // Função para fechar o modal
+//     function closeDeletePost() {
+//         deletePostModal.style.display = "none";
+//     }
+
+//     // Evento para fechar o modal ao clicar no botão "Cancelar"
+//     cancelButton.onclick = closeDeletePost;
+
+//     // Evento para fechamento adicional ou lógica de exclusão ao confirmar com o botão "Ok"
+//     excluirPostagemForm.onsubmit = function (event) {
+//         event.preventDefault(); // Evita o envio padrão do formulário
+
+//         const formData = new FormData(excluirPostagemForm);
+
+//         fetch("excluiPostagem.php", {
+//             method: "POST",
+//             body: formData,
+//         })
+//         .then(response => response.text())
+//         .then(result => {
+//             alert(result); //Exibe o conteudo da exclusão
+//             closeDeletePost(); // Adicione aqui a lógica para excluir a postagem, se necessário
+
+//             //Remove o elemento do feed(opcional, com base no ID)
+//             const postId = formData.get("id");
+//             const postElement = document.getElementById(`post-${postId}`);
+//             if(postElement) {
+//                 postElement.remove();
+//             }
+//         })
+//         .catch(error => {
+//             console.error("Erro ao excluir a postagem: ", error);
+//         });
+//     };
+
+//     // Fecha o modal ao clicar fora do conteúdo
+//     window.onclick = function (event) {
+//         if (event.target === deletePostModal) {
+//             closeDeletePost();
+//         }
+//     };
+// } else {
+//     console.error("Elementos necessários não encontrados para o modal de exclusão.")
+// }
 
 function openConfirmPopupItemPerdido() {
     document.getElementById("confirmModalItemPerdido").style.display = "flex";
@@ -725,19 +756,19 @@ function selectProfile(profile) {
     suggestionsContainer.style.display = "none";
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    const formFields = document.querySelectorAll("#editPerfilModal input, #editPerfilModal textarea");
+// document.addEventListener("DOMContentLoaded", function () {
+//     const formFields = document.querySelectorAll("#editPerfilModal input, #editPerfilModal textarea");
 
-    // Carrega os valores salvos do sessionStorage
-    formFields.forEach((field) => {
-        const savedValue = localStorage.getItem(field.name);
-        if (savedValue) {
-            field.value = savedValue;
-        }
+//     // Carrega os valores salvos do sessionStorage
+//     formFields.forEach((field) => {
+//         const savedValue = localStorage.getItem(field.name);
+//         if (savedValue) {
+//             field.value = savedValue;
+//         }
 
-        // Salva o valor no sessionStorage ao alterar
-        field.addEventListener("input", function () {
-            localStorage.setItem(field.name, field.value);
-        });
-    });
-});
+//         // Salva o valor no sessionStorage ao alterar
+//         field.addEventListener("input", function () {
+//             localStorage.setItem(field.name, field.value);
+//         });
+//     });
+// });

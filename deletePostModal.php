@@ -2,7 +2,6 @@
 <div id="deletePostModal" class="modal">
     <div class="modal-content">
         <form id="excluirPostagemForm" method="POST" action="excluiPostagem.php" onsubmit="return handleDeletePost(event)">
-            <input type = "hidden" name = "id" id = "postIdToDelete">
             <h2 class="excluirFormTitulo">
                 Tem certeza que deseja excluir essa publicação?
             </h2>
