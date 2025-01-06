@@ -8,6 +8,5 @@
             <button class="cancelarReport" onclick="closeConfirmPopup()">Cancelar</button>
             <button class="confirm-button" onclick="openFormPopup()">Confirmar</button>
         </div>
-
     </div>
 </div>
