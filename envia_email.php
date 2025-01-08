@@ -35,13 +35,9 @@ function sendEmail($fromEmail, $toEmail, $subject, $messageBody, $attachmentPath
 
         // Envia o e-mail
         $mail->send();
-        echo "Debug: E-mail enviado para $toEmail<br>"; // Mensagem de depuração
         return true;
     } catch (Exception $e) {
-        echo "Debug: Erro ao enviar mensagem: " . $mail->ErrorInfo . "<br>"; // Mensagem de depuração
         throw new Exception("Erro ao enviar mensagem: " . $mail->ErrorInfo);
     }
-
-    
 }
 ?>

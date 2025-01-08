@@ -9,7 +9,7 @@
             em que perdeu o artigo (p. ex. número da sala/data ou horário que perdeu). Tenha cuidado ao
             partilhar dados pessoais.</p>
         <form id="contactForm" action="handle_contact.php" method="post" enctype="multipart/form-data"> 
-                <input type="hidden" name="postId" value="" />
+            <input type="hidden" name="postId" value="" />
 
             <textarea id="contactReason" name="contactReason"
                 placeholder="descreva o motivo de reivindicar este item..." required></textarea><br>
@@ -35,3 +35,8 @@
         </form>
     </div>
 </div>
+<script> 
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    console.log('Formulário foi submetido!');
+}); 
+</script>

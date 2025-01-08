@@ -300,17 +300,18 @@ const contactReasonInput = document.getElementById('contactReason');
 
 if (contactForm && contactReasonInput) {  // Verifica se ambos os elementos existem
     contactForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
-
         const contactReason = contactReasonInput.value;
 
-        if (contactReason.trim() !== "") {
-            closeFormPopup(); // Fecha o modal de formulário após o envio
-        } else {
+        if (contactReason.trim() === "") {
+            event.preventDefault(); // Impede o envio se a validação falhar
             alert("Por favor, insira as informações necessárias.");
+        } else {
+            // Deixa o formulário ser enviado normalmente
+            console.log("Formulário validado e enviado.");
         }
     });
 }
+
 
 function openEditPost(postId) {
     // Faz uma requisição AJAX para carregar os dados da postagem
@@ -785,6 +786,33 @@ function selectProfile(profile) {
     textarea.value = words.join(" ") + " ";
     suggestionsContainer.style.display = "none";
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+
+    // Exibe mensagem de sucesso
+    if (params.has("success") && params.get("success") === "email_sent") {
+        alert("Email enviado com sucesso!");
+    }
+
+    // Exibe mensagem de erro, se houver
+    if (params.has("error")) {
+        const errorMessages = {
+            session: "Sessão não iniciada ou e-mail do usuário não definido.",
+            db_connection: "Erro de conexão com o banco de dados.",
+            missing_data: "Dados do formulário estão faltando.",
+            empty_message: "Por favor, insira uma mensagem válida.",
+            query_preparation: "Erro ao preparar a consulta ao banco de dados.",
+            no_recipient: "Não foi possível encontrar o destinatário para este post.",
+            email_failure: "Erro ao enviar o e-mail.",
+            email_exception: "Ocorreu um problema ao tentar enviar o e-mail."
+        };
+
+        const errorKey = params.get("error");
+        const errorMessage = errorMessages[errorKey] || "Erro desconhecido.";
+        alert(`Ocorreu um erro: ${errorMessage}`);
+    }
+});
 
 // document.addEventListener("DOMContentLoaded", function () {
 //     const formFields = document.querySelectorAll("#editPerfilModal input, #editPerfilModal textarea");
