@@ -296,7 +296,6 @@ if (contactForm && contactReasonInput) {  // Verifica se ambos os elementos exis
         const contactReason = contactReasonInput.value;
 
         if (contactReason.trim() !== "") {
-            alert("Email enviado!");
             closeFormPopup(); // Fecha o modal de formulário após o envio
         } else {
             alert("Por favor, insira as informações necessárias.");
@@ -305,48 +304,59 @@ if (contactForm && contactReasonInput) {  // Verifica se ambos os elementos exis
 }
 
 function openEditPost(postId) {
-
-    window.currentPostId = postId;
-
-    // Fazer uma requisição AJAX para buscar os dados da postagem
+    // Faz uma requisição AJAX para carregar os dados da postagem
     fetch(`get_post_data.php?id=${postId}`)
         .then(response => response.json())
         .then(data => {
-            // Preencher os campos do modal com os dados da postagem
-            document.getElementById('postTitle').value = data.titulo;
-            document.getElementById('postContent').value = data.descricao;
+            if (data) {
+                // Preenche os campos do modal com os dados da postagem
+                document.getElementById("postTitle").value = data.titulo;
+                document.getElementById("postContent").value = data.descricao;
+                document.getElementById("editarCategorias").value = data.categoria;
+                document.querySelector(`input[name="status"][value="${data.status}"]`).checked = true;
+                document.querySelector("input[name='post_id']").value = data.id;
 
-            // Selecionar o status
-            document.getElementById(data.status).checked = true;
+                // Carregar a mídia, caso exista
+                const previewContainer = document.getElementById("editPreviewContainer");
+                const previewImage = document.getElementById("editPreviewImage");
+                const previewVideo = document.getElementById("editPreviewVideo");
 
-            // Selecionar a categoria
-            const selectTags = document.querySelector('.select-tags');
-            selectTags.value = data.categoria;
+                // Limpa qualquer mídia anterior
+                previewImage.style.display = "none";
+                previewVideo.style.display = "none";
+                previewContainer.style.display = "none";
 
-            // Carregar pré-visualização da mídia, se houver
-            const previewImage = document.getElementById('editPreviewImage');
-            const previewVideo = document.getElementById('editPreviewVideo');
+                if (data.imagem) {
+                    // Verifica o tipo de mídia e exibe a mídia correta
+                    const tipoImagem = data.tipo_imagem; // 'image' ou 'video'
+                    
+                    if (tipoImagem.includes("image")) {
+                        // Exibe imagem
+                        previewImage.src = 'data:' + tipoImagem + ';base64,' + data.imagem;
+                        previewImage.style.display = "block";
+                        previewContainer.style.display = "block";
+                    } else if (tipoImagem.includes("video")) {
+                        // Exibe vídeo
+                        const videoBlob = new Blob([new Uint8Array(data.imagem)], { type: tipoImagem });
+                        const videoUrl = URL.createObjectURL(videoBlob);
+                        previewVideo.src = videoUrl;
+                        previewVideo.style.display = "block";
+                        previewContainer.style.display = "block";
+                    }
+                }
 
-            if (data.tipo_imagem.startsWith('image')) {
-                previewImage.src = `data:${data.tipo_imagem};base64,${data.imagem}`;
-                previewImage.style.display = 'block';
-                previewVideo.style.display = 'none';
-            } else if (data.tipo_imagem.startsWith('video')) {
-                previewVideo.src = `data:${data.tipo_imagem};base64,${data.imagem}`;
-                previewVideo.style.display = 'block';
-                previewImage.style.display = 'none';
+                // Exibe o modal
+                document.getElementById("editModal").style.display = "flex";
             }
-
-            // Exibir o modal
-            document.getElementById('editModal').style.display = 'block';
         })
-        .catch(error => console.error('Erro ao carregar os dados:', error));
+        .catch(error => {
+            console.error('Erro ao carregar os dados da postagem:', error);
+        });
 }
 
-
-
+// Função para fechar o modal
 function closeEditPost() {
-    document.getElementById('editModal').style.display = 'none';
+    document.getElementById("editModal").style.display = "none";
 }
 
 document.querySelector('.submit-button').addEventListener('click', function () {
