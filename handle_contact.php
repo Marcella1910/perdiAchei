@@ -87,7 +87,7 @@ $recipientEmail = $row['email'];
 $stmt->close();
 
 // Envia o e-mail para o dono da postagem
-$subject = "PerdiAchei: Contato para devolução de item";
+$subject = "PerdiAchei: Contato para devolucao de item";
 try {
     $isSent = sendEmail($userEmail, $recipientEmail, $subject, $message, $attachmentPath);
     if ($isSent) {
