@@ -14,8 +14,14 @@ function confirmSenha() {
 
 // Função para abrir o segundo popup (formulário) e fechar o primeiro
 function openFormPopup() {
-    closeConfirmPopup();
-    document.getElementById('formModal').style.display = 'flex';
+    // Obtém o postId do dataset do elemento de confirmação
+    const postId = document.getElementById('confirmModal').dataset.postId;
+    console.log("Debug: postId passado para o formulário: " + postId); // Mensagem de depuração
+    // Define o valor do postId no campo oculto do formulário
+    document.querySelector('#contactForm input[name="postId"]').value = postId;
+    // Esconde a confirmação e exibe o formulário de contato
+    document.getElementById("confirmModal").style.display = "none";
+    document.getElementById("formModal").style.display = "flex";
 }
 
 // Função para fechar o segundo popup (formulário)
@@ -275,8 +281,11 @@ function removerFoto() {
 
 
 
-function openConfirmPopup() {
+function openConfirmPopup(postId) {
+    console.log("Debug: postId recebido: " + postId); // Mensagem de depuração
+    // Defina o valor do postId no campo oculto do formulário e exiba a confirmação
     document.getElementById('confirmModal').style.display = 'flex';
+    document.getElementById('confirmModal').dataset.postId = postId; // Armazena o postId como um dataset no elemento de confirmação
 }
 
 // Função para fechar o primeiro popup

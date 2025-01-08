@@ -8,14 +8,15 @@
             do próprio proprietário. E, se possível, forneça o máximo de informação possível sobre o local
             em que perdeu o artigo (p. ex. número da sala/data ou horário que perdeu). Tenha cuidado ao
             partilhar dados pessoais.</p>
-        <form id="contactForm">
+        <form id="contactForm" action="handle_contact.php" method="post" enctype="multipart/form-data"> 
+                <input type="hidden" name="postId" value="" />
 
             <textarea id="contactReason" name="contactReason"
                 placeholder="descreva o motivo de reivindicar este item..." required></textarea><br>
             <p>Você pode adicionar uma imagem que mostre ao dono. Por exemplo, uma foto do item ou um
                 comprovante de compra.</p>
             <div class="container-upload-foto">
-                <input type="file" id="input-upload-foto" accept="image/*" onchange="visualizarFoto(event)" />
+                <input type="file" id="input-upload-foto" name="attachment" accept="image/*" onchange="visualizarFoto(event)" />
                 <label for="input-upload-foto" class="botao-upload-foto">
                     enviar foto
                 </label>

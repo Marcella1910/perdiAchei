@@ -15,7 +15,7 @@
                 placeholder="como deseja devolver este item?" required></textarea><br>
             <p>Você pode adicionar uma foto do item para mostrar ao proprietário que ele está com você. </p>
             <div class="container-upload-foto">
-                <input type="file" id="input-upload-foto-item-perdido" accept="image/*"
+                <input type="file" id="input-upload-foto-item-perdido" name="attachment" accept="image/*"
                     onchange="exibirFotoItemPerdido(event)" />
                 <label for="input-upload-foto-item-perdido" class="botao-upload-foto-item-perdido">
                     enviar foto

@@ -41,6 +41,11 @@ $message = $_POST['contactReasonItemPerdido'];
 // Verifica se um arquivo foi enviado
 if (isset($_FILES['attachment']) && $_FILES['attachment']['error'] === UPLOAD_ERR_OK) {
     $uploadDir = 'uploads/';
+    // Certifique-se de que o diretório de uploads existe
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
+    }
+
     $uploadFile = $uploadDir . basename($_FILES['attachment']['name']);
 
     // Move o arquivo enviado para o diretório de uploads
@@ -48,8 +53,10 @@ if (isset($_FILES['attachment']) && $_FILES['attachment']['error'] === UPLOAD_ER
         $attachmentPath = $uploadFile;
         echo "Debug: Arquivo anexado: $attachmentPath<br>";
     } else {
-        echo "Erro: Falha ao mover o arquivo enviado.";
+        echo "Erro: Falha ao mover o arquivo enviado.<br>";
     }
+} else {
+    echo "Debug: Nenhum arquivo enviado ou erro no upload.<br>";
 }
 
 // Mensagens de depuração para verificar os dados obtidos
