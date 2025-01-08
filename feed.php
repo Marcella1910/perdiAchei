@@ -127,7 +127,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                         <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
                                         <?php if ($row['status'] == 'encontrado'): ?>
                                             <!-- Caso seja um objeto achado -->
-                                            <li><button class="dropdown-item" onclick="openConfirmPopup()">Reivindicar
+                                            <li><button class="dropdown-item" onclick="openConfirmPopup(<?php echo $postId; ?>)">Reivindicar
                                                     item</button></li>
                                         <?php else: ?>
                                             <!-- Caso seja um objeto perdido -->
@@ -171,7 +171,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                 <!-- Verifica se a postagem não pertence ao usuário logado -->
                                 <?php if ($row['status'] == 'encontrado'): ?>
                                     <!-- Caso seja um objeto encontrado -->
-                                    <button class="e-meu" onclick="openConfirmPopup()">é meu !</button>
+                                    <button class="e-meu" onclick="openConfirmPopup(<?php echo $postId; ?>)">é meu !</button>
                                 <?php elseif ($row['status'] == 'perdido'): ?>
                                     <!-- Caso seja um objeto perdido -->
                                     <button class="encontrei" onclick="openConfirmPopupItemPerdido(<?php echo $postId; ?>)">encontrei !</button>
