@@ -118,8 +118,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                     <?php if ($row['usuario_id'] == $_SESSION['id']): ?>
                                         <!-- Se a postagem pertence ao usuário logado -->
                                         <li><button onclick="openEditPost(<?php echo $postId; ?>)">Editar</button></li>
-                                        <li><button class="dropdown-item" onclick="openDeletePostModal()">Excluir</button>
-                                        </li>
+                                        <li><button class="dropdown-item" onclick="openDeletePostModal(<?php echo $postId; ?>)">Excluir</button></li>
                                         <li><button class="dropdown-item"
                                                 onclick="openConfirmModalMarcarComoEncontrado()">Marcar como
                                                 'encontrado'</button></li>
@@ -449,9 +448,9 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             </div>
 
 
-            <?php include 'confirmarReivindicarItemModal.php'; ?>
+            <?php include 'confirmModalItemAchado.php'; ?>
 
-            <?php include 'reivindicarItemModal.php'; ?>
+            <?php include 'formModalItemAchado.php'; ?>
 
             <?php include 'editModal.php'; ?>
 
