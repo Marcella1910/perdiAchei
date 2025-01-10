@@ -426,6 +426,24 @@ body {
 
 .perfil-post .nome {
     cursor: pointer;
+    text-decoration: none;
+}
+
+.perfil-post .nome a:link {
+    text-decoration: none;
+    color: #555;
+}
+
+.perfil-post .nome a:hover {
+    color: #555;
+}
+
+.perfil-post .nome a:visited {
+    color: #555;
+}
+
+.perfil-post .nome a:active {
+    color: #555;
 }
 
 .post-header {
@@ -573,6 +591,12 @@ body {
     justify-content: center;    /* Centraliza horizontalmente */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  /* Sombra leve */
     cursor: pointer;
+}
+
+.pfp-post a {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .pfp {
