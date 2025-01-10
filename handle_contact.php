@@ -3,12 +3,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require 'envia_email.php'; // Certifique-se de que este arquivo existe e está correto.
+require 'envia_email.php';
 
 session_start();
-
-// Mensagem de depuração para verificar o estado da sessão
-echo "Debug: Sessão iniciada. E-mail do usuário na sessão: " . (isset($_SESSION['email']) ? $_SESSION['email'] : 'não definido') . "<br>";
 
 // Redefine variáveis
 $postId = null;
@@ -17,26 +14,38 @@ $message = null;
 $recipientEmail = null;
 $attachmentPath = null;
 
-// Teste inicial para depuração
+// Verifica se o e-mail do usuário está na sessão
 if (!isset($_SESSION['email'])) {
-    die("Erro: Sessão não iniciada ou e-mail do usuário não definido.");
+    header("Location: feed.php?error=session");
+    exit;
 }
 
 // Conexão com o banco
 $conn = new mysqli('localhost', 'root', 'usbw', 'perdiachei');
 if ($conn->connect_error) {
-    die("Erro de conexão com o banco de dados: " . $conn->connect_error);
+    header("Location: feed.php?error=db_connection");
+    exit;
 }
 
 // Validações básicas do POST
-if (!isset($_POST['postId']) || !isset($_POST['contactReasonItemPerdido'])) {
-    die("Erro: Dados do formulário estão faltando.");
+if (!isset($_POST['postId']) || (!isset($_POST['contactReasonItemPerdido']) && !isset($_POST['contactReason']))) {
+    header("Location: feed.php?error=missing_data");
+    exit;
 }
 
 // Obtém os dados do formulário
 $postId = intval($_POST['postId']);
 $userEmail = $_SESSION['email'];
-$message = $_POST['contactReasonItemPerdido'];
+
+// Prioriza o campo preenchido, seja `contactReasonItemPerdido` ou `contactReason`
+if (isset($_POST['contactReasonItemPerdido']) && !empty(trim($_POST['contactReasonItemPerdido']))) {
+    $message = $_POST['contactReasonItemPerdido'];
+} elseif (isset($_POST['contactReason']) && !empty(trim($_POST['contactReason']))) {
+    $message = $_POST['contactReason'];
+} else {
+    header("Location: feed.php?error=empty_message");
+    exit;
+}
 
 // Verifica se um arquivo foi enviado
 if (isset($_FILES['attachment']) && $_FILES['attachment']['error'] === UPLOAD_ERR_OK) {
@@ -51,23 +60,7 @@ if (isset($_FILES['attachment']) && $_FILES['attachment']['error'] === UPLOAD_ER
     // Move o arquivo enviado para o diretório de uploads
     if (move_uploaded_file($_FILES['attachment']['tmp_name'], $uploadFile)) {
         $attachmentPath = $uploadFile;
-        echo "Debug: Arquivo anexado: $attachmentPath<br>";
-    } else {
-        echo "Erro: Falha ao mover o arquivo enviado.<br>";
     }
-} else {
-    echo "Debug: Nenhum arquivo enviado ou erro no upload.<br>";
-}
-
-// Mensagens de depuração para verificar os dados obtidos
-echo "Debug: Valor de postId recebido do formulário = " . (isset($_POST['postId']) ? $_POST['postId'] : 'não definido') . "<br>";
-echo "Debug: postId após conversão para inteiro = $postId<br>";
-echo "Debug: userEmail = $userEmail<br>";
-echo "Debug: message = $message<br>";
-
-// Verifica se os dados são válidos
-if (empty($postId) || empty($message)) {
-    die("Erro: Dados insuficientes fornecidos.");
 }
 
 // Consulta para buscar o e-mail do destinatário (dono da postagem)
@@ -76,7 +69,8 @@ $sql = "SELECT u.email FROM posts p
         WHERE p.id = ?";
 $stmt = $conn->prepare($sql);
 if (!$stmt) {
-    die("Erro ao preparar a consulta: " . $conn->error);
+    header("Location: feed.php?error=query_preparation");
+    exit;
 }
 $stmt->bind_param('i', $postId);
 $stmt->execute();
@@ -84,34 +78,30 @@ $result = $stmt->get_result();
 
 // Verifica se encontrou o destinatário
 if ($result->num_rows === 0) {
-    die("Erro: Não foi possível encontrar o destinatário para este post.");
+    header("Location: feed.php?error=no_recipient");
+    exit;
 }
 
 $row = $result->fetch_assoc();
 $recipientEmail = $row['email'];
-echo "Debug: E-mail do destinatário obtido: $recipientEmail<br>"; // Mensagem de depuração
 $stmt->close();
 
 // Envia o e-mail para o dono da postagem
 $subject = "PerdiAchei: Contato para devolucao de item";
 try {
-    echo "Debug: Tentando enviar e-mail para $recipientEmail<br>"; // Mensagem de depuração
     $isSent = sendEmail($userEmail, $recipientEmail, $subject, $message, $attachmentPath);
     if ($isSent) {
-        echo "Mensagem enviada com sucesso!";
+        header("Location: feed.php?success=email_sent");
+        exit;
     } else {
-        echo "Erro ao enviar mensagem.";
+        header("Location: feed.php?error=email_failure");
+        exit;
     }
 } catch (Exception $e) {
-    echo "Erro ao enviar mensagem: " . $e->getMessage();
+    header("Location: feed.php?error=email_exception");
+    exit;
 }
 
-// Redefine as variáveis após o envio do e-mail
-$postId = null;
-$userEmail = null;
-$message = null;
-$recipientEmail = null;
-$attachmentPath = null;
-
+// Fecha a conexão com o banco de dados
 $conn->close();
 ?>
