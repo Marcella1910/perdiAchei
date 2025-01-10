@@ -322,7 +322,13 @@ function openEditPost(postId) {
                 document.getElementById("postTitle").value = data.titulo;
                 document.getElementById("postContent").value = data.descricao;
                 document.getElementById("editarCategorias").value = data.categoria;
-                document.querySelector(`input[name="status"][value="${data.status}"]`).checked = true;
+                const statusElement = document.querySelector(`input[name="status"][value="${data.status}"]`);
+                if (statusElement) {
+                    statusElement.checked = true;
+                } else {
+                    console.warn("Status não encontrado:", data.status);
+                }
+
                 document.querySelector("input[name='post_id']").value = data.id;
 
                 // Carregar a mídia, caso exista
@@ -338,7 +344,7 @@ function openEditPost(postId) {
                 if (data.imagem) {
                     // Verifica o tipo de mídia e exibe a mídia correta
                     const tipoImagem = data.tipo_imagem; // 'image' ou 'video'
-                    
+
                     if (tipoImagem.includes("image")) {
                         // Exibe imagem
                         previewImage.src = 'data:' + tipoImagem + ';base64,' + data.imagem;
@@ -387,13 +393,13 @@ document.querySelector('.submit-button').addEventListener('click', function () {
         method: 'POST',
         body: formData
     })
-    .then(response => response.text())
-    .then(data => {
-        alert(data); // Mensagem de sucesso ou erro
-        closeEditPost();
-        location.reload(); // Atualizar a página (opcional)
-    })
-    .catch(error => console.error('Erro ao atualizar a postagem:', error));
+        .then(response => response.text())
+        .then(data => {
+            alert(data); // Mensagem de sucesso ou erro
+            closeEditPost();
+            location.reload(); // Atualizar a página (opcional)
+        })
+        .catch(error => console.error('Erro ao atualizar a postagem:', error));
 });
 
 
@@ -563,13 +569,13 @@ function openDeletePostModal(postId) {
     console.log("ID da postagem a ser excluída:", postId);  // Teste se o ID está correto
     const modal = document.getElementById('deletePostModal');
     const postIdInput = document.getElementById('postIdToDelete');
-        
+
     if (postIdInput) {
         postIdInput.value = postId;
     }
-        
+
     modal.style.display = 'flex';
-}    
+}
 
 
 function closeDeletePost() {
