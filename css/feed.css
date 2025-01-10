@@ -1613,7 +1613,7 @@ input[type="file"] {
     
 }
 
-#editForm .select-tags {
+#editPostForm .select-tags {
     height: 40px;
     margin-left: 1rem;
     margin-top: 0.5rem;
@@ -1621,6 +1621,70 @@ input[type="file"] {
     color: #555;
     border: 2px solid #555;
 }
+
+/* Contêiner para organização */
+.status-toggle {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilo do rótulo */
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: "Varela Round";
+    cursor: pointer;
+    color: #555;
+}
+
+/* Oculta o botão de rádio padrão */
+.radio-label input[type="radio"] {
+    display: none;
+}
+
+/* Estilo do elemento customizado do rádio */
+.radio-label .custom-radio {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #8f8f8fa9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Quando marcado, adiciona um preenchimento no centro */
+.radio-label input[type="radio"]:checked + .custom-radio {
+    background-color: #555;
+    border-color: #333;
+}
+
+.radio-label input[type="radio"]:checked + .custom-radio::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+/* Efeito hover */
+.radio-label:hover .custom-radio {
+    border-color: #333;
+}
+
+/* Estilo para o texto */
+.radio-label:hover {
+    color: #333;
+}
+
 
 .temas-select {
     height: 40px;

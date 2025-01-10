@@ -2,22 +2,34 @@
 <div id="editModal" class="modal">
     <div class="modal-content">
         <?php
-        echo "<h2 class='editModalUsername'><u>@{$_SESSION['usuario']}</u></h2>";
+        echo "<h2 class='editModalUsername'><u>{$_SESSION['nome']}</u></h2>";
         ?>
 
         <form id="editPostForm" action="atualizar_post.php" method="POST" enctype="multipart/form-data">
             <!-- Campo oculto para o ID da postagem -->
             <input type="hidden" name="post_id" value="<?php echo $postId; ?>">
 
+            <!-- Campo oculto mantenha_midia ao formulário para indicar se a mídia deve ser mantida -->
+            <input type="hidden" name="mantenha_midia" id="mantenhaMidia" value="true">
+
             <div class="tags-tipos">
                 <!-- Mudar tipo de item -->
-                <div class="toggle-buttons">
-                    <input type="radio" id="perdido" name="status" value="perdido">
-                    <label for="perdido" class="toggle-button">objeto perdido</label>
+                <div class="status-toggle">
+                    <label for="editPerdido" class="radio-label">
+                        <input type="radio" id="editPerdido" name="status" value="perdido">
+                        <span class="custom-radio"></span>
+                        Objeto Perdido
+                    </label>
 
-                    <input type="radio" id="encontrado" name="status" value="encontrado">
-                    <label for="encontrado" class="toggle-button">objeto encontrado</label>
+                    <label for="editEncontrado" class="radio-label">
+                        <input type="radio" id="editEncontrado" name="status" value="encontrado">
+                        <span class="custom-radio"></span>
+                        Objeto Encontrado
+                    </label>
                 </div>
+
+
+
 
                 <!-- Mudar categoria -->
                 <select class="select-tags" name="categoria" id="editarCategorias">
@@ -40,8 +52,8 @@
 
             <!-- Pré-visualização -->
             <div id="editPreviewContainer" class="preview-container" style="display: none;">
-                <button id="editCancelPreview" class="cancel-preview" style="margin-top: 10px;"><i
-                        class="fa-solid fa-xmark"></i></button>
+                <button onclick="removeMedia()" type="button" id="editCancelPreview" class="cancel-preview"
+                    style="margin-top: 10px;"><i class="fa-solid fa-xmark"></i></button>
                 <img id="editPreviewImage" class="preview-image-editpost" alt="Pré-visualização da Imagem"
                     style="display: none;">
                 <video id="editPreviewVideo" class="preview-video-editpost" controls style="display: none;"></video>
@@ -57,7 +69,7 @@
 
                 <div class="bts-popup">
                     <button type="button" class="cancel-button" onclick="closeEditPost()">Cancelar</button>
-                    <button type="submit" class="submit-button">Salvar Alterações</button>
+                    <button type="button" onclick="saveEditPost()" class="submit-button">Salvar Alterações</button>
                 </div>
             </div>
         </form>

@@ -319,40 +319,38 @@ function openEditPost(postId) {
         .then(response => response.json())
         .then(data => {
             if (data) {
+                // Verifica se os dados foram carregados corretamente
+                console.log("Dados recebidos para edição:", data);
+
                 // Preenche os campos do modal com os dados da postagem
-                document.getElementById("postTitle").value = data.titulo;
-                document.getElementById("postContent").value = data.descricao;
-                document.getElementById("editarCategorias").value = data.categoria;
-                const statusElement = document.querySelector(`input[name="status"][value="${data.status}"]`);
-                if (statusElement) {
-                    statusElement.checked = true;
-                } else {
-                    console.warn("Status não encontrado:", data.status);
+                document.getElementById("postTitle").value = data.titulo || "";
+                document.getElementById("postContent").value = data.descricao || "";
+                document.getElementById("editarCategorias").value = data.categoria || "";
+
+                // Preenche o toggle do status
+                if (data.status === "perdido") {
+                    console.log(data.status);
+                    document.getElementById("editPerdido").checked = true;
+                } else if (data.status === "encontrado") {
+                    console.log(data.status);
+                    document.getElementById("editEncontrado").checked = true;
                 }
 
+                // Define o ID da postagem no campo hidden
                 document.querySelector("input[name='post_id']").value = data.id;
 
-                // Carregar a mídia, caso exista
                 const previewContainer = document.getElementById("editPreviewContainer");
                 const previewImage = document.getElementById("editPreviewImage");
                 const previewVideo = document.getElementById("editPreviewVideo");
 
-                // Limpa qualquer mídia anterior
-                previewImage.style.display = "none";
-                previewVideo.style.display = "none";
-                previewContainer.style.display = "none";
-
                 if (data.imagem) {
-                    // Verifica o tipo de mídia e exibe a mídia correta
-                    const tipoImagem = data.tipo_imagem; // 'image' ou 'video'
+                    const tipoImagem = data.tipo_imagem;
 
                     if (tipoImagem.includes("image")) {
-                        // Exibe imagem
                         previewImage.src = 'data:' + tipoImagem + ';base64,' + data.imagem;
                         previewImage.style.display = "block";
                         previewContainer.style.display = "block";
                     } else if (tipoImagem.includes("video")) {
-                        // Exibe vídeo
                         const videoBlob = new Blob([new Uint8Array(data.imagem)], { type: tipoImagem });
                         const videoUrl = URL.createObjectURL(videoBlob);
                         previewVideo.src = videoUrl;
@@ -361,12 +359,39 @@ function openEditPost(postId) {
                     }
                 }
 
+                // Restaura o valor de mantenha_midia para true
+                document.getElementById("mantenhaMidia").value = "true";
+
                 // Exibe o modal
                 document.getElementById("editModal").style.display = "flex";
+            } else {
+                console.warn("Nenhum dado encontrado para a postagem.");
             }
         })
         .catch(error => {
-            console.error('Erro ao carregar os dados da postagem:', error);
+            console.error("Erro ao carregar os dados da postagem:", error);
+        });
+}
+
+function saveEditPost() {
+    const form = document.getElementById("editPostForm");
+    const formData = new FormData(form);
+
+    // Verificar o valor do status antes de enviar
+    console.log("Valor do status enviado:", formData.get("status"));
+
+    fetch("atualizar_post.php", {
+        method: "POST",
+        body: formData,
+    })
+        .then(response => response.text())
+        .then(result => {
+            console.log(result); // Mostra a resposta do servidor
+            closeEditPost(); // Fecha o modal após salvar
+            location.reload(); // Atualiza o feed
+        })
+        .catch(error => {
+            console.error("Erro ao salvar a postagem:", error);
         });
 }
 
@@ -374,34 +399,6 @@ function openEditPost(postId) {
 function closeEditPost() {
     document.getElementById("editModal").style.display = "none";
 }
-
-document.querySelector('.submit-button').addEventListener('click', function () {
-    const formData = new FormData();
-    formData.append('id', window.currentPostId); // Adicionar o ID da postagem
-    formData.append('titulo', document.getElementById('postTitle').value);
-    formData.append('descricao', document.getElementById('postContent').value);
-    formData.append('status', document.querySelector('input[name="status"]:checked').value);
-    formData.append('categoria', document.querySelector('.select-tags').value);
-
-    // Verificar se há um arquivo
-    const file = document.getElementById('editFileUpload').files[0];
-    if (file) {
-        formData.append('media', file);
-    }
-
-    // Enviar os dados para o servidor
-    fetch('update_post.php', {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => response.text())
-        .then(data => {
-            alert(data); // Mensagem de sucesso ou erro
-            closeEditPost();
-            location.reload(); // Atualizar a página (opcional)
-        })
-        .catch(error => console.error('Erro ao atualizar a postagem:', error));
-});
 
 
 const fileUpload = document.getElementById("editFileUpload");
