@@ -81,7 +81,7 @@ $stmt->close();
 
 
 // Envia o e-mail de denúncia
-$subject = "$username denuncia $dono no post $postTitle";
+$subject = "'@$username' denuncia '@$dono' no post '$postTitle'";
 try {
     $isSent = sendEmail($userEmail, $recipientEmail, $subject, $message);
     if ($isSent) {
