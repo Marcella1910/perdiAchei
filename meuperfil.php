@@ -104,7 +104,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             <!-- Modal de editar perfil  -->
             <?php include 'editPerfilModal.php'; ?>
 
-            <?php include 'confirmarReivindicarItemModal.php'; ?>
+            <?php include 'confirmModalItemAchado.php'; ?>
 
             <?php include 'editModal.php'; ?>
 

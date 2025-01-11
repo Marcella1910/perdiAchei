@@ -136,6 +136,8 @@ date_default_timezone_set('America/Sao_Paulo'); // Ajuste o fuso horário confor
             <?php include 'confirmModalMarcarComoReivindicado.php'; ?>
             <?php include 'marcarComoReivindicado.php'; ?>
             <?php include 'editPerfilModal.php'; ?>
+            <?php include 'formModalItemAchado.php'; ?>
+            <?php include 'formModalItemPerdido.php'; ?>
 
         </div>
         <div class="right-menu"></div>
