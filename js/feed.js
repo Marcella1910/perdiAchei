@@ -57,22 +57,20 @@ function closeReportForm() {
     }
 }
 
-// Verifique se o formulário de denúncia existe antes de adicionar o listener
-const reportForm = document.getElementById('reportForm');
-if (reportForm) {
-    reportForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
+// // Verifique se o formulário de denúncia existe antes de adicionar o listener
+// const reportForm = document.getElementById('reportForm');
+// if (reportForm) {
+//     reportForm.addEventListener('submit', function (event) {
 
-        const reportReason = document.getElementById('reportReason').value;
+//         const reportReason = document.getElementById('reportReason').value;
 
-        if (reportReason.trim() !== "") {
-            alert("Denúncia enviada com sucesso!");
-            closeReportForm(); // Fechar o modal após o envio
-        } else {
-            alert("Por favor, descreva o motivo da denúncia.");
-        }
-    });
-}
+//         if (reportReason.trim() !== "") {
+//             closeReportForm(); // Fechar o modal após o envio
+//         } else {
+//             event.preventDefault(); // Impede o envio padrão do formulário
+//         }
+//     });
+// }
 
 
 
@@ -801,6 +799,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Exibe mensagem de sucesso
     if (params.has("success") && params.get("success") === "email_sent") {
         alert("Email enviado com sucesso!");
+        window.history.replaceState(null, null, window.location.pathname); // Remove parâmetros da URL
     }
 
     // Exibe mensagem de erro, se houver
@@ -819,6 +818,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const errorKey = params.get("error");
         const errorMessage = errorMessages[errorKey] || "Erro desconhecido.";
         alert(`Ocorreu um erro: ${errorMessage}`);
+        window.history.replaceState(null, null, window.location.pathname); // Remove parâmetros da URL
     }
 });
 

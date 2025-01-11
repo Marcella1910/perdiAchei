@@ -56,7 +56,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
             <div class="search-bar">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="pesquisar um item...">
+                <input type="text" name= "searchBar"placeholder="pesquisar um item...">
             </div>
 
             <!-- Criar post formulário  -->
