@@ -32,7 +32,12 @@ function closeFormPopup() {
 }
 
 // Função para abrir o modal
-function openReportForm() {
+function openReportForm(postId) {
+
+    console.log("Debug: postId passado para o formulário: " + postId); // Mensagem de depuração
+    // Define o valor do postId no campo oculto do formulário
+    document.querySelector('#reportForm input[name="postId"]').value = postId;
+    // Esconde a confirmação e exibe o formulário de contato
     const reportModal = document.getElementById('reportModal');
     if (reportModal) {
         reportModal.style.display = 'flex';

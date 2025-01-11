@@ -139,7 +139,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                                     'encontrado'</button></li>
                                         <?php else: ?>
                                             <!-- Se a postagem pertence a outro usuário -->
-                                            <li><button class="dropdown-item" onclick="openReportForm()">Reportar</button></li>
+                                            <li><button class="dropdown-item" onclick="openReportForm(<?php echo $postId; ?>)">Reportar</button></li>
                                             <?php if ($row['status'] == 'encontrado'): ?>
                                                 <!-- Caso seja um objeto achado -->
                                                 <li><button class="dropdown-item"
