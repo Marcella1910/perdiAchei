@@ -718,16 +718,21 @@ function excluirFotoItemPerdido() {
     removerBtn.style.display = "none";
 }
 
-function openConfirmModalMarcarComoEncontrado() {
+function openConfirmModalMarcarComoEncontrado(postId) {
     document.getElementById("confirmModalMarcarComoEncontrado").style.display = "flex";
+    console.log("Debug: postId recebido: " + postId); // Mensagem de depuração
+    document.querySelector('#formMarcarComoEncontrado input[name="postId"]').value = postId;
 }
 
 function closeConfirmModalMarcarComoEncontrado() {
     document.getElementById("confirmModalMarcarComoEncontrado").style.display = "none";
 }
 
-function openConfirmModalMarcarComoReivindicado() {
+function openConfirmModalMarcarComoReivindicado(postId) {
     document.getElementById("confirmModalMarcarComoReivindicado").style.display = "flex";
+    console.log("Debug: postId recebido: " + postId); // Mensagem de depuração
+    document.getElementById('confirmModalMarcarComoReivindicado').dataset.postId = postId; // Armazena o postId como um dataset no elemento de confirmação
+
 }
 
 function closeConfirmModalMarcarComoReivindicado() {
@@ -737,6 +742,9 @@ function closeConfirmModalMarcarComoReivindicado() {
 function openFormModalMarcarComoReivindicado() {
     document.getElementById("confirmModalMarcarComoReivindicado").style.display = "none";
     document.getElementById("formModalMarcarComoReivindicado").style.display = "flex";
+    const postId = document.getElementById('confirmModalMarcarComoReivindicado').dataset.postId;
+    console.log("Debug: postId passado para o formulário: " + postId); // Mensagem de depuração
+    document.querySelector('#formMarcarComoReivindicado input[name="postId"]').value = postId;
 }
 
 function closeFormModalMarcarComoReivindicado() {

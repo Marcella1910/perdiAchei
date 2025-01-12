@@ -2,7 +2,8 @@
 <div class="modal" id="formModalMarcarComoReivindicado">
     <div class="modal-content">
         <h3 class="formModalMarcarComoReivindicadoTitulo">Defina o dono</h3>
-        <form id="formMarcarComoReivindicado">
+        <form id="formMarcarComoReivindicado" action="marcarComoReividicado.php" method="post" enctype="multipart/form-data"> 
+            <input type="hidden" name="postId" value="" />
 
             <div class="input-container">
                 <label for="textarea" rows="1" cols="30">Marque o nome de usuário da pessoa para quem você

@@ -43,11 +43,11 @@
                                 onclick="openDeletePostModal(<?php echo $postId; ?>)">Excluir</button></li>
                         <?php if ($post['status'] == 'encontrado'): ?>
                             <!-- Caso seja um objeto achado -->
-                            <li><button class="dropdown-item" onclick="openConfirmModalMarcarComoReivindicado()">Marcar como
+                            <li><button class="dropdown-item" onclick="openConfirmModalMarcarComoReivindicado(<?php echo $postId; ?>)">Marcar como
                                     'reivindicado'</button></li>
                         <?php else: ?>
                             <!-- Caso seja um objeto perdido -->
-                            <li><button class="dropdown-item" onclick="openConfirmModalMarcarComoEncontrado()">Marcar
+                            <li><button class="dropdown-item" onclick="openConfirmModalMarcarComoEncontrado(<?php echo $postId; ?>)">Marcar
                                     como
                                     'encontrado'</button></li>
                         <?php endif; ?>

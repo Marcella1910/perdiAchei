@@ -208,12 +208,12 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                             <?php if ($row['status'] == 'encontrado'): ?>
                                                 <!-- Caso seja um objeto achado -->
                                                 <li><button class="dropdown-item"
-                                                        onclick="openConfirmModalMarcarComoReivindicado()">Marcar como
+                                                        onclick="openConfirmModalMarcarComoReivindicado(<?php echo $postId; ?>)">Marcar como
                                                         'reivindicado'</button></li>
                                             <?php else: ?>
                                                 <!-- Caso seja um objeto perdido -->
                                                 <li><button class="dropdown-item"
-                                                        onclick="openConfirmModalMarcarComoEncontrado()">Marcar
+                                                        onclick="openConfirmModalMarcarComoEncontrado(<?php echo $postId; ?>)">Marcar
                                                         como
                                                         'encontrado'</button></li>
                                             <?php endif; ?>
