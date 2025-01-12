@@ -71,14 +71,15 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             <!-- Painel de notificações -->
             <?php include 'notifications-painel.php' ?>
 
-            <div class="search-bar">
-                <form id="search-form" method="GET" autocomplete="off">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="search-input" name="query" placeholder="pesquise um item...">
-                </form>
-                <div id="suggestions-box"></div>
-            </div>
-
+            <?php if (empty($searchQuery)): ?>
+                <div class="search-bar">
+                    <form id="search-form" method="GET" autocomplete="off">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" name="query" placeholder="pesquise um item...">
+                    </form>
+                    <div id="suggestions-box"></div>
+                </div>
+            <?php endif; ?>
 
             <!-- Criar post formulário -->
             <?php if (empty($searchQuery)): ?>
@@ -171,7 +172,8 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                                     'encontrado'</button></li>
                                         <?php else: ?>
                                             <!-- Se a postagem pertence a outro usuário -->
-                                            <li><button class="dropdown-item" onclick="openReportForm(<?php echo $postId; ?>)">Reportar</button></li>
+                                            <li><button class="dropdown-item"
+                                                    onclick="openReportForm(<?php echo $postId; ?>)">Reportar</button></li>
                                             <?php if ($row['status'] == 'encontrado'): ?>
                                                 <!-- Caso seja um objeto achado -->
                                                 <li><button class="dropdown-item"

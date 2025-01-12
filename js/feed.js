@@ -74,50 +74,55 @@ function closeReportForm() {
 
 
 
-document.getElementById('file-upload').addEventListener('change', function (event) {
-    const file = event.target.files[0]; // Obter o arquivo selecionado
-    const fileInput = document.getElementById('file-upload');
-    const previewContainer = document.getElementById('preview-container');
-    const previewImage = document.getElementById('preview-image');
-    const previewVideo = document.getElementById('preview-video');
-    const cancelButton = document.getElementById('cancel-button');
+// Verifica se o elemento 'file-upload' existe antes de adicionar o evento
+const fileUploadElement = document.getElementById('file-upload');
 
-    if (file) {
-        const fileType = file.type;
+if (fileUploadElement) {
+    fileUploadElement.addEventListener('change', function (event) {
+        const file = event.target.files[0]; // Obter o arquivo selecionado
+        const fileInput = document.getElementById('file-upload');
+        const previewContainer = document.getElementById('preview-container');
+        const previewImage = document.getElementById('preview-image');
+        const previewVideo = document.getElementById('preview-video');
+        const cancelButton = document.getElementById('cancel-button');
 
-        // Verifica se o arquivo é uma imagem ou um vídeo
-        if (fileType.startsWith('image/')) {
-            // Se for uma imagem
-            const imageUrl = URL.createObjectURL(file);
-            previewImage.src = imageUrl;
-            previewImage.style.display = 'block';
-            previewVideo.style.display = 'none';
-            previewContainer.style.display = 'block';
-        } else if (fileType.startsWith('video/')) {
-            // Se for um vídeo
-            const videoUrl = URL.createObjectURL(file);
-            previewVideo.src = videoUrl;
-            previewVideo.style.display = 'block';
-            previewImage.style.display = 'none';
-            previewContainer.style.display = 'block';
-        } else {
-            // Se o tipo de arquivo não for suportado
-            alert('Formato de arquivo não suportado!');
+        if (file) {
+            const fileType = file.type;
+
+            // Verifica se o arquivo é uma imagem ou um vídeo
+            if (fileType.startsWith('image/')) {
+                // Se for uma imagem
+                const imageUrl = URL.createObjectURL(file);
+                if (previewImage) {
+                    previewImage.src = imageUrl;
+                    previewImage.style.display = 'block';
+                }
+                if (previewVideo) previewVideo.style.display = 'none';
+                if (previewContainer) previewContainer.style.display = 'block';
+            } else if (fileType.startsWith('video/')) {
+                // Se for um vídeo
+                const videoUrl = URL.createObjectURL(file);
+                if (previewVideo) {
+                    previewVideo.src = videoUrl;
+                    previewVideo.style.display = 'block';
+                }
+                if (previewImage) previewImage.style.display = 'none';
+                if (previewContainer) previewContainer.style.display = 'block';
+            } else {
+                // Se o tipo de arquivo não for suportado
+                alert('Formato de arquivo não suportado!');
+            }
         }
-    }
 
-    cancelButton.addEventListener('click', () => {
-        fileInput.value = ''; // Limpa o valor do input
-        previewImage.src = ''; // Limpa a imagem de pré-visualização
-        previewContainer.style.display = 'none'; // Esconde o contêiner de pré-visualização
+        if (cancelButton) {
+            cancelButton.addEventListener('click', () => {
+                if (fileInput) fileInput.value = ''; // Limpa o valor do input
+                if (previewImage) previewImage.src = ''; // Limpa a imagem de pré-visualização
+                if (previewContainer) previewContainer.style.display = 'none'; // Esconde o contêiner de pré-visualização
+            });
+        }
     });
-});
-
-document.getElementById('file-upload').addEventListener('change', function (event) {
-    const file = event.target.files[0];
-    console.log(file); // Adicione isso para verificar se o arquivo está sendo selecionado corretamente
-});
-
+}
 
 const toggleButtons = document.querySelectorAll('.toggle-button');
 
