@@ -822,19 +822,42 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     const formFields = document.querySelectorAll("#editPerfilModal input, #editPerfilModal textarea");
+const searchInput = document.getElementById('search-input');
+const suggestionsBox = document.getElementById('suggestions-box');
 
-//     // Carrega os valores salvos do sessionStorage
-//     formFields.forEach((field) => {
-//         const savedValue = localStorage.getItem(field.name);
-//         if (savedValue) {
-//             field.value = savedValue;
-//         }
+searchInput.addEventListener('input', function () {
+    const query = this.value.trim();
 
-//         // Salva o valor no sessionStorage ao alterar
-//         field.addEventListener("input", function () {
-//             localStorage.setItem(field.name, field.value);
-//         });
-//     });
-// });
+    if (query.length > 0) {
+        fetch(`suggestions.php?query=${encodeURIComponent(query)}`)
+            .then(response => response.json())
+            .then(data => {
+                suggestionsBox.innerHTML = '';
+                data.forEach(suggestion => {
+                    const suggestionItem = document.createElement('div');
+                    suggestionItem.className = 'suggestion-item';
+                    suggestionItem.textContent = suggestion;
+
+                    suggestionItem.addEventListener('click', () => {
+                        searchInput.value = suggestion;
+                        document.getElementById('search-form').submit();
+                    });
+
+                    suggestionsBox.appendChild(suggestionItem);
+                });
+                suggestionsBox.style.display = 'block';
+            })
+            .catch(err => {
+                console.error('Erro ao buscar sugestões:', err);
+                suggestionsBox.innerHTML = '<p>Erro ao carregar sugestões</p>';
+            });
+    } else {
+        suggestionsBox.style.display = 'none';
+    }
+});
+
+document.addEventListener('click', (e) => {
+    if (!suggestionsBox.contains(e.target) && e.target !== searchInput) {
+        suggestionsBox.style.display = 'none';
+    }
+});
