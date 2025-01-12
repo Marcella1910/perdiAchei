@@ -4,7 +4,8 @@
         <h3 class="confirmModalMarcarComoEncontradoTitulo">Marcar como encontrado</h3>
         <p class="confirmModalMarcarComoEncontradoSubtitulo">Encontrou este objeto? Marcar como "encontrado"
             desativará a publicação, tornando-a invisível para outros usuários.</p>
-        <form id="formMarcarComoEncontrado">
+        <form id="formMarcarComoEncontrado" action="marcarComoEncontrado.php" method="post" enctype="multipart/form-data"> 
+            <input type="hidden" name="postId" value="" />
             <div class="bts-popup">
                 <button type="button" class="cancel-button"
                     onclick="closeConfirmModalMarcarComoEncontrado()">Cancelar</button>

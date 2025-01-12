@@ -386,7 +386,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             <?php include 'confirmModalMarcarComoReivindicado.php'; ?>
 
             <!-- Modal de marcar como reivindicado  -->
-            <?php include 'marcarComoReivindicado.php'; ?>
+            <?php include 'formModalMarcarComoReivindicado.php'; ?>
 
             <!-- Modal de editar perfil  -->
             <?php include 'editPerfilModal.php'; ?>
