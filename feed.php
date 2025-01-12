@@ -5,13 +5,30 @@ include_once 'dbconnect.php';
 include_once 'validaSessao.php';
 
 // Consulta SQL para buscar posts e dados do usuário associado
-$result = $conn->query("
-    SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, 
-           posts.tipo_imagem, posts.data_criacao, posts.usuario_id, usuarios.nome, usuarios.foto_perfil
-    FROM posts
-    INNER JOIN usuarios ON posts.usuario_id = usuarios.id
-    ORDER BY posts.data_criacao DESC
-");
+$searchQuery = isset($_GET['query']) ? $conn->real_escape_string($_GET['query']) : '';
+
+if (!empty($searchQuery)) {
+    // Consulta apenas resultados correspondentes à pesquisa
+    $sql = "
+        SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, 
+               posts.tipo_imagem, posts.data_criacao, posts.usuario_id, usuarios.nome, usuarios.foto_perfil
+        FROM posts
+        INNER JOIN usuarios ON posts.usuario_id = usuarios.id
+        WHERE posts.titulo LIKE '%$searchQuery%' OR posts.descricao LIKE '%$searchQuery%'
+        ORDER BY posts.data_criacao DESC
+    ";
+} else {
+    // Consulta padrão
+    $sql = "
+        SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, 
+               posts.tipo_imagem, posts.data_criacao, posts.usuario_id, usuarios.nome, usuarios.foto_perfil
+        FROM posts
+        INNER JOIN usuarios ON posts.usuario_id = usuarios.id
+        ORDER BY posts.data_criacao DESC
+    ";
+}
+
+$result = $conn->query($sql);
 
 if (!$result) {
     die("Erro na consulta SQL: " . $conn->error);
@@ -55,38 +72,53 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             <?php include 'notifications-painel.php' ?>
 
             <div class="search-bar">
-                <i class="fas fa-search"></i>
-                <input type="text" name= "searchBar"placeholder="pesquisar um item...">
+                <form id="search-form" method="GET" autocomplete="off">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" name="query" placeholder="pesquise um item...">
+                </form>
+                <div id="suggestions-box"></div>
             </div>
 
-            <!-- Criar post formulário  -->
-            <?php include 'create-post-form.php'; ?>
 
-            <div class="tags">
-                <button class="tag active" data-section="todos" onclick="showSection('todos')">Todos</button>
-                <button class="tag" data-section="roupas" onclick="showSection('roupas')">
-                    <i class="fa-solid fa-shirt"></i> Roupas e agasalhos
-                </button>
-                <button class="tag" data-section="eletronicos" onclick="showSection('eletronicos')">
-                    <i class="fa-solid fa-mobile"></i> Eletrônicos
-                </button>
-                <button class="tag" data-section="garrafas" onclick="showSection('garrafas')">
-                    <i class="fa-solid fa-bottle-water"></i> Garrafas e lancheiras
-                </button>
-                <button class="tag" data-section="utensilioscozinha" onclick="showSection('utensilioscozinha')">
-                    <i class="fa-solid fa-spoon"></i> Utensílios de cozinha
-                </button>
-                <button class="tag" data-section="materiaisescolares" onclick="showSection('materiaisescolares')">
-                    <i class="fa-solid fa-pencil"></i> Materiais escolares
-                </button>
-                <button class="tag" data-section="documentos" onclick="showSection('documentos')">
-                    <i class="fa-solid fa-id-card"></i> Documentos
-                </button>
-                <button class="tag" data-section="produtoshigiene" onclick="showSection('produtoshigiene')">
-                    <i class="fa-solid fa-pump-soap"></i> Produtos de higiene/Cosmético
-                </button>
-                <button class="tag" data-section="outros" onclick="showSection('outros')">Outros</button>
-            </div>
+            <!-- Criar post formulário -->
+            <?php if (empty($searchQuery)): ?>
+                <?php include 'create-post-form.php'; ?>
+            <?php endif; ?>
+
+            <!-- Tags -->
+            <?php if (empty($searchQuery)): ?>
+                <div class="tags">
+                    <button class="tag active" data-section="todos" onclick="showSection('todos')">Todos</button>
+                    <button class="tag" data-section="roupas" onclick="showSection('roupas')">
+                        <i class="fa-solid fa-shirt"></i> Roupas e agasalhos
+                    </button>
+                    <button class="tag" data-section="eletronicos" onclick="showSection('eletronicos')">
+                        <i class="fa-solid fa-mobile"></i> Eletrônicos
+                    </button>
+                    <button class="tag" data-section="garrafas" onclick="showSection('garrafas')">
+                        <i class="fa-solid fa-bottle-water"></i> Garrafas e lancheiras
+                    </button>
+                    <button class="tag" data-section="utensilioscozinha" onclick="showSection('utensilioscozinha')">
+                        <i class="fa-solid fa-spoon"></i> Utensílios de cozinha
+                    </button>
+                    <button class="tag" data-section="materiaisescolares" onclick="showSection('materiaisescolares')">
+                        <i class="fa-solid fa-pencil"></i> Materiais escolares
+                    </button>
+                    <button class="tag" data-section="documentos" onclick="showSection('documentos')">
+                        <i class="fa-solid fa-id-card"></i> Documentos
+                    </button>
+                    <button class="tag" data-section="produtoshigiene" onclick="showSection('produtoshigiene')">
+                        <i class="fa-solid fa-pump-soap"></i> Produtos de higiene/Cosmético
+                    </button>
+                    <button class="tag" data-section="outros" onclick="showSection('outros')">Outros</button>
+                </div>
+            <?php endif; ?>
+
+            <?php if (!empty($searchQuery)): ?>
+                <div class="search-results-message">
+                    <p>Exibindo resultados para: <strong><?php echo htmlspecialchars($searchQuery); ?></strong></p>
+                </div>
+            <?php endif; ?>
 
             <div id="todos" class="section active">
 
