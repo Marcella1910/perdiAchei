@@ -31,7 +31,7 @@ $usuario = $resultUsuario->fetch_assoc();
 
 // Obtém postagens do usuário
 $queryPosts = $conn->prepare("
-    SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, 
+    SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, posts.devolucao,
            posts.tipo_imagem, posts.data_criacao
     FROM posts
     WHERE posts.usuario_id = ?
@@ -134,7 +134,6 @@ date_default_timezone_set('America/Sao_Paulo'); // Ajuste o fuso horário confor
             <?php include 'confirmModalMarcarComoEncontrado.php'; ?>
             <?php include 'confirmModalItemPerdido.php'; ?>
             <?php include 'confirmModalMarcarComoReivindicado.php'; ?>
-            <?php include 'marcarComoReivindicado.php'; ?>
             <?php include 'editPerfilModal.php'; ?>
             <?php include 'formModalItemAchado.php'; ?>
             <?php include 'formModalItemPerdido.php'; ?>

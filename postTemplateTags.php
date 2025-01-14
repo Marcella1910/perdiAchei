@@ -25,7 +25,7 @@
             <?php
             // Exibe o nome do usuário associado
             if ($post['usuario_id'] == $_SESSION['id']) {
-                echo "<p class='nome'><a href='meuperfil.php'>" . htmlspecialchars($post['nome']) . "</a></p>";
+                echo "<p class='nome'><a href='meuperfil.php'>" . htmlspecialchars($postId['nome']) . "</a></p>";
             } else {
                 echo "<p class='nome'><a href='perfil-alheio.php?usuario_id=" . $post['usuario_id'] . "'>" . htmlspecialchars($post['nome']) . "</a></p>";
             }
@@ -37,33 +37,46 @@
             <div class="dropdown-menu" id="dropdown-menu">
                 <ul>
                     <?php if ($post['usuario_id'] == $_SESSION['id']): ?>
-                        <!-- Se a postagem pertence ao usuário logado -->
-                        <li><button onclick="openEditPost(<?php echo $postId; ?>)">Editar</button></li>
-                        <li><button class="dropdown-item"
-                                onclick="openDeletePostModal(<?php echo $postId; ?>)">Excluir</button></li>
-                        <?php if ($post['status'] == 'encontrado'): ?>
-                            <!-- Caso seja um objeto achado -->
-                            <li><button class="dropdown-item" onclick="openConfirmModalMarcarComoReivindicado(<?php echo $postId; ?>)">Marcar como
-                                    'reivindicado'</button></li>
+                        <?php if ($post['devolucao'] == 'nao'): ?>
+                            <!-- Se a postagem pertence ao usuário logado -->
+                            <li><button onclick="openEditPost(<?php echo $postId; ?>)">Editar</button></li>
+                            <li><button class="dropdown-item"
+                                    onclick="openDeletePostModal(<?php echo $postId; ?>)">Excluir</button></li>
+                            <?php if ($post['status'] == 'encontrado'): ?>
+                                <!-- Caso seja um objeto achado -->
+                                <li><button class="dropdown-item"
+                                        onclick="openConfirmModalMarcarComoReivindicado(<?php echo $postId; ?>)">Marcar
+                                        como
+                                        'reivindicado'</button></li>
+                            <?php else: ?>
+                                <!-- Caso seja um objeto perdido -->
+                                <li><button class="dropdown-item"
+                                        onclick="openConfirmModalMarcarComoEncontrado(<?php echo $postId; ?>)">Marcar
+                                        como
+                                        'encontrado'</button></li>
+                            <?php endif; ?>
                         <?php else: ?>
-                            <!-- Caso seja um objeto perdido -->
-                            <li><button class="dropdown-item" onclick="openConfirmModalMarcarComoEncontrado(<?php echo $postId; ?>)">Marcar
-                                    como
-                                    'encontrado'</button></li>
+                            <li><button class="dropdown-item"
+                                    onclick="openDeletePostModal(<?php echo $postId; ?>)">Excluir</button></li>
                         <?php endif; ?>
                     <?php else: ?>
-                        <!-- Se a postagem pertence a outro usuário -->
-                        <li><button class="dropdown-item" onclick="openReportForm(<?php echo $postId; ?>)">Reportar</button>
-                        </li>
-                        <?php if ($post['status'] == 'encontrado'): ?>
-                            <!-- Caso seja um objeto achado -->
-                            <li><button class="dropdown-item" onclick="openConfirmPopup(<?php echo $postId; ?>)">Reivindicar
-                                    item</button></li>
+                        <?php if ($post['devolucao'] == 'nao'): ?>
+                            <!-- Se a postagem pertence a outro usuário -->
+                            <li><button class="dropdown-item" onclick="openReportForm(<?php echo $postId; ?>)">Reportar</button>
+                            </li>
+                            <?php if ($post['status'] == 'encontrado'): ?>
+                                <!-- Caso seja um objeto achado -->
+                                <li><button class="dropdown-item" onclick="openConfirmPopup(<?php echo $postId; ?>)">Reivindicar
+                                        item</button></li>
+                            <?php else: ?>
+                                <!-- Caso seja um objeto perdido -->
+                                <li><button class="dropdown-item"
+                                        onclick="openConfirmPopupItemPerdido(<?php echo $postId; ?>)">Entrar em
+                                        contato com usuário</button></li>
+                            <?php endif; ?>
                         <?php else: ?>
-                            <!-- Caso seja um objeto perdido -->
-                            <li><button class="dropdown-item"
-                                    onclick="openConfirmPopupItemPerdido(<?php echo $postId; ?>)">Entrar em
-                                    contato com usuário</button></li>
+                            <li><button class="dropdown-item" onclick="openReportForm(<?php echo $postId; ?>)">Reportar</button>
+                            </li>
                         <?php endif; ?>
                     <?php endif; ?>
                 </ul>
@@ -99,13 +112,25 @@
         </div>
         <div class="acoes">
             <?php if ($post['usuario_id'] != $_SESSION['id']): ?>
-                <!-- Verifica se a postagem não pertence ao usuário logado -->
-                <?php if ($post['status'] == 'encontrado'): ?>
-                    <!-- Caso seja um objeto encontrado -->
-                    <button class="e-meu" onclick="openConfirmPopup(<?php echo $postId; ?>)">é meu !</button>
-                <?php elseif ($post['status'] == 'perdido'): ?>
-                    <!-- Caso seja um objeto perdido -->
-                    <button class="encontrei" onclick="openConfirmPopupItemPerdido(<?php echo $postId; ?>)">encontrei !</button>
+                <?php if ($post['devolucao'] == 'nao'): ?>
+                    <?php if ($post['status'] == 'encontrado'): ?>
+                        <!-- Caso seja um objeto encontrado -->
+                        <button class="e-meu" onclick="openConfirmPopup(<?php echo $postId; ?>)">é meu !</button>
+                    <?php elseif ($post['status'] == 'perdido'): ?>
+                        <!-- Caso seja um objeto perdido -->
+                        <button class="encontrei" onclick="openConfirmPopupItemPerdido(<?php echo $postId; ?>)">encontrei !</button>
+                    <?php endif; ?>
+                <?php elseif ($post['devolucao'] == 'sim'): ?>
+                    <?php if ($post['status'] == 'encontrado'): ?>
+                        <!-- Caso seja um objeto encontrado -->
+                        <button class="e-meu indisponivel" onclick="openConfirmPopup(<?php echo $postId; ?>)" disabled>é meu
+                            !</button>
+                        <p class="infodevolucao">Reivindicado por: Fulano de tal</p>
+                    <?php elseif ($post['status'] == 'perdido'): ?>
+                        <!-- Caso seja um objeto perdido -->
+                        <button class="encontrei indisponivel" onclick="openConfirmPopupItemPerdido(<?php echo $postId; ?>)"
+                            disabled>encontrado</button>
+                    <?php endif; ?>
                 <?php endif; ?>
             <?php endif; ?>
         </div>
