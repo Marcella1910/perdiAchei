@@ -1324,6 +1324,25 @@ input[type="file"] {
     cursor: pointer;
 }
 
+.acoes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.infodevolucao {
+    font-family: "Varela Round";
+    color: #555;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px 13px;
+    border-radius: 25px;
+    border: 2px solid #555;
+    margin-bottom: 5px;
+}
+
 .right-menu-configuracoes {
     width: 20%;
     margin-top: 1rem;

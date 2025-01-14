@@ -19,6 +19,7 @@ CREATE TABLE posts (
     tipo_imagem VARCHAR(50),
     devolucao ENUM('sim', 'nao') NOT NULL DEFAULT 'nao',
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    reclamante VARCHAR(100) DEFAULT NULL,
     usuario_id INT NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
 );

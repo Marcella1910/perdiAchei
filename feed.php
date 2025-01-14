@@ -10,7 +10,7 @@ $searchQuery = isset($_GET['query']) ? $conn->real_escape_string($_GET['query'])
 if (!empty($searchQuery)) {
     // Consulta apenas resultados correspondentes à pesquisa
     $sql = "
-        SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, posts.devolucao,
+        SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, posts.devolucao, posts.reclamante,
                posts.tipo_imagem, posts.data_criacao, posts.usuario_id, usuarios.nome, usuarios.foto_perfil
         FROM posts
         INNER JOIN usuarios ON posts.usuario_id = usuarios.id
@@ -20,7 +20,7 @@ if (!empty($searchQuery)) {
 } else {
     // Consulta padrão
     $sql = "
-        SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, posts.devolucao,
+        SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, posts.devolucao, posts.reclamante,
                posts.tipo_imagem, posts.data_criacao, posts.usuario_id, usuarios.nome, usuarios.foto_perfil
         FROM posts
         INNER JOIN usuarios ON posts.usuario_id = usuarios.id
@@ -29,7 +29,7 @@ if (!empty($searchQuery)) {
 }
 
 $posts = $conn->query("
-        SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, posts.devolucao,
+        SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, posts.devolucao, posts.reclamante,
                posts.tipo_imagem, posts.data_criacao, posts.usuario_id, usuarios.nome, usuarios.foto_perfil
         FROM posts
         INNER JOIN usuarios ON posts.usuario_id = usuarios.id
@@ -289,12 +289,12 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                     <?php elseif ($row['devolucao'] == 'sim'): ?>
                                         <?php if ($row['status'] == 'encontrado'): ?>
                                             <!-- Caso seja um objeto encontrado -->
-                                            <button class="e-meu indisponivel" onclick="openConfirmPopup(<?php echo $postId; ?>)" disabled>é meu !</button>
-                                            <p class="infodevolucao">Reivindicado por: Fulano de tal</p>
+                                            <?php echo '<p class="infodevolucao">Reivindicado por: ' . htmlspecialchars($row['reclamante']) . '</p>'; ?>
                                         <?php elseif ($row['status'] == 'perdido'): ?>
                                             <!-- Caso seja um objeto perdido -->
                                             <button class="encontrei indisponivel"
-                                                onclick="openConfirmPopupItemPerdido(<?php echo $postId; ?>)" disabled>encontrado</button>
+                                                onclick="openConfirmPopupItemPerdido(<?php echo $postId; ?>)"
+                                                disabled>encontrado</button>
                                         <?php endif; ?>
                                     <?php endif; ?>
                                 <?php endif; ?>

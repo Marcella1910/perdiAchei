@@ -751,33 +751,28 @@ function closeFormModalMarcarComoReivindicado() {
     document.getElementById("formModalMarcarComoReivindicado").style.display = "none";
 }
 
-const textarea = document.getElementById("textarea");
-const suggestionsContainer = document.getElementById("suggestions");
+document.getElementById('emailReclamante').addEventListener('input', function () {
+    const query = this.value;
 
-// Verifica se os elementos existem antes de adicionar o evento
-if (textarea && suggestionsContainer) {
-    // Lista simulada de perfis para sugerir
-    const profiles = ["@maria_silva", "@joao_costa", "@lucas_rocha", "@ana_oliveira", "@bruna_pereira"];
+    if (query.length > 1) {
+        fetch(`buscarEmails.php?q=${query}`)
+            .then(response => response.json())
+            .then(data => {
+                const suggestions = document.getElementById('suggestions');
+                suggestions.innerHTML = '';
 
-    textarea.addEventListener("input", () => {
-        const text = textarea.value;
-        const lastWord = text.split(" ").pop(); // pega a última palavra
-
-        // Se a última palavra começar com '@', exibe sugestões
-        if (lastWord.startsWith("@")) {
-            const query = lastWord.slice(1).toLowerCase(); // retira '@' para buscar
-            const filteredProfiles = profiles.filter(profile =>
-                profile.toLowerCase().includes(query)
-            );
-
-            showSuggestions(filteredProfiles);
-        } else {
-            suggestionsContainer.style.display = "none";
-        }
-    });
-}
-
-
+                data.forEach(email => {
+                    const suggestion = document.createElement('div');
+                    suggestion.textContent = email;
+                    suggestion.onclick = function () {
+                        document.getElementById('emailReclamante').value = email;
+                        suggestions.innerHTML = '';
+                    };
+                    suggestions.appendChild(suggestion);
+                });
+            });
+    }
+});
 
 
 
