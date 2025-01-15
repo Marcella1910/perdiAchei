@@ -850,7 +850,9 @@ document.addEventListener("DOMContentLoaded", function () {
             query_preparation: "Erro ao preparar a consulta ao banco de dados.",
             no_recipient: "Não foi possível encontrar o destinatário para este post.",
             email_failure: "Erro ao enviar o e-mail.",
-            email_exception: "Ocorreu um problema ao tentar enviar o e-mail."
+            email_exception: "Ocorreu um problema ao tentar enviar o e-mail.",
+            email_not_registered: "O email fornecido não está registrado. Por favor, tente novamente."
+
         };
 
         const errorKey = params.get("error");
