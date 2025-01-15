@@ -123,9 +123,18 @@
                 <?php elseif ($post['devolucao'] == 'sim'): ?>
                     <?php if ($post['status'] == 'encontrado'): ?>
                         <!-- Caso seja um objeto encontrado -->
-                        <button class="e-meu indisponivel" onclick="openConfirmPopup(<?php echo $postId; ?>)" disabled>é meu
-                            !</button>
-                        <p class="infodevolucao">Reivindicado por: Fulano de tal</p>
+                        <?php echo '<p class="infodevolucao">Reivindicado por: ' . htmlspecialchars($post['reclamante']) . '</p>'; ?>
+                    <?php elseif ($post['status'] == 'perdido'): ?>
+                        <!-- Caso seja um objeto perdido -->
+                        <button class="encontrei indisponivel" onclick="openConfirmPopupItemPerdido(<?php echo $postId; ?>)"
+                            disabled>encontrado</button>
+                    <?php endif; ?>
+                <?php endif; ?>
+            <?php else: ?>
+                <?php if ($post['devolucao'] == 'sim'): ?>
+                    <?php if ($post['status'] == 'encontrado'): ?>
+                        <!-- Caso seja um objeto encontrado -->
+                        <?php echo '<p class="infodevolucao">Reivindicado por: ' . htmlspecialchars($post['reclamante']) . '</p>'; ?>
                     <?php elseif ($post['status'] == 'perdido'): ?>
                         <!-- Caso seja um objeto perdido -->
                         <button class="encontrei indisponivel" onclick="openConfirmPopupItemPerdido(<?php echo $postId; ?>)"

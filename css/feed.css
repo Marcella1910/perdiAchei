@@ -2439,7 +2439,6 @@ input[type="file"] {
     z-index: 1000;
     top: 7rem;
     width: 200px;
-    font-size: 13px;
 }
 
 .suggestions::-webkit-scrollbar {
@@ -2453,7 +2452,7 @@ input[type="file"] {
 .input-container .suggestion-item {
     color: #706c6c;
     padding: 8px 12px;
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 500;
     cursor: pointer;
     

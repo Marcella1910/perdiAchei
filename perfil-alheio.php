@@ -31,7 +31,7 @@ $usuario = $resultUsuario->fetch_assoc();
 
 // Obtém postagens do usuário
 $queryPosts = $conn->prepare("
-    SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, posts.devolucao,
+    SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, posts.devolucao, posts.reclamante,
            posts.tipo_imagem, posts.data_criacao
     FROM posts
     WHERE posts.usuario_id = ?

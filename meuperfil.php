@@ -7,7 +7,7 @@ include_once 'validaSessao.php';
 $usuarioId = $_SESSION['id'];
 
 $posts = $conn->query("
-    SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, posts.devolucao,
+    SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, posts.devolucao, posts.reclamante,
            posts.tipo_imagem, posts.data_criacao, posts.usuario_id, usuarios.nome, usuarios.foto_perfil
     FROM posts
     INNER JOIN usuarios ON posts.usuario_id = usuarios.id
