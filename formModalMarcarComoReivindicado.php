@@ -12,6 +12,10 @@
                 <textarea type="email" id="emailReclamante" name="emailReclamante" placeholder="Digite um email..." spellcheck="false"
                     required></textarea>
                 <div id="suggestions" class="suggestions"></div>
+                <!-- Exibe a mensagem de erro aqui -->
+                <?php if (!empty($error)) : ?>
+                    <small class="error-message" style="color: red;"><?= htmlspecialchars($error) ?></small>
+                <?php endif; ?>
             </div>
 
             <div class="bts-popup">
