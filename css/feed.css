@@ -205,13 +205,13 @@ body {
     border-radius: 10px;
 }
 
-.suggestion-item {
+#suggestions-box .suggestion-item {
     padding: 8px;
     cursor: pointer;
     font-family: "Poppins";
 }
 
-.suggestion-item:hover {
+#suggestions-box .suggestion-item:hover {
     background-color: #efc5c5;
 }
 
@@ -2332,7 +2332,7 @@ input[type="file"] {
     
 }
 
-#textarea {
+#emailReclamante {
     font-family: "Poppins";
     background-color: transparent;
     color: #333;
@@ -2343,20 +2343,20 @@ input[type="file"] {
     font-size: 14px;
 }
 
-#textarea::placeholder {
+#emailReclamante::placeholder {
     color: #555; /* Cor do placeholder do título quando não está focado */
   }
   
-#textarea::placeholder {
+#emailReclamante::placeholder {
     color: #555; /* Cor do placeholder da descrição quando não está focado */
 }
   
   /* Estilizando o placeholder quando o campo está focado */
-#textarea:focus::placeholder {
+#emailReclamante:focus::placeholder {
     color: gray; /* Cor do placeholder do título quando o campo está focado */
 }
   
-#textarea:focus::placeholder {
+#emailReclamante:focus::placeholder {
     color: gray; /* Cor do placeholder da descrição quando o campo está focado */
 }
 
@@ -2376,7 +2376,7 @@ input[type="file"] {
     margin-bottom: 4px;
 }
 
-#textarea {
+#emailReclamante {
     font-family: "Poppins";
     background-color: transparent;
     color: #555;
@@ -2388,15 +2388,15 @@ input[type="file"] {
     margin-top: 5px;
 }
 
-.suggestions {
+/* .suggestions {
     position: absolute;
     left: 0;
     top: 7rem;
     width: fit-content;
     max-height: 150px;
-    overflow-y: scroll; /* mantém a rolagem ativa */
-    z-index: 10000;
-    display: none; /* inicialmente escondido */
+    overflow-y: scroll; 
+    z-index: 1000;
+    display: none; 
     background-color: #f9f9f9;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -2408,7 +2408,7 @@ input[type="file"] {
 }
 
 .suggestions {
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none; 
 }
 
 .suggestion-item {
@@ -2421,6 +2421,51 @@ input[type="file"] {
 
 .suggestion-item:hover {
     background-color: #f0f0f0;
+}
+
+.no-suggestions {
+    padding: 8px 10px;
+    color: #888;
+} */
+
+.suggestions {
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 2px solid #706c6c3a;
+    position: absolute;
+    max-height: 150px;
+    overflow-y: scroll;
+    z-index: 1000;
+    top: 7rem;
+    width: 200px;
+    font-size: 13px;
+}
+
+.suggestions::-webkit-scrollbar {
+    display: none;
+}
+
+.suggestions {
+    scrollbar-width: none; 
+}
+
+.input-container .suggestion-item {
+    color: #706c6c;
+    padding: 8px 12px;
+    font-size: 9px;
+    font-weight: 500;
+    cursor: pointer;
+    
+}
+
+.input-container .suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+.no-suggestions {
+    padding: 8px 10px;
+    color: #888;
 }
 
 

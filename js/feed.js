@@ -751,29 +751,59 @@ function closeFormModalMarcarComoReivindicado() {
     document.getElementById("formModalMarcarComoReivindicado").style.display = "none";
 }
 
-document.getElementById('emailReclamante').addEventListener('input', function () {
-    const query = this.value;
+document.addEventListener('DOMContentLoaded', () => {
+    const inputEmail = document.getElementById('emailReclamante');
+    const suggestions = document.getElementById('suggestions');
 
-    if (query.length > 1) {
-        fetch(`buscarEmails.php?q=${query}`)
-            .then(response => response.json())
-            .then(data => {
-                const suggestions = document.getElementById('suggestions');
-                suggestions.innerHTML = '';
+    // Atualiza as sugestões com base no input
+    inputEmail.addEventListener('input', function () {
+        const query = this.value.trim();
 
-                data.forEach(email => {
-                    const suggestion = document.createElement('div');
-                    suggestion.textContent = email;
-                    suggestion.onclick = function () {
-                        document.getElementById('emailReclamante').value = email;
-                        suggestions.innerHTML = '';
-                    };
-                    suggestions.appendChild(suggestion);
+        if (query.length > 1) {
+            fetch(`buscarEmails.php?q=${encodeURIComponent(query)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao buscar sugestões.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    suggestions.innerHTML = '';
+
+                    if (Array.isArray(data)) {
+                        if (data.length > 0) {
+                            data.forEach(email => {
+                                const suggestion = document.createElement('div');
+                                suggestion.textContent = email;
+                                suggestion.classList.add('suggestion-item');
+                                suggestion.onclick = function () {
+                                    inputEmail.value = email;
+                                    suggestions.innerHTML = '';
+                                };
+                                suggestions.appendChild(suggestion);
+                            });
+                        } else {
+                            suggestions.innerHTML = '<div class="no-suggestions">Nenhuma sugestão encontrada</div>';
+                        }
+                    } else if (data.error) {
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
                 });
-            });
-    }
-});
+        } else {
+            suggestions.innerHTML = '';
+        }
+    });
 
+    // Esconde as sugestões ao clicar fora do campo de input e das sugestões
+    document.addEventListener('click', function (event) {
+        if (!inputEmail.contains(event.target) && !suggestions.contains(event.target)) {
+            suggestions.innerHTML = '';
+        }
+    });
+});
 
 
 function showSuggestions(profiles) {

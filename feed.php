@@ -297,6 +297,18 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                                                 disabled>encontrado</button>
                                         <?php endif; ?>
                                     <?php endif; ?>
+                                <?php else: ?>
+                                    <?php if ($row['devolucao'] == 'sim'): ?>
+                                        <?php if ($row['status'] == 'encontrado'): ?>
+                                            <!-- Caso seja um objeto encontrado -->
+                                            <?php echo '<p class="infodevolucao">Reivindicado por: ' . htmlspecialchars($row['reclamante']) . '</p>'; ?>
+                                        <?php elseif ($row['status'] == 'perdido'): ?>
+                                            <!-- Caso seja um objeto perdido -->
+                                            <button class="encontrei indisponivel"
+                                                onclick="openConfirmPopupItemPerdido(<?php echo $postId; ?>)"
+                                                disabled>encontrado</button>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                             </div>
                         </div>
