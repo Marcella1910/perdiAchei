@@ -1,4 +1,3 @@
-<!--Div da pequena tela que aparece quando se clica em notificações-->
 <div class="notification-panel">
     <div class="notification-header">
         <?php
@@ -38,6 +37,8 @@
                     <p>quer reivindicar um item postado!</p>
                 </div>
         </li>
-        <!-- Adicione mais notificações aqui -->
+
     </ul>
 </div>
+
+
