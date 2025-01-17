@@ -684,6 +684,42 @@ function openFormPopupItemPerdido() {
     document.getElementById("formModalItemPerdido").style.display = "flex";
 }
 
+document.getElementById("contactFormItemPerdido").addEventListener("submit", function(event) {
+    event.preventDefault(); // Impede o envio normal do formulário
+
+    let formData = new FormData(this);
+
+    fetch("salvar_notificacao.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Notificação enviada com sucesso!");
+            this.submit(); // Agora permite o envio do formulário para handle_contact.php
+        } else {
+            alert("Erro ao enviar notificação.");
+        }
+    })
+    .catch(error => console.error("Erro:", error));
+});
+
+document.querySelectorAll(".notification-list li").forEach(li => {
+    li.addEventListener("click", function() {
+        let notificacaoId = this.getAttribute("data-id");
+
+        fetch("marcar_notificacao_lida.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: "id=" + notificacaoId
+        }).then(() => {
+            this.classList.remove("notificacao-nao-lida"); // Remove o destaque de não lida
+        });
+    });
+});
+
+
 // Função para fechar o modal de confirmação
 function closeConfirmPopupItemPerdido() {
     document.getElementById("confirmModalItemPerdido").style.display = "none";
