@@ -36,7 +36,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>perdiAchei</title>
+    <title>Meu perfil</title>
     <link rel="stylesheet" href="css/feed.css">
     <link rel="stylesheet" href="css/barra-acessibilidade.css">
     <script src="js/barra-acessibilidade.js" defer></script>
@@ -126,7 +126,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
         </div>
         <div class="right-menu">
-
+            <h3 class="ola">Olá, <u><?php echo $_SESSION['nome']; ?></u>.</h3>
         </div>
     </div>
     <script src="js/feed.js"></script>

@@ -137,9 +137,13 @@ date_default_timezone_set('America/Sao_Paulo'); // Ajuste o fuso horário confor
             <?php include 'editPerfilModal.php'; ?>
             <?php include 'formModalItemAchado.php'; ?>
             <?php include 'formModalItemPerdido.php'; ?>
-
+            <?php include 'editPerfilModal.php'; ?>
         </div>
-        <div class="right-menu"></div>
+
+
+
+        <!-- Right Menu -->
+        <?php include 'right-menu.php'; ?>
     </div>
     <script src="js/perfilalheio.js"></script>
 </body>

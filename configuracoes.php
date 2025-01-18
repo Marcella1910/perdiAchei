@@ -19,7 +19,7 @@ include_once 'validaSessao.php';
 
     <!-- Estilos e scripts da barra -->
     <link rel="stylesheet" href="css/barra-acessibilidade.css">
-    <!-- <script src="js/barra-acessibilidade.js" defer></script> -->
+    <script src="js/barra-acessibilidade.js" defer></script>
 
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
 </head>

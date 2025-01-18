@@ -9,6 +9,7 @@
             atento à sua caixa de entrada para acompanhar a comunicação.</p>
             <form id="contactFormItemPerdido" action="handle_contact.php" method="post" enctype="multipart/form-data"> 
                 <input type="hidden" name="postId" value="" />
+                <input type="hidden" name="postOwnerId" value="" />
 
 
             <textarea id="contactReasonItemPerdido" name="contactReasonItemPerdido"
