@@ -1,7 +1,7 @@
 <?php
-
+// Iniciando a sessão
 session_start();
-
+// Conexão com o banco, validação da sessão do usuário 
 include_once 'dbconnect.php';
 include_once 'validaSessao.php';
 
@@ -15,12 +15,12 @@ include_once 'validaSessao.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configurações</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Importando o css -->
     <link rel="stylesheet" href="css/feed.css">
-
     <!-- Estilos e scripts da barra -->
     <link rel="stylesheet" href="css/barra-acessibilidade.css">
     <script src="js/barra-acessibilidade.js" defer></script>
-
+    <!-- Importando as fontes  -->
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
 </head>
 
@@ -41,14 +41,9 @@ include_once 'validaSessao.php';
             <!-- Painel de notificações -->
             <?php include 'notifications-painel.php'; ?>
 
-            
-
             <!--configurações-->
             <div class="config-conta">
                 <h3>Conta</h3>
-                
-                    
-                
                 
                 <!--Botâo para excluir conta cadastrada do banco de dados-->
                 <div class="excluir-conta">
@@ -56,22 +51,6 @@ include_once 'validaSessao.php';
                     <button onclick="openModalDeleteAccount()" class="excluir-conta-btn">excluir conta</button>
                 </div>
 
-
-
-            </div>
-
-            <!--PopUp de quando se clica para redefinir senha-->
-            <div class="modal" id="deleteModal">
-                <div class="modal-content">
-                    <h3>Defina sua senha</h3>
-                    <p>Para fazer essas alterações, primeiro você precisa definir uma senha utilizando o link de
-                        redefinição de senha enviado ao seu e-mail.</p>
-                    <div class="bts-popup">
-                        <button onclick="closeModal()" class="fecharAba">Cancelar</button>
-                        <button onclick="confirmSenha()" class="confirmaSenha">Enviar e-mail de redefinição de
-                            senha</button>
-                    </div>
-                </div>
             </div>
 
             <!--PopUp de quando se clica para excluir conta-->
@@ -93,8 +72,6 @@ include_once 'validaSessao.php';
             </div>
 
 
-            <!-- Create Post Section -->
-
         </div>
 
         <!-- Modal de editar perfil  -->
@@ -107,7 +84,7 @@ include_once 'validaSessao.php';
     </div>
 
     <script src="js/configuracoes.js"></script>
-
+    <!-- Importando script js das configurações  -->
 </body>
 
 </html>

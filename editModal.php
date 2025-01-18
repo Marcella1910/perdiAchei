@@ -1,6 +1,7 @@
 <!-- Editar publicação -->
 <div id="editModal" class="modal">
     <div class="modal-content">
+        <!-- Mostra o nome do usuário  -->
         <?php
         echo "<h2 class='editModalUsername'><u>{$_SESSION['nome']}</u></h2>";
         ?>
@@ -27,9 +28,6 @@
                         Objeto Encontrado
                     </label>
                 </div>
-
-
-
 
                 <!-- Mudar categoria -->
                 <select class="select-tags" name="categoria" id="editarCategorias">
@@ -61,6 +59,7 @@
 
             <div class="footerEditForm">
                 <div class="upload-container">
+                    <!-- Escolher o arquivo  -->
                     <label for="editFileUpload" class="upload-button">
                         escolher arquivo
                     </label>
@@ -68,7 +67,9 @@
                 </div>
 
                 <div class="bts-popup">
+                    <!-- Botão cancelar  -->
                     <button type="button" class="cancel-button" onclick="closeEditPost()">Cancelar</button>
+                    <!-- Botão salvar alterações  -->
                     <button type="button" onclick="saveEditPost()" class="submit-button">Salvar Alterações</button>
                 </div>
             </div>

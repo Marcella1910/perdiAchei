@@ -24,10 +24,11 @@
             <input type="text" id="editName" name="editName" placeholder="Nome"
                 value="<?php echo $_SESSION['nome']; ?>">
 
-
             <div class="footerEditPerfilModal">
                 <div class="bts-popup">
+                    <!-- Botão cancelar  -->
                     <button type="button" class="cancelarReport" onclick="closeEditProfile()">Cancelar</button>
+                    <!-- Botão salvar alterações  -->
                     <button type="submit" class="submit-button">Salvar Alterações</button>
                 </div>
             </div>

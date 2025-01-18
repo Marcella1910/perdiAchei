@@ -397,17 +397,22 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
                 <?php endif; ?>
             </div>
 
-
+            <!-- Modal de report das postagens  -->
             <?php include 'reportModal.php'; ?>
 
+            <!-- Modal de confirmação para reivindicar um item  -->
             <?php include 'confirmModalItemAchado.php'; ?>
 
+            <!-- Modal de reivindicação de um item  -->
             <?php include 'formModalItemAchado.php'; ?>
 
+            <!-- Modal de editar um post  -->
             <?php include 'editModal.php'; ?>
 
+            <!-- Modal de excluir um post  -->
             <?php include 'deletePostModal.php'; ?>
 
+            <!-- Modal de confirmação de devolução de um item  -->
             <?php include 'confirmModalItemPerdido.php'; ?>
 
             <!-- Modal de marcar como encontrado  -->
@@ -425,19 +430,14 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
             <!-- Modal de editar perfil  -->
             <?php include 'editPerfilModal.php'; ?>
 
-
-
         </div>
 
         <!-- Right Menu -->
         <?php include 'right-menu.php'; ?>
 
-
     </div>
-
-
+    <!-- Importando o script js  -->
     <script src="js/feed.js"></script>
-
 
 </body>
 
