@@ -13,7 +13,7 @@ include_once 'validaSessao.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>perdiAchei</title>
+    <title>Configurações</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/feed.css">
 
@@ -48,11 +48,7 @@ include_once 'validaSessao.php';
                 <h3>Conta</h3>
                 
                     
-                <div class="senha-conta">
-                    <h4>Senha</h4>
-                    <h4 class="user-senha" id="user-senha">••••••••••</h4>
-                    <button onclick="openModal()"><i class="fa-solid fa-pen-to-square"></i></button>
-                </div>
+                
                 
                 <!--Botâo para excluir conta cadastrada do banco de dados-->
                 <div class="excluir-conta">

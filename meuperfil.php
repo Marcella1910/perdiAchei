@@ -126,7 +126,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Altere para o fuso horário d
 
         </div>
         <div class="right-menu">
-            <h3 class="ola">Olá, <u><?php echo $_SESSION['nome']; ?></u>.</h3>
+            
         </div>
     </div>
     <script src="js/feed.js"></script>
