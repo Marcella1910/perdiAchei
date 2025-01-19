@@ -1,12 +1,15 @@
 
+// Abre o modal de deletar post 
 function openModal() {
     document.getElementById('deleteModal').style.display = 'flex';
 }
 
+// Fecha o modal de deletar post 
 function closeModal() {
     document.getElementById('deleteModal').style.display = 'none';
 }
 
+// Confirma se o email foi enviado 
 function confirmSenha() {
     alert("Email enviado!");
     closeModal();
@@ -544,70 +547,6 @@ function handleDeletePost(event) {
     }
     return true;
 }
-
-
-// Seleciona o modal e o formulário, se existirem
-// const deletePostModal = document.getElementById("deletePostModal");
-// const excluirPostagemForm = document.getElementById("excluirPostagemForm");
-// const cancelButton = document.querySelector(".cancel-button");
-// const submitButton = document.querySelector(".submit-button");
-
-// // Verifica se todos os elementos existem antes de adicionar eventos e lógica
-// if (deletePostModal && excluirPostagemForm && cancelButton && submitButton) {
-
-//     // Função para abrir o modal
-//     function openDeletePostModal(postId) {
-//         const postIdInput = excluirPostagemForm.querySelector("input[name = 'id']");
-//         if(postIdInput) {
-//             postIdInput.value = postId; //Define o ID da postagem no campo oculto
-//         }
-//         deletePostModal.style.display = "flex";
-//     }
-
-//     // Função para fechar o modal
-//     function closeDeletePost() {
-//         deletePostModal.style.display = "none";
-//     }
-
-//     // Evento para fechar o modal ao clicar no botão "Cancelar"
-//     cancelButton.onclick = closeDeletePost;
-
-//     // Evento para fechamento adicional ou lógica de exclusão ao confirmar com o botão "Ok"
-//     excluirPostagemForm.onsubmit = function (event) {
-//         event.preventDefault(); // Evita o envio padrão do formulário
-
-//         const formData = new FormData(excluirPostagemForm);
-
-//         fetch("excluiPostagem.php", {
-//             method: "POST",
-//             body: formData,
-//         })
-//         .then(response => response.text())
-//         .then(result => {
-//             alert(result); //Exibe o conteudo da exclusão
-//             closeDeletePost(); // Adicione aqui a lógica para excluir a postagem, se necessário
-
-//             //Remove o elemento do feed(opcional, com base no ID)
-//             const postId = formData.get("id");
-//             const postElement = document.getElementById(`post-${postId}`);
-//             if(postElement) {
-//                 postElement.remove();
-//             }
-//         })
-//         .catch(error => {
-//             console.error("Erro ao excluir a postagem: ", error);
-//         });
-//     };
-
-//     // Fecha o modal ao clicar fora do conteúdo
-//     window.onclick = function (event) {
-//         if (event.target === deletePostModal) {
-//             closeDeletePost();
-//         }
-//     };
-// } else {
-//     console.error("Elementos necessários não encontrados para o modal de exclusão.")
-// }
 
 function openConfirmPopupItemPerdido(postId) {
     console.log("Debug: postId recebido: " + postId); // Mensagem de depuração
