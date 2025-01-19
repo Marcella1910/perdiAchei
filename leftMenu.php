@@ -1,3 +1,4 @@
+<!-- Menu esquerdo  -->
 <div class="left-menu">
     <aside>
 
@@ -25,9 +26,6 @@
             </span>
             <h3 class="nome-menu-item">Perfil</h3>
         </a>
-
-
-
 
         <!-- Link para a página de Configurações -->
         <a href="configuracoes.php" class="menu-item">

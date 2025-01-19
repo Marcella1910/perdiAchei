@@ -1,6 +1,6 @@
 <?php
-session_start();
-include_once 'dbconnect.php';
+session_start(); //Inicia a sessão
+include_once 'dbconnect.php'; //Conexão com o banco
 
 // Verifica se o usuário tem um token ativo
 if (isset($_COOKIE['auth_token'])) {
