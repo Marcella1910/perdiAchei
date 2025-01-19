@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); //Inicia a sessão
 include 'dbconnect.php'; // Certifique-se de que este arquivo conecta ao banco
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

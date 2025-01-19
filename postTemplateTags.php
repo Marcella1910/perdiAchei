@@ -1,3 +1,4 @@
+<!-- Template das postagens das tags  -->
 <?php $postId = $post['id']; ?> <!-- Garantindo que $postId está correto -->
 <div class="post">
     <div class="post-header">

@@ -1,56 +1,29 @@
 <?php
-session_start();
+session_start(); //Inicia a sessão 
 
+// Inclui os arquivos necessários para conexão com o banco e validação de sessão
 include_once 'dbconnect.php';
 include_once 'validaSessao.php';
 
-// Verifica se o ID do usuário foi passado via GET
-if (!isset($_GET['usuario_id'])) {
-    echo "Usuário não especificado.";
-    exit;
-}
+// Obtém o ID do usuário da sessão
+$usuarioId = $_SESSION['id'];
 
-$usuarioId = intval($_GET['usuario_id']);
-
-// Obtém informações do usuário
-$queryUsuario = $conn->prepare("
-    SELECT nome, email, foto_perfil 
-    FROM usuarios 
-    WHERE id = ?
-");
-$queryUsuario->bind_param("i", $usuarioId);
-$queryUsuario->execute();
-$resultUsuario = $queryUsuario->get_result();
-
-if ($resultUsuario->num_rows == 0) {
-    echo "Usuário não encontrado.";
-    exit;
-}
-
-$usuario = $resultUsuario->fetch_assoc();
-
-// Obtém postagens do usuário
-$queryPosts = $conn->prepare("
+// Consulta SQL para pegar os posts do usuário logado, incluindo dados do usuário
+$posts = $conn->query("
     SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, posts.devolucao, posts.reclamante,
-           posts.tipo_imagem, posts.data_criacao
+           posts.tipo_imagem, posts.data_criacao, posts.usuario_id, usuarios.nome, usuarios.foto_perfil
     FROM posts
-    WHERE posts.usuario_id = ?
+    INNER JOIN usuarios ON posts.usuario_id = usuarios.id
+    WHERE posts.usuario_id = '$usuarioId'
     ORDER BY posts.data_criacao DESC
 ");
-$queryPosts->bind_param("i", $usuarioId);
-$queryPosts->execute();
-$resultPosts = $queryPosts->get_result();
 
+// Inicializa arrays para categorizar os posts
 $achados = [];
 $perdidos = [];
 
-// Organizando postagens em arrays de achados e perdidos
-while ($post = $resultPosts->fetch_assoc()) {
-    // Preenche as informações necessárias para cada postagem
-    $post['nome'] = $usuario['nome']; // Nome do usuário
-    $post['usuario_id'] = $usuarioId; // ID do usuário
-    $post['foto_perfil'] = $usuario['foto_perfil']; // Foto de perfil do usuário
-
+// Itera sobre os posts retornados pela consulta e os divide em achados e perdidos
+while ($post = $posts->fetch_assoc()) {
     if ($post['status'] == 'encontrado') {
         $achados[] = $post;
     } else {
@@ -58,7 +31,8 @@ while ($post = $resultPosts->fetch_assoc()) {
     }
 }
 
-date_default_timezone_set('America/Sao_Paulo'); // Ajuste o fuso horário conforme necessário
+// Define o fuso horário para o Brasil
+date_default_timezone_set('America/Sao_Paulo');
 ?>
 
 <!DOCTYPE html>
@@ -67,21 +41,30 @@ date_default_timezone_set('America/Sao_Paulo'); // Ajuste o fuso horário confor
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Mostra o nome do perfil associado  -->
     <title>Perfil de <?php echo htmlspecialchars($usuario['nome']); ?> - perdiAchei</title>
+    <!-- Importando o css  -->
     <link rel="stylesheet" href="css/feed.css">
+    <!-- Importando o css e js da barra  -->
     <link rel="stylesheet" href="css/barra-acessibilidade.css">
     <script src="js/barra-acessibilidade.js" defer></script>
+    <!-- Importando as fontes  -->
     <script src="https://kit.fontawesome.com/c1b7b8fa84.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!-- Importa a navbar  -->
     <?php include 'navbar.php'; ?>
     <div class="adjustable-font container">
+        <!-- Importa o menu esquerdo  -->
         <?php include 'leftMenu.php'; ?>
         <div class="main-content">
+            <!-- Inclui o painel de notificações  -->
             <?php include 'notifications-painel.php'; ?>
+            <!-- Mostra os dados do usuário  -->
             <div class="visualiza-perfil">
                 <div class="header-perfil">
+                    <!-- Foto de perfil do usuário  -->
                     <div class="ftperfil">
                         <?php if (isset($usuario['foto_perfil']) && file_exists($usuario['foto_perfil'])): ?>
                             <img src="<?php echo htmlspecialchars($usuario['foto_perfil']); ?>" alt="Foto de perfil">
@@ -91,9 +74,12 @@ date_default_timezone_set('America/Sao_Paulo'); // Ajuste o fuso horário confor
                     </div>
                 </div>
                 <div class="middle-perfil">
+                    <!-- Mostra o nome do usuário  -->
                     <h2 class='nome'><u><?php echo htmlspecialchars($usuario['nome']); ?></u></h2>
+                    <!-- Mostra o email do usuário  -->
                     <h3 class='username'><u><?php echo htmlspecialchars($usuario['email']); ?></u></h3>
                 </div>
+                <!-- Divide os posts em objetos achados e perdidos  -->
                 <div class="menu-publicacoes">
                     <button class="menu-btn active" onclick="showSectionPerfil('objetos-perdidos')">objetos
                         perdidos</button>
@@ -125,18 +111,40 @@ date_default_timezone_set('America/Sao_Paulo'); // Ajuste o fuso horário confor
                 <?php endif; ?>
             </div>
 
-            <!-- Modals -->
+            <!-- Modal de report -->
             <?php include 'reportModal.php'; ?>
+
+            <!-- Modal de confirmação para reivindicar um item  -->
             <?php include 'confirmModalItemAchado.php'; ?>
+
+            <!-- Modal de edição de um post  -->
             <?php include 'editModal.php'; ?>
+
+            <!-- Modal de exclusão de um post  -->
             <?php include 'deletePostModal.php'; ?>
+
+            <!-- Modal de confirmação de devolução de um post  -->
             <?php include 'confirmModalItemPerdido.php'; ?>
+
+            <!-- Modal de marcar como encontrado  -->
             <?php include 'confirmModalMarcarComoEncontrado.php'; ?>
+
+            <!-- Modal de confirmação de devolução de um post  -->
             <?php include 'confirmModalItemPerdido.php'; ?>
+
+            <!-- Modal de marcar como reivindicado  -->
             <?php include 'confirmModalMarcarComoReivindicado.php'; ?>
+
+            <!-- Modal de editar perfil  -->
             <?php include 'editPerfilModal.php'; ?>
+
+            <!-- Modal de reivindicação  -->
             <?php include 'formModalItemAchado.php'; ?>
+
+            <!-- Modal de devolução  -->
             <?php include 'formModalItemPerdido.php'; ?>
+
+            <!-- Modal de editar perfil  -->
             <?php include 'editPerfilModal.php'; ?>
         </div>
 
@@ -145,6 +153,7 @@ date_default_timezone_set('America/Sao_Paulo'); // Ajuste o fuso horário confor
         <!-- Right Menu -->
         <?php include 'right-menu.php'; ?>
     </div>
+    <!-- Importando o js  -->
     <script src="js/perfilalheio.js"></script>
 </body>
 
