@@ -38,9 +38,9 @@ $postId = intval($_POST['postId']);
 $userEmail = $_SESSION['email'];
 
 // Prioriza o campo preenchido, seja `contactReasonItemPerdido` ou `contactReason`
-if (isset($_POST['contactReasonItemPerdido']) && !empty(trim($_POST['contactReasonItemPerdido']))) {
+if (isset($_POST['contactReasonItemPerdido']) && !empty(($_POST['contactReasonItemPerdido']))) {
     $message = $_POST['contactReasonItemPerdido'];
-} elseif (isset($_POST['contactReason']) && !empty(trim($_POST['contactReason']))) {
+} elseif (isset($_POST['contactReason']) && !empty(($_POST['contactReason']))) {
     $message = $_POST['contactReason'];
 } else {
     header("Location: feed.php?error=empty_message");

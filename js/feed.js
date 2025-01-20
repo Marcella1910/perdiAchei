@@ -611,20 +611,26 @@ document.getElementById("contactFormItemPerdido").addEventListener("submit", fun
 
     let formData = new FormData(this);
 
+    for (let [key, value] of formData.entries()) {
+        console.log(key, value);
+    }    
+
     fetch("salvar_notificacao.php", {
         method: "POST",
         body: formData
     })
     .then(response => response.json())
     .then(data => {
+        console.log("Resposta do servidor:", data); // Debug
         if (data.success) {
             alert("Notificação enviada com sucesso!");
-            this.submit(); // Agora permite o envio do formulário para handle_contact.php
+            this.submit();
         } else {
-            alert("Erro ao enviar notificação.");
+            alert("Erro ao enviar notificação: " + (data.error || "Erro desconhecido"));
         }
     })
     .catch(error => console.error("Erro:", error));
+    
 });
 
 document.querySelectorAll(".notification-list li").forEach(li => {
