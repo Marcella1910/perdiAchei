@@ -1,29 +1,59 @@
 <?php
-session_start(); //Inicia a sessão 
+session_start(); // Inicia a sessão
 
-// Inclui os arquivos necessários para conexão com o banco e validação de sessão
-include_once 'dbconnect.php';
-include_once 'validaSessao.php';
+include_once 'dbconnect.php'; // Conexão com o banco de dados
+include_once 'validaSessao.php'; // Validação da sessão do usuário
 
-// Obtém o ID do usuário da sessão
-$usuarioId = $_SESSION['id'];
+// Verifica se o ID do usuário foi passado via GET
+if (!isset($_GET['usuario_id'])) {
+    echo "Usuário não especificado.";
+    exit;
+}
 
-// Consulta SQL para pegar os posts do usuário logado, incluindo dados do usuário
-$posts = $conn->query("
+// Obtém o ID do usuário e converte para um inteiro
+$usuarioId = intval($_GET['usuario_id']);
+
+// Obtém as informações do usuário
+$queryUsuario = $conn->prepare("
+    SELECT nome, email, foto_perfil 
+    FROM usuarios 
+    WHERE id = ?
+");
+$queryUsuario->bind_param("i", $usuarioId); // Prepara a consulta para evitar SQL injection
+$queryUsuario->execute(); // Executa a consulta
+$resultUsuario = $queryUsuario->get_result(); // Obtém o resultado da consulta
+
+if ($resultUsuario->num_rows == 0) {
+    echo "Usuário não encontrado.";
+    exit;
+}
+
+// Recupera os dados do usuário
+$usuario = $resultUsuario->fetch_assoc();
+
+// Obtém as postagens do usuário
+$queryPosts = $conn->prepare("
     SELECT posts.id, posts.titulo, posts.descricao, posts.categoria, posts.status, posts.imagem, posts.devolucao, posts.reclamante,
-           posts.tipo_imagem, posts.data_criacao, posts.usuario_id, usuarios.nome, usuarios.foto_perfil
+           posts.tipo_imagem, posts.data_criacao
     FROM posts
-    INNER JOIN usuarios ON posts.usuario_id = usuarios.id
-    WHERE posts.usuario_id = '$usuarioId'
+    WHERE posts.usuario_id = ?
     ORDER BY posts.data_criacao DESC
 ");
+$queryPosts->bind_param("i", $usuarioId); // Prepara a consulta para evitar SQL injection
+$queryPosts->execute(); // Executa a consulta
+$resultPosts = $queryPosts->get_result(); // Obtém o resultado das postagens
 
-// Inicializa arrays para categorizar os posts
 $achados = [];
 $perdidos = [];
 
-// Itera sobre os posts retornados pela consulta e os divide em achados e perdidos
-while ($post = $posts->fetch_assoc()) {
+// Organiza as postagens em arrays de achados e perdidos
+while ($post = $resultPosts->fetch_assoc()) {
+    // Adiciona informações adicionais à postagem
+    $post['nome'] = $usuario['nome']; // Nome do usuário
+    $post['usuario_id'] = $usuarioId; // ID do usuário
+    $post['foto_perfil'] = $usuario['foto_perfil']; // Foto de perfil do usuário
+
+    // Classifica as postagens de acordo com o status
     if ($post['status'] == 'encontrado') {
         $achados[] = $post;
     } else {
@@ -31,9 +61,10 @@ while ($post = $posts->fetch_assoc()) {
     }
 }
 
-// Define o fuso horário para o Brasil
+// Define o fuso horário
 date_default_timezone_set('America/Sao_Paulo');
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
