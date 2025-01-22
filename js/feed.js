@@ -600,11 +600,8 @@ function openFormPopupItemPerdido() {
     // Obtém o postId do dataset do elemento de confirmação
     const postId = document.getElementById('confirmModalItemPerdido').dataset.postId;
     console.log("Debug: postId passado para o formulário: " + postId); // Mensagem de depuração
-    const titulo = document.getElementById('confirmModalItemPerdido').dataset.titulo;
-    console.log("Debug: titulo passado para o formulário: " + titulo); // Mensagem de depuração
     // Define o valor do postId no campo oculto do formulário
     document.querySelector('#contactFormItemPerdido input[name="postId"]').value = postId;
-    document.querySelector('#contactFormItemPerdido input[name="titulo"]').value = titulo;
     // Esconde a confirmação e exibe o formulário de contato
     document.getElementById("confirmModalItemPerdido").style.display = "none";
     document.getElementById("formModalItemPerdido").style.display = "flex";
