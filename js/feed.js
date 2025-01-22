@@ -586,6 +586,7 @@ function handleDeletePost(event) {
     return true;
 }
 
+
 function openConfirmPopupItemPerdido(postId) {
     console.log("Debug: postId recebido: " + postId); // Mensagem de depuração
     // Defina o valor do postId no campo oculto do formulário e exiba a confirmação
@@ -599,54 +600,15 @@ function openFormPopupItemPerdido() {
     // Obtém o postId do dataset do elemento de confirmação
     const postId = document.getElementById('confirmModalItemPerdido').dataset.postId;
     console.log("Debug: postId passado para o formulário: " + postId); // Mensagem de depuração
+    const titulo = document.getElementById('confirmModalItemPerdido').dataset.titulo;
+    console.log("Debug: titulo passado para o formulário: " + titulo); // Mensagem de depuração
     // Define o valor do postId no campo oculto do formulário
     document.querySelector('#contactFormItemPerdido input[name="postId"]').value = postId;
+    document.querySelector('#contactFormItemPerdido input[name="titulo"]').value = titulo;
     // Esconde a confirmação e exibe o formulário de contato
     document.getElementById("confirmModalItemPerdido").style.display = "none";
     document.getElementById("formModalItemPerdido").style.display = "flex";
 }
-
-document.getElementById("contactFormItemPerdido").addEventListener("submit", function(event) {
-    event.preventDefault(); // Impede o envio normal do formulário
-
-    let formData = new FormData(this);
-
-    for (let [key, value] of formData.entries()) {
-        console.log(key, value);
-    }    
-
-    fetch("salvar_notificacao.php", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Resposta do servidor:", data); // Debug
-        if (data.success) {
-            alert("Notificação enviada com sucesso!");
-            this.submit();
-        } else {
-            alert("Erro ao enviar notificação: " + (data.error || "Erro desconhecido"));
-        }
-    })
-    .catch(error => console.error("Erro:", error));
-    
-});
-
-document.querySelectorAll(".notification-list li").forEach(li => {
-    li.addEventListener("click", function() {
-        let notificacaoId = this.getAttribute("data-id");
-
-        fetch("marcar_notificacao_lida.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: "id=" + notificacaoId
-        }).then(() => {
-            this.classList.remove("notificacao-nao-lida"); // Remove o destaque de não lida
-        });
-    });
-});
-
 
 // Função para fechar o modal de confirmação
 function closeConfirmPopupItemPerdido() {

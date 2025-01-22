@@ -16,6 +16,7 @@
         <form id="contactForm" action="handle_contact.php" method="post" enctype="multipart/form-data">
             <!-- Campo oculto para armazenar o ID do post que está sendo reivindicado -->
             <input type="hidden" name="postId" value="" />
+            
 
             <!-- Campo de texto para que o usuário descreva o motivo da reivindicação -->
             <textarea id="contactReason" name="contactReason"

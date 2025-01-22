@@ -26,11 +26,14 @@ CREATE TABLE posts (
 
 CREATE TABLE notificacoes (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id INT NOT NULL,
+    remetente_id INT NOT NULL,
+    destinatario_id INT NOT NULL,
     post_id INT NOT NULL,
+    tipo ENUM('objeto_encontrado', 'objeto_perdido') NOT NULL,
     mensagem TEXT NOT NULL,
-    status ENUM('lida', 'nao_lida') DEFAULT 'nao_lida',
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE,
-    FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE
+    FOREIGN KEY (remetente_id) REFERENCES usuarios(id),
+    FOREIGN KEY (destinatario_id) REFERENCES usuarios(id),
+    FOREIGN KEY (post_id) REFERENCES posts(id)
 );
+

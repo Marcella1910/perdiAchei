@@ -16,9 +16,7 @@
         <!-- Formulário para envio da mensagem e foto do item -->
         <form id="contactFormItemPerdido" action="handle_contact.php" method="post" enctype="multipart/form-data">
             <!-- Campo oculto para armazenar o ID da postagem -->
-            <input type="hidden" name="postId" value="" />
-            <!-- Campo oculto para armazenar o ID do dono da postagem -->
-            <input type="hidden" name="postOwnerId" value="" />
+            <input type="hidden" name="postId" id="postId" value="" />
 
             <!-- Campo de texto onde o usuário descreve como deseja devolver o item -->
             <textarea id="contactReasonItemPerdido" name="contactReasonItemPerdido"

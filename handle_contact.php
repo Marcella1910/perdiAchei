@@ -6,13 +6,7 @@ error_reporting(E_ALL);
 require 'envia_email.php';
 
 session_start();
-
-// Redefine variáveis
-$postId = null;
-$userEmail = null;
-$message = null;
-$recipientEmail = null;
-$attachmentPath = null;
+header('Content-Type: text/html; charset=utf-8'); // Garante que a resposta seja enviada em UTF-8
 
 // Verifica se o e-mail do usuário está na sessão
 if (!isset($_SESSION['email'])) {
@@ -22,6 +16,10 @@ if (!isset($_SESSION['email'])) {
 
 // Conexão com o banco
 $conn = new mysqli('localhost', 'root', 'usbw', 'perdiachei');
+
+// Definir o charset da conexão como UTF-8
+$conn->set_charset("utf8");
+
 if ($conn->connect_error) {
     header("Location: feed.php?error=db_connection");
     exit;
@@ -36,21 +34,27 @@ if (!isset($_POST['postId']) || (!isset($_POST['contactReasonItemPerdido']) && !
 // Obtém os dados do formulário
 $postId = intval($_POST['postId']);
 $userEmail = $_SESSION['email'];
+$message = null;
 
-// Prioriza o campo preenchido, seja `contactReasonItemPerdido` ou `contactReason`
-if (isset($_POST['contactReasonItemPerdido']) && !empty(($_POST['contactReasonItemPerdido']))) {
-    $message = $_POST['contactReasonItemPerdido'];
-} elseif (isset($_POST['contactReason']) && !empty(($_POST['contactReason']))) {
-    $message = $_POST['contactReason'];
+// Verifica qual campo de mensagem foi preenchido
+if (isset($_POST['contactReasonItemPerdido']) && trim($_POST['contactReasonItemPerdido']) !== '') {
+    $message = trim($_POST['contactReasonItemPerdido']);
+} elseif (isset($_POST['contactReason']) && trim($_POST['contactReason']) !== '') {
+    $message = trim($_POST['contactReason']);
 } else {
     header("Location: feed.php?error=empty_message");
     exit;
 }
 
+// Converte a mensagem para UTF-8 (caso necessário)
+$message = mb_convert_encoding($message, "UTF-8", "auto");
+
 // Verifica se um arquivo foi enviado
+$attachmentPath = null;
 if (isset($_FILES['attachment']) && $_FILES['attachment']['error'] === UPLOAD_ERR_OK) {
     $uploadDir = 'uploads/';
-    // Certifique-se de que o diretório de uploads existe
+    
+    // Garante que o diretório de uploads existe
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true);
     }
@@ -72,6 +76,7 @@ if (!$stmt) {
     header("Location: feed.php?error=query_preparation");
     exit;
 }
+
 $stmt->bind_param('i', $postId);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -86,22 +91,22 @@ $row = $result->fetch_assoc();
 $recipientEmail = $row['email'];
 $stmt->close();
 
-// Envia o e-mail para o dono da postagem
-$subject = "PerdiAchei: Contato para devolucao de item";
+// Define o assunto do e-mail corretamente
+$subject = mb_convert_encoding("PerdiAchei: Contato para devolucao de item", "UTF-8", "auto");
+
 try {
     $isSent = sendEmail($userEmail, $recipientEmail, $subject, $message, $attachmentPath);
+    
     if ($isSent) {
         header("Location: feed.php?success=email_sent");
-        exit;
     } else {
         header("Location: feed.php?error=email_failure");
-        exit;
     }
 } catch (Exception $e) {
     header("Location: feed.php?error=email_exception");
-    exit;
 }
 
 // Fecha a conexão com o banco de dados
 $conn->close();
+exit;
 ?>
