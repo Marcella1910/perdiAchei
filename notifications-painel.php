@@ -1,7 +1,8 @@
+<!-- Painel de notificações -->
 <div class="notification-panel">
     <div class="notification-header">
         <?php
-        echo "<h2 class='username'> <u>{$_SESSION['nome']}</u></h2>";
+        echo "<h2 class='username'> <u>{$_SESSION['nome']}</u></h2>"; //Nome do usuário
         ?>
     </div>
     <ul class="notification-list">
