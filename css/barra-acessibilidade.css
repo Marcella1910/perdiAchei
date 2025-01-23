@@ -10,6 +10,10 @@
     z-index: 100000;
 }
 
+.invisivel {
+    color: transparent;
+}
+
 #accessibility-bar {
     width: fit-content;
     color: #ccc;
