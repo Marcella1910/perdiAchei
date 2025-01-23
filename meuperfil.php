@@ -62,8 +62,7 @@ date_default_timezone_set('America/Sao_Paulo');
         <!-- Conteúdo principal  -->
         <div class="main-content">
 
-            <!-- Painel de notificações  -->
-            <?php include 'notifications-painel.php'; ?>
+            
 
             <!-- Section de criação de post  -->
             <?php include 'create-post-form.php'; ?>

@@ -116,8 +116,7 @@ date_default_timezone_set('America/Sao_Paulo');
         <!-- Middle Content -->
         <div class="main-content">
 
-            <!-- Painel de notificações -->
-            <?php include 'notifications-painel.php' ?>
+            
 
             <!-- Barra de pesquisa  -->
             <div class="search-bar">

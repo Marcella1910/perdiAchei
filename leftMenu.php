@@ -8,11 +8,6 @@
             <h3 class="nome-menu-item">Home</h3>
         </a>
 
-        <!-- Link para o painel de Notificações -->
-        <button class="menu-item-notifications">
-            <span><i class="fa-solid fa-bell fa-lg"></i></span>
-            <h3 class="nome-menu-item">Notificações</h3>
-        </button>
 
         <!-- Link para a página de Perfil -->
         <a href="meuperfil.php" class="menu-item" id="link-perfil-menu">

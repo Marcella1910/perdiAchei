@@ -90,8 +90,7 @@ date_default_timezone_set('America/Sao_Paulo');
         <!-- Importa o menu esquerdo  -->
         <?php include 'leftMenu.php'; ?>
         <div class="main-content">
-            <!-- Inclui o painel de notificações  -->
-            <?php include 'notifications-painel.php'; ?>
+            
             <!-- Mostra os dados do usuário  -->
             <div class="visualiza-perfil">
                 <div class="header-perfil">

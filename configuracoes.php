@@ -38,8 +38,7 @@ include_once 'validaSessao.php';
         <div class="main-content">
 
 
-            <!-- Painel de notificações -->
-            <?php include 'notifications-painel.php'; ?>
+            
 
             <!--configurações-->
             <div class="config-conta">
